@@ -206,20 +206,18 @@ class Goal(Choice):
     default = 1
 
 
-class TrapChance(Range):
+class TrapCount(Range):
     __doc__ = text(
-        """Pièges : pourcentage des objets de remplissage (munitions, ressources, trésors, Lei) remplacés
-        par des pièges, envoyés par les autres joueurs ou trouvés chez toi. 0 = pas de pièges, 15 au
-        maximum (environ 65 pièges). Les objets importants ne sont jamais remplacés, mais chaque piège
-        est une munition ou une ressource en moins. Les pièges à utiliser se règlent avec les poids
-        ci-dessous.""",
-        """Traps: percentage of filler items (ammo, resources, treasures, Lei) replaced by traps, sent by
-        the other players or found in your world. 0 = no traps, 15 at most (about 65 traps). Important
-        items are never replaced, but each trap is one less ammo or resource. Which traps are used is
-        set by the weights below.""")
-    display_name = text("Pièges (%)", "Traps (%)")
+        """Pièges : nombre d'objets de remplissage (munitions, ressources, trésors, Lei) remplacés par
+        des pièges, envoyés par les autres joueurs ou trouvés chez toi. 0 = pas de pièges, 20 au
+        maximum. Les objets importants ne sont jamais remplacés. Les pièges à utiliser se règlent avec
+        les poids ci-dessous.""",
+        """Traps: number of filler items (ammo, resources, treasures, Lei) replaced by traps, sent by the
+        other players or found in your world. 0 = no traps, 20 at most. Important items are never
+        replaced. Which traps are used is set by the weights below.""")
+    display_name = text("Pièges (nombre)", "Traps (count)")
     range_start = 0
-    range_end = 15  # 100 avant le 2026-10-08 : plus de 300 pièges possibles (demande du joueur : beaucoup moins)
+    range_end = 20  # 2026-10-08, demande du joueur : 20 pièges au plus (un % allait jusqu'à ~440)
     default = 0
 
 
@@ -268,7 +266,7 @@ class REVillageOptions(PerGameCommonOptions):
     duke_shop: DukeShop
     boss_rewards: BossRewards
     hunting: Hunting
-    trap_chance: TrapChance
+    trap_count: TrapCount
     trap_bankrupt_weight: TrapBankruptWeight
     trap_screamer_weight: TrapScreamerWeight
     trap_jam_weight: TrapJamWeight

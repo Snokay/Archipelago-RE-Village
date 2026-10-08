@@ -296,16 +296,15 @@ class ResidentEvilVillage(World):
                 self.zone_key_items.append(name)
             else:
                 pool.append(self.create_item(name))
-        # Pièges (2026-10-08) : trap_chance % des objets de remplissage remplacés, piège tiré selon
-        # les poids des options.
+        # Pièges (2026-10-08) : trap_count objets de remplissage (20 au plus, demande du joueur) tirés
+        # au hasard et remplacés, piège tiré selon les poids des options.
         weights = [(T(name), getattr(self.options, option).value) for name, option in self.TRAP_OPTIONS]
         weights = [(name, w) for name, w in weights if w > 0]
-        if self.options.trap_chance.value > 0 and weights:
-            for i, item in enumerate(pool):
-                if item.classification == ItemClassification.filler \
-                        and self.random.random() * 100 < self.options.trap_chance.value:
-                    trap = self.random.choices([n for n, _ in weights], [w for _, w in weights])[0]
-                    pool[i] = self.create_item(trap)
+        fillers = [i for i, item in enumerate(pool) if item.classification == ItemClassification.filler]
+        count = min(self.options.trap_count.value, len(fillers)) if weights else 0
+        for i in self.random.sample(fillers, count):
+            trap = self.random.choices([n for n, _ in weights], [w for _, w in weights])[0]
+            pool[i] = self.create_item(trap)
         self.multiworld.itempool += pool
 
     def _keys_shuffled(self):

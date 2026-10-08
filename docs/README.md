@@ -2126,3 +2126,12 @@ emplacement est déjà Normal, la présentation venait de l'ouverture de la mall
   (shop_ui.world.near_ids). Sécurité en plus : aucun emplacement d'un autre chapitre touché tant que le
   joueur n'a pas le couteau (shop_ui.has_knife). L'exclusion KNIFE_SPOT de GM 79 #012 reste (inutile
   mais sans effet gênant). Validé en jeu sur une nouvelle partie.
+- **0.9.1.1 (2026-10-08)** : version du mod / de la release dans le fichier `VERSION` (4 chiffres
+  possibles, lu par make_release.py -> version.json du launcher) ; l'apworld garde son world_version
+  X.Y.Z (0.9.1, inchangé). Correctifs : (1) armes posées (M1897 #001) : ramassage cassé (mode de
+  ramassage changé + objet modifié) puis fusil disparu (hasHistory forcé) -> armes habillées mais
+  ramassage jamais touché, hasHistory jamais forcé pour une arme ou un objet clé, logo d'au moins
+  0,45 m sur une arme ; validé sur « M1897 » (2e fusil). (2) Fragments de cristal accumulés (un par
+  ramassage AP) : reduceItem « ok » sans effet -> vérification et retrait direct dans les piles
+  (shop_ui.inv_take) ; bouton des outils de dev « Retirer tous les Fragments de cristal ». Habillage
+  des armes et retrait des Fragments NON TESTÉS en jeu au moment de la publication.

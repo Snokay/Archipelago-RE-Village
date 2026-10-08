@@ -34,7 +34,7 @@ local MOD_NAME = "re_village_ap_client"
 -- 200 variables locales de Lua (script refusé au chargement).
 local K = {}
 K.GAME_NAME = "Resident Evil Village"
-K.MOD_VERSION = "0.9.1" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
+K.MOD_VERSION = "0.9.1.1" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
 K.MAX_MATCH_DISTANCE = 5.0
 
 K.SHOW_OVERLAY = true
@@ -1481,6 +1481,31 @@ local scouted_items = {}
 --   last_tab : dernier onglet noté dans le journal.
 -- swap_map est reconstruit à chaque liste ; bought et offered sont vidés à la connexion.
 local shop_ui = { swap_map = {}, bought = {}, offered = {}, last_tab = nil, ap_model_units = {}, key_offline = {} }
+-- Retire n exemplaires de l'objet item_id en modifiant directement ses piles (2026-10-08 : reduceItem
+-- répond « ok » sans rien retirer pour certains objets : Fragments de cristal des ramassages AP
+-- accumulés dans la mallette, objets clés). Renvoie le nombre retiré.
+function shop_ui.inv_take(inv, item_id, n)
+    local list = inv:call("get_items")
+    local works = {}
+    for i = 0, list:call("get_Count") - 1 do works[#works + 1] = list:call("get_Item", i):call("get_work") end
+    local taken = 0
+    for _, work in ipairs(works) do
+        if n - taken <= 0 then break end
+        if work:call("get_itemID") == item_id then
+            local stack = work:call("get_stackSize") or 0
+            local take = math.min(stack, n - taken)
+            if take > 0 then
+                if take >= stack then
+                    inv:call("removeItem", work, true)
+                elseif not pcall(function() work:call("set_stackSize", stack - take) end) then
+                    work:set_field("StackSize", stack - take)
+                end
+                taken = taken + take
+            end
+        end
+    end
+    return taken
+end
 
 -- Sons au ramassage (2026-09-30, demande du joueur). Le jeu ne joue pas le vrai son (objet de
 -- ramassage remplacé par un Fragment de cristal, voir swap_pickup). Son joué par
@@ -2816,6 +2841,14 @@ local function process_vanilla_removals()
                     inv:call("reduceItem(System.UInt32, System.Int32, System.Boolean, System.Boolean)", r.item_id, delta, false, false)
                 end)
                 debug_log("retrait : reduceItem terminé, " .. (ok and "ok" or tostring(err)))
+                -- reduceItem peut répondre « ok » sans rien retirer (Fragments accumulés, 2026-10-08) :
+                -- on vérifie, et on retire directement dans les piles si besoin.
+                local after = inventory_quantity(r.item_id)
+                if after and after > current - delta then
+                    local ok2, taken = pcall(shop_ui.inv_take, inv, r.item_id, after - (current - delta))
+                    debug_log(string.format("retrait : reduceItem sans effet (%d), retrait direct dans les piles : %s",
+                        after, ok2 and (tostring(taken) .. " retiré(s)") or tostring(taken)))
+                end
                 if r.weapon then
                     debug_log(string.format("retrait arme : en main avant=%s, maintenant=%s",
                         tostring(r.equipped_before), tostring(get_equipped_weapon_id())))
@@ -4626,6 +4659,12 @@ function shop_ui.world.place_by_box(rec)
     if rec.natural and rec.natural > 0 and rec.natural * k < (G.min_visible or 0) then
         k = G.min_visible / rec.natural
     end
+    -- Arme d'origine (2026-10-08, M1897 #001 : logo de 0,18 m sur un fusil de 1,59 m, invisible) :
+    -- au moins 0,45 m.
+    local weapon_def = item_by_name[rec.loc and rec.loc.original_item or ""]
+    if weapon_def and weapon_def.type == "Weapon" and rec.natural and rec.natural > 0 and rec.natural * k < 0.45 then
+        k = 0.45 / rec.natural
+    end
     rec.k = k
     tf:call("set_LocalScale", Vector3f.new(k, k, k))
     rec.fix = rec.fix or { x = 0, y = 0, z = 0 }
@@ -5003,6 +5042,9 @@ function shop_ui.world.model_for(loc, specs)
     -- Check déjà fait mais objet encore là (sauvegarde rechargée, demande du joueur 2026-09-27) :
     -- toujours habillé ; le ramasser ne donne rien (objet d'origine retiré, pas de renvoi).
     if location_done(loc) then label = label .. tr(" (déjà obtenu)", " (already obtained)") end
+    -- Arme posée (2026-10-08, M1897 #001 sur sa table : rien à ramasser) : habillée comme les
+    -- autres (demande du joueur), mais son ramassage n'est jamais touché (shop_ui.world.swap_pickup) :
+    -- la vraie arme se ramasse normalement, le check part, l'arme est retirée ensuite (is_weapon).
     if not s.mine then return shop_ui.AP_MODEL, label end
     local def = item_by_name[s.name]
     local gid = def and def.game_item_id
@@ -5156,7 +5198,9 @@ function shop_ui.world.near_ap_watch()
                 near = true
                 -- objets concernés par cet emplacement (seuls ceux-là peuvent être déclarés « déjà eus »)
                 local orig = item_by_name[e.loc.original_item or ""]
-                if orig then
+                -- jamais pour un objet unique (arme, objet clé) : le jeu s'en sert pour décider s'il
+                -- doit encore apparaître (couteau de départ disparu, 2026-10-08)
+                if orig and orig.type ~= "Weapon" and orig.type ~= "Key" then
                     if orig.game_item_id then allowed[orig.game_item_id] = true end
                     for _, vid in ipairs(orig.variant_ids or {}) do allowed[vid] = true end
                 end
@@ -5918,6 +5962,9 @@ end
 
 function shop_ui.world.swap_pickup(e, rec)
     pcall(shop_ui.world.learn_get_mode, e)
+    -- Arme posée : ni mode de ramassage changé, ni objet modifié (voir shop_ui.world.model_for)
+    local weapon_def = item_by_name[e.loc.original_item or ""]
+    if weapon_def and weapon_def.type == "Weapon" then return end
     rec.si, rec.loc, rec.get = rec.si or e.si, rec.loc or e.loc, rec.get or e.get
     if rec.pickup then shop_ui.world.apply_key_mode(rec) return end
     local key_def = shop_ui.world.own_key(e.loc)
@@ -8286,6 +8333,14 @@ re.on_pre_application_entry("UpdateBehavior", function()
             add_message(string.format(tr("Mallette réparée : %d objet(s) replacé(s)", "Case repaired: %d item(s) moved"), fixed + moved))
         end
     end
+    if requests.clear_fragments then
+        requests.clear_fragments = nil
+        local _, inv_f = get_active_inventory()
+        local count = inventory_quantity(shop_ui.world.PICKUP_ID) or 0
+        local ok_f, taken = pcall(shop_ui.inv_take, inv_f, shop_ui.world.PICKUP_ID, count)
+        last_tool_message = string.format("Fragments de cristal : %s retiré(s) sur %d", ok_f and tostring(taken) or tostring(taken), count)
+        debug_log(last_tool_message)
+    end
     if requests.bug_report then
         requests.bug_report = nil
         local ok_r, err_r = pcall(shop_ui.help.write_report)
@@ -8943,6 +8998,9 @@ re.on_draw_ui(function()
         if imgui.button("Scanner la zone") then requests.scan = true end
         if imgui.button("Relever la boutique") then requests.shop = true end
         if imgui.button("Catalogue des objets") then requests.catalog = true end
+        if imgui.button("Retirer tous les Fragments de cristal (accumulés par le bug du retrait)") then
+            requests.clear_fragments = true
+        end
         imgui.text("Tester un piège :")
         for _, key in ipairs({ "bankrupt", "screamer", "jam", "damage", "empty_mag" }) do
             imgui.same_line()

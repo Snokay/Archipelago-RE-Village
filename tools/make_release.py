@@ -40,7 +40,10 @@ def main():
     parser.add_argument("--game-dir", type=Path, default=install.DEFAULT_GAME_DIR)
     args = parser.parse_args()
     install.check_lua()
-    version = json.loads((ROOT / "apworld" / "residentevilvillage" / "archipelago.json").read_text())["world_version"]
+    # Version du mod et de la release : fichier VERSION (peut avoir 4 chiffres, ex. 0.9.1.1) ; l'apworld
+    # garde son world_version X.Y.Z (archipelago.json), qui ne change que si l'apworld change.
+    version_file = ROOT / "VERSION"
+    version = version_file.read_text(encoding="utf-8").strip() if version_file.exists() else         json.loads((ROOT / "apworld" / "residentevilvillage" / "archipelago.json").read_text())["world_version"]
     name = f"RE_Village_Archipelago_{version}"
     out = ROOT / "build" / "release" / name
     if out.exists():

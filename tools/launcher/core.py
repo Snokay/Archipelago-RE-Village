@@ -102,6 +102,89 @@ def bundled_version():
         return "dev"
 
 
+# --- Mise à jour depuis GitHub (2026-10-08) ------------------------------------------------------
+# Au démarrage, le launcher lit la dernière release (pré-versions comprises) du dépôt. Plus récente
+# que sa version : bandeau « Mettre à jour ». La mise à jour télécharge le _launcher.zip, remplace
+# le dossier files, installe le mod dans le jeu, puis remplace l'exe du launcher (script lancé après
+# sa fermeture : un exe ne peut pas se remplacer lui-même pendant qu'il tourne) et le relance.
+
+GITHUB_REPO = "Snokay/Archipelago-RE-Village"
+
+
+def version_tuple(text):
+    return tuple(int(n) for n in re.findall(r"\d+", text or "")[:4]) or (0,)
+
+
+def check_update():
+    """(version, url du _launcher.zip, page de la release) si une version plus récente existe, sinon None."""
+    import urllib.request
+    req = urllib.request.Request(f"https://api.github.com/repos/{GITHUB_REPO}/releases?per_page=10",
+                                 headers={"User-Agent": "RE-Village-AP-Launcher", "Accept": "application/vnd.github+json"})
+    with urllib.request.urlopen(req, timeout=10) as r:
+        releases = json.loads(r.read().decode())
+    current = version_tuple(bundled_version())
+    best = None
+    for rel in releases:
+        if rel.get("draft"):
+            continue
+        asset = next((a for a in rel.get("assets", []) if a["name"].endswith("_launcher.zip")), None)
+        version = re.sub(r"^v|-.*$", "", rel.get("tag_name", ""))
+        if asset and version_tuple(version) > current and (best is None or version_tuple(version) > version_tuple(best[0])):
+            best = (version, asset["browser_download_url"], rel.get("html_url"))
+    return best
+
+
+def apply_update(url, game_dir, ap_dir, log):
+    """Télécharge et installe la mise à jour. Renvoie le chemin du script de remplacement de l'exe
+    (à lancer après la fermeture du launcher), ou None hors exe (développement)."""
+    import urllib.request
+    if game_running():
+        raise RuntimeError(tr("Le jeu est lancé : ferme-le avant de mettre à jour", "The game is running: close it first"))
+    work = SETTINGS_DIR / "update"
+    if work.exists():
+        shutil.rmtree(work, ignore_errors=True)
+    work.mkdir(parents=True)
+    archive = work / "update.zip"
+    log(tr("Téléchargement de la mise à jour…", "Downloading the update…"))
+    req = urllib.request.Request(url, headers={"User-Agent": "RE-Village-AP-Launcher"})
+    with urllib.request.urlopen(req, timeout=120) as r, archive.open("wb") as f:
+        shutil.copyfileobj(r, f)
+    with zipfile.ZipFile(archive) as z:
+        z.extractall(work / "new")
+    roots = [p for p in (work / "new").iterdir() if p.is_dir()]
+    new_root = roots[0] if roots else work / "new"
+    if not (new_root / "files").exists():
+        raise RuntimeError(tr("Archive de mise à jour invalide", "Invalid update archive"))
+    # nouveaux fichiers du mod (le dossier files du launcher est remplacé)
+    old_files = base_dir() / "files"
+    if old_files.exists():
+        shutil.rmtree(old_files)
+    shutil.copytree(new_root / "files", old_files)
+    log(tr(f"Fichiers du mod mis à jour ({bundled_version()})", f"Mod files updated ({bundled_version()})"))
+    # installation dans le jeu, si le mod y était déjà
+    if game_dir and read_manifest(game_dir) is not None:
+        install(game_dir, ap_dir, log)
+    # remplacement de l'exe après sa fermeture
+    new_exe = new_root / "RE_Village_AP_Launcher.exe"
+    if not getattr(sys, "frozen", False) or not new_exe.exists():
+        return None
+    staged = base_dir() / "RE_Village_AP_Launcher.new.exe"
+    shutil.copy2(new_exe, staged)
+    current = Path(sys.executable)
+    script = work / "swap.bat"
+    script.write_text(
+        "@echo off\r\n"
+        f":wait\r\ntimeout /t 1 /nobreak >nul\r\n"
+        f"tasklist /FI \"PID eq {os.getpid()}\" | find \"{os.getpid()}\" >nul && goto wait\r\n"
+        f"move /Y \"{staged}\" \"{current}\" >nul\r\n"
+        f"start \"\" \"{current}\"\r\n", encoding="utf-8")
+    return script
+
+
+def run_detached(script):
+    subprocess.Popen(["cmd", "/c", str(script)], creationflags=0x08000000 | 0x00000008, close_fds=True)
+
+
 # --- Recherche des dossiers -------------------------------------------------------------------
 
 def reg_value(root, key, name):

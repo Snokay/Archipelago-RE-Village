@@ -2135,3 +2135,12 @@ emplacement est déjà Normal, la présentation venait de l'ouverture de la mall
   ramassage AP) : reduceItem « ok » sans effet -> vérification et retrait direct dans les piles
   (shop_ui.inv_take) ; bouton des outils de dev « Retirer tous les Fragments de cristal ». Habillage
   des armes et retrait des Fragments NON TESTÉS en jeu au moment de la publication.
+- **Launcher : mise à jour automatique (2026-10-08, demande du joueur)** : au démarrage, lecture des
+  releases GitHub (pré-versions comprises, `core.check_update`) ; plus récente que files/version.json
+  -> bandeau « Nouvelle version disponible » (Accueil et Installation) + « Mettre à jour » :
+  téléchargement du _launcher.zip, remplacement du dossier files, installation du mod dans le jeu si
+  déjà installé, exe du launcher remplacé après sa fermeture par un script (swap.bat dans
+  %APPDATA%\RE Village Archipelago\update) puis relancé. Testé : recherche + téléchargement +
+  remplacement + installation (faux dossier de jeu). À tester : remplacement de l'exe et redémarrage
+  (exe compilé, jeu fermé). Les launchers 0.9.1.1 et avant n'ont pas cette fonction (dernier
+  téléchargement manuel).

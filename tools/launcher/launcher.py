@@ -209,6 +209,8 @@ class App(tk.Tk):
         self.autosave_job = None
         core.APWORLD_LANG = self.settings.get("apworld_lang", core.APWORLD_LANG)
         core.log_line(f"launcher {core.bundled_version()} démarré")
+        self.update = None  # (version, url, page) si une version plus récente existe sur GitHub
+        threading.Thread(target=self.look_for_update, daemon=True).start()
 
         header = tk.Frame(self, bg=BG)
         header.pack(fill="x", padx=24, pady=(14, 0))
@@ -305,9 +307,54 @@ class App(tk.Tk):
 
     # --- Accueil ---
 
+    # --- Mise à jour depuis GitHub ---
+
+    def look_for_update(self):
+        try:
+            found = core.check_update()
+        except Exception as e:
+            core.log_line(f"recherche de mise à jour impossible : {e}")
+            return
+        if found:
+            core.log_line(f"mise à jour disponible : {found[0]}")
+            self.after(0, lambda: (setattr(self, "update", found), self.show(self.current or "home")))
+
+    def update_banner(self, page):
+        if not self.update:
+            return
+        banner = tk.Frame(page, bg="#14303a", padx=16, pady=12, highlightthickness=1, highlightbackground="#5fa8c8")
+        banner.pack(fill="x", pady=(0, 18))
+        label(banner, tr(f"Nouvelle version disponible : {self.update[0]} (tu as {core.bundled_version()})",
+                         f"New version available: {self.update[0]} (you have {core.bundled_version()})"),
+              11, bold=True).pack(side="left")
+        Button(banner, tr("Mettre à jour", "Update"), self.do_update, primary=True, small=True).pack(side="right")
+        Button(banner, tr("Notes", "Notes"), lambda: webbrowser.open(self.update[2]), small=True
+               ).pack(side="right", padx=8)
+
+    def do_update(self):
+        if not self.update:
+            return
+        self.show("install")
+        self.set_status(tr("Mise à jour en cours…", "Updating…"))
+
+        def done(result):
+            if isinstance(result, Exception):
+                self.log_install(tr("ERREUR : ", "ERROR: ") + str(result))
+                self.set_status(tr("Mise à jour impossible : voir le journal.", "Update failed: see the log."))
+                return
+            self.log_install(tr("Mise à jour terminée : le launcher redémarre.", "Update done: the launcher restarts."))
+            if result:
+                core.run_detached(result)
+                self.after(800, self.destroy)
+            else:
+                self.update = None
+                self.show("install")
+        self.run_bg(lambda: core.apply_update(self.update[1], self.game_dir(), self.ap_dir(), self.log_install), done)
+
     def page_home(self):
         page = tk.Frame(self.body, bg=PANEL, padx=32, pady=26)
         page.pack(fill="both", expand=True)
+        self.update_banner(page)
         if not self.mod_ready():
             banner = tk.Frame(page, bg="#3a2c14", padx=16, pady=12, highlightthickness=1,
                               highlightbackground=LEVEL_COLORS["warn"])
@@ -363,6 +410,7 @@ class App(tk.Tk):
     def page_install(self):
         page = tk.Frame(self.body, bg=PANEL, padx=32, pady=26)
         page.pack(fill="both", expand=True)
+        self.update_banner(page)
         self.page_title(page, tr("Installation", "Setup"),
                         tr("Le jeu, REFramework (le chargeur de scripts), le mod et l'apworld sont vérifiés ici. "
                            "Tout en vert : prêt à jouer. Le jeu doit être fermé pour installer.",

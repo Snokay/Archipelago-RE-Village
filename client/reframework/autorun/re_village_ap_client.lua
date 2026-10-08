@@ -34,8 +34,13 @@ local MOD_NAME = "re_village_ap_client"
 -- 200 variables locales de Lua (script refusé au chargement).
 local K = {}
 K.GAME_NAME = "Resident Evil Village"
-K.MOD_VERSION = "0.9.1.3" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
+K.MOD_VERSION = "0.9.1.4" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
 K.MAX_MATCH_DISTANCE = 5.0
+-- Emplacements jumeaux (2026-10-08) : le jeu pose deux exemplaires du M1897 (table du village et
+-- près de la première sauvegarde), le second devient des Lei si on a déjà le fusil. Ramasser l'un
+-- valide aussi l'autre, sinon un check impossible à prendre reste affiché.
+K.TWINS = { { "M1897", "M1897 #001" } }
+K.twin_ids = {} -- numéro AP -> numéro AP de la jumelle (rempli par cache_location_ids)
 
 K.SHOW_OVERLAY = true
 
@@ -860,6 +865,13 @@ local function cache_location_ids()
             n = n + 1
         end
     end
+    K.twin_ids = {}
+    local by_name = {}
+    for key, loc in pairs(location_by_guid) do by_name[loc.name] = location_id_by_guid[key] end
+    for _, pair in ipairs(K.TWINS) do
+        local a, b = by_name[pair[1]], by_name[pair[2]]
+        if a and b then K.twin_ids[a] = b; K.twin_ids[b] = a end
+    end
     debug_log(string.format("numéros de location en cache : %d / %d", n, total_locations))
     -- Seules les locations de CETTE seed comptent (boutique désactivée, etc.).
     if n > 0 then total_locations = n end
@@ -875,6 +887,10 @@ local function send_pending_checks()
     for _, guid in ipairs(state.pending_checks) do
         local id = location_id_by_guid[guid]
         if id and not checked_ids[id] then table.insert(ids, id) end
+    end
+    for i = 1, #ids do
+        local twin = K.twin_ids[ids[i]]
+        if twin and not checked_ids[twin] then table.insert(ids, twin) end
     end
     if #ids > 0 then
         debug_log(string.format("LocationChecks (%d)...", #ids))
@@ -2392,6 +2408,16 @@ local function mark_checked(ids)
     local n = 0
     for _, id in ipairs(ids) do add_checked(id); n = n + 1 end
     debug_log(string.format("location_checked reçu : %d ids, total validé %d", n, checked_count))
+    -- Jumelle restée seule (partie commencée avant le lien des emplacements jumeaux) : rattrapée.
+    local twins = {}
+    for id, twin in pairs(K.twin_ids) do
+        if checked_ids[id] and not checked_ids[twin] then table.insert(twins, twin) end
+    end
+    if #twins > 0 and is_connected() then
+        debug_log(string.format("emplacements jumeaux : %d rattrapé(s)", #twins))
+        net.location_checks(twins)
+        for _, id in ipairs(twins) do add_checked(id) end
+    end
 
     local still_pending = {}
     for _, guid in ipairs(state.pending_checks) do

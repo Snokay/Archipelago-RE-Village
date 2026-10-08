@@ -2101,3 +2101,10 @@ emplacement est déjà Normal, la présentation venait de l'ouverture de la mall
   balles chargées = IncludeStackSize de sa fiche (5 -> 0 validé, munitions infinies du jeu comprises).
   apworld : 5 objets « Piège : … » (type Trap, à la fin d'items.json, numéros inchangés), options
   trap_chance (%) + trap_*_weight (0-10) ; objets de remplissage remplacés à la génération.
+- **ALPHA 0.9.0 PUBLIÉE (2026-10-08)** : dépôt https://github.com/Snokay/Archipelago-RE-Village (branche
+  main ; .gitignore : pas de fichiers du jeu, sons extraits, seeds, builds, clone RE7, Blender/ffmpeg).
+  Release pré-version v0.9.0-alpha avec _launcher.zip et _manuel.zip. README (joueurs, FR/EN) avec lien
+  vers SETUP_GUIDE.md. Version : archipelago.json world_version, __init__.apworld_release_version,
+  K.MOD_VERSION du client (les trois à changer ensemble). Release faite par l'API GitHub (pas de gh).
+  Rapport de bug : bouton en jeu (Aide > bug_report.json) + launcher (autres_mods.txt, re2_fw_config,
+  réglages du launcher).

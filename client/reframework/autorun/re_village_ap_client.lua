@@ -1290,27 +1290,34 @@ function save_sync.snapshot()
     return { index = index, parcel = parcel }
 end
 
--- Bouton « Redonner les objets clés manquants » (2026-10-09) : objets clés reçus (pas les clés
--- progressives) absents de la mallette, redonnés un par un. Appelé depuis la boucle du jeu.
-function save_sync.give_missing_keys()
-    local queued, n = {}, 0
-    for _, row in ipairs(items_queue) do queued[row.index] = true end
+-- Objets clés manquants (2026-10-09) : objets clés reçus (pas les clés progressives) absents de
+-- la mallette. Un objet clé UTILISÉ (relief posé, clé de porte) est aussi absent : le joueur
+-- choisit donc lui-même lesquels redonner (liste de l'onglet Aide). Appelé depuis la boucle du jeu.
+function save_sync.find_missing_keys()
+    local list, seen = {}, {}
     for index, row in pairs(save_sync.history) do
-        local def = item_by_name[net.get_item_name(row.item) or ""]
-        if def and def.type == "Key" and not def.levels and not queued[index]
+        local name = net.get_item_name(row.item) or ""
+        local def = item_by_name[name]
+        if def and def.type == "Key" and not def.levels and not seen[name]
                 and (inventory_quantity(def.game_item_id) or 0) == 0 then
-            local copy = {}
-            for k, v in pairs(row) do copy[k] = v end
-            copy.regive = true
-            copy.extra = true -- déjà compté comme donné : la file le garderait sinon pour un doublon
-            items_queue[#items_queue + 1] = copy
-            queued[index] = true
-            n = n + 1
-            debug_log("bouton : objet clé manquant redonné : " .. tostring(net.get_item_name(row.item)))
+            seen[name] = true
+            list[#list + 1] = { index = index, name = name }
         end
     end
-    table.sort(items_queue, function(a, b) return a.index < b.index end)
-    add_message(string.format(tr("%d objet(s) clé(s) redonné(s)", "%d key item(s) given back"), n))
+    table.sort(list, function(a, b) return a.index < b.index end)
+    save_sync.missing_list = list
+    debug_log(string.format("bouton : %d objet(s) clé(s) absent(s) de la mallette", #list))
+end
+
+function save_sync.give_key(index)
+    local row = save_sync.history[index]
+    if not row then return end
+    local copy = {}
+    for k, v in pairs(row) do copy[k] = v end
+    copy.regive = true
+    copy.extra = true -- déjà compté comme donné : la file le jetterait sinon
+    items_queue[#items_queue + 1] = copy
+    debug_log("bouton : objet clé redonné : " .. tostring(net.get_item_name(row.item)))
 end
 
 -- Entier 32 bits signé passé à un hook.
@@ -1381,7 +1388,12 @@ save_sync.install_hooks()
 function save_sync.update()
     if save_sync.missing_keys and session then
         save_sync.missing_keys = nil
-        pcall(save_sync.give_missing_keys)
+        pcall(save_sync.find_missing_keys)
+    end
+    if save_sync.give_index and session then
+        local index = save_sync.give_index
+        save_sync.give_index = nil
+        pcall(save_sync.give_key, index)
     end
     if save_sync.saving_slot and save_sync.dirty then
         debug_log(string.format("sauvegarde (emplacement %d) : dernier objet donné = %d, colis %d, prises %d",
@@ -8857,10 +8869,25 @@ function shop_ui.help.draw()
         save_sync.force_all = true
         save_sync.loaded = true
     end
-    imgui.text(tr("Objet clé perdu (sauvegarde rechargée) : redonne seulement les objets clés reçus absents de la mallette.",
-        "Key item lost (save reloaded): gives back only the received key items missing from the case."))
-    if imgui.button(tr("Redonner les objets clés manquants", "Give back missing key items")) then
+    imgui.text(tr("Objet clé perdu (sauvegarde rechargée) : liste les objets clés reçus absents de la mallette.",
+        "Key item lost (save reloaded): lists the received key items missing from the case."))
+    imgui.text(tr("Ceux déjà utilisés dans le jeu (reliefs posés, clés de porte...) y sont aussi : redonne seulement celui qui te manque.",
+        "Those already used in the game (placed reliefs, door keys...) are listed too: only give back the one you lack."))
+    if imgui.button(tr("Chercher les objets clés manquants", "Find missing key items")) then
         save_sync.missing_keys = true
+    end
+    local missing = save_sync.missing_list
+    if missing then
+        if #missing == 0 then imgui.text(tr("  Aucun : tous tes objets clés reçus sont dans la mallette.", "  None: all your received key items are in the case.")) end
+        for i, m in ipairs(missing) do
+            if imgui.button(tr("Redonner", "Give back") .. "##key" .. i) then
+                save_sync.give_index = m.index
+                table.remove(missing, i)
+                break
+            end
+            imgui.same_line()
+            imgui.text(i18n.item(m.name))
+        end
     end
     imgui.spacing()
     imgui.text_colored(tr("Mallette bizarre", "Weird case"), shop_ui.menu.ACCENT)

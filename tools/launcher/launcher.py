@@ -585,7 +585,13 @@ class App(tk.Tk):
                                      "Connection saved. The game is already running: in REFramework (Insert key), "
                                      "\"Reset scripts\" to use it."), "ok")
                 return
-            core.launch_game()
+            if not core.launch_game(game):
+                self.play_message(tr("Connexion notée. Ton jeu n'est pas la version Steam : lance-le toi-même (application "
+                                     "Xbox / Microsoft Store), le mod se connectera tout seul.",
+                                     "Connection saved. Your game is not the Steam version: start it yourself (Xbox app / "
+                                     "Microsoft Store), the mod connects by itself."), "ok")
+                self.set_status(tr(f"Connexion notée : {slot} sur {result['uri']}", f"Connection saved: {slot} on {result['uri']}"))
+                return
             self.play_message(tr("Connexion notée, lancement du jeu par Steam… Le mod se connecte tout seul.",
                                  "Connection saved, starting the game through Steam… The mod connects by itself."), "ok")
             self.set_status(tr(f"Jeu lancé : {slot} sur {result['uri']}", f"Game started: {slot} on {result['uri']}"))

@@ -125,7 +125,18 @@ def find_game_dir():
         candidate = lib / "steamapps" / "common" / GAME_FOLDER
         if (candidate / "re8.exe").exists():
             return candidate
+    # Xbox Game Pass / Microsoft Store (2026-10-08, joueur de l'alpha) : dossier XboxGames
+    for drive in "CDEFGH":
+        for name in ("Resident Evil Village", "Resident Evil Village BIOHAZARD VILLAGE"):
+            candidate = Path(f"{drive}:/XboxGames/{name}/Content")
+            if (candidate / "re8.exe").exists():
+                return candidate
     return None
+
+
+def is_steam(game_dir):
+    """Version Steam du jeu (lancement par steam://) ; sinon Game Pass / Microsoft Store."""
+    return game_dir is not None and "steamapps" in str(game_dir).lower()
 
 
 def find_archipelago_dir():
@@ -404,8 +415,13 @@ def write_connection(game_dir, host, slot, password):
                     encoding="utf-8")
 
 
-def launch_game():
+def launch_game(game_dir=None):
+    """Lance le jeu par Steam. Hors Steam (Game Pass : le jeu ne se lance pas par steam://, bug de
+    l'alpha 0.9.0) : rien, le joueur lance le jeu lui-même (application Xbox). Renvoie vrai si lancé."""
+    if game_dir is not None and not is_steam(game_dir):
+        return False
     os.startfile(f"steam://rungameid/{STEAM_APP_ID}")
+    return True
 
 
 def open_path(path):

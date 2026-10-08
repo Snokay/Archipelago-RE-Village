@@ -2108,3 +2108,12 @@ emplacement est déjà Normal, la présentation venait de l'ouverture de la mall
   K.MOD_VERSION du client (les trois à changer ensemble). Release faite par l'API GitHub (pas de gh).
   Rapport de bug : bouton en jeu (Aide > bug_report.json) + launcher (autres_mods.txt, re2_fw_config,
   réglages du launcher).
+- **0.9.1 (2026-10-08, correctif urgent)** : (1) couteau de départ disparu -> porte impossible à ouvrir,
+  partie bloquée. GM 79 #012 [S00] (Chapter2_6, même endroit) était touché au 1er passage : l'échange
+  arme/Lei est décidé au CHARGEMENT de la scène, avant la lecture du chapitre (shop_ui.chapter nil), donc
+  l'exclusion KNIFE_SPOT (chapitre 2_1) ne s'appliquait pas. Désormais cet emplacement n'est touché
+  (habillage, ramassage, échange) QUE pendant son propre chapitre, jamais tant que le chapitre est
+  inconnu. NON TESTÉ en jeu (nouvelle partie). (2) Xbox Game Pass : « Jouer » lançait steam:// (rien
+  ne se passait). Launcher : jeu trouvé aussi dans <lecteur>:\XboxGames\…\Content ; hors Steam, la
+  connexion est notée et le joueur lance le jeu lui-même. REFramework sur Game Pass : non vérifié.
+  README / SETUP_GUIDE : anglais d'abord, puis français.

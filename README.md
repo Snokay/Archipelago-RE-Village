@@ -1,8 +1,63 @@
-# RE Village Archipelago — alpha 0.9.0
+# RE Village Archipelago — alpha 0.9.1
 
-### 📖 [Guide d'installation / Setup guide](SETUP_GUIDE.md) · ⬇️ [Télécharger / Download](../../releases)
+### 📖 [Setup guide / Guide d'installation](SETUP_GUIDE.md) · ⬇️ [Download / Télécharger](../../releases)
 
-*(English below)*
+*(Version française plus bas)*
+
+[Archipelago](https://archipelago.gg) mod for **Resident Evil Village** (Steam, PC): the game's items
+are shuffled with the other players of a multiworld.
+
+> **Alpha**: playable from start to finish, but expect bugs. Please report them (see below).
+
+## Features
+
+- **About 500 checks**: items placed in the world, the Duke's unique items and case upgrades, the
+  Duke's dishes, hunting (meat), boss rewards, and optionally key items.
+- Archipelago items in the world use the **AP logo** or the item's model, with their name
+  ("[AP] …"); the Duke's shop shows what each purchase gives.
+- **Key items** can be shuffled (vanilla, own zone, or zone and multiworld), always placed before the
+  place where they are used. The Winged Key is progressive.
+- **Point of no return areas** (castle, dungeon…): excluded, sent automatically, or 100% mode (an
+  invisible wall keeps you in while checks remain).
+- **Traps** (optional): Bankruptcy, Screamer, Jammed Weapons, Damage, Empty Magazine.
+- **DeathLink**, goals (game ending, the 4 Lords, or one Lord), required difficulty.
+- **In-game menu** (**Insert** key): checks per area and room, "[AP]" markers above checks, hints,
+  message log, help buttons, colours, connection.
+- Two apworld versions: **French** and **English** (item and check names). YAML files work with both.
+
+## Install
+
+👉 **Step by step in the [setup guide](SETUP_GUIDE.md).** In short:
+
+- **Launcher (recommended)**: unzip `RE_Village_Archipelago_0.9.1_launcher.zip`, run
+  `RE_Village_AP_Launcher.exe`, **Setup** tab > pick the apworld language > **Install / update**
+  (game closed). Then **Play** tab: room address, slot name, password. They are saved into the game:
+  afterwards just start the game, it connects by itself.
+- **Manual**: unzip `RE_Village_Archipelago_0.9.1_manuel.zip` and follow `LISEZMOI - README.txt`. To
+  connect: **Insert** key in game > **RE Village Archipelago** window > **Connection** tab.
+
+Requirements: Resident Evil Village on Steam (PC); [Archipelago 0.6](https://github.com/ArchipelagoMW/Archipelago/releases)
+to generate or host. Start a **new game** on the difficulty required by your YAML. DLC is not supported.
+**Xbox Game Pass / Microsoft Store**: not tested yet. Start the game from the Xbox app (the launcher's
+"Play" button only saves the connection); if the Insert menu does not show up in game, REFramework
+does not work on your version: please report it.
+
+## Found a bug?
+
+In-game menu, **Help** tab: give back received items, repair the case, send a stuck check near you.
+Otherwise: launcher > **Bug report** (zips the logs on your Desktop) and send it with a description
+(GitHub issue or Discord).
+
+## Credits
+
+Mod by **Snokayy**. Built on [REFramework](https://github.com/praydog/REFramework) and
+[lua-apclientpp](https://github.com/black-sliver/lua-apclientpp). Inspired by the Resident Evil 7
+Archipelago client and the Resident Evil 4 Archipelago launcher. Resident Evil Village © Capcom; this
+project is not affiliated with Capcom.
+
+---
+
+# RE Village Archipelago — alpha 0.9.1 (français)
 
 Mod [Archipelago](https://archipelago.gg) pour **Resident Evil Village** (Steam, PC) : les objets du jeu
 sont mélangés avec ceux des autres joueurs d'un multiworld. Ce que tu ramasses peut appartenir à un
@@ -30,11 +85,11 @@ autre jeu, et tes objets peuvent tomber chez les autres.
 
 ## Installation
 
-👉 **Tout est expliqué pas à pas dans le [guide d'installation](SETUP_GUIDE.md).** En bref :
+👉 **Tout est expliqué pas à pas dans le [guide d'installation](SETUP_GUIDE.md#guide-dinstallation--re-village-archipelago).** En bref :
 
 ### Avec le launcher (conseillé)
 
-1. Décompresse `RE_Village_Archipelago_0.9.0_launcher.zip` où tu veux.
+1. Décompresse `RE_Village_Archipelago_0.9.1_launcher.zip` où tu veux.
 2. Lance `RE_Village_AP_Launcher.exe`, onglet **Installation** : il trouve le jeu et Archipelago tout
    seul. Choisis la langue de l'apworld puis **Installer / mettre à jour** (jeu fermé). REFramework est
    installé s'il manque.
@@ -45,7 +100,7 @@ Le launcher sert aussi à préparer ton YAML (**Mes options**) et à héberger u
 
 ### À la main
 
-Décompresse `RE_Village_Archipelago_0.9.0_manuel.zip` et suis `LISEZMOI - README.txt`. Pour te
+Décompresse `RE_Village_Archipelago_0.9.1_manuel.zip` et suis `LISEZMOI - README.txt`. Pour te
 connecter : touche **Inser** en jeu > fenêtre **RE Village Archipelago** > onglet **Connexion**.
 
 ## Jouer
@@ -55,6 +110,9 @@ connecter : touche **Inser** en jeu > fenêtre **RE Village Archipelago** > ongl
 - Commence une **nouvelle partie** dans la difficulté demandée par ton YAML (le mod prévient si ce
   n'est pas la bonne : aucun check ne compte dans une autre difficulté).
 - Le DLC (Shadows of Rose, Mercenaires) n'est pas pris en charge.
+- **Xbox Game Pass / Microsoft Store** : pas encore testé. Lance le jeu depuis l'application Xbox
+  (le bouton « Jouer » du launcher ne fait que noter la connexion) ; si le menu Inser n'apparaît pas
+  en jeu, REFramework ne marche pas sur ta version : signale-le.
 
 ## Un bug ?
 
@@ -69,55 +127,3 @@ Mod par **Snokayy**. Basé sur [REFramework](https://github.com/praydog/REFramew
 [lua-apclientpp](https://github.com/black-sliver/lua-apclientpp). Inspiré du client Archipelago de
 Resident Evil 7 et du launcher Archipelago de Resident Evil 4. Resident Evil Village © Capcom ; ce
 projet n'est pas affilié à Capcom.
-
----
-
-# RE Village Archipelago — alpha 0.9.0 (English)
-
-[Archipelago](https://archipelago.gg) mod for **Resident Evil Village** (Steam, PC): the game's items
-are shuffled with the other players of a multiworld.
-
-> **Alpha**: playable from start to finish, but expect bugs. Please report them (see below).
-
-## Features
-
-- **About 500 checks**: items placed in the world, the Duke's unique items and case upgrades, the
-  Duke's dishes, hunting (meat), boss rewards, and optionally key items.
-- Archipelago items in the world use the **AP logo** or the item's model, with their name
-  ("[AP] …"); the Duke's shop shows what each purchase gives.
-- **Key items** can be shuffled (vanilla, own zone, or zone and multiworld), always placed before the
-  place where they are used. The Winged Key is progressive.
-- **Point of no return areas** (castle, dungeon…): excluded, sent automatically, or 100% mode (an
-  invisible wall keeps you in while checks remain).
-- **Traps** (optional): Bankruptcy, Screamer, Jammed Weapons, Damage, Empty Magazine.
-- **DeathLink**, goals (game ending, the 4 Lords, or one Lord), required difficulty.
-- **In-game menu** (**Insert** key): checks per area and room, "[AP]" markers above checks, hints,
-  message log, help buttons, colours, connection.
-- Two apworld versions: **French** and **English** (item and check names). YAML files work with both.
-
-## Install
-
-👉 **Step by step in the [setup guide](SETUP_GUIDE.md#setup-guide--re-village-archipelago).** In short:
-
-- **Launcher (recommended)**: unzip `RE_Village_Archipelago_0.9.0_launcher.zip`, run
-  `RE_Village_AP_Launcher.exe`, **Setup** tab > pick the apworld language > **Install / update**
-  (game closed). Then **Play** tab: room address, slot name, password. They are saved into the game:
-  afterwards just start the game, it connects by itself.
-- **Manual**: unzip `RE_Village_Archipelago_0.9.0_manuel.zip` and follow `LISEZMOI - README.txt`. To
-  connect: **Insert** key in game > **RE Village Archipelago** window > **Connection** tab.
-
-Requirements: Resident Evil Village on Steam (PC); [Archipelago 0.6](https://github.com/ArchipelagoMW/Archipelago/releases)
-to generate or host. Start a **new game** on the difficulty required by your YAML. DLC is not supported.
-
-## Found a bug?
-
-In-game menu, **Help** tab: give back received items, repair the case, send a stuck check near you.
-Otherwise: launcher > **Bug report** (zips the logs on your Desktop) and send it with a description
-(GitHub issue or Discord).
-
-## Credits
-
-Mod by **Snokayy**. Built on [REFramework](https://github.com/praydog/REFramework) and
-[lua-apclientpp](https://github.com/black-sliver/lua-apclientpp). Inspired by the Resident Evil 7
-Archipelago client and the Resident Evil 4 Archipelago launcher. Resident Evil Village © Capcom; this
-project is not affiliated with Capcom.

@@ -34,7 +34,7 @@ local MOD_NAME = "re_village_ap_client"
 -- 200 variables locales de Lua (script refusé au chargement).
 local K = {}
 K.GAME_NAME = "Resident Evil Village"
-K.MOD_VERSION = "0.9.0" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
+K.MOD_VERSION = "0.9.1" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
 K.MAX_MATCH_DISTANCE = 5.0
 
 K.SHOW_OVERLAY = true
@@ -1716,11 +1716,16 @@ shop_ui.detail.ORDER_HOOK = true
 -- ramassés là, ils seraient perdus -> autorisés (demande du joueur), SAUF GM 79 #012 [S00], posé
 -- à l'endroit du couteau de départ (couteau disparu quand il était habillé).
 shop_ui.SAME_STAGE = { Chapter2_1 = { Chapter2_6 = true } }
-shop_ui.KNIFE_SPOT = { ["GM 79 #012 [S00]"] = "Chapter2_1" }
+-- Couteau de départ (bug de l'alpha 0.9.0, 2026-10-08 : couteau disparu, porte bloquée, partie
+-- bloquée) : GM 79 #012 [S00] (Chapter2_6) est au même endroit. Il n'est touché (habillage,
+-- ramassage, échange arme/Lei bloqué) QUE pendant son propre chapitre : jamais au 1er passage, ni
+-- tant que le chapitre n'est pas encore lu (l'échange est décidé au chargement de la scène, avant).
+shop_ui.KNIFE_SPOT = { ["GM 79 #012 [S00]"] = true }
 function shop_ui.other_chapter(loc)
-    if not loc or not loc.folder_path or not shop_ui.chapter then return false end
-    local lc, nc = loc.folder_path:match("Chapter%d_%d"), tostring(shop_ui.chapter):match("Chapter%d_%d")
-    if shop_ui.KNIFE_SPOT[loc.name] == nc then return true end
+    if not loc or not loc.folder_path then return false end
+    local lc = loc.folder_path:match("Chapter%d_%d")
+    local nc = shop_ui.chapter and tostring(shop_ui.chapter):match("Chapter%d_%d") or nil
+    if shop_ui.KNIFE_SPOT[loc.name] then return nc == nil or nc ~= lc end
     if not lc or not nc or lc == nc then return false end
     return not (shop_ui.SAME_STAGE[nc] or {})[lc]
 end

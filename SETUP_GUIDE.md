@@ -1,6 +1,75 @@
-# Guide d'installation — RE Village Archipelago
+# Setup guide — RE Village Archipelago
 
-*[English version below](#setup-guide--re-village-archipelago)*
+*[Version française plus bas](#guide-dinstallation--re-village-archipelago)*
+
+## Requirements
+
+- **Resident Evil Village** on Steam (PC). DLC is not used.
+- To **generate** or **host**: [Archipelago 0.6](https://github.com/ArchipelagoMW/Archipelago/releases). Not
+  needed to just play in someone else's game.
+- The latest mod version from **[Releases](../../releases)**: the `_launcher.zip` (recommended) or the
+  `_manuel.zip` (manual install).
+
+
+**Xbox Game Pass / Microsoft Store**: not tested yet. The launcher finds the game in `XboxGames`, but
+start the game yourself from the Xbox app ("Play" only saves the connection). If the Insert menu does
+not show up in game, REFramework does not work on your version: please report it.
+
+## 1. Install the mod
+
+**Launcher (recommended)**: unzip (keep the `files` folder next to the exe), **close the game**, run
+`RE_Village_AP_Launcher.exe`, **Setup** tab: game and Archipelago folders are found automatically; pick
+the **apworld language** (item and check names: Français or English; YAML files work with both), then
+**Install / update**. Everything should turn green.
+
+**Manual**: close the game, unzip; if `dinput8.dll` is not next to `re8.exe`, copy
+`REFramework\dinput8.dll` there and start the game once; copy the **content** of the `jeu` folder into
+the game folder (merge folders); set `LooseFileLoader_Enabled=true` in `re2_fw_config.txt`; to host,
+copy `residentevilvillage.apworld` (`apworld_EN` or `apworld_FR`) into Archipelago's `custom_worlds`.
+
+## 2. Make your YAML (before generation)
+
+Launcher > **My options** tab: pick your settings, enter your slot name, "Save YAML…", send it to the
+host. Or use Archipelago's Options Creator.
+
+## 3. Connect and play
+
+- **Launcher** > **Play** tab: room address (e.g. `archipelago.gg:38281`, just the port, or the room
+  page link), slot name, password. Saved into the game as you type; "Play" checks the connection and
+  starts the game. Afterwards, **just start the game**: it reconnects by itself.
+- **Without the launcher**: in game, **Insert** key > **RE Village Archipelago** window >
+  **Connection** tab > "Connect".
+
+Start a **new game** on the difficulty required by your YAML (on another difficulty, no check counts;
+the mod warns you).
+
+## 4. In-game menu (Insert key)
+
+Checks (per area and room), Guidance ("[AP]" markers: distance, detail), Hints (buy hints, hinted
+checks in pink), Message log (commands like `!hint`), Help (give back received items, repair the case,
+send a stuck check, bug report), Customize (colours), Connection. Top right: area, room, room checks,
+connection status.
+
+## 5. Host a game
+
+Launcher > **Host** tab: install Archipelago and the apworld, put the YAML files in `Players`,
+**Generate**, then upload the `AP_….zip` (`output` folder) to
+[archipelago.gg/uploads](https://archipelago.gg/uploads) or start a local server.
+
+## 6. Troubleshooting
+
+- **Missing received items**: in-game menu > Help > "Give back all received items".
+- **Weird case** (overlapping items, quantity 0): Help > "Repair the case".
+- **Item you cannot pick up / check not sent**: Help > "Stuck check" (within 10 m).
+- **Not connected**: check the address (a sleeping archipelago.gg room wakes up when its page is
+  opened); launcher > Play > "Test connection".
+- **Report a bug**: in-game menu > Help > "Create a bug report", then launcher > "Bug report" (zip on
+  your Desktop). Without the launcher, send the game's `reframework\data\re_village_ap_client` folder
+  (zipped). Open an [issue](../../issues) with the zip and what happened.
+
+---
+
+# Guide d'installation — RE Village Archipelago
 
 ## Ce qu'il te faut
 
@@ -10,6 +79,11 @@
 - La dernière version du mod, page **[Releases](../../releases)** :
   - `RE_Village_Archipelago_<version>_launcher.zip` : avec le launcher (conseillé) ;
   - `RE_Village_Archipelago_<version>_manuel.zip` : installation à la main.
+
+
+**Xbox Game Pass / Microsoft Store** : pas encore testé. Le launcher trouve le jeu dans `XboxGames`,
+mais lance le jeu toi-même depuis l'application Xbox (« Jouer » ne fait que noter la connexion). Si le
+menu Inser n'apparaît pas en jeu, REFramework ne marche pas sur ta version : signale-le.
 
 ## 1. Installer le mod
 
@@ -94,67 +168,3 @@ dans `Players`, **Générer**, puis envoyer le `AP_….zip` (dossier `output`) s
 
 Launcher > Installation > **Désinstaller** (tes sauvegardes et ta connexion sont gardées). À la main :
 voir `LISEZMOI - README.txt` du zip manuel.
-
----
-
-# Setup guide — RE Village Archipelago
-
-## Requirements
-
-- **Resident Evil Village** on Steam (PC). DLC is not used.
-- To **generate** or **host**: [Archipelago 0.6](https://github.com/ArchipelagoMW/Archipelago/releases). Not
-  needed to just play in someone else's game.
-- The latest mod version from **[Releases](../../releases)**: the `_launcher.zip` (recommended) or the
-  `_manuel.zip` (manual install).
-
-## 1. Install the mod
-
-**Launcher (recommended)**: unzip (keep the `files` folder next to the exe), **close the game**, run
-`RE_Village_AP_Launcher.exe`, **Setup** tab: game and Archipelago folders are found automatically; pick
-the **apworld language** (item and check names: Français or English; YAML files work with both), then
-**Install / update**. Everything should turn green.
-
-**Manual**: close the game, unzip; if `dinput8.dll` is not next to `re8.exe`, copy
-`REFramework\dinput8.dll` there and start the game once; copy the **content** of the `jeu` folder into
-the game folder (merge folders); set `LooseFileLoader_Enabled=true` in `re2_fw_config.txt`; to host,
-copy `residentevilvillage.apworld` (`apworld_EN` or `apworld_FR`) into Archipelago's `custom_worlds`.
-
-## 2. Make your YAML (before generation)
-
-Launcher > **My options** tab: pick your settings, enter your slot name, "Save YAML…", send it to the
-host. Or use Archipelago's Options Creator.
-
-## 3. Connect and play
-
-- **Launcher** > **Play** tab: room address (e.g. `archipelago.gg:38281`, just the port, or the room
-  page link), slot name, password. Saved into the game as you type; "Play" checks the connection and
-  starts the game. Afterwards, **just start the game**: it reconnects by itself.
-- **Without the launcher**: in game, **Insert** key > **RE Village Archipelago** window >
-  **Connection** tab > "Connect".
-
-Start a **new game** on the difficulty required by your YAML (on another difficulty, no check counts;
-the mod warns you).
-
-## 4. In-game menu (Insert key)
-
-Checks (per area and room), Guidance ("[AP]" markers: distance, detail), Hints (buy hints, hinted
-checks in pink), Message log (commands like `!hint`), Help (give back received items, repair the case,
-send a stuck check, bug report), Customize (colours), Connection. Top right: area, room, room checks,
-connection status.
-
-## 5. Host a game
-
-Launcher > **Host** tab: install Archipelago and the apworld, put the YAML files in `Players`,
-**Generate**, then upload the `AP_….zip` (`output` folder) to
-[archipelago.gg/uploads](https://archipelago.gg/uploads) or start a local server.
-
-## 6. Troubleshooting
-
-- **Missing received items**: in-game menu > Help > "Give back all received items".
-- **Weird case** (overlapping items, quantity 0): Help > "Repair the case".
-- **Item you cannot pick up / check not sent**: Help > "Stuck check" (within 10 m).
-- **Not connected**: check the address (a sleeping archipelago.gg room wakes up when its page is
-  opened); launcher > Play > "Test connection".
-- **Report a bug**: in-game menu > Help > "Create a bug report", then launcher > "Bug report" (zip on
-  your Desktop). Without the launcher, send the game's `reframework\data\re_village_ap_client` folder
-  (zipped). Open an [issue](../../issues) with the zip and what happened.

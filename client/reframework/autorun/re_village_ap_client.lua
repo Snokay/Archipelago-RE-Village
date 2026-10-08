@@ -1152,7 +1152,7 @@ local function process_items_queue()
         -- planter le moteur de son du jeu (Wwise : un son et une notification par objet).
         local interval = #items_queue > 10 and 1.2 or 0.25
         local too_soon = given or os.clock() - last_item_give < interval
-        if row.index <= state.last_applied_index then
+        if row.index <= state.last_applied_index and not row.extra then
             -- déjà donné (renvoyé par le serveur à la reconnexion) : on l'oublie
         elseif holding or too_soon then
             table.insert(remaining, row)
@@ -1160,7 +1160,8 @@ local function process_items_queue()
             given = true
             last_item_give = os.clock()
             if apply_item(row) then
-                state.last_applied_index = row.index
+                -- don en plus (bouton des objets clés manquants) : le compteur ne bouge pas
+                if not row.extra then state.last_applied_index = row.index end
                 save_state()
             else
                 table.insert(remaining, row) -- réessai au prochain tour (inventaire pas prêt...)
@@ -1301,6 +1302,7 @@ function save_sync.give_missing_keys()
             local copy = {}
             for k, v in pairs(row) do copy[k] = v end
             copy.regive = true
+            copy.extra = true -- déjà compté comme donné : la file le garderait sinon pour un doublon
             items_queue[#items_queue + 1] = copy
             queued[index] = true
             n = n + 1

@@ -34,7 +34,7 @@ local MOD_NAME = "re_village_ap_client"
 -- 200 variables locales de Lua (script refusé au chargement).
 local K = {}
 K.GAME_NAME = "Resident Evil Village"
-K.MOD_VERSION = "0.9.1.2" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
+K.MOD_VERSION = "0.9.1.3" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
 K.MAX_MATCH_DISTANCE = 5.0
 
 K.SHOW_OVERLAY = true

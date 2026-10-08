@@ -2765,6 +2765,17 @@ local function on_item_picked(interact, core)
         debug_log("chasse : viande " .. tostring(picked_item_id) .. " -> " .. (loc and loc.name or "aucun check restant"))
         ident.location = loc and loc.name or nil
     end
+    -- Fragments de cristal ramassés hors emplacement (2026-10-08, rapport du joueur : +13 Fragments à
+    -- chaque fois, château) : objet de ramassage du mod (PICKUP_ID) réutilisé par le jeu avec la pile
+    -- d'un autre objet. Tous les vrais Fragments sont des checks : celui-ci est retiré en entier.
+    if not loc and picked_item_id and picked_item_id == shop_ui.world.PICKUP_ID then
+        local stack = nil
+        pcall(function() stack = core:call("get_work"):call("get_stackSize") end)
+        debug_log(string.format("ramassage : Fragment de cristal hors emplacement (pile %s), retiré", tostring(stack)))
+        table.insert(vanilla_removals, { item_id = picked_item_id, before = quantities_before[picked_item_id] or 0,
+            due = os.clock() + REMOVAL_DELAY_SECONDS })
+        return
+    end
     if not loc then return end -- objet hors Archipelago (objet clé, drop d'ennemi...)
     -- Objet clé (2026-09-30) : check seulement si cette seed mélange les objets clés (location
     -- connue du serveur). Sinon ramassage normal. Pas connecté : ramassage normal aussi, et le

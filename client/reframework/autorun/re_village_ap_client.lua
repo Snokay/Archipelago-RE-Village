@@ -1727,6 +1727,12 @@ function shop_ui.other_chapter(loc)
     local nc = shop_ui.chapter and tostring(shop_ui.chapter):match("Chapter%d_%d") or nil
     if shop_ui.KNIFE_SPOT[loc.name] then return nc == nil or nc ~= lc end
     if not lc or not nc or lc == nc then return false end
+    -- Couteau de départ toujours disparu en 0.9.1 (2026-10-08) : il n'est PAS à côté de GM 79 #012.
+    -- Les objets de ramassage du jeu sont recyclés ; habiller au 1er passage les emplacements du
+    -- 2e (chargés mais pas vraiment en jeu) touchait celui du couteau. Tant que le joueur n'a pas
+    -- le couteau, aucun emplacement d'un autre chapitre n'est touché (shop_ui.has_knife, relevé
+    -- une fois par seconde dans la boucle du jeu) ; ensuite, règle SAME_STAGE habituelle.
+    if not shop_ui.has_knife then return true end
     return not (shop_ui.SAME_STAGE[nc] or {})[lc]
 end
 shop_ui.world_exchange = { BLOCK = true, blocked = 0 }
@@ -5105,7 +5111,12 @@ function shop_ui.world.install_history_hook()
         return sdk.PreHookResult.CALL_ORIGINAL
     end, function(retval)
         local id = table.remove(ids)
-        if id and os.clock() < shop_ui.world.near_ap_until and not shop_ui.world.near_keys[id] then
+        -- Seulement les objets de l'emplacement AP proche (2026-10-08, bug du couteau de départ : le
+        -- jeu demande aussi hasHistory pour décider si un objet unique doit encore apparaître ; près de
+        -- la boîte « Remède de premiers soins #004 [S00] », le couteau était déclaré déjà eu et
+        -- disparaissait, porte bloquée).
+        if id and os.clock() < shop_ui.world.near_ap_until and not shop_ui.world.near_keys[id]
+                and (shop_ui.world.near_ids or {})[id] then
             if (shop_ui.world.hist_logged or 0) < 30 and (sdk.to_int64(retval) & 1) == 0 then
                 shop_ui.world.hist_logged = (shop_ui.world.hist_logged or 0) + 1
                 shop_ui.world.detail_note = "présentation : hasHistory(" .. tostring(id) .. ") forcé à vrai (emplacement AP proche)"
@@ -5133,7 +5144,7 @@ function shop_ui.world.near_ap_watch()
     local cam = nil
     pcall(function() cam = sdk.get_primary_camera():call("get_GameObject"):call("get_Transform"):call("get_Position") end)
     if not cam then return end
-    local keys, near, key_def = {}, false, nil
+    local keys, near, key_def, allowed = {}, false, nil, { [shop_ui.world.PICKUP_ID] = true }
     local best_loc, best_d = nil, 6.25
     for _, e in ipairs(shop_ui.world.entries or {}) do
         pcall(function()
@@ -5143,12 +5154,19 @@ function shop_ui.world.near_ap_watch()
             if d and d < best_d and location_done(e.loc) == false then best_loc, best_d = e.loc, d end
             if ep and d < 6.25 then
                 near = true
+                -- objets concernés par cet emplacement (seuls ceux-là peuvent être déclarés « déjà eus »)
+                local orig = item_by_name[e.loc.original_item or ""]
+                if orig then
+                    if orig.game_item_id then allowed[orig.game_item_id] = true end
+                    for _, vid in ipairs(orig.variant_ids or {}) do allowed[vid] = true end
+                end
                 local k = shop_ui.world.own_key(e.loc)
                 if k then keys[k.game_item_id] = true key_def = key_def or k end
             end
         end)
     end
     shop_ui.world.near_keys = keys
+    shop_ui.world.near_ids = allowed
     -- emplacement AP pas encore fait le plus proche (< 2,5 m) : nom de la présentation (2026-10-07)
     if best_loc then shop_ui.world.near_ap_loc, shop_ui.world.near_ap_loc_until = best_loc, os.clock() + 6 end
     if key_def then shop_ui.world.near_key_def, shop_ui.world.near_key_until = key_def, os.clock() + 3 end
@@ -6865,6 +6883,7 @@ end
 local function update_zone_stats()
     if os.clock() - last_zone_stats < 1.0 then return end
     last_zone_stats = os.clock()
+    shop_ui.has_knife = (inventory_quantity(2292458104) or 0) > 0 -- couteau (voir shop_ui.other_chapter)
     game_difficulty = read_game_difficulty()
     load_difficulty_names()
 

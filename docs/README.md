@@ -2117,3 +2117,12 @@ emplacement est déjà Normal, la présentation venait de l'ouverture de la mall
   ne se passait). Launcher : jeu trouvé aussi dans <lecteur>:\XboxGames\…\Content ; hors Steam, la
   connexion est notée et le joueur lance le jeu lui-même. REFramework sur Game Pass : non vérifié.
   README / SETUP_GUIDE : anglais d'abord, puis français.
+- **Couteau de départ : VRAIE cause trouvée et VALIDÉE (2026-10-08, 0.9.1 republiée)** : hook
+  InventoryManager.hasHistory (shop_ui.world.install_history_hook) répondait « déjà eu » pour TOUT objet
+  à moins de 2,5 m d'un emplacement AP (pour éviter les présentations). Le jeu s'en sert aussi pour
+  savoir si un objet unique doit apparaître : à côté de la boîte « Remède de premiers soins #004 [S00] »
+  (First Aid Med #004), le couteau (2292458104) était déclaré déjà eu et disparaissait. Désormais seuls
+  les objets de l'emplacement proche (objet d'origine, variantes, PICKUP_ID) sont concernés
+  (shop_ui.world.near_ids). Sécurité en plus : aucun emplacement d'un autre chapitre touché tant que le
+  joueur n'a pas le couteau (shop_ui.has_knife). L'exclusion KNIFE_SPOT de GM 79 #012 reste (inutile
+  mais sans effet gênant). Validé en jeu sur une nouvelle partie.

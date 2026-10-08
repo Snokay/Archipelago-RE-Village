@@ -1274,9 +1274,41 @@ end
 local save_sync = { history = {}, saving_slot = nil, load_slot = nil, loaded = false, dirty = false, captures = 0 }
 
 function save_sync.snapshot()
+    local index, src = state.last_applied_index, state.parcel
+    -- Sauvegarde automatique faite PENDANT un chargement (2026-10-09, Sanguis Virginis perdu) : la
+    -- mallette est celle de la sauvegarde chargée, pas encore complétée par les objets à redonner.
+    -- Noter l'index du mod (41) au lieu de celui de la sauvegarde chargée (38) faisait croire, au
+    -- chargement suivant, que ces objets y étaient déjà.
+    if save_sync.loaded or save_sync.load_target ~= nil or save_sync.load_slot ~= nil then
+        local t = save_sync.load_target
+        if t == nil and save_sync.load_slot then t = state.saves and state.saves[tostring(save_sync.load_slot)] end
+        if t and t.index < index then index, src = t.index, t.parcel end
+    end
     local parcel = {}
-    for i, name in ipairs(state.parcel or {}) do parcel[i] = name end
-    return { index = state.last_applied_index, parcel = parcel }
+    for i, name in ipairs(src or {}) do parcel[i] = name end
+    return { index = index, parcel = parcel }
+end
+
+-- Bouton « Redonner les objets clés manquants » (2026-10-09) : objets clés reçus (pas les clés
+-- progressives) absents de la mallette, redonnés un par un. Appelé depuis la boucle du jeu.
+function save_sync.give_missing_keys()
+    local queued, n = {}, 0
+    for _, row in ipairs(items_queue) do queued[row.index] = true end
+    for index, row in pairs(save_sync.history) do
+        local def = item_by_name[net.get_item_name(row.item) or ""]
+        if def and def.type == "Key" and not def.levels and not queued[index]
+                and (inventory_quantity(def.game_item_id) or 0) == 0 then
+            local copy = {}
+            for k, v in pairs(row) do copy[k] = v end
+            copy.regive = true
+            items_queue[#items_queue + 1] = copy
+            queued[index] = true
+            n = n + 1
+            debug_log("bouton : objet clé manquant redonné : " .. tostring(net.get_item_name(row.item)))
+        end
+    end
+    table.sort(items_queue, function(a, b) return a.index < b.index end)
+    add_message(string.format(tr("%d objet(s) clé(s) redonné(s)", "%d key item(s) given back"), n))
 end
 
 -- Entier 32 bits signé passé à un hook.
@@ -1345,6 +1377,10 @@ end
 save_sync.install_hooks()
 
 function save_sync.update()
+    if save_sync.missing_keys and session then
+        save_sync.missing_keys = nil
+        pcall(save_sync.give_missing_keys)
+    end
     if save_sync.saving_slot and save_sync.dirty then
         debug_log(string.format("sauvegarde (emplacement %d) : dernier objet donné = %d, colis %d, prises %d",
             save_sync.saving_slot, state.last_applied_index, #state.parcel, save_sync.captures))
@@ -8812,6 +8848,11 @@ function shop_ui.help.draw()
     if imgui.button(tr("Redonner tous les objets reçus", "Give back all received items")) then
         save_sync.force_all = true
         save_sync.loaded = true
+    end
+    imgui.text(tr("Objet clé perdu (sauvegarde rechargée) : redonne seulement les objets clés reçus absents de la mallette.",
+        "Key item lost (save reloaded): gives back only the received key items missing from the case."))
+    if imgui.button(tr("Redonner les objets clés manquants", "Give back missing key items")) then
+        save_sync.missing_keys = true
     end
     imgui.spacing()
     imgui.text_colored(tr("Mallette bizarre", "Weird case"), shop_ui.menu.ACCENT)

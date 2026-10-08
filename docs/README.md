@@ -2144,3 +2144,4 @@ emplacement est déjà Normal, la présentation venait de l'ouverture de la mall
   remplacement + installation (faux dossier de jeu). À tester : remplacement de l'exe et redémarrage
   (exe compilé, jeu fermé). Les launchers 0.9.1.1 et avant n'ont pas cette fonction (dernier
   téléchargement manuel).
+- **Screamer plus fort (2026-10-08, demande du joueur)** : make_ap_sound.py, VOLUME_DB = {ap_trap_scream: +12 dB} -> propriété Volume (id 0) ajoutée à l'objet Sound (liste de propriétés vide, réglages de l'actor-mixer du jingle). Banque régénérée ; déclencheurs inchangés. À valider en jeu (installation jeu fermé : pak).

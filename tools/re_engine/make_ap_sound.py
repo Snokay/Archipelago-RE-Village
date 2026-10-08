@@ -72,6 +72,11 @@ PICKUP_TRIGGER = 1738562264
 PICKUP_TRIGGER_BY_RI = {"ri5101": 1399615424}
 RI_LIST = os.path.join(os.path.dirname(__file__), "RE8_STM_Release.list")
 
+# Volume propre de certains sons, en dB (2026-10-08, demande du joueur : le screamer ne surprenait
+# pas). Propriété Volume (id 0) ajoutée à l'objet Sound, dont la liste de propriétés est vide
+# (réglages hérités de l'actor-mixer du jingle). Clé = début du nom du son.
+VOLUME_DB = {"ap_trap_scream": 12.0}
+
 TEMPLATE_EVENT = 524142899   # jingle trésor (trigger 3769661010)
 TEMPLATE_TRIGGER = 3769661010
 TEMPLATE_PARENT = 356891578  # actor-mixer du jingle
@@ -135,6 +140,16 @@ def patch_bnk(data, sounds):
         struct.pack_into("<I", s, 5, ids["sound"])
         struct.pack_into("<I", s, 14, ids["media"])
         struct.pack_into("<I", s, 18, len(wem))
+        gain = next((db for prefix, db in VOLUME_DB.items() if name.startswith(prefix)), None)
+        if gain is not None:
+            # propriétés de base : après OverrideBusId (u32), DirectParentID (u32) et un octet de
+            # drapeaux ; « nombre u8, ids u8 x n, valeurs f32 x n » (vide dans le jingle)
+            i = bytes(s).find(struct.pack("<I", TEMPLATE_PARENT))
+            if i < 0 or s[i + 5] != 0:
+                raise SystemExit(f"propriétés inattendues pour {name}")
+            s[i + 5] = 1
+            s[i + 6:i + 6] = bytes([0]) + struct.pack("<f", gain)
+            struct.pack_into("<I", s, 1, len(s) - 5)
         # Action Play : id, cible
         a = bytearray(action)
         struct.pack_into("<I", a, 5, ids["action"])

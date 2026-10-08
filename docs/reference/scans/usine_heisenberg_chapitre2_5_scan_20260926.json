@@ -1,0 +1,2378 @@
+{
+    "count": 141,
+    "placements": [
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_07",
+            "guid": "4610f1ae-f844-0b10-30d7-89cb06520a6f",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfoRandomDrop_002",
+            "item_position": [
+                -253.84,
+                -133.48,
+                227.18
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - Casse",
+            "room_hash": 2515621773,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_07",
+            "guid": "705dbcab-346f-04f3-0f01-1f23194793f1",
+            "item_id": 1429493426,
+            "item_object": "SpawnInfo_CureMedicine_001",
+            "item_position": [
+                -246.21,
+                -132.62,
+                225.22
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - Casse",
+            "room_hash": 2515621773,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_03",
+            "guid": "120ea1ec-0f6c-021c-2a92-0848cdd463d9",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_014",
+            "item_position": [
+                -241.75,
+                -42.77,
+                212.88
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - Salle de chargement",
+            "room_hash": 530628564,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_03",
+            "guid": "deea2ef3-63ed-05ec-3a71-2a7f9159e2cb",
+            "item_id": 3397831806,
+            "item_object": "SpawnInfo_Material_ScrapB_006",
+            "item_position": [
+                -245.99,
+                -42.77,
+                225.44
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - Salle de chargement",
+            "room_hash": 530628564,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_03",
+            "guid": "11f4df4f-b347-007b-3ad8-157ab1b245a5",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfoRandomDrop_003",
+            "item_position": [
+                -275.52,
+                -38.08,
+                222.22
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -1",
+            "room_hash": 4068081913,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_03",
+            "guid": "67b32f26-d766-0449-1f5c-c9604abb125c",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfoRandomDrop_002",
+            "item_position": [
+                -280.98,
+                -38.73,
+                222.61
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -1",
+            "room_hash": 4068081913,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_03",
+            "guid": "802a55ed-7aab-09fd-31a0-04f013628c87",
+            "item_id": 1731811000,
+            "item_object": "SpawnInfo_ShotGun_Bullet_010",
+            "item_position": [
+                -238.81,
+                -37.96,
+                204.46
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -1",
+            "room_hash": 2299517604,
+            "spawned": false,
+            "stack": 2
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_03",
+            "guid": "91f639c1-13f5-0364-2ae3-3154189d8993",
+            "item_id": 3397831806,
+            "item_object": "SpawnInfo_Material_ScrapB_009",
+            "item_position": [
+                -239.74,
+                -37.74,
+                204.52
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -1",
+            "room_hash": 2299517604,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_03",
+            "guid": "1d2dc323-1040-0b24-08c0-14eeb478553d",
+            "item_id": 526649991,
+            "item_object": "SpawnInfo_Material_ChemicalLiquid_001",
+            "item_position": [
+                -239.22,
+                -37.56,
+                206.87
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -1",
+            "room_hash": 2299517604,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_03",
+            "guid": "3f78a495-4336-0723-2364-fdf7c817ed43",
+            "item_id": 3213662355,
+            "item_object": "SpawnInfo_Mine_008",
+            "item_position": [
+                -255.7,
+                -37.32,
+                216.01
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -1",
+            "room_hash": 693911866,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_03",
+            "guid": "61f15379-9f54-0377-2a4f-c7aee7f2d4c6",
+            "item_id": 3919597625,
+            "item_object": "SpawnInfo_SniperRifleBullet_007",
+            "item_position": [
+                -262.23,
+                -37.36,
+                202.86
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -1",
+            "room_hash": 693911866,
+            "spawned": false,
+            "stack": 3
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_03",
+            "guid": "c4e91228-80f0-0d85-24b7-a28918be5ad7",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_012",
+            "item_position": [
+                -257.61,
+                -37.82,
+                203.52
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -1",
+            "room_hash": 693911866,
+            "spawned": false,
+            "stack": 25
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_03",
+            "guid": "5b4177e0-3ea0-0d3a-1024-6c40a93075f0",
+            "item_id": 3213662355,
+            "item_object": "SpawnInfo_Mine_005",
+            "item_position": [
+                -274.28,
+                -37.74,
+                221.29
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -1",
+            "room_hash": 4068081913,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_03",
+            "guid": "e290d692-fe44-08e2-260a-7d33480bad4a",
+            "item_id": 1429493426,
+            "item_object": "SpawnInfo_CureMedicine_013",
+            "item_position": [
+                -277.78,
+                -37.74,
+                222.08
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -1",
+            "room_hash": 4068081913,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_03",
+            "guid": "49e390ba-2bb0-0c94-2408-943d46641e45",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_004",
+            "item_position": [
+                -276.98,
+                -37.99,
+                221.92
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -1",
+            "room_hash": 4068081913,
+            "spawned": false,
+            "stack": 25
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_03",
+            "guid": "19395a03-c0b9-046e-3eff-1a2cd7767737",
+            "item_id": 1166469749,
+            "item_object": "SpawnInfo_Material_Herb_020",
+            "item_position": [
+                -237.35,
+                -38.79,
+                207.19
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -1",
+            "room_hash": 2299517604,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_03",
+            "guid": "3397c117-bd85-01b9-11ba-7c5a2b8cf84d",
+            "item_id": 1754241545,
+            "item_object": "SpawnInfo_Treasure_GeekCigar_027",
+            "item_position": [
+                -245.1,
+                -37.9,
+                200.89
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -1",
+            "room_hash": 3450520742,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_03",
+            "guid": "2d1a852f-7756-04d7-05b6-1c088a250121",
+            "item_id": 526649991,
+            "item_object": "SpawnInfo_Material_ChemicalLiquid_019",
+            "item_position": [
+                -253.52,
+                -37.74,
+                207.06
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -1",
+            "room_hash": 3450520742,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_19",
+            "guid": "28d1dfd4-0d80-0ae9-0018-bdfa23627d9a",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfoRandomDrop_009",
+            "item_position": [
+                -259.35,
+                -43.3,
+                270.26
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -1",
+            "room_hash": 4069580511,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_19",
+            "guid": "3d314513-42ee-0c8f-101e-1a23e63397b1",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfoRandomDrop_004",
+            "item_position": [
+                -265.58,
+                -38.7,
+                238.37
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -1",
+            "room_hash": 3144890763,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_19",
+            "guid": "0befa430-6594-01d5-3087-8229590c2dc4",
+            "item_id": 1731811000,
+            "item_object": "SpawnInfo_ShotGun_Bullet_005",
+            "item_position": [
+                -294.93,
+                -39.13,
+                245.67
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -1",
+            "room_hash": 3144890763,
+            "spawned": false,
+            "stack": 2
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_19",
+            "guid": "3e77959e-6276-054d-0352-39e72109662b",
+            "item_id": 3213662355,
+            "item_object": "SpawnInfo_Mine_003",
+            "item_position": [
+                -296.51,
+                -38.72,
+                243.45
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -1",
+            "room_hash": 3144890763,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_19",
+            "guid": "69686cdb-0cfa-0d3a-1585-b4bc02bda34d",
+            "item_id": 3213662355,
+            "item_object": "SpawnInfo_Mine_002",
+            "item_position": [
+                -295.13,
+                -38.42,
+                243.8
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -1",
+            "room_hash": 3144890763,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_19",
+            "guid": "f81bc900-dfa7-0000-1abd-5a9c3521300d",
+            "item_id": 3943127851,
+            "item_object": "SpawnInfo_Treasure_Ruby_001",
+            "item_position": [
+                -273.12,
+                -42.03,
+                270.27
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -1",
+            "room_hash": 398243607,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_19",
+            "guid": "7fe9e071-9967-070c-09be-c8afda746706",
+            "item_id": 1927571624,
+            "item_object": "SpawnInfo_GrenadeLauncherExplosionBullet_033",
+            "item_position": [
+                -264.5,
+                -45.65,
+                275.51
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -1",
+            "room_hash": 4069580511,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_19",
+            "guid": "86c56075-5f2f-0320-386b-b7d5b52f46e8",
+            "item_id": 1731811000,
+            "item_object": "SpawnInfo_ShotGun_Bullet_025",
+            "item_position": [
+                -258.11,
+                -45.55,
+                274.93
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -1",
+            "room_hash": 4069580511,
+            "spawned": false,
+            "stack": 2
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_18",
+            "guid": "e613ee21-2738-0ecb-2176-90810256c859",
+            "item_id": 3943127851,
+            "item_object": "SpawnInfo_Treasure_RubyFallByAttack_011",
+            "item_position": [
+                -230.76,
+                -66.81,
+                329.34
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - Conduit de ventilation",
+            "room_hash": 280384173,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_18",
+            "guid": "7356d9a0-58ab-0e59-38f4-07c8eba75d7a",
+            "item_id": 526649991,
+            "item_object": "SpawnInfo_Material_ChemicalLiquid_032",
+            "item_position": [
+                -237.89,
+                -69.63,
+                279.41
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -2",
+            "room_hash": 2910429684,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_18",
+            "guid": "63200bee-e861-0157-002f-d8df2e2e7a5a",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_029",
+            "item_position": [
+                -231.25,
+                -70.18,
+                345.63
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - Conduit de ventilation",
+            "room_hash": 280384173,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_18",
+            "guid": "778c9e90-54cb-04f5-027a-ca5f0a6ac41e",
+            "item_id": 3397831806,
+            "item_object": "SpawnInfo_Material_ScrapB_030",
+            "item_position": [
+                -233.74,
+                -70.12,
+                345.23
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - Conduit de ventilation",
+            "room_hash": 280384173,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_18",
+            "guid": "39080184-b709-0d72-2b65-f27a52a0756c",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_034",
+            "item_position": [
+                -211.45,
+                -74.5,
+                331.48
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - Broyeur",
+            "room_hash": 1690688364,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_18",
+            "guid": "dee58ea3-2649-0922-0767-64bfc4e8d9bf",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_022",
+            "item_position": [
+                -208.95,
+                -74.66,
+                328.56
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - Broyeur",
+            "room_hash": 1690688364,
+            "spawned": false,
+            "stack": 25
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_18",
+            "guid": "b6453839-e2bb-0039-0286-aa457d1fecb3",
+            "item_id": 526649991,
+            "item_object": "SpawnInfo_Material_ChemicalLiquid_024",
+            "item_position": [
+                -216.02,
+                -74.63,
+                339.83
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -2",
+            "room_hash": 2313696909,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_17",
+            "guid": "c569ddb2-2eb8-03d6-04db-46fc7d04776e",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfoRandomDrop_013",
+            "item_position": [
+                -231.24,
+                -79.74,
+                367.99
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - Broyeur",
+            "room_hash": 519800469,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_17",
+            "guid": "654e7436-6a49-0ecb-14fc-dc1fd01019be",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfoRandomDrop_010",
+            "item_position": [
+                -219.54,
+                -87.82,
+                365.06
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - Broyeur",
+            "room_hash": 694984457,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_17",
+            "guid": "84238224-0b21-02fa-2b03-214c51745fdc",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfoRandomDrop_015",
+            "item_position": [
+                -224.18,
+                -95.72,
+                358.2
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - Broyeur",
+            "room_hash": 694984457,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_17",
+            "guid": "c4facd4a-7772-0bcb-1b35-6326e7f0ab9f",
+            "item_id": 3919597625,
+            "item_object": "SpawnInfo_SniperRifleBullet_018",
+            "item_position": [
+                -223.62,
+                -99.7,
+                360.29
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - Broyeur",
+            "room_hash": 694984457,
+            "spawned": false,
+            "stack": 3
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_17",
+            "guid": "770b71e2-34ed-0dcd-37a2-79fd79db0ed9",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_014",
+            "item_position": [
+                -233.05,
+                -94.75,
+                358.27
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - Broyeur",
+            "room_hash": 694984457,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_17",
+            "guid": "5edb4ac9-5fc8-0327-35e5-a26faf4c48a8",
+            "item_id": 3397831806,
+            "item_object": "SpawnInfo_Material_ScrapB_016",
+            "item_position": [
+                -219.78,
+                -99.42,
+                365.42
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - Broyeur",
+            "room_hash": 694984457,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_17",
+            "guid": "566de975-847e-0ac7-165e-e7f9ce4e3a97",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_012",
+            "item_position": [
+                -233.77,
+                -99.1,
+                357.81
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - Broyeur",
+            "room_hash": 694984457,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_16",
+            "guid": "06d86f8f-87d4-0299-0c9f-cf4f14314dc0",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfoRandomDrop_037",
+            "item_position": [
+                -238.9,
+                -92.82,
+                286.29
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -3B",
+            "room_hash": 940223943,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_16",
+            "guid": "cc783872-c4bd-0986-248a-55dd71c57b39",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_001",
+            "item_position": [
+                -261.17,
+                -95.86,
+                300.21
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -3B",
+            "room_hash": 940223943,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_16",
+            "guid": "34cd5550-980c-04ba-3e0e-e1c48f6d21bd",
+            "item_id": 1399639302,
+            "item_object": "SpawnInfo_Treasure_Emerald_007",
+            "item_position": [
+                -235.43,
+                -99.54,
+                315.0
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -3B",
+            "room_hash": 2835334454,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_16",
+            "guid": "1516b19e-1a92-08e5-0fe8-c6c0bf4fe436",
+            "item_id": 1032047694,
+            "item_object": "SpawnInfo_Treasure_VelvetBlue_006",
+            "item_position": [
+                -235.68,
+                -99.44,
+                314.92
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -3B",
+            "room_hash": 2835334454,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_16",
+            "guid": "84739fd7-be53-0ffa-2b37-1174d4ec97fc",
+            "item_id": 1032047694,
+            "item_object": "SpawnInfo_Treasure_VelvetBlue_041",
+            "item_position": [
+                -234.74,
+                -99.43,
+                313.88
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -3B",
+            "room_hash": 2835334454,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_16",
+            "guid": "89d19d80-f23c-0982-0b37-31b6c8ba86b6",
+            "item_id": 3943127851,
+            "item_object": "SpawnInfo_Treasure_Ruby_038",
+            "item_position": [
+                -236.68,
+                -99.61,
+                315.35
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -3B",
+            "room_hash": 2835334454,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_16",
+            "guid": "cd9443bf-1ed4-0855-353a-4e8e58e234fc",
+            "item_id": 1032047694,
+            "item_object": "SpawnInfo_Treasure_VelvetBlue_035",
+            "item_position": [
+                -232.16,
+                -95.78,
+                303.86
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -3B",
+            "room_hash": 940223943,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_16",
+            "guid": "0d0ec998-8d22-0073-02b2-a686f4a9d954",
+            "item_id": 1943719610,
+            "item_object": "SpawnInfo_Treasure_Spinel_036",
+            "item_position": [
+                -233.29,
+                -95.78,
+                300.84
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -3B",
+            "room_hash": 940223943,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_16",
+            "guid": "a5b6a462-155b-0ebc-104f-1acbcf261634",
+            "item_id": 2549049308,
+            "item_object": "SpawnInfo_SmallKey_005",
+            "item_position": [
+                -227.8,
+                -94.93,
+                301.05
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -3B",
+            "room_hash": 940223943,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_16",
+            "guid": "87ecae87-fd5b-0263-0670-aae81daa59ca",
+            "item_id": 1042576120,
+            "item_object": "SpawnInfo_Dynamite_008",
+            "item_position": [
+                -260.82,
+                -95.71,
+                302.77
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -3B",
+            "room_hash": 940223943,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_16",
+            "guid": "88702e12-35a2-0c93-215c-c13883db8210",
+            "item_id": 1042576120,
+            "item_object": "SpawnInfo_Dynamite_003",
+            "item_position": [
+                -260.8,
+                -95.54,
+                303.02
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -3B",
+            "room_hash": 940223943,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_16",
+            "guid": "7ea946bd-4b97-0322-3a9f-be72d81f5c15",
+            "item_id": 1166469749,
+            "item_object": "SpawnInfo_Material_Herb_002",
+            "item_position": [
+                -261.98,
+                -95.41,
+                301.94
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -3B",
+            "room_hash": 940223943,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_15",
+            "guid": "052c38e3-b1e2-0359-1485-f7c4043f8bbf",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfoRandomDrop_022",
+            "item_position": [
+                -285.99,
+                -96.63,
+                267.89
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -3B",
+            "room_hash": 940223943,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_14",
+            "guid": "f8495f4c-876a-0c15-062b-a24bdb3f1fdb",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfoRandomDrop_019",
+            "item_position": [
+                -273.58,
+                -103.34,
+                230.16
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -3",
+            "room_hash": 2742916437,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_14",
+            "guid": "dbf1bdb9-fab1-063b-3652-d088dc7c6276",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_047",
+            "item_position": [
+                -280.39,
+                -99.73,
+                237.6
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -3",
+            "room_hash": 1653090339,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_14",
+            "guid": "f4a18f15-5888-0387-0554-b593ef332b27",
+            "item_id": 3397831806,
+            "item_object": "SpawnInfo_Material_ScrapB_010",
+            "item_position": [
+                -280.74,
+                -99.52,
+                236.28
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -3",
+            "room_hash": 1653090339,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_14",
+            "guid": "6b2573ac-d645-0a11-35d2-6db2cd1b0c83",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_046",
+            "item_position": [
+                -275.64,
+                -99.55,
+                235.18
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -3",
+            "room_hash": 1653090339,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_14",
+            "guid": "55d5e086-b12e-0655-2dab-5db6bca812d6",
+            "item_id": 1731811000,
+            "item_object": "SpawnInfo_ShotGun_Bullet_066",
+            "item_position": [
+                -261.39,
+                -105.61,
+                225.46
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -3",
+            "room_hash": 1586021113,
+            "spawned": false,
+            "stack": 2
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_14",
+            "guid": "9ce3ee52-7807-0d6c-39fb-d47c8799639b",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_077",
+            "item_position": [
+                -264.06,
+                -105.44,
+                222.59
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -3",
+            "room_hash": 1586021113,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_13",
+            "guid": "919052af-d5b9-0f95-1b06-befaf4cc1c01",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfoRandomDrop_002",
+            "item_position": [
+                -270.74,
+                -109.32,
+                200.6
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 2661767909,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_13",
+            "guid": "8648454d-431b-0f98-09b9-24b758d70a24",
+            "item_id": 1583016682,
+            "item_object": "SpawnInfo_GrenadeLauncherFlashBullet_003",
+            "item_position": [
+                -277.9,
+                -112.35,
+                195.99
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 3231686477,
+            "spawned": false,
+            "stack": 3
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_13",
+            "guid": "145508bc-1a57-024c-0bc4-8bd9e59388bd",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfoRandomDrop_011",
+            "item_position": [
+                -284.61,
+                -111.36,
+                180.15
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 2597365804,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_13",
+            "guid": "f7c4135b-10da-0620-16ff-40a0ae35bf56",
+            "item_id": 3919597625,
+            "item_object": "SpawnInfo_SniperRifleBullet_052",
+            "item_position": [
+                -275.95,
+                -112.35,
+                192.92
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 3586031172,
+            "spawned": false,
+            "stack": 3
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_13",
+            "guid": "d0ea2f44-0841-07cb-2268-fa82e19cab0f",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfoRandomDrop_063",
+            "item_position": [
+                -264.75,
+                -112.35,
+                185.56
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4",
+            "room_hash": 2395462019,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_13",
+            "guid": "768b4892-0ed8-0fff-161e-20d7d0b2ea8e",
+            "item_id": 3943127851,
+            "item_object": "SpawnInfo_Treasure_RubyFallByAttack_009",
+            "item_position": [
+                -283.84,
+                -103.89,
+                211.39
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 2661767909,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_13",
+            "guid": "a1a3ef47-a041-08b0-119b-ea53999737b7",
+            "item_id": 1731811000,
+            "item_object": "SpawnInfo_ShotGun_Bullet_024",
+            "item_position": [
+                -273.93,
+                -105.39,
+                209.14
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -3",
+            "room_hash": 3929980641,
+            "spawned": false,
+            "stack": 2
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_13",
+            "guid": "697700ff-4193-0336-3846-d2bd9bf7b8de",
+            "item_id": 3213662355,
+            "item_object": "SpawnInfo_Mine_056",
+            "item_position": [
+                -267.33,
+                -108.36,
+                199.65
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 2661767909,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_13",
+            "guid": "a4478271-7d28-0c8e-0817-3f286d546444",
+            "item_id": 2182652875,
+            "item_object": "SpawnInfo_Magnum_Bullet_020",
+            "item_position": [
+                -289.48,
+                -108.51,
+                200.45
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 2661767909,
+            "spawned": false,
+            "stack": 4
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_13",
+            "guid": "addd530b-06a2-0eb1-3a37-62e838fd8878",
+            "item_id": 3196868754,
+            "item_object": "SpawnInfo_BaggedMoney_045",
+            "item_position": [
+                -288.45,
+                -109.37,
+                200.11
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 2661767909,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_13",
+            "guid": "1920d022-667f-04ea-07cb-901243b20e7a",
+            "item_id": 3196868754,
+            "item_object": "SpawnInfo_BaggedMoney_061",
+            "item_position": [
+                -289.56,
+                -108.51,
+                199.92
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 2661767909,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_13",
+            "guid": "5e780dbe-b7c9-06d5-2b44-a9e9792c2a49",
+            "item_id": 3196868754,
+            "item_object": "SpawnInfo_BaggedMoney_062",
+            "item_position": [
+                -289.79,
+                -108.51,
+                200.2
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 2661767909,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_13",
+            "guid": "1b91adca-f867-00e3-3cdb-aa8e973ef10f",
+            "item_id": 3196868754,
+            "item_object": "SpawnInfo_BaggedMoney_042",
+            "item_position": [
+                -288.29,
+                -109.3,
+                199.76
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 2661767909,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_13",
+            "guid": "aab20ee5-622b-0822-06f4-dce7421fb182",
+            "item_id": 3213662355,
+            "item_object": "SpawnInfo_Mine_067",
+            "item_position": [
+                -286.42,
+                -108.51,
+                201.8
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 2661767909,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_13",
+            "guid": "fb8c2416-8d02-015e-24f0-43d3453a6f1d",
+            "item_id": 1032047694,
+            "item_object": "SpawnInfo_Treasure_VelvetBlueFallByAttack_007",
+            "item_position": [
+                -281.3,
+                -109.37,
+                193.22
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 3231686477,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_13",
+            "guid": "08e856ab-e30f-0c80-210c-cf75f49f3bdf",
+            "item_id": 1927571624,
+            "item_object": "SpawnInfo_GrenadeLauncherExplosionBullet_065",
+            "item_position": [
+                -282.8,
+                -109.35,
+                192.84
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 3937417369,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_13",
+            "guid": "80f0af0f-0134-0dd2-08db-cf5b1accd004",
+            "item_id": 3919597625,
+            "item_object": "SpawnInfo_SniperRifleBullet_015",
+            "item_position": [
+                -280.05,
+                -111.36,
+                195.98
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 3231686477,
+            "spawned": false,
+            "stack": 3
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_13",
+            "guid": "dbf36884-1a71-035a-1625-759291a228bd",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_021",
+            "item_position": [
+                -279.37,
+                -111.36,
+                178.87
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 2597365804,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_12",
+            "guid": "2b89dd78-2753-0da9-2e81-ae670bd8355f",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfoRandomDrop_014",
+            "item_position": [
+                -251.05,
+                -110.85,
+                201.82
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4",
+            "room_hash": 4219446685,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_12",
+            "guid": "b6397d7c-ecc1-00da-0107-a7f61bc63e6e",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_044",
+            "item_position": [
+                -257.01,
+                -108.56,
+                188.65
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 2633565801,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_12",
+            "guid": "8d3b31d2-9052-071d-334c-81df720d5209",
+            "item_id": 3213662355,
+            "item_object": "SpawnInfo_Mine_016",
+            "item_position": [
+                -264.11,
+                -111.36,
+                194.48
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4",
+            "room_hash": 4219446685,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_12",
+            "guid": "066b9d17-72ca-0e52-1638-ad0c6e50419e",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_060",
+            "item_position": [
+                -264.05,
+                -111.59,
+                192.17
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4",
+            "room_hash": 4219446685,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_12",
+            "guid": "347f1a5c-58f2-0756-2ca2-30e87cfc526f",
+            "item_id": 153626337,
+            "item_object": "SpawnInfo_Treasure_MachineryIronIngot_023",
+            "item_position": [
+                -263.22,
+                -109.95,
+                204.38
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4",
+            "room_hash": 4219446685,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_12",
+            "guid": "0302bb17-fcfc-0b70-1628-a66e68b957ae",
+            "item_id": 1731811000,
+            "item_object": "SpawnInfo_ShotGun_Bullet_040",
+            "item_position": [
+                -262.95,
+                -109.99,
+                206.21
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4",
+            "room_hash": 4219446685,
+            "spawned": false,
+            "stack": 2
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_12",
+            "guid": "5af25340-4d53-0c6e-2ca7-5665407ad1f9",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_059",
+            "item_position": [
+                -246.83,
+                -109.37,
+                183.45
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 2695329936,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_11",
+            "guid": "5923e9f9-5dff-0354-323b-a7bb047184bb",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfoRandomDrop_029",
+            "item_position": [
+                -227.54,
+                -115.04,
+                205.13
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - Salle des machines",
+            "room_hash": 3875048202,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_11",
+            "guid": "760c4607-4309-0201-079d-bf6e353603b4",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfoRandomDrop_002",
+            "item_position": [
+                -235.94,
+                -115.04,
+                225.84
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - Salle des machines",
+            "room_hash": 3875048202,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_11",
+            "guid": "7d2f6050-01dc-0353-3e35-30a983c04f69",
+            "item_id": 1927571624,
+            "item_object": "SpawnInfo_GrenadeLauncherExplosionBullet_003",
+            "item_position": [
+                -228.41,
+                -114.7,
+                200.17
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - Salle des machines",
+            "room_hash": 3875048202,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_10",
+            "guid": "dece337f-6853-09ea-2318-37f0df6df85d",
+            "item_id": 1583016682,
+            "item_object": "SpawnInfo_GrenadeLauncherFlashBullet_004",
+            "item_position": [
+                -220.11,
+                -105.39,
+                210.74
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 1287697169,
+            "spawned": false,
+            "stack": 3
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_10",
+            "guid": "5607e953-a2c6-0c94-2762-1d9879f2f8ab",
+            "item_id": 2549049308,
+            "item_object": "SpawnInfo_SmallKey_003",
+            "item_position": [
+                -222.67,
+                -105.52,
+                207.69
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 1287697169,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_10",
+            "guid": "687dd5da-b9ea-0bce-23a6-d2cc460826f1",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_002",
+            "item_position": [
+                -228.95,
+                -105.35,
+                214.09
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 1287697169,
+            "spawned": false,
+            "stack": 25
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_10",
+            "guid": "83dab3e8-c1c8-0bf7-0e57-d1fe637df104",
+            "item_id": 437981907,
+            "item_object": "SpawnInfo_PartsCase_LongMagazine_Magnum1_001",
+            "item_position": [
+                -221.17,
+                -105.32,
+                215.71
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 1287697169,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_10",
+            "guid": "a39df20d-7811-0eeb-3a16-e4e891904e6f",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_035",
+            "item_position": [
+                -222.27,
+                -105.53,
+                218.85
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 343766255,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_10",
+            "guid": "75df24f3-88b4-023d-1772-de310e63585d",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_033",
+            "item_position": [
+                -222.53,
+                -105.55,
+                219.31
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 343766255,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_10",
+            "guid": "bdd6eae5-774e-00e3-27fb-f48a1661a8da",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_034",
+            "item_position": [
+                -222.19,
+                -105.57,
+                220.12
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 343766255,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_10",
+            "guid": "254066ca-3494-0c82-361e-b5680dd86f53",
+            "item_id": 1743943559,
+            "item_object": "SpawnInfo_Treasure_MachineryRod_026",
+            "item_position": [
+                -225.24,
+                -105.48,
+                222.66
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 343766255,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_10",
+            "guid": "ab437119-6fb7-0702-2436-2b0bdfe52539",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_032",
+            "item_position": [
+                -228.75,
+                -105.38,
+                219.88
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 343766255,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_10",
+            "guid": "dac3048a-5f12-017c-03e5-f965c8043018",
+            "item_id": 2182652875,
+            "item_object": "SpawnInfo_Magnum_Bullet_068",
+            "item_position": [
+                -236.25,
+                -105.63,
+                225.34
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - Pièce d'Heisenberg",
+            "room_hash": 1273759539,
+            "spawned": false,
+            "stack": 4
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_10",
+            "guid": "1c00a6cc-8bc2-0468-167f-a6ba4a855cb6",
+            "item_id": 3919597625,
+            "item_object": "SpawnInfo_SniperRifleBullet_025",
+            "item_position": [
+                -231.55,
+                -105.57,
+                201.59
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 3424140951,
+            "spawned": false,
+            "stack": 3
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_10",
+            "guid": "f9191057-79ff-0ac3-1c4b-944706d4e00e",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_054",
+            "item_position": [
+                -232.5,
+                -105.52,
+                205.28
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 380995174,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_10",
+            "guid": "25f33b8c-5b82-0521-154b-e791de248af1",
+            "item_id": 3943127851,
+            "item_object": "SpawnInfo_Treasure_Ruby_058",
+            "item_position": [
+                -232.38,
+                -105.79,
+                192.18
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - Salle d'opération",
+            "room_hash": 2558989493,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_10",
+            "guid": "86c0677b-d097-06c3-212b-0ddf36348a62",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_039",
+            "item_position": [
+                -227.94,
+                -105.15,
+                194.84
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 52528447,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_09",
+            "guid": "4373fdfb-5b77-01b0-3499-98c79e85a2c8",
+            "item_id": 3196868754,
+            "item_object": "SpawnInfo_BaggedMoney_001",
+            "item_position": [
+                -256.81,
+                -109.29,
+                215.51
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 2266001250,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_09",
+            "guid": "b30f8134-244f-0744-10a4-8b3d8a648e4b",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfoRandomDrop_038",
+            "item_position": [
+                -256.98,
+                -108.38,
+                207.47
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 2266001250,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_09",
+            "guid": "b7c2b3e1-d66b-033c-0939-5a4779c53d78",
+            "item_id": 3943127851,
+            "item_object": "SpawnInfo_Treasure_RubyFallByAttack_004",
+            "item_position": [
+                -264.41,
+                -103.22,
+                217.89
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -3",
+            "room_hash": 3821743853,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_09",
+            "guid": "5f8a326e-a0eb-0e67-330c-e34ce302f08b",
+            "item_id": 526649991,
+            "item_object": "SpawnInfo_Material_ChemicalLiquid_017",
+            "item_position": [
+                -241.43,
+                -108.09,
+                213.69
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 2655372355,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_09",
+            "guid": "f72d25d3-6856-08ca-3c57-c8f36883c254",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_072",
+            "item_position": [
+                -250.07,
+                -108.57,
+                213.8
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - Fonderie",
+            "room_hash": 4196218238,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_01",
+            "guid": "1d3970ed-4868-088d-3003-c1a0f5e203d8",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfoRandomDrop_013",
+            "item_position": [
+                -243.04,
+                -109.35,
+                260.52
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4",
+            "room_hash": 3369677597,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_01",
+            "guid": "074799b0-c341-01d1-08e1-289e7ce25133",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_050",
+            "item_position": [
+                -277.73,
+                -109.46,
+                222.87
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4",
+            "room_hash": 2363416508,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_01",
+            "guid": "98374d3e-a72e-0c21-1239-49a1cebb8376",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_049",
+            "item_position": [
+                -244.63,
+                -108.43,
+                238.33
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4",
+            "room_hash": 652588379,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_01",
+            "guid": "68354f7f-03db-08cc-1793-94da07ebdeb3",
+            "item_id": 526649991,
+            "item_object": "SpawnInfo_Material_ChemicalLiquid_008",
+            "item_position": [
+                -236.33,
+                -108.19,
+                237.32
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4",
+            "room_hash": 3669532341,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_00",
+            "guid": "706ddee8-8d82-0e75-200b-3ff0a79ab6ee",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfoRandomDrop_001",
+            "item_position": [
+                -240.73,
+                -117.36,
+                264.0
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4",
+            "room_hash": 3836201313,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_00",
+            "guid": "2503e1aa-f8ca-011e-1490-09e6ec098758",
+            "item_id": 526649991,
+            "item_object": "SpawnInfo_Material_ChemicalLiquid_014",
+            "item_position": [
+                -213.72,
+                -34.71,
+                280.94
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - 0",
+            "room_hash": 220429645,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_00",
+            "guid": "352c03f9-1883-0087-274e-250ef4037a64",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_013",
+            "item_position": [
+                -223.29,
+                -30.23,
+                259.02
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - Garage",
+            "room_hash": 3734725067,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_00",
+            "guid": "da44f95f-ddc1-003f-262a-d52644e29c64",
+            "item_id": 3397831806,
+            "item_object": "SpawnInfo_Material_ScrapB_012",
+            "item_position": [
+                -213.59,
+                -30.9,
+                259.1
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_00",
+            "guid": "51988aab-143c-0efd-001b-4ef087efd9bb",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_011",
+            "item_position": [
+                -218.74,
+                -30.81,
+                241.33
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_00",
+            "guid": "7ca5148a-84e3-0f1a-2098-ae65fe086beb",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_008",
+            "item_position": [
+                -232.36,
+                -122.94,
+                275.83
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4",
+            "room_hash": 3836201313,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_00",
+            "guid": "4b98b748-712f-06b7-0f91-a5ef0824cd91",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_006",
+            "item_position": [
+                -246.75,
+                -122.47,
+                279.76
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4",
+            "room_hash": 3836201313,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_00",
+            "guid": "248b9c49-2737-02cb-27c8-ea0a69aa6025",
+            "item_id": 3397831806,
+            "item_object": "SpawnInfo_Material_ScrapB_005",
+            "item_position": [
+                -241.2,
+                -121.07,
+                282.04
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4",
+            "room_hash": 3836201313,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_00",
+            "guid": "2d033acd-7299-03fb-1ffd-adaa4ba406ce",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_004",
+            "item_position": [
+                -234.86,
+                -124.83,
+                280.22
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4",
+            "room_hash": 3836201313,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource/st06_ItemSet_Resource_Separetor_00",
+            "guid": "0659992b-0147-075b-36e4-ab3bf2af1776",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_003",
+            "item_position": [
+                -238.66,
+                -125.64,
+                269.64
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4",
+            "room_hash": 3836201313,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource",
+            "guid": "7bcd8b70-9e1e-0345-1cce-1e52f6ee02ea",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfo_EmDrop_09",
+            "item_position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource",
+            "guid": "e38709d6-f1dc-0188-11f4-f01d6e6427df",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfo_EmDrop_08",
+            "item_position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource",
+            "guid": "85eb2ef5-adfd-0c17-22d7-cf47acfe9bdf",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfo_EmDrop_07",
+            "item_position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource",
+            "guid": "6ccf2f8f-bce2-0344-3cb0-40009d3a94dd",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfo_EmDrop_06",
+            "item_position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource",
+            "guid": "13536ecb-970a-0762-0d68-598f48c3918b",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfo_EmDrop_05",
+            "item_position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource",
+            "guid": "878b5aef-c09c-0312-2263-d2154b6b702a",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfo_EmDrop_04",
+            "item_position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource",
+            "guid": "27ba9129-634b-024b-3701-d2104d7a6062",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfo_EmDrop_03",
+            "item_position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource",
+            "guid": "3c6c3de0-7663-0f20-3dee-50924db6c7af",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfo_EmDrop_02",
+            "item_position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource",
+            "guid": "39ea2bd9-977d-0d61-193b-2ae3a815f858",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfo_EmDrop_01",
+            "item_position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_Resource",
+            "guid": "442929e9-82bd-4366-99e7-6377fcff2cf2",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfo_EmDrop_00",
+            "item_position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_KeyItem",
+            "guid": "fbe686d8-24e2-01ba-327f-7c06723cf4ac",
+            "item_id": 696489800,
+            "item_object": "SpawnInfo_Treasure_GeekShard_013",
+            "item_position": [
+                -242.92,
+                -109.13,
+                235.73
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4",
+            "room_hash": 652588379,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_KeyItem",
+            "guid": "dac33622-f399-0f04-297b-dc3111924e95",
+            "item_id": 1895922302,
+            "item_object": "SpawnInfo_GeekMoldGeekBallPuzzleBall_011",
+            "item_position": [
+                -208.42,
+                -74.58,
+                331.59
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - Broyeur",
+            "room_hash": 1690688364,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_KeyItem",
+            "guid": "b5e1e10e-6746-0c4a-13bd-f2f42043c60a",
+            "item_id": 2319956405,
+            "item_object": "SpawnInfo_GeekMapLater_010",
+            "item_position": [
+                -218.85,
+                -74.3,
+                338.59
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -2",
+            "room_hash": 2313696909,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_KeyItem",
+            "guid": "541460ef-98ab-0f76-23b2-291114fa8fcb",
+            "item_id": 2240085143,
+            "item_object": "SpawnInfo_GeekMap_009",
+            "item_position": [
+                -254.83,
+                -108.42,
+                188.07
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 2633565801,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_KeyItem",
+            "guid": "e3d4bbec-5d19-035c-216c-f63b7244988e",
+            "item_id": 815655584,
+            "item_object": "SpawnInfo_GeekGeekBallPuzzleBall_008",
+            "item_position": [
+                -242.51,
+                -108.37,
+                209.5
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 2655372355,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_KeyItem",
+            "guid": "a554ff31-4788-008f-0665-6ccc52657966",
+            "item_id": 1152567186,
+            "item_object": "SpawnInfo_GeekRelief_007",
+            "item_position": [
+                -242.51,
+                -108.39,
+                209.5
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 2655372355,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_KeyItem",
+            "guid": "698880de-2775-0278-3b2a-6cc0929ec40e",
+            "item_id": 4041096499,
+            "item_object": "SpawnInfo_GeekGeekKey_006",
+            "item_position": [
+                -242.51,
+                -108.37,
+                209.5
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 2655372355,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_KeyItem",
+            "guid": "2f74af30-3f32-0904-39a5-2a3b8ccc9817",
+            "item_id": 1858058345,
+            "item_object": "SpawnInfo_GeekGear_005",
+            "item_position": [
+                -242.51,
+                -108.36,
+                209.5
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 2655372355,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_KeyItem",
+            "guid": "943f9fd7-ab2c-0cd6-3674-db87212aac71",
+            "item_id": 1876186812,
+            "item_object": "SpawnInfo_GeekMoldGeekKey_003",
+            "item_position": [
+                -266.13,
+                -45.44,
+                273.51
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -1",
+            "room_hash": 4069580511,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_KeyItem",
+            "guid": "35adb6c9-c022-023c-3294-cf431b9fcb31",
+            "item_id": 1629499072,
+            "item_object": "SpawnInfo_GeekMoldGear_002",
+            "item_position": [
+                -254.42,
+                -108.4,
+                179.58
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 1151869286,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_KeyItem",
+            "guid": "ae587be6-8372-0537-2e22-9ffa94807a4f",
+            "item_id": 1911895058,
+            "item_object": "SpawnInfo_GeekMoldRelief_001",
+            "item_position": [
+                -227.51,
+                -105.43,
+                207.31
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room": "Usine d'Heisenberg - -4B",
+            "room_hash": 380995174,
+            "spawned": false,
+            "stack": 1
+        }
+    ]
+}

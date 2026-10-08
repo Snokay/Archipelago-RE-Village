@@ -1,0 +1,77 @@
+{
+    "Salle des statues (vin à poser)": [
+        {
+            "chapter": "Chapter2_2",
+            "pos": [
+                -10.332249641418457,
+                -8.678537368774414,
+                -11.91933536529541
+            ],
+            "r": 2.0,
+            "note": "devant la double porte de la zone de Dimitrescu (cinématique avec Dimitrescu, puis salle des statues), relevé le 2026-10-07"
+        }
+    ],
+    "Cachots du château": [
+        {
+            "chapter": "Chapter2_2",
+            "pos": [
+                -22.82220458984375,
+                -21.25880241394043,
+                -16.09630012512207
+            ],
+            "r": 1.5,
+            "note": "devant le levier des cachots (avant la course-poursuite avec Dimitrescu), relevé le 2026-10-07"
+        }
+    ],
+    "Château Dimitrescu": [
+        {
+            "chapter": "Chapter2_2",
+            "pos": [
+                -91.55392456054688,
+                -11.905858039855957,
+                -30.04820442199707
+            ],
+            "r": 1.5,
+            "note": "juste après la porte des masques, avant le combat final contre Dimitrescu, relevé le 2026-10-07"
+        }
+    ],
+    "Passage souterrain": [
+        {
+            "chapter": "Chapter2_1",
+            "pos": [
+                23.107593536376953,
+                -30.222761154174805,
+                -1.0331504344940186
+            ],
+            "r": 1.5,
+            "note": "porte du passage souterrain, relevé par le joueur le 2026-10-08 (dernier)"
+        }
+    ],
+    "Vignes du château": [
+        {
+            "chapter": "Chapter2_2",
+            "pos": [
+                -54.693634033203125,
+                -9.978708267211914,
+                6.679338455200195
+            ],
+            "r": 1.5,
+            "note": "entrée du château côté vignes, relevé par le joueur le 2026-10-08 02:10"
+        }
+    ],
+    "Porte de la Bague": [
+        {
+            "chapter": "Chapter2_2",
+            "pos": [
+                -76.63960266113281,
+                -11.992083549499512,
+                -41.82605743408203
+            ],
+            "r": 1.5,
+            "requires": [
+                "Ferraille #001 [S01]"
+            ],
+            "note": "porte qui s'ouvre au ramassage de la Bague, côté Ferraille #001 [S01], relevé le 2026-10-08"
+        }
+    ]
+}

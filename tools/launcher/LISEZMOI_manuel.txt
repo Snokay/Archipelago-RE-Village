@@ -1,0 +1,58 @@
+RE Village Archipelago {version} - installation manuelle (sans launcher)
+=======================================================================
+(English below)
+
+Le plus simple reste le launcher (RE_Village_Archipelago_{version}_launcher.zip) : il fait tout
+seul les étapes ci-dessous. Cette version est pour ceux qui préfèrent installer à la main.
+
+1. Ferme le jeu.
+2. REFramework : s'il n'est pas déjà installé (pas de dinput8.dll à côté de re8.exe), copie
+   REFramework\dinput8.dll dans le dossier du jeu. Lance le jeu une fois puis ferme-le (REFramework
+   crée alors re2_fw_config.txt).
+3. Copie tout le contenu du dossier « jeu » dans le dossier du jeu (là où se trouve re8.exe), en
+   acceptant de fusionner les dossiers.
+   Dossier du jeu Steam : clic droit sur le jeu > Gérer > Parcourir les fichiers locaux.
+   Note : re_chunk_000.pak.patch_014.pak suit les 13 patchs du jeu. Si un fichier de ce nom existe
+   déjà (autre mod), renomme le nôtre au premier numéro libre (patch_015, ...).
+4. Ouvre re2_fw_config.txt (dossier du jeu) et mets la ligne LooseFileLoader_Enabled=true
+   (ajoute-la si elle n'existe pas).
+5. Pour héberger / générer une partie : copie residentevilvillage.apworld (dossier apworld_FR pour
+   les noms d'objets et de checks en français, apworld_EN pour l'anglais) dans le dossier
+   custom_worlds de ton installation d'Archipelago. Pour seulement jouer, inutile. Les YAML
+   marchent avec les deux versions.
+6. En jeu : touche Inser (menu REFramework) > « Script Generated UI » > « RE Village Archipelago ».
+   Entre l'adresse de la room (ex. archipelago.gg:38281), ton nom de slot et le mot de passe
+   (s'il y en a un), puis « Se connecter ». Ils sont gardés : ensuite, le jeu se connecte tout
+   seul à chaque lancement.
+
+Désinstaller : supprime lua-apclientpp.dll, re_chunk_000.pak.patch_014.pak, le dossier natives,
+reframework\autorun\re_village_ap_client.lua, reframework\autorun\re_village_ap et
+reframework\data\re_village_ap_client.
+
+-----------------------------------------------------------------------
+
+RE Village Archipelago {version} - manual install (without the launcher)
+
+The launcher (RE_Village_Archipelago_{version}_launcher.zip) does all of this for you. This
+version is for people who prefer to install by hand.
+
+1. Close the game.
+2. REFramework: if it is not installed yet (no dinput8.dll next to re8.exe), copy
+   REFramework\dinput8.dll into the game folder. Start the game once, then close it (REFramework
+   then creates re2_fw_config.txt).
+3. Copy everything inside the "jeu" folder into the game folder (where re8.exe is), merging folders.
+   Steam game folder: right click the game > Manage > Browse local files.
+   Note: re_chunk_000.pak.patch_014.pak follows the game's 13 patches. If a file with that name
+   already exists (another mod), rename ours to the first free number (patch_015, ...).
+4. Open re2_fw_config.txt (game folder) and set the line LooseFileLoader_Enabled=true (add it if
+   it is missing).
+5. To host / generate a game: copy residentevilvillage.apworld (apworld_EN folder for English
+   item and check names, apworld_FR for French) into the custom_worlds folder of your Archipelago
+   install. Not needed to just play. YAML files work with both versions.
+6. In game: Insert key (REFramework menu) > "Script Generated UI" > "RE Village Archipelago".
+   Enter the room address (e.g. archipelago.gg:38281), your slot name and the password (if any),
+   then "Connect". They are kept: afterwards, the game connects by itself at every start.
+
+Uninstall: delete lua-apclientpp.dll, re_chunk_000.pak.patch_014.pak, the natives folder,
+reframework\autorun\re_village_ap_client.lua, reframework\autorun\re_village_ap and
+reframework\data\re_village_ap_client.

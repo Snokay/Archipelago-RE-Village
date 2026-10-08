@@ -1,0 +1,34 @@
+[
+ {
+  "from": "Menu",
+  "to": "Village"
+ },
+ {
+  "from": "Village",
+  "to": "Chateau Dimitrescu"
+ },
+ {
+  "from": "Village",
+  "to": "Maison Beneviento"
+ },
+ {
+  "from": "Village",
+  "to": "Reservoir"
+ },
+ {
+  "from": "Village",
+  "to": "Usine Heisenberg"
+ },
+ {
+  "from": "Village",
+  "to": "Chris"
+ },
+ {
+  "from": "Village",
+  "to": "Fin du jeu"
+ },
+ {
+  "from": "Village",
+  "to": "Boutique du Duc"
+ }
+]

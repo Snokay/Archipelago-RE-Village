@@ -1,0 +1,22 @@
+[
+    {
+        "hash": 2081395632,
+        "name": "Facile",
+        "order": 0
+    },
+    {
+        "hash": 1948795948,
+        "name": "Standard",
+        "order": 1
+    },
+    {
+        "hash": 4054003385,
+        "name": "Hardcore",
+        "order": 2
+    },
+    {
+        "hash": 3214231311,
+        "name": "Village des ombres",
+        "order": 3
+    }
+]

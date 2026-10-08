@@ -1,0 +1,122 @@
+{
+    "1011080918": {
+        "completed": false,
+        "content": "Des rouleaux de chou supérieur farcis d'un poisson\r\nrare que l'on ne trouve que dans cette région.\r\n\r\nSi légers qu'ils donnent au corps une sensation d'apesanteur.",
+        "materials": [
+            {
+                "ItemID": 471813919,
+                "Value": 6
+            },
+            {
+                "ItemID": 3524738970,
+                "Value": 1
+            }
+        ],
+        "reward_money": 35000,
+        "reward_text": "Augmente votre vitesse de déplacement.\r\n(Effet permanent)",
+        "seen": true,
+        "title": "Sarmale de peste"
+    },
+    "1116309985": {
+        "completed": false,
+        "content": "Un ragoût savoureux avec la viande juteuse d'un\r\noiseau rare que l'on ne trouve que dans cette région.\r\n\r\nConnu pour renforcer la vitalité.",
+        "materials": [
+            {
+                "ItemID": 3556586016,
+                "Value": 4
+            },
+            {
+                "ItemID": 3069621231,
+                "Value": 3
+            },
+            {
+                "ItemID": 2615454163,
+                "Value": 1
+            }
+        ],
+        "reward_money": 10000,
+        "reward_text": "Augmente grandement votre vie.\r\n(Effet permanent)",
+        "seen": false,
+        "title": "Tochitura de pui"
+    },
+    "1376849669": {
+        "completed": false,
+        "content": "De délicieuses galettes de volaille, de poisson\r\net de viande. Un plat local très nourrissant.\r\n\r\nUne seule bouchée suffit à se sentir revigoré.",
+        "materials": [
+            {
+                "ItemID": 471813919,
+                "Value": 4
+            },
+            {
+                "ItemID": 3556586016,
+                "Value": 2
+            },
+            {
+                "ItemID": 3069621231,
+                "Value": 3
+            }
+        ],
+        "reward_money": 7000,
+        "reward_text": "Augmente votre vie.\r\n(Effet permanent)",
+        "seen": false,
+        "title": "Mititei aux trois saveurs"
+    },
+    "225784948": {
+        "completed": false,
+        "content": "Un plat composé de volaille et de viande cuites\r\ndans du riz et du bouillon pour un repas solide.\r\n\r\nDe quoi rendre votre corps plus robuste.",
+        "materials": [
+            {
+                "ItemID": 3556586016,
+                "Value": 4
+            },
+            {
+                "ItemID": 3069621231,
+                "Value": 1
+            }
+        ],
+        "reward_money": 5000,
+        "reward_text": "Réduit les dégâts subis lorsque vous vous protégez.\r\n(Effet permanent)",
+        "seen": false,
+        "title": "Pilaf complet"
+    },
+    "3523218967": {
+        "completed": false,
+        "content": "Un savoureux potage avec une viande de haute\r\nqualité que l'on ne trouve que dans cette région.\r\n\r\nRiche en protéines pour un corps en béton.",
+        "materials": [
+            {
+                "ItemID": 471813919,
+                "Value": 1
+            },
+            {
+                "ItemID": 3069621231,
+                "Value": 5
+            },
+            {
+                "ItemID": 3577251366,
+                "Value": 1
+            }
+        ],
+        "reward_money": 30000,
+        "reward_text": "Réduit grandement les dégâts subis lorsque vous vous protégez.\r\n(Effet permanent)",
+        "seen": false,
+        "title": "Ciorba de porc"
+    },
+    "4293784029": {
+        "completed": false,
+        "content": "Un poisson pané aux herbes, floconneux et succulent.\r\n\r\nGoûtez-y pour vous sentir en meilleure santé.",
+        "materials": [
+            {
+                "ItemID": 471813919,
+                "Value": 3
+            },
+            {
+                "ItemID": 3556586016,
+                "Value": 2
+            }
+        ],
+        "reward_money": 3000,
+        "reward_text": "Augmente légèrement votre vie.\r\n(Effet permanent)",
+        "seen": false,
+        "title": "Poisson aux herbes"
+    }
+}

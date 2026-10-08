@@ -1,0 +1,1461 @@
+{
+"detailsearch": [
+"ri1020",
+"ri1022",
+"ri1030",
+"ri1031",
+"ri1032",
+"ri1034",
+"ri1035",
+"ri1036",
+"ri1037",
+"ri1038",
+"ri1039",
+"ri1040",
+"ri1043",
+"ri1044",
+"ri2010",
+"ri2020",
+"ri2030",
+"ri2031",
+"ri2040",
+"ri2041",
+"ri2042",
+"ri2043",
+"ri2045",
+"ri2050",
+"ri2051",
+"ri2052",
+"ri2053",
+"ri2054",
+"ri2055",
+"ri2056",
+"ri2058",
+"ri2059",
+"ri2064",
+"ri2065",
+"ri2066",
+"ri2068",
+"ri3008",
+"ri3021",
+"ri3022",
+"ri3023",
+"ri3036",
+"ri3040",
+"ri3042",
+"ri3043",
+"ri3044",
+"ri3046",
+"ri3047",
+"ri3048",
+"ri3049",
+"ri3050",
+"ri3051",
+"ri3058",
+"ri3081",
+"ri3082",
+"ri3083",
+"ri3084",
+"ri3085",
+"ri3086",
+"ri3087",
+"ri3093",
+"ri3094",
+"ri3095",
+"ri3096",
+"ri3112",
+"ri3113",
+"ri3114",
+"ri3115",
+"ri3116",
+"ri3117",
+"ri3118",
+"ri3121",
+"ri3122",
+"ri3123",
+"ri3124",
+"ri3125",
+"ri3127",
+"ri3128",
+"ri3129",
+"ri3130",
+"ri3131",
+"ri3132",
+"ri3133",
+"ri3134",
+"ri3135",
+"ri3136",
+"ri3138",
+"ri3139",
+"ri3140",
+"ri3141",
+"ri3143",
+"ri3147",
+"ri3149",
+"ri3151",
+"ri5001",
+"ri5002",
+"ri5003",
+"ri5007",
+"ri5030",
+"ri5031",
+"ri5033",
+"ri5035",
+"ri5036",
+"ri5037",
+"ri5038",
+"ri5039",
+"ri5040",
+"ri5045",
+"ri5048",
+"ri5049",
+"ri5050",
+"ri5051",
+"ri5052",
+"ri5056",
+"ri5057",
+"ri5062",
+"ri5067",
+"ri5072",
+"ri5073",
+"ri5074",
+"ri5075",
+"ri5076",
+"ri5077",
+"ri5078",
+"ri5079",
+"ri5080",
+"ri5081",
+"ri5082",
+"ri5083",
+"ri5088",
+"ri5090",
+"ri5091",
+"ri5092",
+"ri5093",
+"ri5094",
+"ri5096",
+"ri5105",
+"ri5106",
+"ri5107",
+"ri5108",
+"ri5109",
+"ri5110",
+"ri5112",
+"ri5113",
+"ri5114",
+"ri5116",
+"ri5117",
+"ri5118",
+"ri5119",
+"ri5120",
+"ri5121",
+"ri5122",
+"ri5123",
+"ri5124",
+"ri5125",
+"ri5126",
+"ri5127",
+"ri5128",
+"ri5129",
+"ri5130",
+"ri5137",
+"ri5138",
+"ri5139",
+"ri5140",
+"ri5141",
+"ri5142",
+"ri5143",
+"ri5144",
+"ri5145",
+"ri5146",
+"ri5147",
+"ri5149",
+"ri5150",
+"ri5151",
+"ri5152",
+"ri5153",
+"ri5154",
+"ri5155",
+"ri5156",
+"ri5157",
+"ri5158",
+"ri5160",
+"ri5161",
+"ri5162",
+"ri5163",
+"ri5165",
+"ri5166",
+"ri5167",
+"ri5168",
+"ri5169",
+"ri5170",
+"ri5171",
+"ri5172",
+"ri5173",
+"ri5174",
+"ri5175",
+"ri5176",
+"ri5177",
+"ri5178",
+"ri5179",
+"ri5180",
+"ri5181",
+"ri5182",
+"ri5183",
+"ri5184",
+"ri5185",
+"ri5187",
+"ri5188",
+"ri5189",
+"ri5190",
+"ri5191",
+"ri5192",
+"ri5193",
+"ri5194",
+"ri5195",
+"ri5196",
+"ri5197",
+"ri5200",
+"ri5201",
+"ri5202",
+"ri5203",
+"ri5204",
+"ri5210",
+"ri5211",
+"ri5212",
+"ri5302",
+"ri5303",
+"ri5304",
+"ri5305",
+"ri5306",
+"ri5307",
+"ri5308",
+"ri5310",
+"ri5311",
+"ri5312",
+"ri5313",
+"ri5317",
+"ri5318",
+"ri5319",
+"ri5320",
+"ri5321",
+"ri5322",
+"ri5323",
+"ri5324",
+"ri5325",
+"ri5326",
+"ri5327",
+"ri5329",
+"ri5330",
+"ri5331",
+"ri5332",
+"ri5333",
+"ri5334",
+"ri5335",
+"ri7000",
+"ri7001",
+"ri7002",
+"ri7003",
+"ri7005",
+"ri7007",
+"ri7008",
+"ri7010",
+"ri7012",
+"ri7013",
+"ri7014",
+"ri7015",
+"ri7016",
+"ri7022",
+"ri7023",
+"ri7025",
+"ri7026",
+"ri7027",
+"ri7028",
+"ri7029",
+"ri7030",
+"ri7031",
+"ri7032",
+"ri7033",
+"ri7500",
+"ri7501",
+"ri8000",
+"ri8009",
+"ri8010",
+"ri8011",
+"ri8013",
+"ri8014",
+"ri8015",
+"ri8016",
+"ri8017",
+"ri8018",
+"ri8038",
+"ri8045"
+],
+"models": {
+"ri1020": {
+"mesh": "Character/It/it04/000/it04_000_AntisepticSolution_Medium",
+"mdf": "Character/It/it04/000/it04_000_AntisepticSolution_Medium"
+},
+"ri1022": {
+"mesh": "Character/It/it04/002/it04_002_AntisepticSolution_Chris",
+"mdf": "Character/It/it04/002/it04_002_AntisepticSolution_Chris"
+},
+"ri1030": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_021_FoodstuffA/sm92_021_FoodstuffA_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_021_FoodstuffA/sm92_021_FoodstuffA_00"
+},
+"ri1031": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_022_FoodstuffB/sm92_022_FoodstuffB_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_022_FoodstuffB/sm92_022_FoodstuffB_00"
+},
+"ri1032": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_023_FoodstuffC/sm92_023_FoodstuffC_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_023_FoodstuffC/sm92_023_FoodstuffC_00"
+},
+"ri1034": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_024_FoodstuffD/sm92_024_FoodstuffD_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_024_FoodstuffD/sm92_024_FoodstuffD_00"
+},
+"ri1035": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_025_FoodstuffE/sm92_025_FoodstuffE_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_025_FoodstuffE/sm92_025_FoodstuffE_00"
+},
+"ri1036": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_026_FoodstuffF/sm92_026_FoodstuffF_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_026_FoodstuffF/sm92_026_FoodstuffF_00"
+},
+"ri1037": {
+"mesh": "Character/It/it06/062/it06_062_Prop_Itemset",
+"mdf": "Character/It/it06/062/it06_062_Prop_Itemset"
+},
+"ri1038": {
+"mesh": "Character/It/it04/000/it04_000_AntisepticSolution_Medium",
+"mdf": "Character/It/it04/000/it04_000_AntisepticSolution_Medium"
+},
+"ri1039": {
+"mesh": "Character/It/it04/002/it04_002_AntisepticSolution_Chris",
+"mdf": "Character/It/it04/002/it04_002_AntisepticSolution_Chris"
+},
+"ri1040": {
+"mesh": "Character/It/it04/000/it04_000_AntisepticSolution_Medium",
+"mdf": "Character/It/it04/000/it04_000_AntisepticSolution_Medium"
+},
+"ri1043": {
+"mesh": "_GE/Character/It/it04/021/it04_021_Herb_White",
+"mdf": "_GE/Character/It/it04/021/it04_021_Herb_White"
+},
+"ri1044": {
+"mesh": "_GE/Character/It/it06/129/it06_129_Prop_Herb_BigWhite",
+"mdf": "_GE/Character/It/it06/129/it06_129_Prop_Herb_BigWhite"
+},
+"ri2010": {
+"mesh": "Character/It/it03/000/it03_000_HandgunBullet_Standard",
+"mdf": "Character/It/it03/000/it03_000_HandgunBullet_Standard"
+},
+"ri2020": {
+"mesh": "Character/It/it03/020/it03_020_ShotgunBullet_Standard",
+"mdf": "Character/It/it03/020/it03_020_ShotgunBullet_Standard"
+},
+"ri2030": {
+"mesh": "Character/It/it03/041/it03_041_GrenadelauncherBullet_Flash",
+"mdf": "Character/It/it03/041/it03_041_GrenadelauncherBullet_Flash"
+},
+"ri2031": {
+"mesh": "Character/It/it03/560/it03_560_LycanArrow_Effect",
+"mdf": "Character/It/it03/560/it03_560_LycanArrow_Effect"
+},
+"ri2040": {
+"mesh": "Character/It/it03/030/it03_030_SniperrifleBullet_Standard",
+"mdf": "Character/It/it03/030/it03_030_SniperrifleBullet_Standard"
+},
+"ri2041": {
+"mesh": "Character/It/it03/010/it03_010_MachinegunBullet_Standard",
+"mdf": "Character/It/it03/010/it03_010_MachinegunBullet_Standard"
+},
+"ri2042": {
+"mesh": "Character/It/it03/041/it03_041_GrenadelauncherBullet_Flash",
+"mdf": "Character/It/it03/040/it03_040_GrenadelauncherBullet_Standard"
+},
+"ri2043": {
+"mesh": "Character/It/it03/050/it03_050_SilverBullet_Standard",
+"mdf": "Character/It/it03/050/it03_050_SilverBullet_Standard"
+},
+"ri2045": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_083_MiniKey/sm90_083_MiniKey_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_083_MiniKey/sm90_083_MiniKey_00"
+},
+"ri2050": {
+"mesh": "Character/It/it03/005/it03_005_GyrojetBullet_Standard",
+"mdf": "Character/It/it03/005/it03_005_GyrojetBullet_Standard"
+},
+"ri2051": {
+"mesh": "Character/It/it03/000/it03_000_HandgunBullet_Standard",
+"mdf": "Character/It/it03/000/it03_000_HandgunBullet_Standard"
+},
+"ri2052": {
+"mesh": "Character/It/it03/020/it03_020_ShotgunBullet_Standard",
+"mdf": "Character/It/it03/020/it03_020_ShotgunBullet_Standard"
+},
+"ri2053": {
+"mesh": "Character/It/it03/030/it03_030_SniperrifleBullet_Standard",
+"mdf": "Character/It/it03/030/it03_030_SniperrifleBullet_Standard"
+},
+"ri2054": {
+"mesh": "Character/It/it03/050/it03_050_SilverBullet_Standard",
+"mdf": "Character/It/it03/050/it03_050_SilverBullet_Standard"
+},
+"ri2055": {
+"mesh": "Character/It/it03/041/it03_041_GrenadelauncherBullet_Flash",
+"mdf": "Character/It/it03/040/it03_040_GrenadelauncherBullet_Standard"
+},
+"ri2056": {
+"mesh": "Character/It/it03/041/it03_041_GrenadelauncherBullet_Flash",
+"mdf": "Character/It/it03/041/it03_041_GrenadelauncherBullet_Flash"
+},
+"ri2058": {
+"mesh": "Character/It/it03/010/it03_010_MachinegunBullet_Standard",
+"mdf": "Character/It/it03/010/it03_010_MachinegunBullet_Standard"
+},
+"ri2059": {
+"mesh": "Character/It/it03/030/it03_030_SniperrifleBullet_Standard",
+"mdf": "Character/It/it03/030/it03_030_SniperrifleBullet_Standard"
+},
+"ri2064": {
+"mesh": "Character/It/it03/000/it03_000_HandgunBullet_Standard",
+"mdf": "Character/It/it03/000/it03_000_HandgunBullet_Standard"
+},
+"ri2065": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_012_WineBottle/sm90_012_WineBottle_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_012_WineBottle/sm90_012_WineBottle_00"
+},
+"ri2066": {
+"mesh": "Character/It/it03/020/it03_020_ShotgunBullet_Standard",
+"mdf": "Character/It/it03/020/it03_020_ShotgunBullet_Standard"
+},
+"ri2068": {
+"mesh": "Character/It/it06/022/it06_022_Prop_Lipstick",
+"mdf": "Character/It/it06/022/it06_022_Prop_Lipstick"
+},
+"ri3008": {
+"mesh": "Character/It/it02/040/it02_040_SilverBullet_01",
+"mdf": "Character/It/it02/040/it02_040_SilverBullet_01"
+},
+"ri3021": {
+"mesh": "Character/It/it02/021/it02_021_Shotgun_02",
+"mdf": "Character/It/it02/021/it02_021_Shotgun_02"
+},
+"ri3022": {
+"mesh": "Character/It/it01/000/it01_000_Blade_Knife",
+"mdf": "Character/It/it01/000/it01_000_Blade_Knife"
+},
+"ri3023": {
+"mesh": "Character/It/it02/080/it02_080_Grenadelauncher_Antique",
+"mdf": "Character/It/it02/080/it02_080_Grenadelauncher_Antique"
+},
+"ri3036": {
+"mesh": "Character/It/it02/020/it02_020_Shotgun_01",
+"mdf": "Character/It/it02/020/it02_020_Shotgun_01"
+},
+"ri3040": {
+"mesh": "Character/It/it02/001/it02_001_Handgun_02",
+"mdf": "Character/It/it02/001/it02_001_Handgun_02"
+},
+"ri3042": {
+"mesh": "Character/It/it02/070/it02_070_Sniperrifle_01",
+"mdf": "Character/It/it02/070/it02_070_Sniperrifle_01"
+},
+"ri3043": {
+"mesh": "Character/It/it02/060/it02_060_Machinegun_01",
+"mdf": "Character/It/it02/060/it02_060_Machinegun_01"
+},
+"ri3044": {
+"mesh": "Character/It/it01/300/it01_300_Bomb_Dynamite",
+"mdf": "Character/It/it01/300/it01_300_Bomb_Dynamite"
+},
+"ri3046": {
+"mesh": "Character/It/it02/000/it02_000_Handgun_01",
+"mdf": "Character/It/it02/000/it02_000_Handgun_01"
+},
+"ri3047": {
+"mesh": "Character/It/it02/002/it02_002_Handgun_03",
+"mdf": "Character/It/it02/002/it02_002_Handgun_03"
+},
+"ri3048": {
+"mesh": "Character/It/it02/022/it02_022_Shotgun_03",
+"mdf": "Character/It/it02/022/it02_022_Shotgun_03"
+},
+"ri3049": {
+"mesh": "Character/It/it02/060/it02_060_Machinegun_01",
+"mdf": "Character/It/it02/060/it02_060_Machinegun_01"
+},
+"ri3050": {
+"mesh": "Character/It/it02/041/it02_041_SilverBullet_02",
+"mdf": "Character/It/it02/041/it02_041_SilverBullet_02"
+},
+"ri3051": {
+"mesh": "Character/It/it01/301/it01_301_Bomb_Mine",
+"mdf": "Character/It/it01/301/it01_301_Bomb_Mine"
+},
+"ri3058": {
+"mesh": "Character/It/it01/302/it01_302_Bomb_Flash",
+"mdf": "Character/It/it01/302/it01_302_Bomb_Flash"
+},
+"ri3081": {
+"mesh": "Character/It/it02/000/it02_000_Handgun_01",
+"mdf": "Character/It/it02/000/it02_000_Handgun_01"
+},
+"ri3082": {
+"mesh": "Character/It/it02/001/it02_001_Handgun_02",
+"mdf": "Character/It/it02/001/it02_001_Handgun_02"
+},
+"ri3083": {
+"mesh": "Character/It/it02/002/it02_002_Handgun_03",
+"mdf": "Character/It/it02/002/it02_002_Handgun_03"
+},
+"ri3084": {
+"mesh": "Character/It/it02/020/it02_020_Shotgun_01",
+"mdf": "Character/It/it02/020/it02_020_Shotgun_01"
+},
+"ri3085": {
+"mesh": "Character/It/it02/021/it02_021_Shotgun_02",
+"mdf": "Character/It/it02/021/it02_021_Shotgun_02"
+},
+"ri3086": {
+"mesh": "Character/It/it02/022/it02_022_Shotgun_03",
+"mdf": "Character/It/it02/022/it02_022_Shotgun_03"
+},
+"ri3087": {
+"mesh": "Character/It/it02/070/it02_070_Sniperrifle_01",
+"mdf": "Character/It/it02/070/it02_070_Sniperrifle_01"
+},
+"ri3093": {
+"mesh": "Character/It/it02/080/it02_080_Grenadelauncher_Antique",
+"mdf": "Character/It/it02/080/it02_080_Grenadelauncher_Antique"
+},
+"ri3094": {
+"mesh": "Character/It/it02/040/it02_040_SilverBullet_01",
+"mdf": "Character/It/it02/040/it02_040_SilverBullet_01"
+},
+"ri3095": {
+"mesh": "Character/It/it01/301/it01_301_Bomb_Mine",
+"mdf": "Character/It/it01/301/it01_301_Bomb_Mine"
+},
+"ri3096": {
+"mesh": "Character/It/it01/300/it01_300_Bomb_Dynamite",
+"mdf": "Character/It/it01/300/it01_300_Bomb_Dynamite"
+},
+"ri3112": {
+"mesh": "Character/It/it01/025/it01_025_Blade_ChrisKnife",
+"mdf": "Character/It/it01/025/it01_025_Blade_ChrisKnife"
+},
+"ri3113": {
+"mesh": "Character/It/it02/065/it02_065_Machinegun_HoundWolf01",
+"mdf": "Character/It/it02/065/it02_065_Machinegun_HoundWolf01"
+},
+"ri3114": {
+"mesh": "Character/It/it02/050/it02_050_Special_LaserMarker",
+"mdf": "Character/It/it02/050/it02_050_Special_LaserMarker"
+},
+"ri3115": {
+"mesh": "Character/It/it02/010/it02_010_Gyrojet_Pistol",
+"mdf": "Character/It/it02/010/it02_010_Gyrojet_Pistol"
+},
+"ri3116": {
+"mesh": "Character/It/it02/071/it02_071_Sniperrifle_Magnum",
+"mdf": "Character/It/it02/071/it02_071_Sniperrifle_Magnum"
+},
+"ri3117": {
+"mesh": "Character/It/it02/005/it02_005_Handgun_Chris",
+"mdf": "Character/It/it02/005/it02_005_Handgun_Chris"
+},
+"ri3118": {
+"mesh": "Character/It/it01/305/it01_305_Bomb_Chris01",
+"mdf": "Character/It/it01/305/it01_305_Bomb_Chris01"
+},
+"ri3121": {
+"mesh": "Character/It/it02/050/it02_050_Special_LaserMarker",
+"mdf": "Character/It/it02/050/it02_050_Special_LaserMarker"
+},
+"ri3122": {
+"mesh": "Character/It/it02/003/it02_003_Handgun_04",
+"mdf": "Character/It/it02/003/it02_003_Handgun_04"
+},
+"ri3123": {
+"mesh": "Character/It/it01/025/it01_025_Blade_ChrisKnife",
+"mdf": "Character/It/it01/025/it01_025_Blade_ChrisKnife"
+},
+"ri3124": {
+"mesh": "Character/It/it02/005/it02_005_Handgun_Chris",
+"mdf": "Character/It/it02/005/it02_005_Handgun_Chris"
+},
+"ri3125": {
+"mesh": "Character/It/it02/065/it02_065_Machinegun_HoundWolf01",
+"mdf": "Character/It/it02/065/it02_065_Machinegun_HoundWolf01"
+},
+"ri3127": {
+"mesh": "Character/It/it02/050/it02_050_Special_LaserMarker",
+"mdf": "Character/It/it02/050/it02_050_Special_LaserMarker"
+},
+"ri3128": {
+"mesh": "Character/It/it01/025/it01_025_Blade_ChrisKnife",
+"mdf": "Character/It/it01/025/it01_025_Blade_ChrisKnife"
+},
+"ri3129": {
+"mesh": "Character/It/it02/065/it02_065_Machinegun_HoundWolf01",
+"mdf": "Character/It/it02/065/it02_065_Machinegun_HoundWolf01"
+},
+"ri3130": {
+"mesh": "Character/It/it02/005/it02_005_Handgun_Chris",
+"mdf": "Character/It/it02/005/it02_005_Handgun_Chris"
+},
+"ri3131": {
+"mesh": "Character/It/it01/305/it01_305_Bomb_Chris01",
+"mdf": "Character/It/it01/305/it01_305_Bomb_Chris01"
+},
+"ri3132": {
+"mesh": "Character/It/it01/302/it01_302_Bomb_Flash",
+"mdf": "Character/It/it01/302/it01_302_Bomb_Flash"
+},
+"ri3133": {
+"mesh": "Character/It/it04/071/it04_071_Treasure_HeisenbergHammer02",
+"mdf": "Character/It/it04/071/it04_071_Treasure_HeisenbergHammer02"
+},
+"ri3134": {
+"mesh": "Character/Ch/ch01/1000/1050/ch01_1050_Rhand",
+"mdf": "Character/Ch/ch01/1000/1050/ch01_1050_Rhand"
+},
+"ri3135": {
+"mesh": "_GE/Character/It/it02/004/it02_004_Handgun_01",
+"mdf": "_GE/Character/It/it02/004/it02_004_Handgun_01"
+},
+"ri3136": {
+"mesh": "_GE/Character/It/it06/116/it06_116_LadyDmitrescu",
+"mdf": "_GE/Character/It/it06/116/it06_116_LadyDmitrescu"
+},
+"ri3138": {
+"mesh": "Environment/Props/Resource/sm8X/sm83_063_Dresser/sm83_063_Dresser_00",
+"mdf": "Environment/Props/Resource/sm8X/sm83_063_Dresser/sm83_063_Dresser_00"
+},
+"ri3139": {
+"mesh": "Character/It/it06/010/it06_010_Prop_Kicell",
+"mdf": "Character/It/it06/010/it06_010_Prop_Kicell"
+},
+"ri3140": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_003_Scrap/sm92_003_Scrap_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_003_Scrap/sm92_003_Scrap_00"
+},
+"ri3141": {
+"mesh": "_GE/Character/It/it01/113/it01_113_Circularsaw",
+"mdf": "_GE/Character/It/it01/113/it01_113_Circularsaw"
+},
+"ri3143": {
+"mesh": "Character/Ch/Prefab/Gallery/ch03_0400/ch03_0400_Body",
+"mdf": "Character/Ch/Prefab/Gallery/ch03_0400/ch03_0400_Body"
+},
+"ri3147": {
+"mesh": "_GE/Character/It/it02/023/it02_023_Shotgun_04",
+"mdf": "_GE/Character/It/it02/023/it02_023_Shotgun_04"
+},
+"ri3149": {
+"mesh": "Character/It/it01/300/it01_300_Bomb_Dynamite",
+"mdf": "Character/It/it01/300/it01_300_Bomb_Dynamite"
+},
+"ri3151": {
+"mesh": "_GE/Character/It/it06/117/it06_117_Fly",
+"mdf": "_GE/Character/It/it06/117/it06_117_Fly"
+},
+"ri5001": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_017_TempleReliefB/sm90_017_TempleReliefB_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_017_TempleReliefB/sm90_017_TempleReliefB_00"
+},
+"ri5002": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_018_TempleReliefC/sm90_018_TempleReliefC_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_018_TempleReliefC/sm90_018_TempleReliefC_00"
+},
+"ri5003": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_078_WellHandle/sm90_078_WellHandle_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_078_WellHandle/sm90_078_WellHandle_00"
+},
+"ri5007": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_021_CrowKey/sm90_021_CrowKey_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_021_CrowKey/sm90_021_CrowKey_00"
+},
+"ri5030": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_042_SilverKey/sm90_042_SilverKey_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_042_SilverKey/sm90_042_SilverKey_00"
+},
+"ri5031": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_063_Tweezers/sm90_063_Tweezers_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_063_Tweezers/sm90_063_Tweezers_00"
+},
+"ri5033": {
+"mesh": "Character/It/it06/011/it06_011_Prop_MiaRing",
+"mdf": "Character/It/it06/011/it06_011_Prop_MiaRing"
+},
+"ri5035": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_064_Scissors/sm90_064_Scissors_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_064_Scissors/sm90_064_Scissors_00"
+},
+"ri5036": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_047_Switchboard/sm90_047_Switchboard_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_047_Switchboard/sm90_047_Switchboard_00"
+},
+"ri5037": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_044_RestroomKey/sm90_044_RestroomKey_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_044_RestroomKey/sm90_044_RestroomKey_00"
+},
+"ri5038": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_045_Fuse/sm90_045_Fuse_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_045_Fuse/sm90_045_Fuse_00"
+},
+"ri5039": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_050_Spring/sm90_050_Spring_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_050_Spring/sm90_050_Spring_00"
+},
+"ri5040": {
+"mesh": "Character/It/it06/011/it06_011_Prop_MiaRing",
+"mdf": "Character/It/it06/011/it06_011_Prop_MiaRing"
+},
+"ri5045": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_051_Film/sm90_051_Film_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_051_Film/sm90_051_Film_00"
+},
+"ri5048": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_053_DeathmaskA/sm90_053_DeathmaskA_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_053_DeathmaskA/sm90_053_DeathmaskA_00"
+},
+"ri5049": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_054_DeathmaskB/sm90_054_DeathmaskB_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_054_DeathmaskB/sm90_054_DeathmaskB_00"
+},
+"ri5050": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_055_DeathmaskC/sm90_055_DeathmaskC_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_055_DeathmaskC/sm90_055_DeathmaskC_00"
+},
+"ri5051": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_056_ChainCutter/sm90_056_ChainCutter_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_056_ChainCutter/sm90_056_ChainCutter_00"
+},
+"ri5052": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_001_DomiKey/sm90_001_DomiKey_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_001_DomiKey/sm90_001_DomiKey_00"
+},
+"ri5056": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_057_Ball/sm90_057_Ball_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_057_Ball/sm90_057_Ball_00"
+},
+"ri5057": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_058_CourtyardKey/sm90_058_CourtyardKey_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_058_CourtyardKey/sm90_058_CourtyardKey_00"
+},
+"ri5062": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_043_PrisonKey/sm90_043_PrisonKey_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_043_PrisonKey/sm90_043_PrisonKey_00"
+},
+"ri5067": {
+"mesh": "Environment/Props/Resource/sm8X/sm80_058_Rucksack/sm80_058_Rucksack_00",
+"mdf": "Environment/Props/Resource/sm8X/sm80_058_Rucksack/sm80_058_Rucksack_00"
+},
+"ri5072": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_000_DropTreasure/sm92_000_DropTreasure_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_000_DropTreasure/sm92_000_DropTreasure_00"
+},
+"ri5073": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_012_DropTreasure/sm92_012_DropTreasure_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_012_DropTreasure/sm92_012_DropTreasure_00"
+},
+"ri5074": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_013_DropTreasure/sm92_013_DropTreasure_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_013_DropTreasure/sm92_013_DropTreasure_00"
+},
+"ri5075": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_014_DropTreasure/sm92_014_DropTreasure_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_014_DropTreasure/sm92_014_DropTreasure_00"
+},
+"ri5076": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_016_DropTreasure/sm92_016_DropTreasure_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_016_DropTreasure/sm92_016_DropTreasure_00"
+},
+"ri5077": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_017_DropTreasure/sm92_017_DropTreasure_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_017_DropTreasure/sm92_017_DropTreasure_00"
+},
+"ri5078": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_015_DropTreasure/sm92_015_DropTreasure_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_015_DropTreasure/sm92_015_DropTreasure_00"
+},
+"ri5079": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_019_DropTreasure/sm92_019_DropTreasure_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_019_DropTreasure/sm92_019_DropTreasure_00"
+},
+"ri5080": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_018_DropTreasure/sm92_018_DropTreasure_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_018_DropTreasure/sm92_018_DropTreasure_00"
+},
+"ri5081": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_066_Jewelry/sm90_066_Jewelry_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_066_Jewelry/sm90_066_Jewelry_00"
+},
+"ri5082": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_066_Jewelry/sm90_066_Jewelry_01",
+"mdf": "Environment/Props/Resource/sm9X/sm90_066_Jewelry/sm90_066_Jewelry_01"
+},
+"ri5083": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_012_WineBottle/sm90_012_WineBottle_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_012_WineBottle/sm90_012_WineBottle_00"
+},
+"ri5088": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_070_ReliefA/sm90_070_ReliefA_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_070_ReliefA/sm90_070_ReliefA_00"
+},
+"ri5090": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_072_Gear/sm90_072_Gear_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_072_Gear/sm90_072_Gear_00"
+},
+"ri5091": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_073_GeekKey/sm90_073_GeekKey_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_073_GeekKey/sm90_073_GeekKey_00"
+},
+"ri5092": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_074_Mold/sm90_074_Mold_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_074_Mold/sm90_074_Mold_00"
+},
+"ri5093": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_075_Mold/sm90_075_Mold_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_075_Mold/sm90_075_Mold_00"
+},
+"ri5094": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_076_Mold/sm90_076_Mold_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_076_Mold/sm90_076_Mold_00"
+},
+"ri5096": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_077_Crank/sm90_077_Crank_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_077_Crank/sm90_077_Crank_00"
+},
+"ri5105": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_082_DeathmaskD/sm90_082_DeathmaskD_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_082_DeathmaskD/sm90_082_DeathmaskD_00"
+},
+"ri5106": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_059_TreasureH/sm92_059_TreasureH_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_059_TreasureH/sm92_059_TreasureH_00"
+},
+"ri5107": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_009_DropTreasure/sm92_009_DropTreasure_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_009_DropTreasure/sm92_009_DropTreasure_00"
+},
+"ri5108": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_000_DropTreasure/sm92_000_DropTreasure_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_000_DropTreasure/sm92_000_DropTreasure_00"
+},
+"ri5109": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_000_DropTreasure/sm92_000_DropTreasure_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_000_DropTreasure/sm92_000_DropTreasure_00"
+},
+"ri5110": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_042_Spinel/sm92_042_Spinel_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_042_Spinel/sm92_042_Spinel_00"
+},
+"ri5112": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_044_Treasure/sm92_044_Treasure_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_044_Treasure/sm92_044_Treasure_00"
+},
+"ri5113": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_084_Ball/sm90_084_Ball_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_084_Ball/sm90_084_Ball_00"
+},
+"ri5114": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_085_Mold/sm90_085_Mold_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_085_Mold/sm90_085_Mold_00"
+},
+"ri5116": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_087_Crest/sm90_087_Crest_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_087_Crest/sm90_087_Crest_00"
+},
+"ri5117": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_045_Gem/sm92_045_Gem_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_045_Gem/sm92_045_Gem_00"
+},
+"ri5118": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_046_Gem/sm92_046_Gem_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_046_Gem/sm92_046_Gem_00"
+},
+"ri5119": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_047_Gem/sm92_047_Gem_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_047_Gem/sm92_047_Gem_00"
+},
+"ri5120": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_088_Ball/sm90_088_Ball_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_088_Ball/sm90_088_Ball_00"
+},
+"ri5121": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_010_DropTreasure/sm92_010_DropTreasure_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_010_DropTreasure/sm92_010_DropTreasure_00"
+},
+"ri5122": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_049_BlueStoneRing/sm92_049_BlueStoneRing_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_049_BlueStoneRing/sm92_049_BlueStoneRing_00"
+},
+"ri5123": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_049_BlueStoneRing/sm92_049_BlueStoneRing_01",
+"mdf": "Environment/Props/Resource/sm9X/sm92_049_BlueStoneRing/sm92_049_BlueStoneRing_01"
+},
+"ri5124": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_049_BlueStoneRing/sm92_049_BlueStoneRing_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_049_BlueStoneRing/sm92_049_BlueStoneRing_00"
+},
+"ri5125": {
+"mesh": "Character/It/it04/075/it04_075_Treasure_Necklace01",
+"mdf": "Character/It/it04/075/it04_075_Treasure_Necklace01"
+},
+"ri5126": {
+"mesh": "Character/It/it04/076/it04_076_Treasure_Necklace02",
+"mdf": "Character/It/it04/076/it04_076_Treasure_Necklace02"
+},
+"ri5127": {
+"mesh": "Character/It/it04/077/it04_077_Treasure_Necklace03",
+"mdf": "Character/It/it04/077/it04_077_Treasure_Necklace03"
+},
+"ri5128": {
+"mesh": "Character/It/it04/075/it04_075_Treasure_Necklace01",
+"mdf": "Character/It/it04/075/it04_075_Treasure_Necklace01"
+},
+"ri5129": {
+"mesh": "Character/It/it04/075/it04_075_Treasure_Necklace01",
+"mdf": "Character/It/it04/075/it04_075_Treasure_Necklace01"
+},
+"ri5130": {
+"mesh": "Character/It/it04/075/it04_075_Treasure_Necklace01",
+"mdf": "Character/It/it04/075/it04_075_Treasure_Necklace01"
+},
+"ri5137": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_051_VillageGirlDoll/sm92_051_VillageGirlDoll_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_051_VillageGirlDoll/sm92_051_VillageGirlDoll_00"
+},
+"ri5138": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_051_VillageGirlDoll/sm92_051_VillageGirlDoll_01",
+"mdf": "Environment/Props/Resource/sm9X/sm92_051_VillageGirlDoll/sm92_051_VillageGirlDoll_01"
+},
+"ri5139": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_051_VillageGirlDoll/sm92_051_VillageGirlDoll_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_051_VillageGirlDoll/sm92_051_VillageGirlDoll_00"
+},
+"ri5140": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_048_Totem/sm92_048_Totem_01",
+"mdf": "Environment/Props/Resource/sm9X/sm92_048_Totem/sm92_048_Totem_01"
+},
+"ri5141": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_048_Totem/sm92_048_Totem_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_048_Totem/sm92_048_Totem_00"
+},
+"ri5142": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_048_Totem/sm92_048_Totem_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_048_Totem/sm92_048_Totem_00"
+},
+"ri5143": {
+"mesh": "Character/It/it04/072/it04_072_Treasure_HeisenbergHammer03",
+"mdf": "Character/It/it04/072/it04_072_Treasure_HeisenbergHammer03"
+},
+"ri5144": {
+"mesh": "Character/It/it04/071/it04_071_Treasure_HeisenbergHammer02",
+"mdf": "Character/It/it04/071/it04_071_Treasure_HeisenbergHammer02"
+},
+"ri5145": {
+"mesh": "Character/It/it04/071/it04_071_Treasure_HeisenbergHammer02",
+"mdf": "Character/It/it04/071/it04_071_Treasure_HeisenbergHammer02"
+},
+"ri5146": {
+"mesh": "Character/It/it04/078/it04_078_Treasure_Amulet",
+"mdf": "Character/It/it04/078/it04_078_Treasure_Amulet"
+},
+"ri5147": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_053_TreasureB/sm92_053_TreasureB_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_053_TreasureB/sm92_053_TreasureB_00"
+},
+"ri5149": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_055_TreasureD/sm92_055_TreasureD_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_055_TreasureD/sm92_055_TreasureD_00"
+},
+"ri5150": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_056_TreasureE/sm92_056_TreasureE_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_056_TreasureE/sm92_056_TreasureE_00"
+},
+"ri5151": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_057_TreasureF/sm92_057_TreasureF_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_057_TreasureF/sm92_057_TreasureF_00"
+},
+"ri5152": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_058_TreasureG/sm92_058_TreasureG_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_058_TreasureG/sm92_058_TreasureG_00"
+},
+"ri5153": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_013_DropTreasure/sm92_013_DropTreasure_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_013_DropTreasure/sm92_013_DropTreasure_00"
+},
+"ri5154": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_010_DropTreasure/sm92_010_DropTreasure_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_010_DropTreasure/sm92_010_DropTreasure_00"
+},
+"ri5155": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_010_DropTreasure/sm92_010_DropTreasure_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_010_DropTreasure/sm92_010_DropTreasure_00"
+},
+"ri5156": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_089_BoatKey/sm90_089_BoatKey_01",
+"mdf": "Environment/Props/Resource/sm9X/sm90_089_BoatKey/sm90_089_BoatKey_01"
+},
+"ri5157": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_093_HolyGrail/sm90_093_HolyGrail_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_093_HolyGrail/sm90_093_HolyGrail_00"
+},
+"ri5158": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_090_CarKey/sm90_090_CarKey_01",
+"mdf": "Environment/Props/Resource/sm9X/sm90_090_CarKey/sm90_090_CarKey_01"
+},
+"ri5160": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_091_Picture/sm90_091_Picture_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_091_Picture/sm90_091_Picture_00"
+},
+"ri5161": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_014_DropTreasure/sm92_014_DropTreasure_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_014_DropTreasure/sm92_014_DropTreasure_00"
+},
+"ri5162": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_014_DropTreasure/sm92_014_DropTreasure_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_014_DropTreasure/sm92_014_DropTreasure_00"
+},
+"ri5163": {
+"mesh": "Environment/Props/Resource/sm8X/sm84_185_SerumTypeE/sm84_185_SerumTypeE_00",
+"mdf": "Environment/Props/Resource/sm8X/sm84_185_SerumTypeE/sm84_185_SerumTypeE_00"
+},
+"ri5165": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_092_Ball/sm90_092_Ball_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_092_Ball/sm90_092_Ball_00"
+},
+"ri5166": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_094_MusicalInstrumentKey/sm90_094_MusicalInstrumentKey_01",
+"mdf": "Environment/Props/Resource/sm9X/sm90_094_MusicalInstrumentKey/sm90_094_MusicalInstrumentKey_01"
+},
+"ri5167": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_062_ElenaNecklace/sm92_062_ElenaNecklace_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_062_ElenaNecklace/sm92_062_ElenaNecklace_00"
+},
+"ri5168": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_062_ElenaNecklace/sm92_062_ElenaNecklace_02",
+"mdf": "Environment/Props/Resource/sm9X/sm92_062_ElenaNecklace/sm92_062_ElenaNecklace_02"
+},
+"ri5169": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_062_ElenaNecklace/sm92_062_ElenaNecklace_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_062_ElenaNecklace/sm92_062_ElenaNecklace_00"
+},
+"ri5170": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_062_ElenaNecklace/sm92_062_ElenaNecklace_01",
+"mdf": "Environment/Props/Resource/sm9X/sm92_062_ElenaNecklace/sm92_062_ElenaNecklace_01"
+},
+"ri5171": {
+"mesh": "Character/It/it06/029/it06_029_Prop_EthanHand",
+"mdf": "Character/It/it06/029/it06_029_Prop_EthanHand"
+},
+"ri5172": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_095_TombstonePlate/sm90_095_TombstonePlate_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_095_TombstonePlate/sm90_095_TombstonePlate_00"
+},
+"ri5173": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_063_TreasureK/sm92_063_TreasureK_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_063_TreasureK/sm92_063_TreasureK_00"
+},
+"ri5174": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_063_TreasureK/sm92_063_TreasureK_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_063_TreasureK/sm92_063_Treasure_Ghost"
+},
+"ri5175": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_063_TreasureK/sm92_063_TreasureK_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_063_TreasureK/sm92_063_Treasure_Moro"
+},
+"ri5176": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_063_TreasureK/sm92_063_TreasureK_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_063_TreasureK/sm92_063_Treasure_Geek"
+},
+"ri5177": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_065_TreasureM/sm92_065_TreasureM_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_065_TreasureM/sm92_065_TreasureM_00"
+},
+"ri5178": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_066_TreasureN/sm92_066_TreasureN_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_066_TreasureN/sm92_066_TreasureN_00"
+},
+"ri5179": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_067_TreasureO/sm92_067_TreasureO_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_067_TreasureO/sm92_067_TreasureO_00"
+},
+"ri5180": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_068_TreasureP/sm92_068_TreasureP_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_068_TreasureP/sm92_068_TreasureP_00"
+},
+"ri5181": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_069_TreasureQ/sm92_069_TreasureQ_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_069_TreasureQ/sm92_069_TreasureQ_00"
+},
+"ri5182": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_070_TreasureR/sm92_070_TreasureR_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_070_TreasureR/sm92_070_TreasureR_00"
+},
+"ri5183": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_096_RareAnimalTips/sm90_096_RareAnimalTips_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_096_RareAnimalTips/sm90_096_RareAnimalTips_00"
+},
+"ri5184": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_097_RareAnimalTips/sm90_097_RareAnimalTips_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_097_RareAnimalTips/sm90_097_RareAnimalTips_00"
+},
+"ri5185": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_098_RareAnimalTips/sm90_098_RareAnimalTips_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_098_RareAnimalTips/sm90_098_RareAnimalTips_00"
+},
+"ri5187": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_100_AnimalSkull/sm90_100_AnimalSkull_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_100_AnimalSkull/sm90_100_AnimalSkull_00"
+},
+"ri5188": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_100_AnimalSkull/sm90_100_AnimalSkull_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_100_AnimalSkull/sm90_100_AnimalSkull_00"
+},
+"ri5189": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_101_Driver/sm90_101_Driver_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_101_Driver/sm90_101_Driver_00"
+},
+"ri5190": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_025_NobleCrestB/sm90_025_NobleCrestB_02",
+"mdf": "Environment/Props/Resource/sm9X/sm90_025_NobleCrestB/sm90_025_NobleCrestB_02"
+},
+"ri5191": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_024_NobleCrestA/sm90_024_NobleCrestA_02",
+"mdf": "Environment/Props/Resource/sm9X/sm90_024_NobleCrestA/sm90_024_NobleCrestA_02"
+},
+"ri5192": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_027_NobleCrestD/sm90_027_NobleCrestD_02",
+"mdf": "Environment/Props/Resource/sm9X/sm90_027_NobleCrestD/sm90_027_NobleCrestD_02"
+},
+"ri5193": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_026_NobleCrestC/sm90_026_NobleCrestC_02",
+"mdf": "Environment/Props/Resource/sm9X/sm90_026_NobleCrestC/sm90_026_NobleCrestC_02"
+},
+"ri5194": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_021_CrowKey/sm90_021_CrowKey_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_021_CrowKey/sm90_021_CrowKey_00"
+},
+"ri5195": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_090_CarKey/sm90_090_CarKey_01",
+"mdf": "Environment/Props/Resource/sm9X/sm90_090_CarKey/sm90_090_CarKey_01"
+},
+"ri5196": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_021_CrowKey/sm90_021_CrowKey_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_021_CrowKey/sm90_021_CrowKey_00"
+},
+"ri5197": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_021_CrowKey/sm90_021_CrowKey_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_021_CrowKey/sm90_021_CrowKey_00"
+},
+"ri5200": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_021_CrowKey/sm90_021_CrowKey_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_021_CrowKey/sm90_021_CrowKey_00"
+},
+"ri5201": {
+"mesh": "Environment/Props/Resource/sm9X/sm91_136_DomiMemo/sm91_136_DomiMemo_00",
+"mdf": "Environment/Props/Resource/sm9X/sm91_136_DomiMemo/sm91_136_DomiMemo_00"
+},
+"ri5202": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_091_Picture/sm90_091_Picture_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_091_Picture/sm90_091_Picture_00"
+},
+"ri5203": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_025_NobleCrestB/sm90_025_NobleCrestB_02",
+"mdf": "Environment/Props/Resource/sm9X/sm90_025_NobleCrestB/sm90_025_NobleCrestB_02"
+},
+"ri5204": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_105_JackHandle/sm90_105_JackHandle_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_105_JackHandle/sm90_105_JackHandle_00"
+},
+"ri5210": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_042_Spinel/sm92_042_Spinel_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_042_Spinel/sm92_042_Spinel_00"
+},
+"ri5211": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_046_Gem/sm92_046_Gem_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_046_Gem/sm92_046_Gem_00"
+},
+"ri5212": {
+"mesh": "Character/It/it04/076/it04_076_Treasure_Necklace02",
+"mdf": "Character/It/it04/076/it04_076_Treasure_Necklace02"
+},
+"ri5302": {
+"mesh": "Environment/Props/Resource/sm9X/sm90_058_CourtyardKey/sm90_058_CourtyardKey_00",
+"mdf": "Environment/Props/Resource/sm9X/sm90_058_CourtyardKey/sm90_058_CourtyardKey_00"
+},
+"ri5303": {
+"mesh": "_GE/Environment/Props/Resource/sm9X/sm90_116_MaskA/sm90_116_MaskA_00",
+"mdf": "_GE/Environment/Props/Resource/sm9X/sm90_116_MaskA/sm90_116_MaskA_00"
+},
+"ri5304": {
+"mesh": "_GE/Environment/Props/Resource/sm9X/sm90_117_MaskB/sm90_117_MaskB_00",
+"mdf": "_GE/Environment/Props/Resource/sm9X/sm90_117_MaskB/sm90_117_MaskB_00"
+},
+"ri5305": {
+"mesh": "_GE/Environment/Props/Resource/sm9X/sm90_118_MaskC/sm90_118_MaskC_00",
+"mdf": "_GE/Environment/Props/Resource/sm9X/sm90_118_MaskC/sm90_118_MaskC_00"
+},
+"ri5306": {
+"mesh": "_GE/Environment/Props/Resource/sm9X/sm90_110_ChainCutter/sm90_110_ChainCutter_00",
+"mdf": "_GE/Environment/Props/Resource/sm9X/sm90_110_ChainCutter/sm90_110_ChainCutter_00"
+},
+"ri5307": {
+"mesh": "_GE/Environment/Props/Resource/sm9X/sm90_111_PrivateAreKey/sm90_111_PrivateAreKey_00",
+"mdf": "_GE/Environment/Props/Resource/sm9X/sm90_111_PrivateAreKey/sm90_111_PrivateAreKey_00"
+},
+"ri5308": {
+"mesh": "_GE/Environment/Props/Resource/sm9X/sm90_119_MarquisKey/sm90_119_MarquisKey_00",
+"mdf": "_GE/Environment/Props/Resource/sm9X/sm90_119_MarquisKey/sm90_119_MarquisKey_00"
+},
+"ri5310": {
+"mesh": "_GE/Environment/Props/Resource/sm8X/sm80_485_PuzzlePicture/sm80_485_PuzzlePicture_00",
+"mdf": "_GE/Environment/Props/Resource/sm8X/sm80_485_PuzzlePicture/sm80_485_PuzzlePicture_00"
+},
+"ri5311": {
+"mesh": "_GE/Environment/Props/Resource/sm8X/sm80_486_PuzzlePicture/sm80_486_PuzzlePicture_00",
+"mdf": "_GE/Environment/Props/Resource/sm8X/sm80_486_PuzzlePicture/sm80_486_PuzzlePicture_00"
+},
+"ri5312": {
+"mesh": "_GE/Environment/Props/Resource/sm8X/sm80_484_PuzzlePicture/sm80_484_PuzzlePicture_00",
+"mdf": "_GE/Environment/Props/Resource/sm8X/sm80_484_PuzzlePicture/sm80_484_PuzzlePicture_00"
+},
+"ri5313": {
+"mesh": "_GE/Environment/Props/Resource/sm8X/sm80_483_PuzzlePicture/sm80_483_PuzzlePicture_00",
+"mdf": "_GE/Environment/Props/Resource/sm8X/sm80_483_PuzzlePicture/sm80_483_PuzzlePicture_00"
+},
+"ri5317": {
+"mesh": "_GE/Environment/Props/Resource/sm9X/sm90_120_Fuse/sm90_120_Fuse_00",
+"mdf": "_GE/Environment/Props/Resource/sm9X/sm90_120_Fuse/sm90_120_Fuse_00"
+},
+"ri5318": {
+"mesh": "_GE/Environment/Props/Resource/sm9X/sm90_121_SmallKey/sm90_121_SmallKey_00",
+"mdf": "_GE/Environment/Props/Resource/sm9X/sm90_121_SmallKey/sm90_121_SmallKey_00"
+},
+"ri5319": {
+"mesh": "_GE/Environment/Props/Resource/sm9X/sm90_124_Scissors/sm90_124_Scissors_00",
+"mdf": "_GE/Environment/Props/Resource/sm9X/sm90_124_Scissors/sm90_124_Scissors_00"
+},
+"ri5320": {
+"mesh": "_GE/Environment/Props/Resource/sm8X/sm80_501_Switch/sm80_501_Switch_01",
+"mdf": "_GE/Environment/Props/Resource/sm8X/sm80_501_Switch/sm80_501_Switch_01"
+},
+"ri5321": {
+"mesh": "_GE/Environment/Props/Resource/sm9X/sm90_128_RestroomKey/sm90_128_RestroomKey_00",
+"mdf": "_GE/Environment/Props/Resource/sm9X/sm90_128_RestroomKey/sm90_128_RestroomKey_00"
+},
+"ri5322": {
+"mesh": "_GE/Character/It/it06/125/it06_125_Prop_Doll_Lucy",
+"mdf": "_GE/Character/It/it06/125/it06_125_Prop_Doll_Lucy"
+},
+"ri5323": {
+"mesh": "_GE/Character/It/it06/127/it06_127_Prop_Doll_Catherine",
+"mdf": "_GE/Character/It/it06/127/it06_127_Prop_Doll_Catherine"
+},
+"ri5324": {
+"mesh": "_GE/Character/It/it06/126/it06_126_Prop_Doll_Jimmy",
+"mdf": "_GE/Character/It/it06/126/it06_126_Prop_Doll_Jimmy"
+},
+"ri5325": {
+"mesh": "_GE/Environment/Props/Resource/sm8X/sm80_508_BullyingPuzzleDoll/sm80_508_BullyingPuzzleDoll_03",
+"mdf": "_GE/Environment/Props/Resource/sm8X/sm80_508_BullyingPuzzleDoll/sm80_508_BullyingPuzzleDoll_03"
+},
+"ri5326": {
+"mesh": "_GE/Environment/Props/Resource/sm9X/sm90_130_RedKey/sm90_130_RedKey_00",
+"mdf": "_GE/Environment/Props/Resource/sm9X/sm90_130_RedKey/sm90_130_RedKey_00"
+},
+"ri5327": {
+"mesh": "_GE/Environment/Props/Resource/sm9X/sm90_129_Switchboard/sm90_129_Switchboard_00",
+"mdf": "_GE/Environment/Props/Resource/sm9X/sm90_129_Switchboard/sm90_129_Switchboard_00"
+},
+"ri5329": {
+"mesh": "_GE/Environment/Props/Resource/sm9X/sm91_259_HintMap/sm91_259_HintMap_00",
+"mdf": "_GE/Environment/Props/Resource/sm9X/sm91_259_HintMap/sm91_259_HintMap_00"
+},
+"ri5330": {
+"mesh": "_GE/Character/It/it06/124/it06_124_Prop_KiyokaItem",
+"mdf": "_GE/Character/It/it06/124/it06_124_Prop_KiyokaItem"
+},
+"ri5331": {
+"mesh": "_GE/Character/It/it06/124/it06_124_Prop_KiyokaItem",
+"mdf": "_GE/Character/It/it06/124/it06_124_Prop_KiyokaItem"
+},
+"ri5332": {
+"mesh": "_GE/Character/It/it06/124/it06_124_Prop_KiyokaItem",
+"mdf": "_GE/Character/It/it06/124/it06_124_Prop_KiyokaItem"
+},
+"ri5333": {
+"mesh": "_GE/Character/It/it06/124/it06_124_Prop_KiyokaItem",
+"mdf": "_GE/Character/It/it06/124/it06_124_Prop_KiyokaItem"
+},
+"ri5334": {
+"mesh": "_GE/Environment/Props/Resource/sm9X/sm91_270_HintMap/sm91_270_HintMap_00",
+"mdf": "_GE/Environment/Props/Resource/sm9X/sm91_270_HintMap/sm91_270_HintMap_00"
+},
+"ri5335": {
+"mesh": "_GE/Character/It/it06/113/it06_113_Prop_Crystal",
+"mdf": "_GE/Character/It/it06/113/it06_113_Prop_Crystal"
+},
+"ri7000": {
+"mesh": "Character/It/it02/000/it02_000_Handgun_01",
+"mdf": "Character/It/it02/000/it02_000_Handgun_01"
+},
+"ri7001": {
+"mesh": "Character/It/it02/000/it02_000_Handgun_01",
+"mdf": "Character/It/it02/000/it02_000_Handgun_01"
+},
+"ri7002": {
+"mesh": "Character/It/it02/001/it02_001_Handgun_02",
+"mdf": "Character/It/it02/001/it02_001_Handgun_02"
+},
+"ri7003": {
+"mesh": "Character/It/it02/001/it02_001_Handgun_02",
+"mdf": "Character/It/it02/001/it02_001_Handgun_02"
+},
+"ri7005": {
+"mesh": "Character/It/it02/002/it02_002_Handgun_03",
+"mdf": "Character/It/it02/002/it02_002_Handgun_03"
+},
+"ri7007": {
+"mesh": "Character/It/it02/002/it02_002_Handgun_03",
+"mdf": "Character/It/it02/002/it02_002_Handgun_03"
+},
+"ri7008": {
+"mesh": "Character/It/it02/002/it02_002_Handgun_03",
+"mdf": "Character/It/it02/002/it02_002_Handgun_03"
+},
+"ri7010": {
+"mesh": "Character/It/it03/070/it03_070_PowerUP_Trigger",
+"mdf": "Character/It/it03/070/it03_070_PowerUP_Trigger"
+},
+"ri7012": {
+"mesh": "Character/It/it02/021/it02_021_Shotgun_02",
+"mdf": "Character/It/it02/021/it02_021_Shotgun_02"
+},
+"ri7013": {
+"mesh": "Character/It/it02/021/it02_021_Shotgun_02",
+"mdf": "Character/It/it02/021/it02_021_Shotgun_02"
+},
+"ri7014": {
+"mesh": "Character/It/it03/071/it03_071_PowerUP_Barrel",
+"mdf": "Character/It/it03/071/it03_071_PowerUP_Barrel"
+},
+"ri7015": {
+"mesh": "Character/It/it02/022/it02_022_Shotgun_03",
+"mdf": "Character/It/it02/022/it02_022_Shotgun_03"
+},
+"ri7016": {
+"mesh": "Character/It/it02/022/it02_022_Shotgun_03",
+"mdf": "Character/It/it02/022/it02_022_Shotgun_03"
+},
+"ri7022": {
+"mesh": "Character/It/it02/060/it02_060_Machinegun_01",
+"mdf": "Character/It/it02/060/it02_060_Machinegun_01"
+},
+"ri7023": {
+"mesh": "Character/It/it02/060/it02_060_Machinegun_01",
+"mdf": "Character/It/it02/060/it02_060_Machinegun_01"
+},
+"ri7025": {
+"mesh": "Character/It/it02/070/it02_070_Sniperrifle_01",
+"mdf": "Character/It/it02/070/it02_070_Sniperrifle_01"
+},
+"ri7026": {
+"mesh": "Character/It/it02/070/it02_070_Sniperrifle_01",
+"mdf": "Character/It/it02/070/it02_070_Sniperrifle_01"
+},
+"ri7027": {
+"mesh": "Character/It/it02/070/it02_070_Sniperrifle_01",
+"mdf": "Character/It/it02/070/it02_070_Sniperrifle_01"
+},
+"ri7028": {
+"mesh": "Character/It/it02/040/it02_040_SilverBullet_01",
+"mdf": "Character/It/it02/040/it02_040_SilverBullet_01"
+},
+"ri7029": {
+"mesh": "Character/It/it02/040/it02_040_SilverBullet_01",
+"mdf": "Character/It/it02/040/it02_040_SilverBullet_01"
+},
+"ri7030": {
+"mesh": "Character/It/it02/041/it02_041_SilverBullet_02",
+"mdf": "Character/It/it02/041/it02_041_SilverBullet_02"
+},
+"ri7031": {
+"mesh": "Character/It/it02/041/it02_041_SilverBullet_02",
+"mdf": "Character/It/it02/041/it02_041_SilverBullet_02"
+},
+"ri7032": {
+"mesh": "Character/It/it06/061/it06_061_Prop_Everyware",
+"mdf": "Character/It/it06/061/it06_061_Prop_Everyware"
+},
+"ri7033": {
+"mesh": "Character/It/it06/060/it06_060_Prop_Raccoon",
+"mdf": "Character/It/it06/060/it06_060_Prop_Raccoon"
+},
+"ri7500": {
+"mesh": "_GE/Character/It/it02/004/it02_004_Handgun_01",
+"mdf": "_GE/Character/It/it02/004/it02_004_Handgun_01"
+},
+"ri7501": {
+"mesh": "_GE/Character/It/it02/004/it02_004_Handgun_01",
+"mdf": "_GE/Character/It/it02/004/it02_004_Handgun_01"
+},
+"ri8000": {
+"mesh": "Environment/Props/Resource/sm9X/sm92_031_CuisineA/sm92_031_CuisineA_00",
+"mdf": "Environment/Props/Resource/sm9X/sm92_031_CuisineA/sm92_031_CuisineA_00"
+},
+"ri8009": {
+"mesh": "Environment/Props/Resource/sm8X/sm84_138_RecipeMemo/sm84_138_RecipeMemo_00",
+"mdf": "Environment/Props/Resource/sm8X/sm84_138_RecipeMemo/sm84_138_RecipeMemo_00"
+},
+"ri8010": {
+"mesh": "Environment/Props/Resource/sm8X/sm84_138_RecipeMemo/sm84_138_RecipeMemo_00",
+"mdf": "Environment/Props/Resource/sm8X/sm84_138_RecipeMemo/sm84_138_RecipeMemo_01"
+},
+"ri8011": {
+"mesh": "Environment/Props/Resource/sm8X/sm84_138_RecipeMemo/sm84_138_RecipeMemo_00",
+"mdf": "Environment/Props/Resource/sm8X/sm84_138_RecipeMemo/sm84_138_RecipeMemo_02"
+},
+"ri8013": {
+"mesh": "Environment/Props/Resource/sm8X/sm84_138_RecipeMemo/sm84_138_RecipeMemo_00",
+"mdf": "Environment/Props/Resource/sm8X/sm84_138_RecipeMemo/sm84_138_RecipeMemo_04"
+},
+"ri8014": {
+"mesh": "Environment/Props/Resource/sm8X/sm84_138_RecipeMemo/sm84_138_RecipeMemo_00",
+"mdf": "Environment/Props/Resource/sm8X/sm84_138_RecipeMemo/sm84_138_RecipeMemo_05"
+},
+"ri8015": {
+"mesh": "Environment/Props/Resource/sm8X/sm84_138_RecipeMemo/sm84_138_RecipeMemo_00",
+"mdf": "Environment/Props/Resource/sm8X/sm84_138_RecipeMemo/sm84_138_RecipeMemo_06"
+},
+"ri8016": {
+"mesh": "Environment/Props/Resource/sm8X/sm84_138_RecipeMemo/sm84_138_RecipeMemo_00",
+"mdf": "Environment/Props/Resource/sm8X/sm84_138_RecipeMemo/sm84_138_RecipeMemo_07"
+},
+"ri8017": {
+"mesh": "Environment/Props/Resource/sm8X/sm84_138_RecipeMemo/sm84_138_RecipeMemo_00",
+"mdf": "Environment/Props/Resource/sm8X/sm84_138_RecipeMemo/sm84_138_RecipeMemo_08"
+},
+"ri8018": {
+"mesh": "Environment/Props/Resource/sm8X/sm84_138_RecipeMemo/sm84_138_RecipeMemo_00",
+"mdf": "Environment/Props/Resource/sm8X/sm84_138_RecipeMemo/sm84_138_RecipeMemo_09"
+},
+"ri8038": {
+"mesh": "Environment/Props/Resource/sm8X/sm84_138_RecipeMemo/sm84_138_RecipeMemo_00",
+"mdf": "Environment/Props/Resource/sm8X/sm84_138_RecipeMemo/sm84_138_RecipeMemo_010"
+},
+"ri8045": {
+"mesh": "_GE/Environment/Props/Resource/sm9X/sm92_072_RecipeMemo/sm92_072_RecipeMemo_00",
+"mdf": "_GE/Environment/Props/Resource/sm9X/sm92_072_RecipeMemo/sm92_072_RecipeMemo_00"
+}
+}
+}

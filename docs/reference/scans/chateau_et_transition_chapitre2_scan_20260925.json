@@ -1,0 +1,2300 @@
+{
+    "count": 153,
+    "placements": [
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2/c02_ChapterBridge/Bridge_02/st10_2_6_Sub_ItemSet/st10_2_6_Sub_ItemSet_SpawnInfo/st10_2_6_Sub_ItemSet_EnemyDrop",
+            "guid": "71ce011e-203b-0adc-1270-a60f5608f588",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfo_EmDrop_ForBridge_02",
+            "item_position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent_object": "ItemSpwanGenerateControllerEnemyDrop_ForBridge",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2/c02_ChapterBridge/Bridge_02/st10_2_6_Sub_ItemSet/st10_2_6_Sub_ItemSet_SpawnInfo/st10_2_6_Sub_ItemSet_EnemyDrop",
+            "guid": "b6cc00e9-a7c7-09f1-1d86-02e64d35ff3c",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfo_EmDrop_ForBridge_01",
+            "item_position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent_object": "ItemSpwanGenerateControllerEnemyDrop_ForBridge",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2/c02_ChapterBridge/Bridge_02/st10_2_6_Sub_ItemSet/st10_2_6_Sub_ItemSet_SpawnInfo/st10_2_6_Sub_ItemSet_EnemyDrop",
+            "guid": "dca61db1-a171-0452-38ae-2d9f6f26ad08",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfo_EmDrop_ForBridge_00",
+            "item_position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent_object": "ItemSpwanGenerateControllerEnemyDrop_ForBridge",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2/c02_ChapterBridge/Bridge_02/st10_2_6_Sub_ItemSet/st10_2_6_Sub_ItemSet_SpawnInfo/st10_2_6_Sub_ItemSet_KeyItem",
+            "guid": "0606a18a-2a8f-09e3-3791-dc0a18795612",
+            "item_id": 808039580,
+            "item_object": "SpawnInfo_VillageCrowKey_001",
+            "item_position": [
+                -158.89,
+                -34.46,
+                81.73
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st10_2_6_SpawnInfo_Separetor_03",
+            "guid": "dd87cafa-6f16-0710-16d5-b35dd1e0adcb",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_001",
+            "item_position": [
+                -155.68,
+                -32.61,
+                -7.55
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st10_2_6_SpawnInfo_Separetor_03",
+            "guid": "ffdaf01b-c712-0c9c-0292-6545364ca473",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_002",
+            "item_position": [
+                -150.74,
+                -32.9,
+                -6.06
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_12",
+            "guid": "7204bc3a-75a8-0370-1dfe-3c7cf3e69551",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_002",
+            "item_position": [
+                -98.41,
+                -11.91,
+                -28.98
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_12",
+            "guid": "cc648e65-d476-0896-1df6-449ec85a284f",
+            "item_id": 1166469749,
+            "item_object": "SpawnInfo_Material_Herb_001",
+            "item_position": [
+                -98.49,
+                -11.91,
+                -31.05
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_11",
+            "guid": "cadb6163-ac33-0ff0-2a94-d34342c646bb",
+            "item_id": 2244555736,
+            "item_object": "SpawnInfo_Treasure_WoodGoddesStatue_004",
+            "item_position": [
+                -42.55,
+                -7.99,
+                -45.93
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_11",
+            "guid": "14b9fb7b-5ae2-0d43-26b6-4bca51ab142d",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_002",
+            "item_position": [
+                -40.96,
+                -7.67,
+                -21.51
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_11",
+            "guid": "c9236eff-6a4c-4ee1-8a53-5e7e6719c359",
+            "item_id": 2549049308,
+            "item_object": "SpawnInfo_SmallKey_010",
+            "item_position": [
+                -43.19,
+                -7.52,
+                -35.49
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_09",
+            "guid": "3e1be17f-83d0-0eb5-1dcd-dcb8048a1a40",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfoRandomDrop_005",
+            "item_position": [
+                -97.2,
+                -11.91,
+                -36.63
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_09",
+            "guid": "087258ef-e2ca-0a21-2e02-a73a1e170556",
+            "item_id": 526649991,
+            "item_object": "SpawnInfo_Material_ChemicalLiquid_002",
+            "item_position": [
+                -97.05,
+                -11.91,
+                -23.25
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_09",
+            "guid": "c852775f-813d-0db2-187d-f3e5b93a3dff",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_009",
+            "item_position": [
+                -131.77,
+                42.03,
+                -32.88
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 25
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_09",
+            "guid": "ed3d98e4-a16c-0341-0788-4dd93f12568e",
+            "item_id": 1731811000,
+            "item_object": "SpawnInfo_ShotGun_Bullet_012",
+            "item_position": [
+                -132.49,
+                42.03,
+                -33.53
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 2
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_09",
+            "guid": "be017620-56bf-04b3-2116-5549cd5be6d3",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_006",
+            "item_position": [
+                -142.58,
+                28.23,
+                -40.91
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 25
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_09",
+            "guid": "d7301f7b-4a31-030f-1756-0c55a18fd3e4",
+            "item_id": 1429493426,
+            "item_object": "SpawnInfo_CureMedicine_008",
+            "item_position": [
+                -142.47,
+                29.33,
+                -39.84
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_09",
+            "guid": "c284bf22-a296-007f-31da-312229f8e0d3",
+            "item_id": 3919597625,
+            "item_object": "SpawnInfo_SniperRifleBullet_003",
+            "item_position": [
+                -143.17,
+                29.29,
+                -40.41
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 3
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_09",
+            "guid": "be2c3089-100c-0535-0836-906e899f9cde",
+            "item_id": 1731811000,
+            "item_object": "SpawnInfo_ShotGun_Bullet_001",
+            "item_position": [
+                -143.06,
+                29.29,
+                -40.27
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 2
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_08",
+            "guid": "2693e166-bf00-07f3-18df-f019c86aa790",
+            "item_id": 1179972000,
+            "item_object": "ItemSpawnInfoRandomDrop_003",
+            "item_position": [
+                -27.26,
+                -21.35,
+                -3.46
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 5
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_08",
+            "guid": "01da0e4c-8f1b-0579-1a3c-2ddaa009f8d8",
+            "item_id": 3196868754,
+            "item_object": "SpawnInfo_BaggedMoney_004",
+            "item_position": [
+                -15.27,
+                -20.64,
+                -10.01
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1000
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_08",
+            "guid": "7891c166-8ba8-0f92-014b-d45b537c3059",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_002",
+            "item_position": [
+                -21.28,
+                -21.14,
+                -6.38
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_08",
+            "guid": "bf57b5f6-4e31-0697-3968-fb9e876ab346",
+            "item_id": 526649991,
+            "item_object": "SpawnInfo_Material_ChemicalLiquid_001",
+            "item_position": [
+                -19.02,
+                -21.29,
+                -12.63
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_07",
+            "guid": "a871df6a-6674-0797-04eb-dcede99aa707",
+            "item_id": 3196868754,
+            "item_object": "ItemSpawnInfoRandomDrop_004",
+            "item_position": [
+                -50.63,
+                -14.1,
+                -4.07
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 220
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_07",
+            "guid": "b058f9e7-d521-00a0-056a-931f23f77ff8",
+            "item_id": 1179972000,
+            "item_object": "ItemSpawnInfoRandomDrop_007",
+            "item_position": [
+                -37.24,
+                -13.69,
+                -21.68
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 5
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_07",
+            "guid": "5e772d1a-668f-0901-0947-91b1b50a925d",
+            "item_id": 3196868754,
+            "item_object": "ItemSpawnInfoRandomDrop_009",
+            "item_position": [
+                -37.44,
+                -12.89,
+                4.16
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 380
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_07",
+            "guid": "2e7509c4-7956-04fb-1fe2-d1f4a1ea15e7",
+            "item_id": 1731811000,
+            "item_object": "SpawnInfo_ShotGun_Bullet_001",
+            "item_position": [
+                -53.95,
+                -13.7,
+                -14.42
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 2
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_07",
+            "guid": "905703ba-cf09-01d2-0029-bcfa7894ac02",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_005",
+            "item_position": [
+                -37.03,
+                -14.45,
+                -15.99
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_07",
+            "guid": "2e9353ca-11af-0693-099f-2e01d3047147",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_006",
+            "item_position": [
+                -54.78,
+                -14.13,
+                4.26
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_07",
+            "guid": "0febf88b-5681-074c-35b4-a4db03575d34",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_002",
+            "item_position": [
+                -57.59,
+                -13.56,
+                -9.35
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_07",
+            "guid": "5accefee-9b89-0736-15b3-689cdaa2adf5",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_003",
+            "item_position": [
+                -43.76,
+                -14.15,
+                -11.23
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 10
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_06",
+            "guid": "eb2bbfc7-84ae-0290-1663-f3167e081661",
+            "item_id": 3196868754,
+            "item_object": "ItemSpawnInfoRandomDrop_015",
+            "item_position": [
+                -3.26,
+                21.76,
+                -11.81
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 220
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_06",
+            "guid": "4cec02b1-f6b7-0617-2188-d56179fa6595",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_009",
+            "item_position": [
+                -27.65,
+                6.5,
+                -16.14
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_06",
+            "guid": "9d9bbf80-0e4f-061c-22b6-ca9e8999e65f",
+            "item_id": 3196868754,
+            "item_object": "ItemSpawnInfoRandomDrop_005",
+            "item_position": [
+                -3.2,
+                21.76,
+                -6.48
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 260
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_06",
+            "guid": "7637ebb0-6b64-0b15-24b6-884c2541fde3",
+            "item_id": 3196868754,
+            "item_object": "ItemSpawnInfoRandomDrop_006",
+            "item_position": [
+                -51.97,
+                7.41,
+                -2.88
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 330
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_06",
+            "guid": "8d0fb787-e935-0448-1db4-06da90e613e7",
+            "item_id": 3919597625,
+            "item_object": "ItemSpawnInfoRandomDrop_003",
+            "item_position": [
+                -40.34,
+                7.41,
+                -8.98
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 2
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_06",
+            "guid": "8602161b-64f7-05bf-1de2-26ea2f67ddba",
+            "item_id": 1179972000,
+            "item_object": "ItemSpawnInfoRandomDrop_002",
+            "item_position": [
+                -54.5,
+                7.87,
+                -50.45
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 5
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_06",
+            "guid": "5de0f127-e6dd-0ee0-0af4-f3247d2c6418",
+            "item_id": 3196868754,
+            "item_object": "ItemSpawnInfoRandomDrop_014",
+            "item_position": [
+                -24.49,
+                13.27,
+                -15.36
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 210
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_06",
+            "guid": "3b60070e-9cce-0050-3f8b-a5430adaab15",
+            "item_id": 3196868754,
+            "item_object": "SpawnInfo_SniperRifle_013",
+            "item_position": [
+                -55.12,
+                8.62,
+                -34.92
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 10000
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_06",
+            "guid": "1cb2f3c7-8216-031f-08c6-13db5f5060a2",
+            "item_id": 1166469749,
+            "item_object": "SpawnInfo_Material_Herb_012",
+            "item_position": [
+                -66.74,
+                -3.34,
+                -62.64
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_06",
+            "guid": "2cd3fd3d-af89-05c0-24aa-03454715ea94",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_011",
+            "item_position": [
+                -6.54,
+                14.15,
+                -4.46
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_06",
+            "guid": "eaf3644b-4fab-0e15-207b-650e8cca459d",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_007",
+            "item_position": [
+                -58.95,
+                7.63,
+                -52.6
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_06",
+            "guid": "b70a7c1e-75bd-4664-b8dc-2731fe558136",
+            "item_id": 2549049308,
+            "item_object": "SpawnInfo_SmallKey_010",
+            "item_position": [
+                -53.0,
+                8.39,
+                -62.75
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_06",
+            "guid": "d7a9c9f0-1ed4-01f6-332d-5c23f97c5273",
+            "item_id": 1943719610,
+            "item_object": "SpawnInfo_Treasure_SpinelFallByAttack_004",
+            "item_position": [
+                -21.98,
+                21.49,
+                -5.58
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_06",
+            "guid": "f35de954-460c-0711-31c6-faa3ea51309b",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_008",
+            "item_position": [
+                -62.24,
+                -2.6,
+                -52.35
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 15
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_05",
+            "guid": "0675609f-ce4a-0664-3e0d-15bdcbb6174e",
+            "item_id": 1179972000,
+            "item_object": "ItemSpawnInfoRandomDrop_010",
+            "item_position": [
+                -41.56,
+                -3.69,
+                -38.82
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 5
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_05",
+            "guid": "ea260ce5-16d2-006c-340f-4e64bd8cd3c4",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfoRandomDrop_004",
+            "item_position": [
+                1.19,
+                -8.68,
+                -55.47
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_05",
+            "guid": "6313c5d3-d951-060f-13b4-2793d7e4f00f",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_007",
+            "item_position": [
+                -42.52,
+                -3.25,
+                -49.27
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 25
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_05",
+            "guid": "189667d5-e4e2-0fe6-0da4-be15b4ae3bf7",
+            "item_id": 1731811000,
+            "item_object": "SpawnInfo_ShotGun_Bullet_003",
+            "item_position": [
+                -32.07,
+                -2.4,
+                -49.47
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 3
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_05",
+            "guid": "af5859d3-4345-0dec-38cc-acb7be8bb254",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_006",
+            "item_position": [
+                -23.97,
+                -2.83,
+                -45.87
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_05",
+            "guid": "8a56e371-dc84-0e22-0c56-8da94a323051",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_001",
+            "item_position": [
+                -16.31,
+                -8.23,
+                -57.17
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_05",
+            "guid": "25769b8b-6a76-0e90-2c39-5f258366a9ab",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_014",
+            "item_position": [
+                -23.51,
+                -2.67,
+                -40.38
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 5
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_05",
+            "guid": "36ec9cc3-2f43-03bb-1231-a3870ba4c143",
+            "item_id": 1943719610,
+            "item_object": "SpawnInfo_Treasure_SpinelFallByAttack_005",
+            "item_position": [
+                -10.63,
+                0.01,
+                -39.79
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_05",
+            "guid": "71a40b17-74a7-08fa-1439-f109e6e82cd5",
+            "item_id": 3919597625,
+            "item_object": "SpawnInfo_SniperRifleBullet_019",
+            "item_position": [
+                -5.52,
+                -3.18,
+                -57.17
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 3
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_05",
+            "guid": "26450a47-6588-068e-23e0-6b070a20110a",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_002",
+            "item_position": [
+                -16.83,
+                -8.49,
+                -51.92
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_05",
+            "guid": "7fda5152-56e8-0969-38f1-675219cf0e38",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_009",
+            "item_position": [
+                -35.26,
+                -2.78,
+                -41.82
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 10
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_04",
+            "guid": "8f03d463-7610-0383-0f77-3f7defe9072d",
+            "item_id": 3196868754,
+            "item_object": "ItemSpawnInfoRandomDrop_002",
+            "item_position": [
+                -16.95,
+                -2.79,
+                3.67
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 220
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_04",
+            "guid": "b5b8155e-a5dc-039b-0074-15467d3a97e7",
+            "item_id": 1179972000,
+            "item_object": "ItemSpawnInfoRandomDrop_004",
+            "item_position": [
+                -6.5,
+                -2.71,
+                -7.92
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 5
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_04",
+            "guid": "0b65ef88-122a-068a-2a8c-8efcc7160bb1",
+            "item_id": 3196868754,
+            "item_object": "SpawnInfo_BaggedMoney_007",
+            "item_position": [
+                -40.26,
+                -2.71,
+                0.36
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1000
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_04",
+            "guid": "bb8d56e5-5e4b-04a5-2cf8-558d83eee62e",
+            "item_id": 526649991,
+            "item_object": "SpawnInfo_Material_ChemicalLiquid_006",
+            "item_position": [
+                -6.37,
+                -7.64,
+                -7.97
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_04",
+            "guid": "752d1c5c-75d0-00df-3419-469852698cc5",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_001",
+            "item_position": [
+                -38.83,
+                -1.68,
+                -3.58
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_04",
+            "guid": "d17b10f2-b957-0b62-15d6-aadc7bb42c96",
+            "item_id": 1166469749,
+            "item_object": "SpawnInfo_Material_Herb_005",
+            "item_position": [
+                -41.59,
+                -2.71,
+                7.65
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_04",
+            "guid": "2cd09c29-8569-07ee-098e-6d7a99eede0a",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_010",
+            "item_position": [
+                -35.71,
+                -2.08,
+                -11.2
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 25
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_03",
+            "guid": "ce4071e4-348b-0505-1769-f7039a385169",
+            "item_id": 3397831806,
+            "item_object": "SpawnInfo_Material_ScrapB_007",
+            "item_position": [
+                -31.88,
+                -8.69,
+                -14.23
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_03",
+            "guid": "1bf71ba3-afb2-0708-18ea-14d291526fc3",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_001",
+            "item_position": [
+                -13.83,
+                -8.67,
+                -35.11
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_03",
+            "guid": "3e6f76e0-4736-055c-0909-11484522f3d7",
+            "item_id": 1179972000,
+            "item_object": "ItemSpawnInfoRandomDrop_002",
+            "item_position": [
+                -30.77,
+                -8.68,
+                -36.05
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 5
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_03",
+            "guid": "cd376d97-125f-0252-0da0-ba359a89c3db",
+            "item_id": 3196868754,
+            "item_object": "SpawnInfo_BaggedMoney_003",
+            "item_position": [
+                -22.0,
+                -10.43,
+                -15.0
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1000
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_03",
+            "guid": "2b058349-c6fd-0139-1864-ca3bf8023c8c",
+            "item_id": 1166469749,
+            "item_object": "SpawnInfo_Material_Herb_005",
+            "item_position": [
+                -27.05,
+                -10.05,
+                -22.42
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "7a526d84-1cf6-00d9-1d05-f2f3ead8b982",
+            "item_id": 3196868754,
+            "item_object": "ItemSpawnInfoRandomDrop_024",
+            "item_position": [
+                -11.13,
+                -13.0,
+                -96.7
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 330
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "190c8e06-5439-03a3-2c9e-a8df2abd9b39",
+            "item_id": 3196868754,
+            "item_object": "ItemSpawnInfoRandomDrop_017",
+            "item_position": [
+                -16.21,
+                -12.96,
+                -89.71
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 380
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "36b3d3ac-cbd0-0c9c-108c-650ec6a3727d",
+            "item_id": 1179972000,
+            "item_object": "ItemSpawnInfoRandomDrop_011",
+            "item_position": [
+                -46.42,
+                -17.85,
+                -82.37
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 5
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "de4f963e-9ecb-0a5b-170c-6fae9e0f5d0c",
+            "item_id": 1179972000,
+            "item_object": "ItemSpawnInfoRandomDrop_009",
+            "item_position": [
+                -52.87,
+                -16.82,
+                -93.78
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 5
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "668a9a15-1b6c-00ea-19bc-af821c208c29",
+            "item_id": 1179972000,
+            "item_object": "ItemSpawnInfoRandomDrop_022",
+            "item_position": [
+                -56.36,
+                -17.89,
+                -109.64
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 5
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "08e40abf-6718-052f-245e-1dc5b1a5083d",
+            "item_id": 3196868754,
+            "item_object": "ItemSpawnInfoRandomDrop_003",
+            "item_position": [
+                -36.44,
+                -8.56,
+                -37.98
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 220
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "a48695c0-07cc-0e5a-1457-4356adb98fbf",
+            "item_id": 3196868754,
+            "item_object": "ItemSpawnInfoRandomDrop_007",
+            "item_position": [
+                -64.79,
+                -15.86,
+                -56.01
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 260
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "a85d2fe8-913c-0c5a-2468-77a4622f9b7c",
+            "item_id": 3196868754,
+            "item_object": "ItemSpawnInfoRandomDrop_015",
+            "item_position": [
+                -22.74,
+                -12.18,
+                -82.76
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 330
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "2c1df5ef-9e14-0c82-0511-80a7822012c2",
+            "item_id": 1179972000,
+            "item_object": "ItemSpawnInfoRandomDrop_006",
+            "item_position": [
+                -37.86,
+                -12.99,
+                -79.69
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 5
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "f3d88225-e630-015c-20e3-7462a11d5198",
+            "item_id": 3196868754,
+            "item_object": "ItemSpawnInfoRandomDrop_002",
+            "item_position": [
+                -72.63,
+                -17.79,
+                -97.2
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 330
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "340e7260-b4c8-0c94-155a-6ac67801a55b",
+            "item_id": 1042576120,
+            "item_object": "SpawnInfo_Dynamite_020",
+            "item_position": [
+                -50.61,
+                -17.24,
+                -96.8
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "26d5c2fe-b2cb-0ffc-01b7-0688ed099fe7",
+            "item_id": 3725070903,
+            "item_object": "SpawnInfo_PartsCase_LongBarrel_Hand1_001",
+            "item_position": [
+                -46.33,
+                -7.7,
+                -43.16
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "512b2302-0472-06e0-3195-8122c3e7c79e",
+            "item_id": 1943719610,
+            "item_object": "SpawnInfo_Treasure_Spinel_026",
+            "item_position": [
+                -16.0,
+                -11.69,
+                -100.76
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "99dcaefb-675c-09e7-1952-8ffa716142a1",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_021",
+            "item_position": [
+                -20.03,
+                -11.72,
+                -97.38
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 10
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "2a1fecee-e71e-0ee9-2cec-cdb30ef28b0c",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_023",
+            "item_position": [
+                -53.08,
+                -17.86,
+                -80.52
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "63877ae0-f899-08b6-0343-a46d75aac875",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_016",
+            "item_position": [
+                -47.43,
+                -14.64,
+                -32.09
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "0e83b40d-092e-066f-313b-78bff10c85c0",
+            "item_id": 3397831806,
+            "item_object": "SpawnInfo_Material_ScrapB_019",
+            "item_position": [
+                -63.18,
+                -17.8,
+                -109.57
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "765290ce-c4c9-060b-0ca1-64573b24aa98",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_010",
+            "item_position": [
+                -72.76,
+                -17.84,
+                -104.29
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "7c485476-88c5-081d-1359-309c86b763ba",
+            "item_id": 3937405541,
+            "item_object": "SpawnInfo_Treasure_AzureJewery_001",
+            "item_position": [
+                -13.17,
+                -12.31,
+                -93.84
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "667f4523-46a1-06f7-29ad-08ff15d8e7a6",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_008",
+            "item_position": [
+                -36.62,
+                -8.76,
+                -45.97
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "a9af2e40-795d-0dce-2c51-5e058090351c",
+            "item_id": 1943719610,
+            "item_object": "SpawnInfo_Treasure_SpinelFallByAttack_018",
+            "item_position": [
+                -55.91,
+                -12.11,
+                -43.68
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "9799fa2d-3197-0116-264d-941b59212b5d",
+            "item_id": 1042576120,
+            "item_object": "SpawnInfo_Dynamite_004",
+            "item_position": [
+                -20.03,
+                -11.73,
+                -90.42
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "8fc6f2df-c9a3-0fdf-14e1-940d76db4e02",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_005",
+            "item_position": [
+                -52.59,
+                -13.68,
+                -38.82
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 10
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "2baee2c9-f78a-0f7a-05f7-7c3c2a3a134c",
+            "item_id": 1731811000,
+            "item_object": "SpawnInfo_ShotGun_Bullet_014",
+            "item_position": [
+                -21.2,
+                -8.25,
+                -64.22
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 3
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "a43c641c-7af6-0c99-38af-3564b82f18a7",
+            "item_id": 526649991,
+            "item_object": "SpawnInfo_Material_ChemicalLiquid_013",
+            "item_position": [
+                -32.52,
+                -7.98,
+                -63.83
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "8a4ec83d-f937-00d1-1f18-74ad20d5246f",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_012",
+            "item_position": [
+                -36.45,
+                -7.9,
+                -56.7
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 10
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_02",
+            "guid": "39c2ccab-c17c-0206-0366-1fba38d36de6",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_",
+            "item_position": [
+                -31.93,
+                -8.31,
+                -54.59
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 10
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "20056526-8e96-0b61-11ca-7a91bdc0f3f6",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_008",
+            "item_position": [
+                -67.25,
+                -3.58,
+                -36.12
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "032cfd78-66be-0b60-3174-9c2388b28af1",
+            "item_id": 3196868754,
+            "item_object": "ItemSpawnInfoRandomDrop_002",
+            "item_position": [
+                -61.8,
+                -3.63,
+                2.85
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 380
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "5fdd644b-9ded-0bca-34a1-af50c57a53f4",
+            "item_id": 3196868754,
+            "item_object": "ItemSpawnInfoRandomDrop_018",
+            "item_position": [
+                -77.33,
+                -11.9,
+                -16.3
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 380
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "c632d0ce-7943-037f-3f56-8fd2fe75bf11",
+            "item_id": 3196868754,
+            "item_object": "ItemSpawnInfoRandomDrop_007",
+            "item_position": [
+                -68.68,
+                -3.6,
+                -21.51
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 380
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "c926ccd3-68d6-0457-323b-427cd1b4b59e",
+            "item_id": 3196868754,
+            "item_object": "ItemSpawnInfoRandomDrop_016",
+            "item_position": [
+                -51.91,
+                -8.68,
+                -36.16
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 220
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "5ebf289b-6945-0064-0e1c-78238a7b96e9",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_020",
+            "item_position": [
+                -83.11,
+                1.19,
+                3.95
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 9
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "53758d35-84a2-04c3-2133-94c15af50081",
+            "item_id": 2573508403,
+            "item_object": "SpawnInfo_Treasure_SilverRing_001",
+            "item_position": [
+                -67.17,
+                -2.99,
+                -1.12
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "ebc664bb-5aa4-0f69-17c5-9467d20b4d0b",
+            "item_id": 3196868754,
+            "item_object": "SpawnInfo_BaggedMoney_030",
+            "item_position": [
+                -51.45,
+                -2.68,
+                -37.63
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 200
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "8874f862-14c2-0643-2abb-18821b447fbf",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_029",
+            "item_position": [
+                -68.82,
+                -7.67,
+                -25.2
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 5
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "39fc0c81-a8fa-0b3e-08f4-01e7eaaf058d",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_028",
+            "item_position": [
+                -70.54,
+                -10.9,
+                -45.84
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "fc200dc7-1f79-0bab-0e88-f231e5e44c5d",
+            "item_id": 526649991,
+            "item_object": "SpawnInfo_Material_ChemicalLiquid_027",
+            "item_position": [
+                -85.98,
+                -10.87,
+                -41.26
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "03a4cf02-0862-0241-3ea1-bed9e6d15ce9",
+            "item_id": 1943719610,
+            "item_object": "SpawnInfo_Treasure_Spinel_026",
+            "item_position": [
+                -82.68,
+                -11.06,
+                -38.61
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "28a89462-7d6d-0233-15cf-0ed2dec065c8",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_023",
+            "item_position": [
+                -69.19,
+                -2.17,
+                3.15
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "914ea607-a2bb-0a1a-1212-3fd82f93ec36",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_019",
+            "item_position": [
+                -40.28,
+                -2.7,
+                -21.29
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "79fddc9d-1ac8-0cf6-2dc5-dfa22f23e4b4",
+            "item_id": 1394398957,
+            "item_object": "SpawnInfo_Material_ScrapA_001",
+            "item_position": [
+                -73.4,
+                -10.66,
+                -38.86
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "843fc3a9-1093-091c-2381-432310e093d4",
+            "item_id": 2549049308,
+            "item_object": "SpawnInfo_SmallKey_010",
+            "item_position": [
+                -91.3,
+                0.96,
+                -1.18
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "c004d032-c258-0cbf-312f-2a115e70b022",
+            "item_id": 1731811000,
+            "item_object": "SpawnInfo_ShotGun_Bullet_017",
+            "item_position": [
+                -82.11,
+                1.47,
+                3.77
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 2
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "c97b4a66-22f9-0c5b-2916-509bfec8a4ce",
+            "item_id": 1943719610,
+            "item_object": "SpawnInfo_Treasure_SpinelFallByAttack_005",
+            "item_position": [
+                -43.09,
+                -3.87,
+                -30.8
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "e295c9b4-3e02-0d53-3bcf-0a5d604028f0",
+            "item_id": 1731811000,
+            "item_object": "SpawnInfo_ShotGun_Bullet_014",
+            "item_position": [
+                -59.31,
+                -11.24,
+                -47.37
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 2
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "b81d830d-f8eb-01da-2187-0b7d07bc95ad",
+            "item_id": 1943719610,
+            "item_object": "SpawnInfo_Treasure_SpinelFallByAttack_004",
+            "item_position": [
+                -64.52,
+                0.97,
+                0.95
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "8485687e-cbef-0b7b-39f1-36c78018fbe3",
+            "item_id": 1042576120,
+            "item_object": "SpawnInfo_Dynamite_012",
+            "item_position": [
+                -90.1,
+                0.98,
+                -1.68
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "ff04ea09-3c67-0c8a-163b-674028b8b242",
+            "item_id": 1042576120,
+            "item_object": "SpawnInfo_Dynamite_006",
+            "item_position": [
+                -90.4,
+                1.0,
+                -1.51
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "8d0cd130-e564-093f-2680-73d8dea54bd2",
+            "item_id": 1943719610,
+            "item_object": "SpawnInfo_Treasure_SpinelFallByAttack_009",
+            "item_position": [
+                -52.45,
+                0.16,
+                -19.99
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "9ce77168-2697-0baa-1b58-e6567a2c93c5",
+            "item_id": 526649991,
+            "item_object": "SpawnInfo_Material_ChemicalLiquid_013",
+            "item_position": [
+                -40.23,
+                -2.55,
+                -31.48
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "923c8905-0eaa-032a-3235-a119a4c1de24",
+            "item_id": 1943719610,
+            "item_object": "SpawnInfo_Treasure_SpinelFallByAttack_015",
+            "item_position": [
+                -47.71,
+                -3.26,
+                -13.4
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_01",
+            "guid": "42d35a01-271f-0b38-0a4a-e3f11b3bed9c",
+            "item_id": 3196868754,
+            "item_object": "SpawnInfo_BaggedMoney_011",
+            "item_position": [
+                -46.32,
+                -7.89,
+                -10.95
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 500
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_00",
+            "guid": "28b48b98-7d9a-0d73-14a5-ce5c37e47451",
+            "item_id": 3196868754,
+            "item_object": "ItemSpawnInfoRandomDrop_024",
+            "item_position": [
+                -58.37,
+                -8.68,
+                -10.02
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 260
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_00",
+            "guid": "59f03a14-bde1-08e9-1360-cf66c3a51717",
+            "item_id": 3461208890,
+            "item_object": "SpawnInfo_Material_GunPowder_003",
+            "item_position": [
+                -50.82,
+                -7.83,
+                -12.68
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem/st03_ItemSet_ResourceItem_Separetor_00",
+            "guid": "ab8dd646-c4e4-04b1-1655-597601453d6b",
+            "item_id": 1166469749,
+            "item_object": "SpawnInfo_Material_Herb_001",
+            "item_position": [
+                -36.3,
+                -18.3,
+                23.84
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_KeyItem",
+            "guid": "812789d0-ccaf-0798-37e1-881b56288eaa",
+            "item_id": 2189190376,
+            "item_object": "SpawnInfo_WitchPrisonTreasureMap_012",
+            "item_position": [
+                -54.98,
+                7.87,
+                -50.79
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_KeyItem",
+            "guid": "64b9967f-54cf-041a-3341-99052cb5e8e7",
+            "item_id": 2309731541,
+            "item_object": "SpawnInfo_WitchBodyDonation_Head_011",
+            "item_position": [
+                -132.73,
+                -35.67,
+                -18.14
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_KeyItem",
+            "guid": "372ef2fb-1554-0fce-3695-9beb07b5458e",
+            "item_id": 3784287352,
+            "item_object": "SpawnInfo_WitchStuffedPlate_010",
+            "item_position": [
+                -91.31,
+                2.89,
+                0.74
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_KeyItem",
+            "guid": "e63a6569-12d4-0287-251b-d07859865065",
+            "item_id": 1773855935,
+            "item_object": "SpawnInfo_Treasure_WitchBustShard_009",
+            "item_position": [
+                -131.19,
+                -36.48,
+                -30.31
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_KeyItem",
+            "guid": "e884c938-cf52-0609-1c65-8f5e5b4ce98a",
+            "item_id": 3749759,
+            "item_object": "SpawnInfo_Treasure_WitchGlass_004",
+            "item_position": [
+                -65.78,
+                -11.07,
+                -55.71
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_KeyItem",
+            "guid": "e032f88e-43ec-0200-275b-24c1d5fe9e85",
+            "item_id": 2299641251,
+            "item_object": "SpawnInfo_Treasure_WitchShard_002",
+            "item_position": [
+                -91.19,
+                -11.65,
+                -16.05
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_KeyItem",
+            "guid": "e7e33143-e45a-0044-2279-00cab910343c",
+            "item_id": 351490193,
+            "item_object": "SpawnInfo_Treasure_WitchLipStick_005",
+            "item_position": [
+                -17.41,
+                -2.0,
+                -5.57
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_KeyItem",
+            "guid": "b6f19ef4-9969-0dcb-216c-d7cfa4dae84c",
+            "item_id": 473898393,
+            "item_object": "SpawnInfo_WitchMapLater_003",
+            "item_position": [
+                -21.08,
+                -7.48,
+                -50.35
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_KeyItem",
+            "guid": "164ce3fc-9573-0c87-109e-cb92c332d681",
+            "item_id": 2183898626,
+            "item_object": "SpawnInfo_WitchJeweledRing_008",
+            "item_position": [
+                -81.54,
+                -13.93,
+                -42.05
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_KeyItem",
+            "guid": "dda9499e-588e-0692-3342-6e344573e124",
+            "item_id": 1344029762,
+            "item_object": "SpawnInfo_WitchPleasureDeathMask_007",
+            "item_position": [
+                -64.57,
+                -2.57,
+                3.13
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_KeyItem",
+            "guid": "e241998c-a57e-04d2-3f86-a30a560e7052",
+            "item_id": 418018598,
+            "item_object": "SpawnInfo_WitchPrisonKey_006",
+            "item_position": [
+                -10.43,
+                -7.72,
+                -53.65
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_KeyItem",
+            "guid": "1c9c5f0d-5238-07a1-3134-6846e94ffb7c",
+            "item_id": 2685023068,
+            "item_object": "SpawnInfo_WitchBottleWine_001",
+            "item_position": [
+                -34.92,
+                -9.69,
+                -40.37
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_KeyItem",
+            "guid": "0cdd9b1e-38a6-0b4a-290d-f0a9b838df1f",
+            "item_id": 1894921204,
+            "item_object": "SpawnInfo_WitchMap",
+            "item_position": [
+                -24.97,
+                -1.53,
+                -15.71
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_KeyItem",
+            "guid": "dfeb7c48-7622-07d9-1163-65c3e3812624",
+            "item_id": 1354786552,
+            "item_object": "SpawnInfo_WitchCourtyardKey",
+            "item_position": [
+                -45.51,
+                -2.57,
+                -21.68
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_KeyItem",
+            "guid": "34f004e0-b2ed-0b84-0668-fcf15201a9a9",
+            "item_id": 218464484,
+            "item_object": "SpawnInfo_WitchBrassJewel",
+            "item_position": [
+                -17.49,
+                -3.14,
+                -63.06
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_KeyItem",
+            "guid": "50caddd4-72a6-0ad8-23fa-32e8200ba416",
+            "item_id": 2365661828,
+            "item_object": "SpawnInfo_WitchDelightDeathMask",
+            "item_position": [
+                -54.7,
+                -2.27,
+                -51.31
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_KeyItem",
+            "guid": "1b740875-b7bd-068b-3934-78127f3672b2",
+            "item_id": 314002296,
+            "item_object": "SpawnInfo_WitchFuryDeathMask",
+            "item_position": [
+                -45.13,
+                16.01,
+                -12.27
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_KeyItem",
+            "guid": "7c3dd049-abd9-0e9c-007c-0c60f91e09ea",
+            "item_id": 3513834249,
+            "item_object": "SpawnInfo_WitchMouringDeathMask",
+            "item_position": [
+                -21.97,
+                -26.18,
+                -26.96
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_KeyItem",
+            "guid": "9485e631-eb1e-0f76-0cc3-ef192712f7c0",
+            "item_id": 1738775830,
+            "item_object": "SpawnInfo_WitchKey",
+            "item_position": [
+                -26.51,
+                -0.83,
+                -0.96
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem",
+            "guid": "a33db402-4313-09c7-352b-d3d9cdc4ebe7",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfo_EmDrop_09",
+            "item_position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem",
+            "guid": "3b7736a4-2cd1-0b0a-3811-3d96554eced2",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfo_EmDrop_08",
+            "item_position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem",
+            "guid": "5d1b1187-70f0-0695-0b32-02cc97d472d2",
+            "item_id": 3196868754,
+            "item_object": "ItemSpawnInfo_EmDrop_07",
+            "item_position": [
+                -30.91,
+                -31.46,
+                11.21
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": true,
+            "stack": 1080
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem",
+            "guid": "b43f10fd-61ef-09c6-1555-8d8ba6107dd0",
+            "item_id": 3442255841,
+            "item_object": "ItemSpawnInfo_EmDrop_06",
+            "item_position": [
+                -6.7,
+                7.43,
+                3.29
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem",
+            "guid": "cba351b9-4a07-0de0-248d-940473e97886",
+            "item_id": 3442255841,
+            "item_object": "ItemSpawnInfo_EmDrop_05",
+            "item_position": [
+                -45.55,
+                -9.98,
+                3.63
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem",
+            "guid": "5f7b659d-1d91-0990-0b86-1f9e70419927",
+            "item_id": 3442255841,
+            "item_object": "ItemSpawnInfo_EmDrop_04",
+            "item_position": [
+                -34.24,
+                8.14,
+                -17.35
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem",
+            "guid": "ff4aae5b-be46-08c9-1ee4-1f9b7650896f",
+            "item_id": 3196868754,
+            "item_object": "ItemSpawnInfo_EmDrop_03",
+            "item_position": [
+                -31.03,
+                -28.12,
+                -37.09
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": true,
+            "stack": 1180
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem",
+            "guid": "e49c0292-ab6e-05a2-140b-9d19769c2ea2",
+            "item_id": 3196868754,
+            "item_object": "ItemSpawnInfo_EmDrop_02",
+            "item_position": [
+                -36.22,
+                -28.09,
+                -32.56
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": true,
+            "stack": 1190
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem",
+            "guid": "e11a14ab-4a70-07e3-30de-e768933f1155",
+            "item_id": 3442255841,
+            "item_object": "ItemSpawnInfo_EmDrop_01",
+            "item_position": [
+                -35.96,
+                -27.91,
+                -34.68
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_2/st03_ItemSet/st03_ItemSet_SpawnInfo/st03_ItemSet_ResourceItem",
+            "guid": "9cd9169b-5fb0-49e4-b002-aefcc7d5c5ff",
+            "item_id": 3196868754,
+            "item_object": "ItemSpawnInfo_EmDrop_00",
+            "item_position": [
+                -30.95,
+                13.66,
+                -39.88
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": true,
+            "stack": 1140
+        }
+    ]
+}

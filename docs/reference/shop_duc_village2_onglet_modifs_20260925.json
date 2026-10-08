@@ -1,0 +1,50 @@
+{
+    "units": {
+        "1": {
+            "is_new": false,
+            "item_id": 2044788832,
+            "price": 0,
+            "shop": 1,
+            "sort": 6000,
+            "stack": 1,
+            "stock": 1
+        },
+        "2": {
+            "is_new": false,
+            "item_id": 3593098140,
+            "price": 9000,
+            "shop": 1,
+            "sort": 6002,
+            "stack": 1,
+            "stock": 1
+        },
+        "3": {
+            "is_new": false,
+            "item_id": 3787717904,
+            "price": 8000,
+            "shop": 1,
+            "sort": 6010,
+            "stack": 1,
+            "stock": 1
+        },
+        "4": {
+            "is_new": false,
+            "item_id": 1959464596,
+            "price": 15000,
+            "shop": 1,
+            "sort": 6024,
+            "stack": 1,
+            "stock": 1
+        },
+        "5": {
+            "is_new": false,
+            "item_id": 1839743046,
+            "price": 20000,
+            "shop": 1,
+            "sort": 6025,
+            "stack": 1,
+            "stock": 1
+        },
+        "assortment_hash": 3639689887
+    }
+}

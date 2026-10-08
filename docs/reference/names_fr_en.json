@@ -1,0 +1,1474 @@
+{
+    "categories": {
+        "Arme de mêlée": "Melee Weapon",
+        "Arme de poing": "Handgun",
+        "Arme unique": "Unique Weapon",
+        "Autre": "Other",
+        "Explosif": "Explosive",
+        "Fusil": "Shotgun",
+        "Fusil d'assaut": "Assault Rifle",
+        "Fusil sniper": "Sniper Rifle",
+        "Ingrédient": "Ingredient",
+        "Lance-grenades": "Grenade Launcher",
+        "Magnum": "Magnum",
+        "Munitions": "Ammo",
+        "Objet clé": "Key Item",
+        "Objet de soin": "Recovery Item",
+        "Trésor": "Treasure",
+        "Élément de modification": "Customizable Part"
+    },
+    "items": {
+        "1032047694": {
+            "en": "Large Crystal",
+            "fr": "Amas de cristaux"
+        },
+        "1038823123": {
+            "en": "Photo of a Strange Bird",
+            "fr": "Photo d'un oiseau étrange"
+        },
+        "1042056128": {
+            "en": "Breaker Box Key",
+            "fr": "Clé du tableau électrique"
+        },
+        "1042576120": {
+            "en": "Pipe Bomb",
+            "fr": "Bombe tuyau"
+        },
+        "1060602647": {
+            "en": "Recipe: Flashbangs",
+            "fr": "Formule : Grenades aveuglantes"
+        },
+        "1093531362": {
+            "en": "Jack Handle",
+            "fr": "Manivelle de cric"
+        },
+        "1131327709": {
+            "en": "Flash Grenade",
+            "fr": "Grenade assourdissante"
+        },
+        "1132688171": {
+            "en": "Demon Crest",
+            "fr": "Morceau de relief (démon)"
+        },
+        "1142718375": {
+            "en": "Crank",
+            "fr": "Manivelle"
+        },
+        "1152567186": {
+            "en": "Relief of a Horse",
+            "fr": "Relief de cheval"
+        },
+        "1157345091": {
+            "en": "V61 Custom",
+            "fr": "V61 Custom"
+        },
+        "1166469749": {
+            "en": "Herb",
+            "fr": "Plante"
+        },
+        "1179972000": {
+            "en": "Handgun Ammo",
+            "fr": "Munitions pour pistolet"
+        },
+        "1197251383": {
+            "en": "WCX - Red Dot Sight",
+            "fr": "Viseur point rouge (WCX)"
+        },
+        "1201790023": {
+            "en": "Flashbang",
+            "fr": "Grenades aveuglantes"
+        },
+        "1212053308": {
+            "en": "SYG-12 - Red Dot Sight",
+            "fr": "Viseur point rouge (SYG-12)"
+        },
+        "1213926402": {
+            "en": "First Aid Med",
+            "fr": "Remède de premiers soins"
+        },
+        "1217876589": {
+            "en": "Crystal Mechanical Heart",
+            "fr": "Cœur mécanique"
+        },
+        "1229370432": {
+            "en": "<COLOR FF0000>#Rejected#</COLOR> Item_key32_000",
+            "fr": "<COLOR FF0000>#Rejected#</COLOR> Item_key32_000"
+        },
+        "1233743624": {
+            "en": "Luthier's Key",
+            "fr": "Clé du luthier"
+        },
+        "1257947499": {
+            "en": "Father Nichola's Angel",
+            "fr": "Ange de Nichola"
+        },
+        "128777511": {
+            "en": "Necklace with One Hole",
+            "fr": "Collier incomplet"
+        },
+        "1321026060": {
+            "en": "<COLOR FF0000>#Rejected#</COLOR> Item_key32_000",
+            "fr": "<COLOR FF0000>#Rejected#</COLOR> Item_key32_000"
+        },
+        "1344029762": {
+            "en": "Mask of Pleasure",
+            "fr": "Masque du plaisir"
+        },
+        "1354786552": {
+            "en": "Courtyard Key",
+            "fr": "Clé de la cour"
+        },
+        "13690783": {
+            "en": "Truck Key",
+            "fr": "Clé du pick-up"
+        },
+        "1386155386": {
+            "en": "LEMI",
+            "fr": "LEMI"
+        },
+        "1394398957": {
+            "en": "Rusted Scrap",
+            "fr": "Ferraille"
+        },
+        "1394702287": {
+            "en": "SYG-12",
+            "fr": "SYG-12"
+        },
+        "1399639302": {
+            "en": "Vivianite",
+            "fr": "Vivianite"
+        },
+        "1419114675": {
+            "en": "GM 79",
+            "fr": "GM 79"
+        },
+        "141938385": {
+            "en": "Factory Map (Upper Levels)",
+            "fr": "Carte de l'usine (niveaux supérieurs)"
+        },
+        "1429493426": {
+            "en": "First Aid Med",
+            "fr": "Remède de premiers soins"
+        },
+        "1466898435": {
+            "en": "S.T.A.K.E. - Improved Grip",
+            "fr": "Poignée ergonomique (S.T.A.K.E.)"
+        },
+        "1506874164": {
+            "en": "Necklace Stone",
+            "fr": "Pierre de collier"
+        },
+        "1527870823": {
+            "en": "Ingrid's Necklace",
+            "fr": "Collier d'Ingrid"
+        },
+        "153626337": {
+            "en": "Mechanical Part (Cylinder)",
+            "fr": "Pièce mécanique (cylindre)"
+        },
+        "1559178721": {
+            "en": "F2 Rifle",
+            "fr": "Fusil F2"
+        },
+        "1583016682": {
+            "en": "Flashbang",
+            "fr": "Grenades aveuglantes"
+        },
+        "158765264": {
+            "en": "Giant's Chalice",
+            "fr": "Calice des géants"
+        },
+        "1614445624": {
+            "en": "Cesare's Goblet",
+            "fr": "Coupe de Cesare"
+        },
+        "1617108900": {
+            "en": "Hand Grenade",
+            "fr": "Grenade à main"
+        },
+        "1629499072": {
+            "en": "Cog Mold",
+            "fr": "Moule (roue dentée)"
+        },
+        "163632002": {
+            "en": "WCX - Foregrip",
+            "fr": "Poignée (WCX)"
+        },
+        "164947107": {
+            "en": "Luiza's Key",
+            "fr": "Clé de Luiza"
+        },
+        "1650702965": {
+            "en": "Complex Mechanical Heart",
+            "fr": "Cœur mécanique complexe"
+        },
+        "1664342338": {
+            "en": "Bolt Cutters",
+            "fr": "Coupe-boulon"
+        },
+        "1690589937": {
+            "en": "W870 TAC",
+            "fr": "W870 TAC"
+        },
+        "1701450361": {
+            "en": "Recipe: Magnum Ammo",
+            "fr": "Formule : Munitions magnum"
+        },
+        "1731811000": {
+            "en": "Shotgun Ammo",
+            "fr": "Cartouches de fusil"
+        },
+        "1738775830": {
+            "en": "Dimitrescu's Key",
+            "fr": "Clé de Dimitrescu"
+        },
+        "1743943559": {
+            "en": "Mechanical Part (Shaft)",
+            "fr": "Pièce mécanique (arbre)"
+        },
+        "1754241545": {
+            "en": "Cigar",
+            "fr": "Cigare"
+        },
+        "177382688": {
+            "en": "Sun and Moon Ball",
+            "fr": "Boule (soleil et lune)"
+        },
+        "1773855935": {
+            "en": "Crystal Dimitrescu",
+            "fr": "Dimitrescu cristallisée"
+        },
+        "1783651061": {
+            "en": "M1897",
+            "fr": "M1897"
+        },
+        "1787578325": {
+            "en": "Maroon Eye",
+            "fr": "Œil écarlate"
+        },
+        "1815109085": {
+            "en": "<COLOR FF0000>#Rejected#</COLOR> Item_key22_002",
+            "fr": "<COLOR FF0000>#Rejected#</COLOR> Item_key22_002"
+        },
+        "1837083205": {
+            "en": "<COLOR FF0000>#Rejected#</COLOR> Item_key32_000",
+            "fr": "<COLOR FF0000>#Rejected#</COLOR> Item_key32_000"
+        },
+        "1839743046": {
+            "en": "F2 Rifle - Cheek Rest",
+            "fr": "Appui-joue (Fusil F2)"
+        },
+        "185799830": {
+            "en": "Four-Winged Key",
+            "fr": "Clé à quatre ailes"
+        },
+        "1858058345": {
+            "en": "Large Cog",
+            "fr": "Grande roue dentée"
+        },
+        "1863717": {
+            "en": "Giant Crystal Axe",
+            "fr": "Grande hache cristallisée"
+        },
+        "1876186812": {
+            "en": "Key Mold",
+            "fr": "Moule (clé)"
+        },
+        "1879206809": {
+            "en": "M1911 - High-Capacity Mag.",
+            "fr": "Chargeur grande capacité (M1911)"
+        },
+        "1894921204": {
+            "en": "Castle Map (Main)",
+            "fr": "Carte du château (enceinte principale)"
+        },
+        "1895922302": {
+            "en": "Ball Mold",
+            "fr": "Moule (boule)"
+        },
+        "1911895058": {
+            "en": "Relief Mold",
+            "fr": "Moule (relief)"
+        },
+        "1927571624": {
+            "en": "Explosive Rounds",
+            "fr": "Grenades explosives"
+        },
+        "1943719610": {
+            "en": "Crystal Fragment",
+            "fr": "Fragment de cristal"
+        },
+        "1959464596": {
+            "en": "F2 Rifle - High Magnification Scope",
+            "fr": "Lunette grossissante (Fusil F2)"
+        },
+        "1970592906": {
+            "en": "Pigeon Blood Ruby",
+            "fr": "Rubis sang de pigeon"
+        },
+        "1976646859": {
+            "en": "Mermaid Ball",
+            "fr": "Boule (sirène)"
+        },
+        "2019423836": {
+            "en": "Guglielmo's Plate",
+            "fr": "Plat de Guglielmo"
+        },
+        "2044788832": {
+            "en": "Mr. Everywhere Weapon Charm",
+            "fr": "Accessoire d'arme Mr. Everywhere"
+        },
+        "2072724356": {
+            "en": "Photo of a Rare Animal",
+            "fr": "Photo d'un animal rare"
+        },
+        "2078728602": {
+            "en": "Crystal Torso",
+            "fr": "Buste cristallisé"
+        },
+        "2085613763": {
+            "en": "Chartreuse Skull",
+            "fr": "Crâne vert pâle"
+        },
+        "2097574382": {
+            "en": "W870 TAC",
+            "fr": "W870 TAC"
+        },
+        "2117936964": {
+            "en": "M1897 - Hair Trigger",
+            "fr": "Détente sensible (M1897)"
+        },
+        "2144331364": {
+            "en": "W870 TAC - Foregrip",
+            "fr": "Poignée (W870 TAC)"
+        },
+        "2146816802": {
+            "en": "Dragoon",
+            "fr": "Dragoon"
+        },
+        "2182652875": {
+            "en": "Magnum Ammo",
+            "fr": "Munitions magnum"
+        },
+        "2183898626": {
+            "en": "Maroon Eye Ring",
+            "fr": "Bague avec un œil écarlate"
+        },
+        "218464484": {
+            "en": "Flower Swords Ball",
+            "fr": "Boule (fleur et épées)"
+        },
+        "2186690969": {
+            "en": "F2 Rifle - High Magnification Scope",
+            "fr": "Lunette grossissante (Fusil F2)"
+        },
+        "2189190376": {
+            "en": "Treasure Map",
+            "fr": "Carte au trésor"
+        },
+        "2198114132": {
+            "en": "M1911 - Improved Grip",
+            "fr": "Poignée ergonomique (M1911)"
+        },
+        "2206988889": {
+            "en": "V61 Custom - Drum Magazine",
+            "fr": "Chargeur tambour (V61 Custom)"
+        },
+        "2236906984": {
+            "en": "<COLOR FF0000>#Rejected#</COLOR> Item_VillageProto_001",
+            "fr": "<COLOR FF0000>#Rejected#</COLOR> Item_VillageProto_001"
+        },
+        "2238338348": {
+            "en": "Perfect Crystal Skull",
+            "fr": "Crâne cristallisé parfait"
+        },
+        "2238482428": {
+            "en": "Head Flask",
+            "fr": "Bocal (tête)"
+        },
+        "2240085143": {
+            "en": "Factory Map (Lower Levels)",
+            "fr": "Carte de l'usine (niveaux inférieurs)"
+        },
+        "2244555736": {
+            "en": "Wooden Angel Statue",
+            "fr": "Ange en bois"
+        },
+        "2255157331": {
+            "en": "LEMI - Recoil Compensator",
+            "fr": "Compensateur de recul (LEMI)"
+        },
+        "2263083694": {
+            "en": "Azure Eye Ring",
+            "fr": "Bague avec un œil azur"
+        },
+        "2275184395": {
+            "en": "Rocket Pistol Ammo",
+            "fr": "Munitions de pistolet lance-roquettes"
+        },
+        "2292458104": {
+            "en": "Knife",
+            "fr": "Couteau"
+        },
+        "2299641251": {
+            "en": "Crimson Skull",
+            "fr": "Crâne cramoisi"
+        },
+        "2309731541": {
+            "en": "Dirty Flask",
+            "fr": "Bocal étrange"
+        },
+        "2319956405": {
+            "en": "Factory Map (Upper Levels)",
+            "fr": "Carte de l'usine (niveaux supérieurs)"
+        },
+        "2328275556": {
+            "en": "Truck Key",
+            "fr": "Clé du pick-up"
+        },
+        "2335451335": {
+            "en": "Madalina (Body)",
+            "fr": "Madalina (corps)"
+        },
+        "2352399178": {
+            "en": "F2 Rifle - Cheek Rest",
+            "fr": "Appui-joue (Fusil F2)"
+        },
+        "2365661828": {
+            "en": "Mask of Joy",
+            "fr": "Masque de la joie"
+        },
+        "2369659153": {
+            "en": "Family Photo",
+            "fr": "Photo de famille"
+        },
+        "237645840": {
+            "en": "Berengario's Chalice",
+            "fr": "Calice de Berengario"
+        },
+        "238321852": {
+            "en": "Steel Hræsvelgr",
+            "fr": "Hræsvelg d'acier"
+        },
+        "241847407": {
+            "en": "SYG-12",
+            "fr": "SYG-12"
+        },
+        "242164787": {
+            "en": "Polycrystal Skull",
+            "fr": "Crâne polycristallin"
+        },
+        "244098523": {
+            "en": "SYG-12 - Long Barrel",
+            "fr": "Canon long (SYG-12)"
+        },
+        "2445047744": {
+            "en": "Recipe: Pipe Bombs",
+            "fr": "Formule : Bombes tuyaux"
+        },
+        "2472407456": {
+            "en": "<COLOR FF0000>#Rejected#</COLOR> Item_key32_000",
+            "fr": "<COLOR FF0000>#Rejected#</COLOR> Item_key32_000"
+        },
+        "2498175291": {
+            "en": "S.T.A.K.E. - High-Capacity Mag.",
+            "fr": "Chargeur grande capacité (S.T.A.K.E.)"
+        },
+        "2500933730": {
+            "en": "V61 Custom - Gunstock",
+            "fr": "Crosse (V61 Custom)"
+        },
+        "2501715407": {
+            "en": "Family Photo",
+            "fr": "Photo de famille"
+        },
+        "2522341664": {
+            "en": "Factory Map (Upper Levels)",
+            "fr": "Carte de l'usine (niveaux supérieurs)"
+        },
+        "2534025216": {
+            "en": "V61 Custom",
+            "fr": "V61 Custom"
+        },
+        "2538716850": {
+            "en": "<COLOR FF0000>#Rejected#</COLOR> Item_VillageProto_012",
+            "fr": "<COLOR FF0000>#Rejected#</COLOR> Item_VillageProto_012"
+        },
+        "2540116498": {
+            "en": "W870 TAC - Improved Gunstock",
+            "fr": "Crosse améliorée (W870 TAC)"
+        },
+        "2545563073": {
+            "en": "Rocket Pistol",
+            "fr": "Pistolet lance-roquettes"
+        },
+        "2549049308": {
+            "en": "Lockpick",
+            "fr": "Crochet"
+        },
+        "2554874516": {
+            "en": "Scissors",
+            "fr": "Ciseaux"
+        },
+        "2563213816": {
+            "en": "Legs Flask",
+            "fr": "Bocal (jambes)"
+        },
+        "2564145014": {
+            "en": "Brass Medallion",
+            "fr": "Médaillon en laiton"
+        },
+        "2573508403": {
+            "en": "Silver Ring",
+            "fr": "Bague en argent"
+        },
+        "2573570207": {
+            "en": "Silver Key",
+            "fr": "Clé en argent"
+        },
+        "2576167331": {
+            "en": "GM 79",
+            "fr": "GM 79"
+        },
+        "259784296": {
+            "en": "Heisenberg's Hammer",
+            "fr": "Marteau d'Heisenberg"
+        },
+        "2603442870": {
+            "en": "Recipe: First Aid Meds",
+            "fr": "Formule : Remède de premiers soins"
+        },
+        "2604886178": {
+            "en": "Magnum Ammo",
+            "fr": "Munitions magnum"
+        },
+        "2615454163": {
+            "en": "Juicy Game",
+            "fr": "Gibier juteux"
+        },
+        "2616382888": {
+            "en": "V61 Custom - Gunstock",
+            "fr": "Crosse (V61 Custom)"
+        },
+        "2641189703": {
+            "en": "Crystal Moreau",
+            "fr": "Yeux de Moreau"
+        },
+        "2648638768": {
+            "en": "F2 Rifle - High-Capacity Mag.",
+            "fr": "Chargeur grande capacité (Fusil F2)"
+        },
+        "2653529981": {
+            "en": "V61 Custom - Long Barrel",
+            "fr": "Canon long (V61 Custom)"
+        },
+        "2657423332": {
+            "en": "SYG-12 - Drum Magazine",
+            "fr": "Chargeur tambour (SYG-12)"
+        },
+        "2685023068": {
+            "en": "Sanguis Virginis",
+            "fr": "Sanguis Virginis"
+        },
+        "2687620566": {
+            "en": "W870 TAC",
+            "fr": "W870 TAC"
+        },
+        "269218988": {
+            "en": "Extra Baggage",
+            "fr": "Valise"
+        },
+        "2705272849": {
+            "en": "Teddy Bear",
+            "fr": "Ours en peluche"
+        },
+        "2735256250": {
+            "en": "M1911",
+            "fr": "M1911"
+        },
+        "2748443876": {
+            "en": "<COLOR FF0000>#Rejected#</COLOR> Item_key21_006",
+            "fr": "<COLOR FF0000>#Rejected#</COLOR> Item_key21_006"
+        },
+        "2838037082": {
+            "en": "M1897",
+            "fr": "M1897"
+        },
+        "2840111159": {
+            "en": "SYG-12 - Long Barrel",
+            "fr": "Canon long (SYG-12)"
+        },
+        "2844148845": {
+            "en": "Boat Key",
+            "fr": "Clé du bateau"
+        },
+        "2858169147": {
+            "en": "USM-AI",
+            "fr": "USM-AI"
+        },
+        "2881006060": {
+            "en": "V61 Custom - Long Barrel",
+            "fr": "Canon long (V61 Custom)"
+        },
+        "2896087978": {
+            "en": "Blood Covered Ring",
+            "fr": "Bague couverte de sang"
+        },
+        "2925641544": {
+            "en": "Tweezers",
+            "fr": "Pincette"
+        },
+        "2934513303": {
+            "en": "S.T.A.K.E. - Improved Grip",
+            "fr": "Poignée ergonomique (S.T.A.K.E.)"
+        },
+        "2974491273": {
+            "en": "Photo of a Phantom Fish",
+            "fr": "Photo d'un mystérieux poisson"
+        },
+        "2980903038": {
+            "en": "Recipe: Mines",
+            "fr": "Formule : Mines"
+        },
+        "2987896730": {
+            "en": "Dragoon",
+            "fr": "Dragoon"
+        },
+        "3003110346": {
+            "en": "WCX",
+            "fr": "WCX"
+        },
+        "303464115": {
+            "en": "M1911 - High-Capacity Mag.",
+            "fr": "Chargeur grande capacité (M1911)"
+        },
+        "3044705205": {
+            "en": "Severed Hand",
+            "fr": "Main coupée"
+        },
+        "3047784958": {
+            "en": "Handgun Ammo",
+            "fr": "Munitions pour pistolet"
+        },
+        "3064876456": {
+            "en": "Recipe: Shotgun Ammo",
+            "fr": "Formule : Cartouches de fusil"
+        },
+        "3069621231": {
+            "en": "Meat",
+            "fr": "Viande"
+        },
+        "3131688569": {
+            "en": "Recipe: Sniper Rifle Ammo",
+            "fr": "Formule : Munitions de fusil sniper"
+        },
+        "3132227914": {
+            "en": "USM-AI",
+            "fr": "USM-AI"
+        },
+        "314002296": {
+            "en": "Mask of Rage",
+            "fr": "Masque de la colère"
+        },
+        "3149186555": {
+            "en": "SYG-12 - Drum Magazine",
+            "fr": "Chargeur tambour (SYG-12)"
+        },
+        "3154753836": {
+            "en": "W870 TAC - Improved Gunstock",
+            "fr": "Crosse améliorée (W870 TAC)"
+        },
+        "3155046651": {
+            "en": "<COLOR FF0000>#Rejected#</COLOR> Item_VillageProto_000",
+            "fr": "<COLOR FF0000>#Rejected#</COLOR> Item_VillageProto_000"
+        },
+        "3171683355": {
+            "en": "Angie",
+            "fr": "Angie"
+        },
+        "3176129225": {
+            "en": "Crystal Hammer",
+            "fr": "Grand marteau cristallisé"
+        },
+        "3188868396": {
+            "en": "Rifle Ammo",
+            "fr": "Munitions de fusil d'assaut"
+        },
+        "3196868754": {
+            "en": "{0} Lei",
+            "fr": "{0} lei"
+        },
+        "3197802775": {
+            "en": "Miss Madalina",
+            "fr": "Madalina"
+        },
+        "3207408651": {
+            "en": "<COLOR FF0000>#Rejected#</COLOR> item_key21_001",
+            "fr": "<COLOR FF0000>#Rejected#</COLOR> item_key21_001"
+        },
+        "3213662355": {
+            "en": "Mine",
+            "fr": "Mine"
+        },
+        "3219462766": {
+            "en": "Screwdriver",
+            "fr": "Tournevis"
+        },
+        "3224046458": {
+            "en": "Onyx Skull",
+            "fr": "Crâne noir de jais"
+        },
+        "3237773355": {
+            "en": "Animal Skull",
+            "fr": "Crâne d'animal"
+        },
+        "3246819640": {
+            "en": "Wooden Animal (Head)",
+            "fr": "Animal en bois (tête)"
+        },
+        "3310380690": {
+            "en": "S.T.A.K.E. - High-Capacity Mag.",
+            "fr": "Chargeur grande capacité (S.T.A.K.E.)"
+        },
+        "3311194243": {
+            "en": "Recipe: Rocket Pistol Ammo",
+            "fr": "Formule : Munitions de pistolet lance-roquettes"
+        },
+        "331140406": {
+            "en": "M1851 Wolfsbane",
+            "fr": "M1851 Wolfsbane"
+        },
+        "3313605784": {
+            "en": "<COLOR FF0000>#Rejected#</COLOR> Item_VillageProto_000",
+            "fr": "<COLOR FF0000>#Rejected#</COLOR> Item_VillageProto_000"
+        },
+        "331516006": {
+            "en": "Large Crystal Mechanical Heart",
+            "fr": "Grand cœur mécanique"
+        },
+        "3317428588": {
+            "en": "S.T.A.K.E. - Improved Grip",
+            "fr": "Poignée ergonomique (S.T.A.K.E.)"
+        },
+        "3347257867": {
+            "en": "Golden Lady Statue",
+            "fr": "Dimitrescu en or"
+        },
+        "3353004916": {
+            "en": "Giant Crystal Mace",
+            "fr": "Grande masse cristallisée"
+        },
+        "3383820218": {
+            "en": "Crystal Skull",
+            "fr": "Crâne cristallisé"
+        },
+        "3397831806": {
+            "en": "Metal Scrap",
+            "fr": "Pièces détachées"
+        },
+        "3414425055": {
+            "en": "M1911",
+            "fr": "M1911"
+        },
+        "3442255841": {
+            "en": "Crystal Wing",
+            "fr": "Aile cristallisée"
+        },
+        "3460856922": {
+            "en": "Recipe: Handgun Ammo",
+            "fr": "Formule : Munitions pour pistolet"
+        },
+        "3461208890": {
+            "en": "Gunpowder",
+            "fr": "Poudre noire"
+        },
+        "3470512293": {
+            "en": "Silver Angel Statue",
+            "fr": "Ange en argent"
+        },
+        "3495223716": {
+            "en": "WCX - Foregrip",
+            "fr": "Poignée (WCX)"
+        },
+        "3513834249": {
+            "en": "Mask of Sorrow",
+            "fr": "Masque du chagrin"
+        },
+        "351490193": {
+            "en": "Lady's Lipstick",
+            "fr": "Rouge à lèvres"
+        },
+        "3518440748": {
+            "en": "Luiza's Necklace",
+            "fr": "Collier de Luiza"
+        },
+        "3524738970": {
+            "en": "Finest Fish",
+            "fr": "Poisson raffiné"
+        },
+        "3542466670": {
+            "en": "Film",
+            "fr": "Morceau de pellicule"
+        },
+        "3556586016": {
+            "en": "Poultry",
+            "fr": "Volaille"
+        },
+        "3562994381": {
+            "en": "Shotgun Ammo",
+            "fr": "Cartouches de fusil"
+        },
+        "3572205213": {
+            "en": "Crystal Torso",
+            "fr": "Buste cristallisé"
+        },
+        "3577251366": {
+            "en": "Quality Meat",
+            "fr": "Viande de qualité"
+        },
+        "3582141461": {
+            "en": "Wooden Animal (Body)",
+            "fr": "Animal en bois (corps)"
+        },
+        "3593098140": {
+            "en": "LEMI - High-Capacity Mag.",
+            "fr": "Chargeur grande capacité (LEMI)"
+        },
+        "360286557": {
+            "en": "Four-Winged Unborn Key",
+            "fr": "Clé fœtus à quatre ailes"
+        },
+        "3612128929": {
+            "en": "Target Locator",
+            "fr": "Marqueur de cible"
+        },
+        "3613704787": {
+            "en": "SYG-12 - Red Dot Sight",
+            "fr": "Viseur point rouge (SYG-12)"
+        },
+        "3614652274": {
+            "en": "Explosive Rounds",
+            "fr": "Grenades explosives"
+        },
+        "3619364444": {
+            "en": "Maiden Crest",
+            "fr": "Morceau de relief (vierge)"
+        },
+        "3652020516": {
+            "en": "Pipe Bomb",
+            "fr": "Bombe tuyau"
+        },
+        "3720758584": {
+            "en": "Crystal Ancient Beast",
+            "fr": "Bête ancienne cristallisée"
+        },
+        "3720810444": {
+            "en": "Arms Flask",
+            "fr": "Bocal (bras)"
+        },
+        "3725070903": {
+            "en": "LEMI - Recoil Compensator",
+            "fr": "Compensateur de recul (LEMI)"
+        },
+        "3725693056": {
+            "en": "<COLOR FF0000>#Rejected#</COLOR> Item_key32_000",
+            "fr": "<COLOR FF0000>#Rejected#</COLOR> Item_key32_000"
+        },
+        "3749759": {
+            "en": "Crimson Glass",
+            "fr": "Verre carmin"
+        },
+        "3778477316": {
+            "en": "Perfect Crystal Mechanical Heart",
+            "fr": "Cœur mécanique parfait"
+        },
+        "3784287352": {
+            "en": "Mounted Animal Skull",
+            "fr": "Trophée de chasse"
+        },
+        "3784538847": {
+            "en": "Crystal Heisenberg",
+            "fr": "Cerveau d'Heisenberg"
+        },
+        "3787717904": {
+            "en": "M1897 - Hair Trigger",
+            "fr": "Détente sensible (M1897)"
+        },
+        "3801239996": {
+            "en": "Broken Slab",
+            "fr": "Morceau de plaque"
+        },
+        "3838278105": {
+            "en": "Crystal Beast",
+            "fr": "Bête cristallisée"
+        },
+        "3841303535": {
+            "en": "Antique Coin",
+            "fr": "Pièce antique"
+        },
+        "3856576850": {
+            "en": "Winding Key",
+            "fr": "Clé de remontage"
+        },
+        "3875003266": {
+            "en": "S.T.A.K.E.",
+            "fr": "S.T.A.K.E."
+        },
+        "3912672487": {
+            "en": "<COLOR FF0000>#Rejected#</COLOR> Item_recipe_010",
+            "fr": "<COLOR FF0000>#Rejected#</COLOR> Item_recipe_010"
+        },
+        "3919597625": {
+            "en": "Sniper Rifle Ammo",
+            "fr": "Munitions de fusil sniper"
+        },
+        "3933308947": {
+            "en": "V61 Custom - Drum Magazine",
+            "fr": "Chargeur tambour (V61 Custom)"
+        },
+        "3937405541": {
+            "en": "Azure Eye",
+            "fr": "Œil azur"
+        },
+        "3938249639": {
+            "en": "Wooden Goat",
+            "fr": "Chèvre en bois"
+        },
+        "3943127851": {
+            "en": "Yellow Quartz",
+            "fr": "Quartz jaune"
+        },
+        "3952088999": {
+            "en": "Village Map",
+            "fr": "Carte du village"
+        },
+        "4041096499": {
+            "en": "Heisenberg's Key",
+            "fr": "Clé d'Heisenberg"
+        },
+        "4047567124": {
+            "en": "Madalina (Head)",
+            "fr": "Madalina (tête)"
+        },
+        "4084651842": {
+            "en": "Sniper Rifle Ammo",
+            "fr": "Munitions de fusil sniper"
+        },
+        "4106212545": {
+            "en": "M1851 Wolfsbane - Increased Capacity Cylinder",
+            "fr": "Gros barillet (M1851 Wolfsbane)"
+        },
+        "418018598": {
+            "en": "Iron Insignia Key",
+            "fr": "Clé en fer forgé"
+        },
+        "4186049118": {
+            "en": "F2 Rifle",
+            "fr": "Fusil F2"
+        },
+        "4218441441": {
+            "en": "Necklace with Key",
+            "fr": "Collier avec clé"
+        },
+        "4246276207": {
+            "en": "Mine",
+            "fr": "Mine"
+        },
+        "4252038200": {
+            "en": "Factory Map (Upper Levels)",
+            "fr": "Carte de l'usine (niveaux supérieurs)"
+        },
+        "437981907": {
+            "en": "M1851 Wolfsbane - Long Barrel",
+            "fr": "Canon long (M1851 Wolfsbane)"
+        },
+        "471813919": {
+            "en": "Fish",
+            "fr": "Poisson"
+        },
+        "473898393": {
+            "en": "Castle Map (Annex)",
+            "fr": "Carte du château (annexe)"
+        },
+        "489184312": {
+            "en": "Karambit Knife",
+            "fr": "Couteau Karambit"
+        },
+        "49110171": {
+            "en": "LZ Answerer",
+            "fr": "LZ Answerer"
+        },
+        "522358928": {
+            "en": "WCX - Red Dot Sight",
+            "fr": "Viseur point rouge (WCX)"
+        },
+        "526649991": {
+            "en": "Chem Fluid",
+            "fr": "Fluide chimique"
+        },
+        "579739633": {
+            "en": "M1851 Wolfsbane",
+            "fr": "M1851 Wolfsbane"
+        },
+        "629367356": {
+            "en": "Recipe: Explosive Rounds",
+            "fr": "Formule : Grenades explosives"
+        },
+        "634755339": {
+            "en": "Handcannon PZ",
+            "fr": "Handcannon PZ"
+        },
+        "67387981": {
+            "en": "Large Pigeon Blood Ruby",
+            "fr": "Grand rubis sang de pigeon"
+        },
+        "696489800": {
+            "en": "Bister Skull",
+            "fr": "Crâne bistre"
+        },
+        "709500517": {
+            "en": "Fuse",
+            "fr": "Fusibles"
+        },
+        "714207006": {
+            "en": "S.T.A.K.E. - Improved Grip",
+            "fr": "Poignée ergonomique (S.T.A.K.E.)"
+        },
+        "719654765": {
+            "en": "Torso Flask",
+            "fr": "Bocal (torse)"
+        },
+        "738899953": {
+            "en": "W870 TAC",
+            "fr": "W870 TAC"
+        },
+        "793145569": {
+            "en": "<COLOR FF0000>#Rejected#</COLOR> Item_key32_000",
+            "fr": "<COLOR FF0000>#Rejected#</COLOR> Item_key32_000"
+        },
+        "794293600": {
+            "en": "Recipe: Rifle Ammo",
+            "fr": "Formule : Munitions de fusil d'assaut"
+        },
+        "808039580": {
+            "en": "Winged Key",
+            "fr": "Clé ailée"
+        },
+        "80959953": {
+            "en": "M1911 - Improved Grip",
+            "fr": "Poignée ergonomique (M1911)"
+        },
+        "809786374": {
+            "en": "Necklace with One Hole",
+            "fr": "Collier incomplet"
+        },
+        "815655584": {
+            "en": "Iron Horse Ball",
+            "fr": "Boule (cheval de fer)"
+        },
+        "821029179": {
+            "en": "W870 TAC",
+            "fr": "W870 TAC"
+        },
+        "847933194": {
+            "en": "Six-Winged Unborn Key",
+            "fr": "Clé fœtus à six ailes"
+        },
+        "879197051": {
+            "en": "M1851 Wolfsbane - Increased Capacity Cylinder",
+            "fr": "Gros barillet (M1851 Wolfsbane)"
+        },
+        "889486059": {
+            "en": "{0} Lei",
+            "fr": "{0} lei"
+        },
+        "895810843": {
+            "en": "Wedding Ring",
+            "fr": "Alliance"
+        },
+        "89877500": {
+            "en": "F2 Rifle - High-Capacity Mag.",
+            "fr": "Chargeur grande capacité (Fusil F2)"
+        },
+        "905053000": {
+            "en": "Karambit Knife",
+            "fr": "Couteau Karambit"
+        },
+        "913733353": {
+            "en": "M1911 - High-Capacity Mag.",
+            "fr": "Chargeur grande capacité (M1911)"
+        },
+        "932818540": {
+            "en": "M1851 Wolfsbane - Long Barrel",
+            "fr": "Canon long (M1851 Wolfsbane)"
+        },
+        "941205456": {
+            "en": "Med Injector",
+            "fr": "Remède injectable"
+        },
+        "943909675": {
+            "en": "W870 TAC - Foregrip",
+            "fr": "Poignée (W870 TAC)"
+        },
+        "948660339": {
+            "en": "<COLOR FF0000>#Rejected#</COLOR> Item_key21_006",
+            "fr": "<COLOR FF0000>#Rejected#</COLOR> Item_key21_006"
+        },
+        "949611560": {
+            "en": "Samurai Edge - AW Model-01",
+            "fr": "Samurai Edge - AW Model-01"
+        },
+        "967280630": {
+            "en": "Necklace with Two Holes",
+            "fr": "Collier incomplet"
+        },
+        "967715538": {
+            "en": "Dimitrescu's Necklace",
+            "fr": "Collier de Dimitrescu"
+        },
+        "971266713": {
+            "en": "Factory Map (Upper Levels)",
+            "fr": "Carte de l'usine (niveaux supérieurs)"
+        },
+        "97158149": {
+            "en": "LEMI",
+            "fr": "LEMI"
+        },
+        "988104371": {
+            "en": "Relief of a Child",
+            "fr": "Relief d'un enfant"
+        },
+        "997874151": {
+            "en": "Well Wheel",
+            "fr": "Volant de puits"
+        }
+    },
+    "recipes": [
+        {
+            "en": "Herbed Fish",
+            "fr": "Poisson aux herbes"
+        },
+        {
+            "en": "Bird and Beast Pilaf",
+            "fr": "Pilaf complet"
+        },
+        {
+            "en": "Three-Flavored Mititei",
+            "fr": "Mititei aux trois saveurs"
+        },
+        {
+            "en": "Ciorba de Porc",
+            "fr": "Ciorba de porc"
+        },
+        {
+            "en": "Tochitura de Pui",
+            "fr": "Tochitura de pui"
+        },
+        {
+            "en": "Sarmale de Peste",
+            "fr": "Sarmale de peste"
+        }
+    ],
+    "rooms": [
+        {
+            "en": "Underground Road",
+            "fr": "Passage souterrain"
+        },
+        {
+            "en": "Castle Dimitrescu - Chamber of Solace",
+            "fr": "Château Dimitrescu - Cellules"
+        },
+        {
+            "en": "Castle Dimitrescu - B1",
+            "fr": "Château Dimitrescu - -1"
+        },
+        {
+            "en": "Castle Dimitrescu - Tasting Room",
+            "fr": "Château Dimitrescu - Salle de dégustation"
+        },
+        {
+            "en": "Castle Dimitrescu - Distillery",
+            "fr": "Château Dimitrescu - Distillerie"
+        },
+        {
+            "en": "Castle Dimitrescu - Special Chambers",
+            "fr": "Château Dimitrescu - Chambre spéciale"
+        },
+        {
+            "en": "Castle Dimitrescu - Hall of War",
+            "fr": "Château Dimitrescu - Salle de la guerre"
+        },
+        {
+            "en": "Castle Dimitrescu - Bedchamber",
+            "fr": "Château Dimitrescu - Chambre à coucher"
+        },
+        {
+            "en": "Castle Dimitrescu - 1F",
+            "fr": "Château Dimitrescu - 0"
+        },
+        {
+            "en": "Castle Dimitrescu - Hall of the Four",
+            "fr": "Château Dimitrescu - Hall des anges"
+        },
+        {
+            "en": "Castle Dimitrescu - Merchant's Room",
+            "fr": "Château Dimitrescu - Salle du marchand"
+        },
+        {
+            "en": "Castle Dimitrescu - Main Hall",
+            "fr": "Château Dimitrescu - Hall principal"
+        },
+        {
+            "en": "Castle Dimitrescu - Entrance Hall",
+            "fr": "Château Dimitrescu - Vestibule"
+        },
+        {
+            "en": "Castle Dimitrescu - Carriage Gate",
+            "fr": "Château Dimitrescu - Porte cochère"
+        },
+        {
+            "en": "Castle Dimitrescu - Dining Room",
+            "fr": "Château Dimitrescu - Salle à manger"
+        },
+        {
+            "en": "Castle Dimitrescu - Courtyard",
+            "fr": "Château Dimitrescu - Cour"
+        },
+        {
+            "en": "Castle Dimitrescu - Kitchen",
+            "fr": "Château Dimitrescu - Cuisine"
+        },
+        {
+            "en": "Castle Dimitrescu - Opera Hall",
+            "fr": "Château Dimitrescu - Salle d'opéra"
+        },
+        {
+            "en": "Castle Dimitrescu - B2",
+            "fr": "Château Dimitrescu - -2"
+        },
+        {
+            "en": "Castle Dimitrescu - Dungeon",
+            "fr": "Château Dimitrescu - Cachots"
+        },
+        {
+            "en": "Castle Dimitrescu - Hall of Sorrow",
+            "fr": "Château Dimitrescu - Hall du chagrin"
+        },
+        {
+            "en": "Castle Dimitrescu - 2F",
+            "fr": "Château Dimitrescu - 1"
+        },
+        {
+            "en": "Castle Dimitrescu - Atelier",
+            "fr": "Château Dimitrescu - Atelier"
+        },
+        {
+            "en": "Castle Dimitrescu - Hall of Joy",
+            "fr": "Château Dimitrescu - Salle de la joie"
+        },
+        {
+            "en": "Castle Dimitrescu - Library",
+            "fr": "Château Dimitrescu - Bibliothèque"
+        },
+        {
+            "en": "Castle Dimitrescu - Wine Room",
+            "fr": "Château Dimitrescu - Cave à vin"
+        },
+        {
+            "en": "Castle Dimitrescu - Dressing Room",
+            "fr": "Château Dimitrescu - Garde-robe"
+        },
+        {
+            "en": "Castle Dimitrescu - Hall of Pleasure",
+            "fr": "Château Dimitrescu - Salle du plaisir"
+        },
+        {
+            "en": "Castle Dimitrescu - Armory",
+            "fr": "Château Dimitrescu - Salle des armures"
+        },
+        {
+            "en": "Castle Dimitrescu - Terrace",
+            "fr": "Château Dimitrescu - Terrace"
+        },
+        {
+            "en": "Castle Dimitrescu - Dimitrescu's Chambers",
+            "fr": "Château Dimitrescu - Appartements de Dimitrescu"
+        },
+        {
+            "en": "Castle Dimitrescu - Hall of Ablution",
+            "fr": "Château Dimitrescu - Salle d'ablutions"
+        },
+        {
+            "en": "Castle Dimitrescu - Attic",
+            "fr": "Château Dimitrescu - Grenier"
+        },
+        {
+            "en": "Castle Dimitrescu - Rooftops",
+            "fr": "Château Dimitrescu - Toits"
+        },
+        {
+            "en": "Castle Dimitrescu - Tower of Worship",
+            "fr": "Château Dimitrescu - Tour du culte"
+        },
+        {
+            "en": "Castle Dimitrescu - Belfry",
+            "fr": "Château Dimitrescu - Beffroi"
+        },
+        {
+            "en": "House Beneviento - B1",
+            "fr": "Maison Beneviento - -1"
+        },
+        {
+            "en": "House Beneviento - Doll Workshop",
+            "fr": "Maison Beneviento - Atelier"
+        },
+        {
+            "en": "House Beneviento - Storage Room",
+            "fr": "Maison Beneviento - Débarras"
+        },
+        {
+            "en": "House Beneviento - Medicine Room",
+            "fr": "Maison Beneviento - Laboratoire"
+        },
+        {
+            "en": "House Beneviento - Study",
+            "fr": "Maison Beneviento - Bureau"
+        },
+        {
+            "en": "House Beneviento - Kitchen",
+            "fr": "Maison Beneviento - Cuisine"
+        },
+        {
+            "en": "House Beneviento - Bedroom",
+            "fr": "Maison Beneviento - Chambre"
+        },
+        {
+            "en": "House Beneviento - Old Well",
+            "fr": "Maison Beneviento - Vieux puits"
+        },
+        {
+            "en": "House Beneviento - 1F",
+            "fr": "Maison Beneviento - 0"
+        },
+        {
+            "en": "House Beneviento - Foyer",
+            "fr": "Maison Beneviento - Hall d'entrée"
+        },
+        {
+            "en": "House Beneviento - Living Room",
+            "fr": "Maison Beneviento - Séjour"
+        },
+        {
+            "en": "House Beneviento - 2F",
+            "fr": "Maison Beneviento - 1"
+        },
+        {
+            "en": "House Beneviento - Guest Room",
+            "fr": "Maison Beneviento - Chambre d'ami"
+        },
+        {
+            "en": "Village - Windmill Shack",
+            "fr": "Village - Cabane du moulin"
+        },
+        {
+            "en": "Reservoir - Gatehouse",
+            "fr": "Lac artificiel - Poste de garde"
+        },
+        {
+            "en": "Heisenberg's Factory - Garage",
+            "fr": "Usine d'Heisenberg - Garage"
+        },
+        {
+            "en": "Heisenberg's Factory - 1F",
+            "fr": "Usine d'Heisenberg - 0"
+        },
+        {
+            "en": "Heisenberg's Factory - B1",
+            "fr": "Usine d'Heisenberg - -1"
+        },
+        {
+            "en": "Heisenberg's Factory - Cargo Bay",
+            "fr": "Usine d'Heisenberg - Salle de chargement"
+        },
+        {
+            "en": "Heisenberg's Factory - B2",
+            "fr": "Usine d'Heisenberg - -2"
+        },
+        {
+            "en": "Heisenberg's Factory - Ventilation Duct",
+            "fr": "Usine d'Heisenberg - Conduit de ventilation"
+        },
+        {
+            "en": "Heisenberg's Factory - Grinder Shaft",
+            "fr": "Usine d'Heisenberg - Broyeur"
+        },
+        {
+            "en": "Heisenberg's Factory - MB3",
+            "fr": "Usine d'Heisenberg - -3B"
+        },
+        {
+            "en": "Heisenberg's Factory - B3",
+            "fr": "Usine d'Heisenberg - -3"
+        },
+        {
+            "en": "Heisenberg's Factory - MB4",
+            "fr": "Usine d'Heisenberg - -4B"
+        },
+        {
+            "en": "Heisenberg's Factory - Foundry",
+            "fr": "Usine d'Heisenberg - Fonderie"
+        },
+        {
+            "en": "Heisenberg's Factory - Operating Room",
+            "fr": "Usine d'Heisenberg - Salle d'opération"
+        },
+        {
+            "en": "Heisenberg's Factory - Heisenberg's Quarters",
+            "fr": "Usine d'Heisenberg - Pièce d'Heisenberg"
+        },
+        {
+            "en": "Heisenberg's Factory - B4",
+            "fr": "Usine d'Heisenberg - -4"
+        },
+        {
+            "en": "Heisenberg's Factory - Engine Room",
+            "fr": "Usine d'Heisenberg - Salle des machines"
+        },
+        {
+            "en": "Heisenberg's Factory - B5",
+            "fr": "Usine d'Heisenberg - -5"
+        },
+        {
+            "en": "Heisenberg's Factory - Waste Runoff",
+            "fr": "Usine d'Heisenberg - Fossé de drainage"
+        },
+        {
+            "en": "Heisenberg's Factory - Scrapheap",
+            "fr": "Usine d'Heisenberg - Casse"
+        },
+        {
+            "en": "Stronghold",
+            "fr": "Forteresse"
+        },
+        {
+            "en": "Village - Otto's Mill",
+            "fr": "Village - Scierie"
+        },
+        {
+            "en": "Village - Luiza's House",
+            "fr": "Village - Maison de Luiza"
+        },
+        {
+            "en": "Village - Church",
+            "fr": "Village - Église"
+        },
+        {
+            "en": "Village - Craftsman's House",
+            "fr": "Village - Maison de l'artisan"
+        },
+        {
+            "en": "Village - Gardener's House",
+            "fr": "Village - Maison du jardinier"
+        }
+    ]
+}

@@ -1,0 +1,215 @@
+{
+    "count": 14,
+    "placements": [
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_3/st04_ItemSet/st04_ItemSet_KeyItem",
+            "guid": "2007cfc1-70a0-0166-181a-e5f9fd529ebf",
+            "item_id": 360286557,
+            "item_object": "SpawnInfo_VillageCrowKey_Lv3_008",
+            "item_position": [
+                -288.98,
+                -17.94,
+                6.68
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_3/st04_ItemSet/st04_ItemSet_KeyItem",
+            "guid": "ef171cb7-ddb4-0dd2-0e53-42fdcf870a4a",
+            "item_id": 2563213816,
+            "item_object": "SpawnInfo_SpiritBodyDonation_Leg_005",
+            "item_position": [
+                -284.59,
+                -16.91,
+                5.99
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_3/st04_ItemSet/st04_ItemSet_KeyItem",
+            "guid": "d8199280-6b90-0675-1b82-ff5512f81c63",
+            "item_id": 1042056128,
+            "item_object": "SpawnInfo_SpiritSwitchBoardKey_004",
+            "item_position": [
+                -307.98,
+                -36.31,
+                -27.26
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_3/st04_ItemSet/st04_ItemSet_KeyItem",
+            "guid": "0547b9a1-9bcb-0fee-2f19-641e094dd7ea",
+            "item_id": 3171683355,
+            "item_object": "SpawnInfo_Treasure_SpiritDoll_003",
+            "item_position": [
+                -289.2,
+                -17.91,
+                6.4
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_3/st04_ItemSet/st04_ItemSet_KeyItem",
+            "guid": "fed420a5-924c-057c-0548-1d4c9db4c230",
+            "item_id": 2573570207,
+            "item_object": "SpawnInfo_SpiritToyBoxKey_002",
+            "item_position": [
+                -312.22,
+                -23.0,
+                8.57
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_3/st04_ItemSet/st04_ItemSet_KeyItem",
+            "guid": "759fb01c-01c8-05b6-3c86-3eb94d66fdf8",
+            "item_id": 2564145014,
+            "item_object": "SpawnInfo_SpiritDollChestCrest_001",
+            "item_position": [
+                -312.7,
+                -23.0,
+                9.19
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_3/st04_ItemSet/st04_ItemSet_KeyItem",
+            "guid": "144b987a-edcb-0fab-0c59-7117225eb163",
+            "item_id": 3542466670,
+            "item_object": "SpawnInfo_SpiritFilm",
+            "item_position": [
+                -311.52,
+                -21.92,
+                9.44
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_3/st04_ItemSet/st04_ItemSet_KeyItem",
+            "guid": "485af4e2-18d7-05a9-1196-b7804e51b221",
+            "item_id": 895810843,
+            "item_object": "SpawnInfo_SpiritRing",
+            "item_position": [
+                -305.83,
+                -22.09,
+                11.13
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_3/st04_ItemSet/st04_ItemSet_KeyItem",
+            "guid": "959585a2-183f-09e4-245d-993c2f1b8746",
+            "item_id": 2896087978,
+            "item_object": "SpawnInfo_SpiritDirtyRing",
+            "item_position": [
+                -312.33,
+                -23.0,
+                8.57
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_3/st04_ItemSet/st04_ItemSet_KeyItem",
+            "guid": "77953a67-5206-0015-16ed-db9825ef4171",
+            "item_id": 3856576850,
+            "item_object": "SpawnInfo_SpiritSpring",
+            "item_position": [
+                -312.41,
+                -23.0,
+                8.56
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_3/st04_ItemSet/st04_ItemSet_KeyItem",
+            "guid": "119adf07-c557-0166-08a0-a4d59f52d1e8",
+            "item_id": 2925641544,
+            "item_object": "SpawnInfo_SpiritTweezers",
+            "item_position": [
+                -299.1,
+                -22.15,
+                -8.93
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_3/st04_ItemSet/st04_ItemSet_KeyItem",
+            "guid": "41d7408a-d424-035a-0e88-7b6f9963c062",
+            "item_id": 988104371,
+            "item_object": "SpawnInfo_SpiritRestRoomKey",
+            "item_position": [
+                -283.15,
+                -21.65,
+                -4.83
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_3/st04_ItemSet/st04_ItemSet_KeyItem",
+            "guid": "93dedc4f-1fcc-0033-2313-089fd3d97747",
+            "item_id": 709500517,
+            "item_object": "SpawnInfo_SpiritFuse",
+            "item_position": [
+                -280.71,
+                -23.0,
+                16.43
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_3/st04_ItemSet/st04_ItemSet_KeyItem",
+            "guid": "6ac0f839-a8c2-0ba4-1ef4-c24bf273367d",
+            "item_id": 2554874516,
+            "item_object": "SpawnInfo_SpiritScissors",
+            "item_position": [
+                -291.49,
+                -21.4,
+                4.15
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        }
+    ]
+}

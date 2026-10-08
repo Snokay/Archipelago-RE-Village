@@ -1,0 +1,746 @@
+{
+    "count": 49,
+    "placements": [
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_05",
+            "guid": "d292998d-62fc-05d8-25c1-db611d82a5e3",
+            "item_id": 1617108900,
+            "item_object": "SpawnInfo_HandGranade_C_004",
+            "item_position": [
+                -5.99,
+                -49.55,
+                92.78
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_05",
+            "guid": "a8749cd3-d6f0-044f-0dc2-41ae385630ff",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_003",
+            "item_position": [
+                -5.15,
+                -49.49,
+                93.91
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 25
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_05",
+            "guid": "bd92ae19-7ed3-09ad-0464-e3346cfa6c37",
+            "item_id": 3188868396,
+            "item_object": "SpawnInfo_MachineGunBullet_002",
+            "item_position": [
+                -7.41,
+                -49.36,
+                92.96
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 30
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_05",
+            "guid": "0e63ca50-25fb-06d0-057f-6b2ebadaea15",
+            "item_id": 3188868396,
+            "item_object": "SpawnInfo_MachineGunBullet_001",
+            "item_position": [
+                -5.97,
+                -49.67,
+                92.14
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 30
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_05",
+            "guid": "c5ebe532-34fb-036f-1b51-c54e6b8c467e",
+            "item_id": 941205456,
+            "item_object": "SpawnInfo_CureAmpoule_017",
+            "item_position": [
+                -6.27,
+                -49.55,
+                92.62
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room_hash": 3156063076,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_05",
+            "guid": "dd41b240-b4be-014e-0277-c6290385c671",
+            "item_id": 3188868396,
+            "item_object": "SpawnInfo_MachineGunBullet_014",
+            "item_position": [
+                -7.74,
+                -49.31,
+                93.05
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room_hash": 3156063076,
+            "spawned": false,
+            "stack": 30
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_05",
+            "guid": "5895e78c-c3c7-0e51-227a-ca858325c67d",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_012",
+            "item_position": [
+                -6.99,
+                -49.45,
+                92.7
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room_hash": 3156063076,
+            "spawned": false,
+            "stack": 25
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_05",
+            "guid": "6c231a41-b642-02d0-2f12-94d11b4a3833",
+            "item_id": 1617108900,
+            "item_object": "SpawnInfo_HandGranade_C_011",
+            "item_position": [
+                -6.5,
+                -49.55,
+                92.34
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room_hash": 3156063076,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_05",
+            "guid": "52011bec-fdfb-0118-3eee-788e925b33ee",
+            "item_id": 1617108900,
+            "item_object": "SpawnInfo_HandGranade_C_010",
+            "item_position": [
+                -5.46,
+                -49.54,
+                93.35
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room_hash": 3156063076,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_05",
+            "guid": "5d2cb85c-c88b-0682-1d60-2c291a66c542",
+            "item_id": 941205456,
+            "item_object": "SpawnInfo_CureAmpoule_018",
+            "item_position": [
+                -4.89,
+                -49.61,
+                93.41
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "room_hash": 3156063076,
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_04",
+            "guid": "f90c2d60-96a9-0e17-3c7c-08e0ecc7bc90",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_002",
+            "item_position": [
+                -0.73,
+                -41.44,
+                138.0
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 25
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_04",
+            "guid": "d06246e5-5bba-064e-1f27-a2b4411d71dc",
+            "item_id": 3188868396,
+            "item_object": "SpawnInfo_MachineGunBullet_001",
+            "item_position": [
+                0.57,
+                -41.41,
+                139.49
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 30
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_04",
+            "guid": "3a4a13ce-a8e0-067c-2b52-d2755aae184b",
+            "item_id": 1131327709,
+            "item_object": "SpawnInfo_FlashBomb_027",
+            "item_position": [
+                0.96,
+                -41.31,
+                139.52
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_04",
+            "guid": "a4a9c74d-6a96-05fb-0480-af0409105211",
+            "item_id": 941205456,
+            "item_object": "SpawnInfo_CureAmpoule_005",
+            "item_position": [
+                -0.79,
+                -41.39,
+                137.4
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_04",
+            "guid": "b1da5e5d-afb6-06a3-2574-10c2c49654be",
+            "item_id": 3188868396,
+            "item_object": "SpawnInfo_MachineGunBullet_007",
+            "item_position": [
+                0.14,
+                -41.41,
+                139.27
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 30
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_04",
+            "guid": "c03d8dc2-a5f7-0d18-3c76-661838467b54",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_006",
+            "item_position": [
+                -0.77,
+                -41.46,
+                138.14
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 25
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_04",
+            "guid": "96b2c8e3-1dfd-0409-3048-3a0c7cc0b74a",
+            "item_id": 1617108900,
+            "item_object": "SpawnInfo_HandGranade_C_009",
+            "item_position": [
+                -0.67,
+                -41.44,
+                137.68
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_03",
+            "guid": "3d865666-ded2-0b4e-3e43-c78fc157bb4c",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_002",
+            "item_position": [
+                29.35,
+                -39.39,
+                131.4
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 25
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_03",
+            "guid": "3df4d86a-2360-00e4-1348-2f71e8e26825",
+            "item_id": 3188868396,
+            "item_object": "SpawnInfo_MachineGunBullet_001",
+            "item_position": [
+                30.55,
+                -39.27,
+                131.48
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 30
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_03",
+            "guid": "b486b513-4d39-08b1-160d-ffccdbfd529c",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_019",
+            "item_position": [
+                29.75,
+                -39.39,
+                131.49
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 25
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_03",
+            "guid": "bb2fb77c-b183-0dd6-129e-d26d92af454b",
+            "item_id": 3188868396,
+            "item_object": "SpawnInfo_MachineGunBullet_020",
+            "item_position": [
+                31.04,
+                -39.27,
+                131.26
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 30
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_03",
+            "guid": "26ee27d9-379d-0d74-1785-9224c7239228",
+            "item_id": 1617108900,
+            "item_object": "SpawnInfo_HandGranade_C_021",
+            "item_position": [
+                31.22,
+                -39.25,
+                130.87
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_03",
+            "guid": "98c28060-334e-0a99-3472-db665ebc3d6a",
+            "item_id": 941205456,
+            "item_object": "SpawnInfo_CureAmpoule_022",
+            "item_position": [
+                29.02,
+                -39.38,
+                131.43
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_02",
+            "guid": "ba812835-1a26-01de-21d2-26caf1cdbdb6",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_001",
+            "item_position": [
+                47.55,
+                -39.23,
+                142.7
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 25
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_02",
+            "guid": "b8afee4f-eecb-059e-139e-b9e2bd9463d7",
+            "item_id": 3188868396,
+            "item_object": "SpawnInfo_MachineGunBullet_028",
+            "item_position": [
+                47.78,
+                -39.22,
+                142.94
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 30
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_02",
+            "guid": "eb721ac1-f157-093c-1237-56ddee4b6a60",
+            "item_id": 1131327709,
+            "item_object": "SpawnInfo_FlashBomb_024",
+            "item_position": [
+                47.68,
+                -39.13,
+                142.48
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_02",
+            "guid": "0d2b2e4a-c622-0564-186b-9e2f729da53a",
+            "item_id": 1131327709,
+            "item_object": "SpawnInfo_FlashBomb_023",
+            "item_position": [
+                47.51,
+                -39.13,
+                142.28
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_01",
+            "guid": "d4338f1b-3f0a-0436-06ab-f8459b838542",
+            "item_id": 1617108900,
+            "item_object": "SpawnInfo_HandGranade_C_008",
+            "item_position": [
+                74.19,
+                -36.02,
+                147.07
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_01",
+            "guid": "0dec1798-df18-0d86-0046-bfd8c891f04e",
+            "item_id": 941205456,
+            "item_object": "SpawnInfo_CureAmpoule_004",
+            "item_position": [
+                74.22,
+                -36.04,
+                146.71
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_01",
+            "guid": "097e7db8-822c-0109-19d3-670ad8773df4",
+            "item_id": 3188868396,
+            "item_object": "SpawnInfo_MachineGunBullet_003",
+            "item_position": [
+                74.59,
+                -36.07,
+                144.93
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 30
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_01",
+            "guid": "160c1ee7-8450-06c1-37ad-3b569638ef90",
+            "item_id": 3188868396,
+            "item_object": "SpawnInfo_MachineGunBullet_003",
+            "item_position": [
+                74.65,
+                -36.07,
+                145.64
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 30
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_01",
+            "guid": "c1f575f1-43e2-0237-1a9f-f36cc7db1305",
+            "item_id": 3188868396,
+            "item_object": "SpawnInfo_MachineGunBullet_002",
+            "item_position": [
+                74.84,
+                -36.07,
+                145.3
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 30
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_01",
+            "guid": "f5c5190d-f220-0f8e-0bb7-2d6f1368c182",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_002",
+            "item_position": [
+                74.72,
+                -36.04,
+                146.55
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 25
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_Resource_Separetor_01",
+            "guid": "65235866-4ae6-037e-306e-12f9a30c759a",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_004",
+            "item_position": [
+                74.46,
+                -36.06,
+                146.72
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 25
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_SpawnInfo_Separetor_00",
+            "guid": "3ba33d8f-24d0-0f39-3aaa-630eff0523c4",
+            "item_id": 3188868396,
+            "item_object": "SpawnInfo_MachineGunBullet_001",
+            "item_position": [
+                95.93,
+                -25.9,
+                108.78
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 30
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_SpawnInfo_Separetor_00",
+            "guid": "51d3ed2f-c98d-0c32-2203-6c34195baf29",
+            "item_id": 1131327709,
+            "item_object": "SpawnInfo_FlashBomb_026",
+            "item_position": [
+                95.79,
+                -25.89,
+                108.08
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_SpawnInfo_Separetor_00",
+            "guid": "ad2b7916-2edb-065b-2756-a10f0a41235a",
+            "item_id": 1131327709,
+            "item_object": "SpawnInfo_FlashBomb_025",
+            "item_position": [
+                96.02,
+                -25.88,
+                108.2
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_SpawnInfo_Separetor_00",
+            "guid": "e4b42982-7f9e-0785-34f9-c07769be9171",
+            "item_id": 3188868396,
+            "item_object": "SpawnInfo_MachineGunBullet_016",
+            "item_position": [
+                95.55,
+                -25.89,
+                108.95
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 30
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource/st17_3_1_ItemSet_SpawnInfo_Separetor_00",
+            "guid": "ce2781a7-cb85-034a-39d1-8d0810e4c979",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_015",
+            "item_position": [
+                95.82,
+                -25.9,
+                108.39
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": false,
+            "stack": 25
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource",
+            "guid": "9d657107-da05-4699-8a3f-1a7214ce456e",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfo_EmDrop_09",
+            "item_position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource",
+            "guid": "5311e1cd-02f2-4358-8a49-f60fdf45eaf8",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfo_EmDrop_08",
+            "item_position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource",
+            "guid": "e425487e-9fe4-45b5-a777-1d7c249a282e",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfo_EmDrop_07",
+            "item_position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource",
+            "guid": "0088c14a-2192-42d9-b6d9-f5692c27ccce",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfo_EmDrop_06",
+            "item_position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource",
+            "guid": "b7e1c50e-7dc4-4985-808c-c7caf232e8cc",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfo_EmDrop_05",
+            "item_position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource",
+            "guid": "ea02a9ae-6d0c-4ae2-80fa-0c83b4829eab",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfo_EmDrop_04",
+            "item_position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource",
+            "guid": "7b61985e-26d1-437f-b8a0-5c7cb6d10b80",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfo_EmDrop_03",
+            "item_position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource",
+            "guid": "719ed2b7-36d7-47d5-8e2e-5279b98940b8",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfo_EmDrop_02",
+            "item_position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource",
+            "guid": "d9ba3fd5-ae52-48ff-9e04-c2a752fa7178",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfo_EmDrop_01",
+            "item_position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": false,
+            "stack": 1
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter3_1/st17_3_1_ItemSet/st17_3_1_ItemSet_SpawnInfo/st17_3_1_ItemSet_Resource",
+            "guid": "6935640e-f4e6-461f-bae4-a8173f189455",
+            "item_id": 0,
+            "item_object": "ItemSpawnInfo_EmDrop_00",
+            "item_position": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "parent_object": "ItemSpawnGenerateController_EnemyDrop",
+            "spawned": false,
+            "stack": 1
+        }
+    ]
+}

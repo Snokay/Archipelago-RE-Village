@@ -1,0 +1,95 @@
+{
+    "count": 6,
+    "placements": [
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_7/st15_2_7_ItemSet/st15_2_7_ItemSet_SpawnInfo/st15_2_7_ItemSet_ResourceItem/st15_2_7_ItemSet_ResourceItem_Separetor_01",
+            "guid": "a2c361e3-8448-0ad6-00c4-4c643d8d6fcf",
+            "item_id": 1927571624,
+            "item_object": "SpawnInfo_GrenadeLauncherExplosionBullet_005",
+            "item_position": [
+                -273.86,
+                -31.61,
+                254.52
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 2
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_7/st15_2_7_ItemSet/st15_2_7_ItemSet_SpawnInfo/st15_2_7_ItemSet_ResourceItem/st15_2_7_ItemSet_ResourceItem_Separetor_01",
+            "guid": "1138ef50-6d8d-07b6-1d2c-ebc57e84c7c8",
+            "item_id": 3919597625,
+            "item_object": "SpawnInfo_SniperRifleBullet_004",
+            "item_position": [
+                -286.09,
+                -30.88,
+                270.91
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 8
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_7/st15_2_7_ItemSet/st15_2_7_ItemSet_SpawnInfo/st15_2_7_ItemSet_ResourceItem/st15_2_7_ItemSet_ResourceItem_Separetor_01",
+            "guid": "028c7154-03e1-0121-2b3b-b076aa7935f7",
+            "item_id": 1179972000,
+            "item_object": "SpawnInfo_HandGun_Bullet_003",
+            "item_position": [
+                -303.36,
+                -30.3,
+                264.23
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 30
+        },
+        {
+            "completed": false,
+            "folder_path": "Chapter/Chapter2_7/st15_2_7_ItemSet/st15_2_7_ItemSet_SpawnInfo/st15_2_7_ItemSet_ResourceItem/st15_2_7_ItemSet_ResourceItem_Separetor_01",
+            "guid": "6a58b776-a990-0350-1806-337fdfeea593",
+            "item_id": 1731811000,
+            "item_object": "SpawnInfo_ShotGun_Bullet_002",
+            "item_position": [
+                -303.16,
+                -30.3,
+                262.39
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 15
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_7/st15_2_7_ItemSet/st15_2_7_ItemSet_SpawnInfo/st15_2_7_ItemSet_ResourceItem/st15_2_7_ItemSet_ResourceItem_Separetor_01",
+            "guid": "02ae6577-4209-0221-18a2-3083b5910b4a",
+            "item_id": 3919597625,
+            "item_object": "SpawnInfo_SniperRifleBullet_001",
+            "item_position": [
+                -300.3,
+                -30.39,
+                245.25
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 12
+        },
+        {
+            "completed": true,
+            "folder_path": "Chapter/Chapter2_7/st15_2_7_ItemSet/st15_2_7_ItemSet_SpawnInfo/st15_2_7_ItemSet_KeyItem",
+            "guid": "caaa9929-4d29-04a4-3dad-b8c46738f82d",
+            "item_id": 3784538847,
+            "item_object": "SpawnInfo_Treasure_GeekBrain_001",
+            "item_position": [
+                -298.96,
+                -34.78,
+                252.4
+            ],
+            "parent_object": "ItemSpawnGenerateController",
+            "spawned": true,
+            "stack": 1
+        }
+    ]
+}

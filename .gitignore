@@ -1,0 +1,25 @@
+# Builds et fichiers générés
+build/
+__pycache__/
+*.pyc
+/residentevilvillage.apworld
+
+# Parties de test, sauvegardes, copies locales
+seeds/
+backup_jeu_*/
+
+# Code et données d'autres auteurs, fichiers du jeu (Capcom) : jamais dans le dépôt
+reference_re7/
+tools/re_engine/extrait/
+tools/re_engine/RE8_STM_Release.list
+docs/reference/re4_menu/
+
+# Outils lourds installés localement
+tools/blender/
+tools/ffmpeg/
+
+# Éditeur
+.idea/
+
+# Sons extraits du jeu (Capcom) : seulement dans le pak de la release
+Assets/sons/

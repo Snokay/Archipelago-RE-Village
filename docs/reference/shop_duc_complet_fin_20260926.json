@@ -1,0 +1,452 @@
+{
+    "1042576120": {
+        "is_new": false,
+        "item_id": 1042576120,
+        "price": 3000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 5020,
+        "stack": 1,
+        "stock": 5
+    },
+    "1060602647": {
+        "is_new": false,
+        "item_id": 1060602647,
+        "price": 3000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 2147483647,
+        "stack": 1,
+        "stock": 1
+    },
+    "1157345091": {
+        "is_new": false,
+        "item_id": 1157345091,
+        "price": 120000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 5012,
+        "stack": 1,
+        "stock": 1
+    },
+    "1179972000": {
+        "is_new": false,
+        "item_id": 1179972000,
+        "price": 150,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 4001,
+        "stack": 1,
+        "stock": 90
+    },
+    "1212053308": {
+        "is_new": false,
+        "item_id": 1212053308,
+        "price": 42000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 6015,
+        "stack": 1,
+        "stock": 1
+    },
+    "1429493426": {
+        "is_new": false,
+        "item_id": 1429493426,
+        "price": 1000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 3000,
+        "stack": 1,
+        "stock": 5
+    },
+    "1731811000": {
+        "is_new": false,
+        "item_id": 1731811000,
+        "price": 1000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 4002,
+        "stack": 1,
+        "stock": 30
+    },
+    "1839743046": {
+        "is_new": false,
+        "item_id": 1839743046,
+        "price": 20000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 6025,
+        "stack": 1,
+        "stock": 1
+    },
+    "1959464596": {
+        "is_new": false,
+        "item_id": 1959464596,
+        "price": 15000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 6024,
+        "stack": 1,
+        "stock": 1
+    },
+    "2044788832": {
+        "is_new": false,
+        "item_id": 2044788832,
+        "price": 0,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 6000,
+        "stack": 1,
+        "stock": 1
+    },
+    "2146816802": {
+        "is_new": false,
+        "item_id": 2146816802,
+        "price": 400,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 2147483647,
+        "stack": 1,
+        "stock": 1
+    },
+    "2255157331": {
+        "is_new": false,
+        "item_id": 2255157331,
+        "price": 10000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 6001,
+        "stack": 1,
+        "stock": 1
+    },
+    "2292458104": {
+        "is_new": false,
+        "item_id": 2292458104,
+        "price": 0,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 2147483647,
+        "stack": 1,
+        "stock": 1
+    },
+    "241847407": {
+        "is_new": false,
+        "item_id": 241847407,
+        "price": 180000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 5015,
+        "stack": 1,
+        "stock": 1
+    },
+    "2445047744": {
+        "is_new": false,
+        "item_id": 2445047744,
+        "price": 2500,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 2147483647,
+        "stack": 1,
+        "stock": 1
+    },
+    "2500933730": {
+        "is_new": false,
+        "item_id": 2500933730,
+        "price": 35000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 6008,
+        "stack": 1,
+        "stock": 1
+    },
+    "2545563073": {
+        "is_new": false,
+        "item_id": 2545563073,
+        "price": 1500,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 5006,
+        "stack": 1,
+        "stock": 1
+    },
+    "2576167331": {
+        "is_new": false,
+        "item_id": 2576167331,
+        "price": 100000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 5017,
+        "stack": 1,
+        "stock": 1
+    },
+    "2653529981": {
+        "is_new": false,
+        "item_id": 2653529981,
+        "price": 56000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 6006,
+        "stack": 1,
+        "stock": 1
+    },
+    "269218988": {
+        "is_new": false,
+        "item_id": 269218988,
+        "price": 50000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 2000,
+        "stack": 3,
+        "stock": 3
+    },
+    "2735256250": {
+        "is_new": false,
+        "item_id": 2735256250,
+        "price": 50000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 5011,
+        "stack": 1,
+        "stock": 1
+    },
+    "2838037082": {
+        "is_new": false,
+        "item_id": 2838037082,
+        "price": 24000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 5013,
+        "stack": 1,
+        "stock": 1
+    },
+    "2980903038": {
+        "is_new": false,
+        "item_id": 2980903038,
+        "price": 3500,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 2147483647,
+        "stack": 1,
+        "stock": 1
+    },
+    "3003110346": {
+        "is_new": false,
+        "item_id": 3003110346,
+        "price": 200,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 5001,
+        "stack": 1,
+        "stock": 1
+    },
+    "3064876456": {
+        "is_new": false,
+        "item_id": 3064876456,
+        "price": 3000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 2147483647,
+        "stack": 1,
+        "stock": 1
+    },
+    "3131688569": {
+        "is_new": false,
+        "item_id": 3131688569,
+        "price": 4000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 2147483647,
+        "stack": 1,
+        "stock": 1
+    },
+    "3132227914": {
+        "is_new": false,
+        "item_id": 3132227914,
+        "price": 350,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 2147483647,
+        "stack": 1,
+        "stock": 1
+    },
+    "3154753836": {
+        "is_new": false,
+        "item_id": 3154753836,
+        "price": 22000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 6013,
+        "stack": 1,
+        "stock": 1
+    },
+    "3213662355": {
+        "is_new": false,
+        "item_id": 3213662355,
+        "price": 3000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 5021,
+        "stack": 1,
+        "stock": 5
+    },
+    "331140406": {
+        "is_new": false,
+        "item_id": 331140406,
+        "price": 120000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 5018,
+        "stack": 1,
+        "stock": 1
+    },
+    "3593098140": {
+        "is_new": false,
+        "item_id": 3593098140,
+        "price": 9000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 6002,
+        "stack": 1,
+        "stock": 1
+    },
+    "3787717904": {
+        "is_new": false,
+        "item_id": 3787717904,
+        "price": 8000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 6010,
+        "stack": 1,
+        "stock": 1
+    },
+    "3919597625": {
+        "is_new": false,
+        "item_id": 3919597625,
+        "price": 1000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 4003,
+        "stack": 1,
+        "stock": 25
+    },
+    "4186049118": {
+        "is_new": false,
+        "item_id": 4186049118,
+        "price": 40000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 5016,
+        "stack": 1,
+        "stock": 1
+    },
+    "489184312": {
+        "is_new": false,
+        "item_id": 489184312,
+        "price": 100,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 2147483647,
+        "stack": 1,
+        "stock": 1
+    },
+    "629367356": {
+        "is_new": false,
+        "item_id": 629367356,
+        "price": 3000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 2147483647,
+        "stack": 1,
+        "stock": 1
+    },
+    "634755339": {
+        "is_new": false,
+        "item_id": 634755339,
+        "price": 1100,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 5005,
+        "stack": 1,
+        "stock": 1
+    },
+    "738899953": {
+        "is_new": false,
+        "item_id": 738899953,
+        "price": 68000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 5014,
+        "stack": 1,
+        "stock": 1
+    },
+    "794293600": {
+        "is_new": false,
+        "item_id": 794293600,
+        "price": 10000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 2147483647,
+        "stack": 1,
+        "stock": 1
+    },
+    "80959953": {
+        "is_new": false,
+        "item_id": 80959953,
+        "price": 12000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 6004,
+        "stack": 1,
+        "stock": 1
+    },
+    "879197051": {
+        "is_new": false,
+        "item_id": 879197051,
+        "price": 100000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 6027,
+        "stack": 1,
+        "stock": 1
+    },
+    "89877500": {
+        "is_new": false,
+        "item_id": 89877500,
+        "price": 16000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 6023,
+        "stack": 1,
+        "stock": 1
+    },
+    "913733353": {
+        "is_new": false,
+        "item_id": 913733353,
+        "price": 18000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 6003,
+        "stack": 1,
+        "stock": 1
+    },
+    "949611560": {
+        "is_new": false,
+        "item_id": 949611560,
+        "price": 200,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 5008,
+        "stack": 1,
+        "stock": 1
+    },
+    "97158149": {
+        "is_new": false,
+        "item_id": 97158149,
+        "price": 16000,
+        "seen": "2026-09-26 00:58",
+        "shop": 1,
+        "sort": 5010,
+        "stack": 1,
+        "stock": 1
+    }
+}

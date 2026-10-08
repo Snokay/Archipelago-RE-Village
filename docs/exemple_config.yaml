@@ -1,0 +1,20 @@
+# Exemple de configuration joueur pour Resident Evil Village (Archipelago).
+name: Ethan
+game: Resident Evil Village
+Resident Evil Village:
+  # Objectif : tous_les_checks, fin_du_jeu, tous_les_seigneurs, dimitrescu, beneviento, moreau, heisenberg
+  goal: fin_du_jeu
+  # Difficulté imposée (les checks ne comptent pas dans une autre) : au_choix, casual, standard, hardcore, village_des_ombres
+  difficulty: au_choix
+  # Zones ratables (château, maison Beneviento) : zone_exclue ou envoi_auto
+  missable_checks: envoi_auto
+  # Boutique du Duc : articles uniques = checks
+  randomize_duke_shop: true
+  # Agrandissements d'inventaire (Valises) aussi en checks
+  randomize_shop_inventory_expansions: true
+  # Objets clés mélangés (clés, masques, moules...), toujours placés avant l'endroit où ils servent
+  randomize_key_items: false
+  # Avec les objets clés : aussi les objets d'énigme de la maison Beneviento
+  randomize_beneviento_puzzles: false
+  # dans_leur_zone (dans ta partie, dans la zone où ils servent) ou partout (aussi chez les autres)
+  key_items_placement: dans_leur_zone

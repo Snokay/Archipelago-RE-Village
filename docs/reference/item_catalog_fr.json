@@ -1,0 +1,1790 @@
+{
+    "1032047694": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Amas de cristaux"
+    },
+    "1038823123": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Photo d'un oiseau étrange"
+    },
+    "1042056128": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Clé du tableau électrique"
+    },
+    "1042576120": {
+        "category": "Explosif",
+        "info": "Une bombe tuyau destinée à être lancée.",
+        "max_stack": 5,
+        "name": "Bombe tuyau"
+    },
+    "1060602647": {
+        "category": "Autre",
+        "info": "",
+        "max_stack": 1,
+        "name": "Formule : Grenades aveuglantes"
+    },
+    "1093531362": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Manivelle de cric"
+    },
+    "1113020361": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": ""
+    },
+    "1131327709": {
+        "category": "Explosif",
+        "info": "Une grenade à main qui émet un flash aveuglant.",
+        "max_stack": 5,
+        "name": "Grenade assourdissante"
+    },
+    "1132688171": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Morceau de relief (démon)"
+    },
+    "1142718375": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Manivelle"
+    },
+    "1152567186": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Relief de cheval"
+    },
+    "1157345091": {
+        "category": "Arme de poing",
+        "info": "Un puissant pistolet-mitrailleur.",
+        "max_stack": 1,
+        "name": "V61 Custom"
+    },
+    "1166469749": {
+        "category": "",
+        "info": "",
+        "max_stack": 999,
+        "name": "Plante"
+    },
+    "1179972000": {
+        "category": "Munitions",
+        "info": "Munitions standard pour arme de poing.",
+        "max_stack": 30,
+        "name": "Munitions pour pistolet"
+    },
+    "1197251383": {
+        "category": "Élément de modification",
+        "info": "Augmente la puissance et la cadence de tir.",
+        "max_stack": 1,
+        "name": "Viseur point rouge (WCX)"
+    },
+    "1201790023": {
+        "category": "Munitions",
+        "info": "Projectiles aveuglants pour lance-grenades.",
+        "max_stack": 999,
+        "name": "Grenades aveuglantes"
+    },
+    "1212053308": {
+        "category": "Élément de modification",
+        "info": "Augmente la puissance et la cadence de tir.",
+        "max_stack": 1,
+        "name": "Viseur point rouge (SYG-12)"
+    },
+    "1213926402": {
+        "category": "Objet de soin",
+        "info": "Un remède qui guérit toutes les blessures.",
+        "max_stack": 99,
+        "name": "Remède de premiers soins"
+    },
+    "1217876589": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Cœur mécanique"
+    },
+    "1229370432": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "<COLOR FF0000>#Rejected#</COLOR> Item_key32_000"
+    },
+    "1233743624": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Clé du luthier"
+    },
+    "1257947499": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Ange de Nichola"
+    },
+    "128777511": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Collier incomplet"
+    },
+    "1321026060": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "<COLOR FF0000>#Rejected#</COLOR> Item_key32_000"
+    },
+    "1342716995": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": ""
+    },
+    "1344029762": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Masque du plaisir"
+    },
+    "1354786552": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Clé de la cour"
+    },
+    "1360402596": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": ""
+    },
+    "13690783": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Clé du pick-up"
+    },
+    "1386155386": {
+        "category": "Arme de poing",
+        "info": "Un petit pistolet semi-automatique.",
+        "max_stack": 1,
+        "name": "LEMI"
+    },
+    "1394398957": {
+        "category": "",
+        "info": "",
+        "max_stack": 999,
+        "name": "Ferraille"
+    },
+    "1394702287": {
+        "category": "Fusil",
+        "info": "Un fusil semi-automatique à la dispersion réduite.",
+        "max_stack": 1,
+        "name": "SYG-12"
+    },
+    "1399639302": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Vivianite"
+    },
+    "1419114675": {
+        "category": "Lance-grenades",
+        "info": "Un lance-grenades à canon basculant.",
+        "max_stack": 1,
+        "name": "GM 79"
+    },
+    "141938385": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": "Carte de l'usine (niveaux supérieurs)"
+    },
+    "1429493426": {
+        "category": "Objet de soin",
+        "info": "Un remède qui guérit toutes les blessures.",
+        "max_stack": 1,
+        "name": "Remède de premiers soins"
+    },
+    "1447101593": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": ""
+    },
+    "1466898435": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": "Poignée ergonomique (S.T.A.K.E.)"
+    },
+    "1506874164": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Pierre de collier"
+    },
+    "1527870823": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Collier d'Ingrid"
+    },
+    "153626337": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Pièce mécanique (cylindre)"
+    },
+    "1559178721": {
+        "category": "Fusil sniper",
+        "info": "Un fusil de précision à verrou pour tirer de loin.",
+        "max_stack": 1,
+        "name": "Fusil F2"
+    },
+    "1583016682": {
+        "category": "Munitions",
+        "info": "Projectiles aveuglants pour lance-grenades.",
+        "max_stack": 5,
+        "name": "Grenades aveuglantes"
+    },
+    "158765264": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Calice des géants"
+    },
+    "1614445624": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Coupe de Cesare"
+    },
+    "1617108900": {
+        "category": "Explosif",
+        "info": "Une grenade qui explose après un court instant.",
+        "max_stack": 5,
+        "name": "Grenade à main"
+    },
+    "1629499072": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Moule (roue dentée)"
+    },
+    "163632002": {
+        "category": "Élément de modification",
+        "info": "Réduit grandement le recul.",
+        "max_stack": 1,
+        "name": "Poignée (WCX)"
+    },
+    "164947107": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Clé de Luiza"
+    },
+    "1650702965": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Cœur mécanique complexe"
+    },
+    "1664342338": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Coupe-boulon"
+    },
+    "1690589937": {
+        "category": "",
+        "info": "",
+        "max_stack": 16,
+        "name": "W870 TAC"
+    },
+    "1701450361": {
+        "category": "Autre",
+        "info": "",
+        "max_stack": 1,
+        "name": "Formule : Munitions magnum"
+    },
+    "1731811000": {
+        "category": "Munitions",
+        "info": "Cartouches de calibre .12 pour fusil.",
+        "max_stack": 15,
+        "name": "Cartouches de fusil"
+    },
+    "1738775830": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Clé de Dimitrescu"
+    },
+    "1743943559": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Pièce mécanique (arbre)"
+    },
+    "1754241545": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Cigare"
+    },
+    "177382688": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Boule (soleil et lune)"
+    },
+    "1773855935": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Dimitrescu cristallisée"
+    },
+    "1783651061": {
+        "category": "Fusil",
+        "info": "Un fusil à pompe couramment utilisé pour la chasse.",
+        "max_stack": 1,
+        "name": "M1897"
+    },
+    "1787578325": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Œil écarlate"
+    },
+    "1815109085": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "<COLOR FF0000>#Rejected#</COLOR> Item_key22_002"
+    },
+    "1837083205": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "<COLOR FF0000>#Rejected#</COLOR> Item_key32_000"
+    },
+    "1839743046": {
+        "category": "Élément de modification",
+        "info": "Réduit les tremblements lors de la visée.",
+        "max_stack": 1,
+        "name": "Appui-joue (Fusil F2)"
+    },
+    "1855065364": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": ""
+    },
+    "185799830": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Clé à quatre ailes"
+    },
+    "1858058345": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Grande roue dentée"
+    },
+    "1863717": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Grande hache cristallisée"
+    },
+    "1876186812": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Moule (clé)"
+    },
+    "1879206809": {
+        "category": "Élément de modification",
+        "info": "Augmente grandement la capacité.",
+        "max_stack": 1,
+        "name": "Chargeur grande capacité (M1911)"
+    },
+    "1894921204": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Carte du château (enceinte principale)"
+    },
+    "1895922302": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Moule (boule)"
+    },
+    "1911895058": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Moule (relief)"
+    },
+    "1927571624": {
+        "category": "Munitions",
+        "info": "Projectiles explosifs pour lance-grenades.",
+        "max_stack": 5,
+        "name": "Grenades explosives"
+    },
+    "1943719610": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Fragment de cristal"
+    },
+    "1959464596": {
+        "category": "Élément de modification",
+        "info": "Augmente le grossissement de la lunette de visée.",
+        "max_stack": 1,
+        "name": "Lunette grossissante (Fusil F2)"
+    },
+    "1970592906": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Rubis sang de pigeon"
+    },
+    "1976646859": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Boule (sirène)"
+    },
+    "2019423836": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Plat de Guglielmo"
+    },
+    "2044788832": {
+        "category": "Élément de modification",
+        "info": "Porte-bonheur pour un pistolet.",
+        "max_stack": 1,
+        "name": "Accessoire d'arme Mr. Everywhere"
+    },
+    "2064681308": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": ""
+    },
+    "2072724356": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Photo d'un animal rare"
+    },
+    "2078728602": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Buste cristallisé"
+    },
+    "2085613763": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Crâne vert pâle"
+    },
+    "2097574382": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": "W870 TAC"
+    },
+    "2117936964": {
+        "category": "Élément de modification",
+        "info": "Augmente grandement la cadence de tir.",
+        "max_stack": 1,
+        "name": "Détente sensible (M1897)"
+    },
+    "2144331364": {
+        "category": "Élément de modification",
+        "info": "Augmente grandement la cadence de tir.",
+        "max_stack": 1,
+        "name": "Poignée (W870 TAC)"
+    },
+    "2146816802": {
+        "category": "Fusil d'assaut",
+        "info": "Un fusil entièrement automatique.",
+        "max_stack": 1,
+        "name": "Dragoon"
+    },
+    "2182652875": {
+        "category": "Munitions",
+        "info": "Munitions magnum de calibre .50.",
+        "max_stack": 10,
+        "name": "Munitions magnum"
+    },
+    "2183898626": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Bague avec un œil écarlate"
+    },
+    "218464484": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Boule (fleur et épées)"
+    },
+    "2186690969": {
+        "category": "Élément de modification",
+        "info": "Augmente le grossissement de la lunette de visée.",
+        "max_stack": 1,
+        "name": "Lunette grossissante (Fusil F2)"
+    },
+    "2189190376": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Carte au trésor"
+    },
+    "2192286491": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": ""
+    },
+    "2198114132": {
+        "category": "Élément de modification",
+        "info": "Réduit grandement le recul.",
+        "max_stack": 1,
+        "name": "Poignée ergonomique (M1911)"
+    },
+    "2206988889": {
+        "category": "Élément de modification",
+        "info": "Augmente grandement la capacité.",
+        "max_stack": 1,
+        "name": "Chargeur tambour (V61 Custom)"
+    },
+    "2236906984": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": "<COLOR FF0000>#Rejected#</COLOR> Item_VillageProto_001"
+    },
+    "2238338348": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Crâne cristallisé parfait"
+    },
+    "2238482428": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Bocal (tête)"
+    },
+    "2240085143": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Carte de l'usine (niveaux inférieurs)"
+    },
+    "2244555736": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Ange en bois"
+    },
+    "2246949088": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": ""
+    },
+    "2255157331": {
+        "category": "Élément de modification",
+        "info": "Augmente grandement la puissance de feu.",
+        "max_stack": 1,
+        "name": "Compensateur de recul (LEMI)"
+    },
+    "2263083694": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Bague avec un œil azur"
+    },
+    "2275184395": {
+        "category": "Munitions",
+        "info": "Petites roquettes pour pistolet lance-roquettes.",
+        "max_stack": 10,
+        "name": "Munitions de pistolet lance-roquettes"
+    },
+    "2292458104": {
+        "category": "Arme de mêlée",
+        "info": "Un couteau usé avec une grande lame.",
+        "max_stack": 1,
+        "name": "Couteau"
+    },
+    "2299641251": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Crâne cramoisi"
+    },
+    "2309731541": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Bocal étrange"
+    },
+    "2319956405": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Carte de l'usine (niveaux supérieurs)"
+    },
+    "2328275556": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Clé du pick-up"
+    },
+    "2335451335": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Madalina (corps)"
+    },
+    "2352399178": {
+        "category": "Élément de modification",
+        "info": "Réduit les tremblements lors de la visée.",
+        "max_stack": 1,
+        "name": "Appui-joue (Fusil F2)"
+    },
+    "2365661828": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Masque de la joie"
+    },
+    "2369659153": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Photo de famille"
+    },
+    "2373141672": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": ""
+    },
+    "237645840": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Calice de Berengario"
+    },
+    "2378627457": {
+        "category": "Élément de modification",
+        "info": "",
+        "max_stack": 1,
+        "name": ""
+    },
+    "238321852": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Hræsvelg d'acier"
+    },
+    "241847407": {
+        "category": "Fusil",
+        "info": "Un fusil semi-automatique à la dispersion réduite.",
+        "max_stack": 1,
+        "name": "SYG-12"
+    },
+    "242164787": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Crâne polycristallin"
+    },
+    "2434335688": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": ""
+    },
+    "244098523": {
+        "category": "Élément de modification",
+        "info": "Augmente grandement la puissance de feu.",
+        "max_stack": 1,
+        "name": "Canon long (SYG-12)"
+    },
+    "2445047744": {
+        "category": "Autre",
+        "info": "",
+        "max_stack": 1,
+        "name": "Formule : Bombes tuyaux"
+    },
+    "2472407456": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "<COLOR FF0000>#Rejected#</COLOR> Item_key32_000"
+    },
+    "2498175291": {
+        "category": "Élément de modification",
+        "info": "Augmente grandement la capacité.",
+        "max_stack": 1,
+        "name": "Chargeur grande capacité (S.T.A.K.E.)"
+    },
+    "2500933730": {
+        "category": "Élément de modification",
+        "info": "Réduit grandement le recul.",
+        "max_stack": 1,
+        "name": "Crosse (V61 Custom)"
+    },
+    "2501715407": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Photo de famille"
+    },
+    "2522341664": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": "Carte de l'usine (niveaux supérieurs)"
+    },
+    "2534025216": {
+        "category": "Arme de poing",
+        "info": "Un puissant pistolet-mitrailleur.",
+        "max_stack": 1,
+        "name": "V61 Custom"
+    },
+    "2538716850": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": "<COLOR FF0000>#Rejected#</COLOR> Item_VillageProto_012"
+    },
+    "2540116498": {
+        "category": "Élément de modification",
+        "info": "Réduit grandement le recul.",
+        "max_stack": 1,
+        "name": "Crosse améliorée (W870 TAC)"
+    },
+    "2545563073": {
+        "category": "Arme unique",
+        "info": "Un lance-roquettes de taille réduite.",
+        "max_stack": 1,
+        "name": "Pistolet lance-roquettes"
+    },
+    "2549049308": {
+        "category": "Autre",
+        "info": "Ouvre des serrures simples. Usage unique.",
+        "max_stack": 99,
+        "name": "Crochet"
+    },
+    "2554874516": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Ciseaux"
+    },
+    "2563213816": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Bocal (jambes)"
+    },
+    "2564145014": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Médaillon en laiton"
+    },
+    "2573508403": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Bague en argent"
+    },
+    "2573570207": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Clé en argent"
+    },
+    "2576167331": {
+        "category": "Lance-grenades",
+        "info": "Un lance-grenades à canon basculant.",
+        "max_stack": 1,
+        "name": "GM 79"
+    },
+    "259784296": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Marteau d'Heisenberg"
+    },
+    "2603442870": {
+        "category": "Autre",
+        "info": "",
+        "max_stack": 1,
+        "name": "Formule : Remède de premiers soins"
+    },
+    "2604886178": {
+        "category": "Munitions",
+        "info": "Munitions magnum de calibre .50.",
+        "max_stack": 999,
+        "name": "Munitions magnum"
+    },
+    "2615454163": {
+        "category": "Ingrédient",
+        "info": "Ingrédient rare provenant d'un oiseau bleu.",
+        "max_stack": 99,
+        "name": "Gibier juteux"
+    },
+    "2616382888": {
+        "category": "Élément de modification",
+        "info": "Réduit grandement le recul.",
+        "max_stack": 1,
+        "name": "Crosse (V61 Custom)"
+    },
+    "2641189703": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Yeux de Moreau"
+    },
+    "2648638768": {
+        "category": "Élément de modification",
+        "info": "Augmente grandement la capacité.",
+        "max_stack": 1,
+        "name": "Chargeur grande capacité (Fusil F2)"
+    },
+    "2653529981": {
+        "category": "Élément de modification",
+        "info": "Augmente grandement la puissance de feu.",
+        "max_stack": 1,
+        "name": "Canon long (V61 Custom)"
+    },
+    "2657423332": {
+        "category": "Élément de modification",
+        "info": "Augmente grandement la capacité.",
+        "max_stack": 1,
+        "name": "Chargeur tambour (SYG-12)"
+    },
+    "2685023068": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Sanguis Virginis"
+    },
+    "2687620566": {
+        "category": "",
+        "info": "",
+        "max_stack": 16,
+        "name": "W870 TAC"
+    },
+    "269218988": {
+        "category": "Autre",
+        "info": "",
+        "max_stack": 3,
+        "name": "Valise"
+    },
+    "2705272849": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Ours en peluche"
+    },
+    "2735256250": {
+        "category": "Arme de poing",
+        "info": "Un pistolet entièrement automatique.",
+        "max_stack": 1,
+        "name": "M1911"
+    },
+    "2748443876": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": "<COLOR FF0000>#Rejected#</COLOR> Item_key21_006"
+    },
+    "2838037082": {
+        "category": "Fusil",
+        "info": "Un fusil à pompe couramment utilisé pour la chasse.",
+        "max_stack": 1,
+        "name": "M1897"
+    },
+    "2840111159": {
+        "category": "Élément de modification",
+        "info": "Augmente grandement la puissance de feu.",
+        "max_stack": 1,
+        "name": "Canon long (SYG-12)"
+    },
+    "2844148845": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Clé du bateau"
+    },
+    "2858169147": {
+        "category": "Arme unique",
+        "info": "Un pistolet semi-automatique de taille moyenne.",
+        "max_stack": 1,
+        "name": "USM-AI"
+    },
+    "2881006060": {
+        "category": "Élément de modification",
+        "info": "Augmente grandement la puissance de feu.",
+        "max_stack": 1,
+        "name": "Canon long (V61 Custom)"
+    },
+    "2892389030": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": ""
+    },
+    "2896087978": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Bague couverte de sang"
+    },
+    "2925641544": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Pincette"
+    },
+    "2934513303": {
+        "category": "Élément de modification",
+        "info": "Réduit grandement le recul.",
+        "max_stack": 1,
+        "name": "Poignée ergonomique (S.T.A.K.E.)"
+    },
+    "2974491273": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Photo d'un mystérieux poisson"
+    },
+    "2980903038": {
+        "category": "Autre",
+        "info": "",
+        "max_stack": 1,
+        "name": "Formule : Mines"
+    },
+    "2987896730": {
+        "category": "Fusil d'assaut",
+        "info": "Un fusil entièrement automatique.",
+        "max_stack": 1,
+        "name": "Dragoon"
+    },
+    "3003110346": {
+        "category": "Fusil d'assaut",
+        "info": "Un puissant fusil d'assaut.",
+        "max_stack": 1,
+        "name": "WCX"
+    },
+    "303464115": {
+        "category": "Élément de modification",
+        "info": "Augmente grandement la capacité.",
+        "max_stack": 1,
+        "name": "Chargeur grande capacité (M1911)"
+    },
+    "3044705205": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Main coupée"
+    },
+    "3047784958": {
+        "category": "Munitions",
+        "info": "Munitions standard pour arme de poing.",
+        "max_stack": 999,
+        "name": "Munitions pour pistolet"
+    },
+    "3064876456": {
+        "category": "Autre",
+        "info": "",
+        "max_stack": 1,
+        "name": "Formule : Cartouches de fusil"
+    },
+    "3069621231": {
+        "category": "Ingrédient",
+        "info": "Ingrédient commun.",
+        "max_stack": 99,
+        "name": "Viande"
+    },
+    "3131688569": {
+        "category": "Autre",
+        "info": "",
+        "max_stack": 1,
+        "name": "Formule : Munitions de fusil sniper"
+    },
+    "3132227914": {
+        "category": "Arme de poing",
+        "info": "Un pistolet semi-automatique de taille moyenne.",
+        "max_stack": 1,
+        "name": "USM-AI"
+    },
+    "314002296": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Masque de la colère"
+    },
+    "3149186555": {
+        "category": "Élément de modification",
+        "info": "Augmente grandement la capacité.",
+        "max_stack": 1,
+        "name": "Chargeur tambour (SYG-12)"
+    },
+    "3154753836": {
+        "category": "Élément de modification",
+        "info": "Réduit grandement le recul.",
+        "max_stack": 1,
+        "name": "Crosse améliorée (W870 TAC)"
+    },
+    "3155046651": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "<COLOR FF0000>#Rejected#</COLOR> Item_VillageProto_000"
+    },
+    "3171683355": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Angie"
+    },
+    "3176129225": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Grand marteau cristallisé"
+    },
+    "3188868396": {
+        "category": "Munitions",
+        "info": "Munitions de petit calibre pour fusil d'assaut.",
+        "max_stack": 100,
+        "name": "Munitions de fusil d'assaut"
+    },
+    "3196868754": {
+        "category": "",
+        "info": "",
+        "max_stack": 9999999,
+        "name": "{0} lei"
+    },
+    "3197802775": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Madalina"
+    },
+    "3207408651": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "<COLOR FF0000>#Rejected#</COLOR> item_key21_001"
+    },
+    "3213662355": {
+        "category": "Explosif",
+        "info": "Une mine antipersonnel.",
+        "max_stack": 5,
+        "name": "Mine"
+    },
+    "3219462766": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Tournevis"
+    },
+    "3224046458": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Crâne noir de jais"
+    },
+    "3237773355": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Crâne d'animal"
+    },
+    "3246819640": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Animal en bois (tête)"
+    },
+    "3309026608": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": ""
+    },
+    "3310380690": {
+        "category": "Élément de modification",
+        "info": "Augmente grandement la capacité.",
+        "max_stack": 1,
+        "name": "Chargeur grande capacité (S.T.A.K.E.)"
+    },
+    "3311194243": {
+        "category": "Autre",
+        "info": "",
+        "max_stack": 1,
+        "name": "Formule : Munitions de pistolet lance-roquettes"
+    },
+    "331140406": {
+        "category": "Magnum",
+        "info": "Un revolver qui utilise des munitions magnum.",
+        "max_stack": 1,
+        "name": "M1851 Wolfsbane"
+    },
+    "3313605784": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "<COLOR FF0000>#Rejected#</COLOR> Item_VillageProto_000"
+    },
+    "331516006": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Grand cœur mécanique"
+    },
+    "3317428588": {
+        "category": "Élément de modification",
+        "info": "Réduit grandement le recul.",
+        "max_stack": 1,
+        "name": "Poignée ergonomique (S.T.A.K.E.)"
+    },
+    "3347257867": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Dimitrescu en or"
+    },
+    "3353004916": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Grande masse cristallisée"
+    },
+    "3383820218": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Crâne cristallisé"
+    },
+    "3397831806": {
+        "category": "",
+        "info": "",
+        "max_stack": 999,
+        "name": "Pièces détachées"
+    },
+    "3414425055": {
+        "category": "Arme de poing",
+        "info": "Un pistolet entièrement automatique.",
+        "max_stack": 1,
+        "name": "M1911"
+    },
+    "3442255841": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Aile cristallisée"
+    },
+    "3460856922": {
+        "category": "Autre",
+        "info": "",
+        "max_stack": 1,
+        "name": "Formule : Munitions pour pistolet"
+    },
+    "3461208890": {
+        "category": "",
+        "info": "",
+        "max_stack": 999,
+        "name": "Poudre noire"
+    },
+    "3470512293": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Ange en argent"
+    },
+    "3495223716": {
+        "category": "Élément de modification",
+        "info": "Réduit grandement le recul.",
+        "max_stack": 1,
+        "name": "Poignée (WCX)"
+    },
+    "3513834249": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Masque du chagrin"
+    },
+    "351490193": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Rouge à lèvres"
+    },
+    "3518440748": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Collier de Luiza"
+    },
+    "3524738970": {
+        "category": "Ingrédient",
+        "info": "Ingrédient rare provenant d'un poisson doré.",
+        "max_stack": 99,
+        "name": "Poisson raffiné"
+    },
+    "3542466670": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Morceau de pellicule"
+    },
+    "3556586016": {
+        "category": "Ingrédient",
+        "info": "Ingrédient commun.",
+        "max_stack": 99,
+        "name": "Volaille"
+    },
+    "3562994381": {
+        "category": "Munitions",
+        "info": "Cartouches de calibre .12 pour fusil.",
+        "max_stack": 999,
+        "name": "Cartouches de fusil"
+    },
+    "3572205213": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 1,
+        "name": "Buste cristallisé"
+    },
+    "3577251366": {
+        "category": "Ingrédient",
+        "info": "Ingrédient rare provenant d'un cochon blanc.",
+        "max_stack": 99,
+        "name": "Viande de qualité"
+    },
+    "3582141461": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Animal en bois (corps)"
+    },
+    "3593098140": {
+        "category": "Élément de modification",
+        "info": "Augmente grandement la capacité.",
+        "max_stack": 1,
+        "name": "Chargeur grande capacité (LEMI)"
+    },
+    "360286557": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Clé fœtus à quatre ailes"
+    },
+    "3612128929": {
+        "category": "Arme unique",
+        "info": "Un dispositif laser servant à indiquer une cible.",
+        "max_stack": 1,
+        "name": "Marqueur de cible"
+    },
+    "3613704787": {
+        "category": "Élément de modification",
+        "info": "Augmente la puissance et la cadence de tir.",
+        "max_stack": 1,
+        "name": "Viseur point rouge (SYG-12)"
+    },
+    "3614652274": {
+        "category": "Munitions",
+        "info": "Projectiles explosifs pour lance-grenades.",
+        "max_stack": 999,
+        "name": "Grenades explosives"
+    },
+    "3619364444": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Morceau de relief (vierge)"
+    },
+    "3652020516": {
+        "category": "Explosif",
+        "info": "Une bombe tuyau destinée à être lancée.",
+        "max_stack": 99,
+        "name": "Bombe tuyau"
+    },
+    "3675980574": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": ""
+    },
+    "3720758584": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Bête ancienne cristallisée"
+    },
+    "3720810444": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Bocal (bras)"
+    },
+    "3725070903": {
+        "category": "Élément de modification",
+        "info": "Augmente grandement la puissance de feu.",
+        "max_stack": 1,
+        "name": "Compensateur de recul (LEMI)"
+    },
+    "3725693056": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "<COLOR FF0000>#Rejected#</COLOR> Item_key32_000"
+    },
+    "3745851018": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": ""
+    },
+    "3749759": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Verre carmin"
+    },
+    "3778477316": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Cœur mécanique parfait"
+    },
+    "3784287352": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Trophée de chasse"
+    },
+    "3784538847": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Cerveau d'Heisenberg"
+    },
+    "3787717904": {
+        "category": "Élément de modification",
+        "info": "Augmente grandement la cadence de tir.",
+        "max_stack": 1,
+        "name": "Détente sensible (M1897)"
+    },
+    "3801239996": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Morceau de plaque"
+    },
+    "3838278105": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Bête cristallisée"
+    },
+    "3841303535": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Pièce antique"
+    },
+    "3856576850": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Clé de remontage"
+    },
+    "3875003266": {
+        "category": "Magnum",
+        "info": "Un magnum semi-automatique.",
+        "max_stack": 1,
+        "name": "S.T.A.K.E."
+    },
+    "3897449963": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": ""
+    },
+    "3912672487": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "<COLOR FF0000>#Rejected#</COLOR> Item_recipe_010"
+    },
+    "3919597625": {
+        "category": "Munitions",
+        "info": "Munitions de gros calibre pour le tir à longue distance.",
+        "max_stack": 15,
+        "name": "Munitions de fusil sniper"
+    },
+    "3933308947": {
+        "category": "Élément de modification",
+        "info": "Augmente grandement la capacité.",
+        "max_stack": 1,
+        "name": "Chargeur tambour (V61 Custom)"
+    },
+    "3937405541": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Œil azur"
+    },
+    "3938249639": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Chèvre en bois"
+    },
+    "3943127851": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Quartz jaune"
+    },
+    "3952088999": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Carte du village"
+    },
+    "4041096499": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Clé d'Heisenberg"
+    },
+    "4047567124": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Madalina (tête)"
+    },
+    "4084651842": {
+        "category": "Munitions",
+        "info": "Munitions de gros calibre pour le tir à longue distance.",
+        "max_stack": 999,
+        "name": "Munitions de fusil sniper"
+    },
+    "4106212545": {
+        "category": "Élément de modification",
+        "info": "Augmente la capacité.",
+        "max_stack": 1,
+        "name": "Gros barillet (M1851 Wolfsbane)"
+    },
+    "418018598": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Clé en fer forgé"
+    },
+    "4186049118": {
+        "category": "Fusil sniper",
+        "info": "Un fusil de précision à verrou pour tirer de loin.",
+        "max_stack": 1,
+        "name": "Fusil F2"
+    },
+    "4218441441": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Collier avec clé"
+    },
+    "4222311168": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": ""
+    },
+    "4246276207": {
+        "category": "Explosif",
+        "info": "Une mine antipersonnel.",
+        "max_stack": 99,
+        "name": "Mine"
+    },
+    "4252038200": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": "Carte de l'usine (niveaux supérieurs)"
+    },
+    "437981907": {
+        "category": "Élément de modification",
+        "info": "Augmente grandement la puissance de feu.",
+        "max_stack": 1,
+        "name": "Canon long (M1851 Wolfsbane)"
+    },
+    "471813919": {
+        "category": "Ingrédient",
+        "info": "Ingrédient commun.",
+        "max_stack": 99,
+        "name": "Poisson"
+    },
+    "473898393": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Carte du château (annexe)"
+    },
+    "489184312": {
+        "category": "Arme de mêlée",
+        "info": "Un couteau idéal pour le combat au corps à corps.",
+        "max_stack": 1,
+        "name": "Couteau Karambit"
+    },
+    "49110171": {
+        "category": "Arme de mêlée",
+        "info": "Une arme de nouvelle génération développée par le BSAA.",
+        "max_stack": 1,
+        "name": "LZ Answerer"
+    },
+    "522358928": {
+        "category": "Élément de modification",
+        "info": "Augmente la puissance et la cadence de tir.",
+        "max_stack": 1,
+        "name": "Viseur point rouge (WCX)"
+    },
+    "526649991": {
+        "category": "",
+        "info": "",
+        "max_stack": 999,
+        "name": "Fluide chimique"
+    },
+    "579739633": {
+        "category": "Magnum",
+        "info": "Un revolver qui utilise des munitions magnum.",
+        "max_stack": 1,
+        "name": "M1851 Wolfsbane"
+    },
+    "629367356": {
+        "category": "Autre",
+        "info": "",
+        "max_stack": 1,
+        "name": "Formule : Grenades explosives"
+    },
+    "634755339": {
+        "category": "Arme unique",
+        "info": "Un grand revolver non conventionnel.",
+        "max_stack": 1,
+        "name": "Handcannon PZ"
+    },
+    "67387981": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Grand rubis sang de pigeon"
+    },
+    "696489800": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Crâne bistre"
+    },
+    "709500517": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Fusibles"
+    },
+    "714207006": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": "Poignée ergonomique (S.T.A.K.E.)"
+    },
+    "719654765": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Bocal (torse)"
+    },
+    "738899953": {
+        "category": "Fusil",
+        "info": "Un puissant fusil à pompe de combat.",
+        "max_stack": 1,
+        "name": "W870 TAC"
+    },
+    "793145569": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "<COLOR FF0000>#Rejected#</COLOR> Item_key32_000"
+    },
+    "794293600": {
+        "category": "Autre",
+        "info": "",
+        "max_stack": 1,
+        "name": "Formule : Munitions de fusil d'assaut"
+    },
+    "808039580": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Clé ailée"
+    },
+    "80959953": {
+        "category": "Élément de modification",
+        "info": "Réduit grandement le recul.",
+        "max_stack": 1,
+        "name": "Poignée ergonomique (M1911)"
+    },
+    "809786374": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Collier incomplet"
+    },
+    "815655584": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Boule (cheval de fer)"
+    },
+    "821029179": {
+        "category": "Fusil",
+        "info": "Un puissant fusil à pompe de combat.",
+        "max_stack": 1,
+        "name": "W870 TAC"
+    },
+    "847933194": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Clé fœtus à six ailes"
+    },
+    "879197051": {
+        "category": "Élément de modification",
+        "info": "Augmente la capacité.",
+        "max_stack": 1,
+        "name": "Gros barillet (M1851 Wolfsbane)"
+    },
+    "889486059": {
+        "category": "",
+        "info": "",
+        "max_stack": 9999999,
+        "name": "{0} lei"
+    },
+    "895810843": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Alliance"
+    },
+    "89877500": {
+        "category": "Élément de modification",
+        "info": "Augmente grandement la capacité.",
+        "max_stack": 1,
+        "name": "Chargeur grande capacité (Fusil F2)"
+    },
+    "905053000": {
+        "category": "Arme de mêlée",
+        "info": "Un couteau idéal pour le combat au corps à corps.",
+        "max_stack": 1,
+        "name": "Couteau Karambit"
+    },
+    "913733353": {
+        "category": "Élément de modification",
+        "info": "Augmente grandement la capacité.",
+        "max_stack": 1,
+        "name": "Chargeur grande capacité (M1911)"
+    },
+    "932818540": {
+        "category": "Élément de modification",
+        "info": "Augmente grandement la puissance de feu.",
+        "max_stack": 1,
+        "name": "Canon long (M1851 Wolfsbane)"
+    },
+    "941205456": {
+        "category": "Objet de soin",
+        "info": "Un remède qui guérit toutes les blessures.",
+        "max_stack": 1,
+        "name": "Remède injectable"
+    },
+    "943909675": {
+        "category": "Élément de modification",
+        "info": "Augmente grandement la cadence de tir.",
+        "max_stack": 1,
+        "name": "Poignée (W870 TAC)"
+    },
+    "948660339": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": "<COLOR FF0000>#Rejected#</COLOR> Item_key21_006"
+    },
+    "949611560": {
+        "category": "Arme de poing",
+        "info": "Un puissant pistolet modifié.",
+        "max_stack": 1,
+        "name": "Samurai Edge - AW Model-01"
+    },
+    "967280630": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Collier incomplet"
+    },
+    "967715538": {
+        "category": "Trésor",
+        "info": "",
+        "max_stack": 999,
+        "name": "Collier de Dimitrescu"
+    },
+    "971266713": {
+        "category": "",
+        "info": "",
+        "max_stack": 1,
+        "name": "Carte de l'usine (niveaux supérieurs)"
+    },
+    "97158149": {
+        "category": "Arme de poing",
+        "info": "Un petit pistolet semi-automatique.",
+        "max_stack": 1,
+        "name": "LEMI"
+    },
+    "988104371": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Relief d'un enfant"
+    },
+    "997874151": {
+        "category": "Objet clé",
+        "info": "",
+        "max_stack": 1,
+        "name": "Volant de puits"
+    }
+}

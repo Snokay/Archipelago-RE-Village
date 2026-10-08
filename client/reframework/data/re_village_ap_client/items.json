@@ -1,0 +1,1329 @@
+[
+ {
+  "name": "Amas de cristaux",
+  "type": "Treasure",
+  "game_item_id": 1032047694,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Ange en argent",
+  "type": "Treasure",
+  "game_item_id": 3470512293,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Ange en bois",
+  "type": "Treasure",
+  "game_item_id": 2244555736,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Angie",
+  "type": "Treasure",
+  "game_item_id": 3171683355,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Animal en bois (corps)",
+  "type": "Treasure",
+  "game_item_id": 3582141461,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Animal en bois (tête)",
+  "type": "Treasure",
+  "game_item_id": 3246819640,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Appui-joue (Fusil F2)",
+  "type": "Upgrade",
+  "game_item_id": 1839743046,
+  "category": "Élément de modification",
+  "description": "Réduit les tremblements lors de la visée.",
+  "quantity": 1
+ },
+ {
+  "name": "Bague en argent",
+  "type": "Treasure",
+  "game_item_id": 2573508403,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Bombe tuyau",
+  "type": "Ammo",
+  "game_item_id": 1042576120,
+  "category": "Explosif",
+  "description": "Une bombe tuyau destinée à être lancée.",
+  "quantity": 1
+ },
+ {
+  "name": "Calice de Berengario",
+  "type": "Treasure",
+  "game_item_id": 237645840,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Canon long (M1851 Wolfsbane)",
+  "type": "Upgrade",
+  "game_item_id": 437981907,
+  "category": "Élément de modification",
+  "description": "Augmente grandement la puissance de feu.",
+  "quantity": 1
+ },
+ {
+  "name": "Canon long (V61 Custom)",
+  "type": "Upgrade",
+  "game_item_id": 2653529981,
+  "category": "Élément de modification",
+  "description": "Augmente grandement la puissance de feu.",
+  "quantity": 1
+ },
+ {
+  "name": "Cartouches de fusil",
+  "type": "Ammo",
+  "game_item_id": 1731811000,
+  "category": "Munitions",
+  "description": "Cartouches de calibre .12 pour fusil.",
+  "quantity": 2
+ },
+ {
+  "name": "Cerveau d'Heisenberg",
+  "type": "Treasure",
+  "game_item_id": 3784538847,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Chargeur grande capacité (Fusil F2) (1)",
+  "type": "Upgrade",
+  "game_item_id": 89877500,
+  "category": "Élément de modification",
+  "description": "Augmente grandement la capacité.",
+  "quantity": 1
+ },
+ {
+  "name": "Chargeur grande capacité (Fusil F2) (2)",
+  "type": "Upgrade",
+  "game_item_id": 2648638768,
+  "category": "Élément de modification",
+  "description": "Augmente grandement la capacité.",
+  "quantity": 1
+ },
+ {
+  "name": "Chargeur grande capacité (LEMI)",
+  "type": "Upgrade",
+  "game_item_id": 3593098140,
+  "category": "Élément de modification",
+  "description": "Augmente grandement la capacité.",
+  "quantity": 1
+ },
+ {
+  "name": "Chargeur grande capacité (M1911) (1)",
+  "type": "Upgrade",
+  "game_item_id": 913733353,
+  "category": "Élément de modification",
+  "description": "Augmente grandement la capacité.",
+  "quantity": 1
+ },
+ {
+  "name": "Chargeur grande capacité (M1911) (2)",
+  "type": "Upgrade",
+  "game_item_id": 1879206809,
+  "category": "Élément de modification",
+  "description": "Augmente grandement la capacité.",
+  "quantity": 1
+ },
+ {
+  "name": "Cigare",
+  "type": "Treasure",
+  "game_item_id": 1754241545,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Collier incomplet",
+  "type": "Treasure",
+  "game_item_id": 967280630,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Compensateur de recul (LEMI) (1)",
+  "type": "Upgrade",
+  "game_item_id": 2255157331,
+  "category": "Élément de modification",
+  "description": "Augmente grandement la puissance de feu.",
+  "quantity": 1
+ },
+ {
+  "name": "Compensateur de recul (LEMI) (2)",
+  "type": "Upgrade",
+  "game_item_id": 3725070903,
+  "category": "Élément de modification",
+  "description": "Augmente grandement la puissance de feu.",
+  "quantity": 1
+ },
+ {
+  "name": "Coupe de Cesare",
+  "type": "Treasure",
+  "game_item_id": 1614445624,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Crochet",
+  "type": "Other",
+  "game_item_id": 2549049308,
+  "category": "Autre",
+  "description": "Ouvre des serrures simples. Usage unique.",
+  "quantity": 1
+ },
+ {
+  "name": "Crosse (V61 Custom)",
+  "type": "Upgrade",
+  "game_item_id": 2500933730,
+  "category": "Élément de modification",
+  "description": "Réduit grandement le recul.",
+  "quantity": 1
+ },
+ {
+  "name": "Crosse améliorée (W870 TAC)",
+  "type": "Upgrade",
+  "game_item_id": 3154753836,
+  "category": "Élément de modification",
+  "description": "Réduit grandement le recul.",
+  "quantity": 1
+ },
+ {
+  "name": "Crâne bistre",
+  "type": "Treasure",
+  "game_item_id": 696489800,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Crâne cramoisi",
+  "type": "Treasure",
+  "game_item_id": 2299641251,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Crâne noir de jais",
+  "type": "Treasure",
+  "game_item_id": 3224046458,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Crâne vert pâle",
+  "type": "Treasure",
+  "game_item_id": 2085613763,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Dimitrescu cristallisée",
+  "type": "Treasure",
+  "game_item_id": 1773855935,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Détente sensible (M1897)",
+  "type": "Upgrade",
+  "game_item_id": 3787717904,
+  "category": "Élément de modification",
+  "description": "Augmente grandement la cadence de tir.",
+  "quantity": 1
+ },
+ {
+  "name": "Ferraille",
+  "type": "Craft",
+  "game_item_id": 1394398957,
+  "category": "",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Fluide chimique",
+  "type": "Craft",
+  "game_item_id": 526649991,
+  "category": "",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Formule : Bombes tuyaux",
+  "type": "Other",
+  "game_item_id": 2445047744,
+  "category": "Autre",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Formule : Cartouches de fusil",
+  "type": "Other",
+  "game_item_id": 3064876456,
+  "category": "Autre",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Formule : Grenades aveuglantes",
+  "type": "Other",
+  "game_item_id": 1060602647,
+  "category": "Autre",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Formule : Grenades explosives",
+  "type": "Other",
+  "game_item_id": 629367356,
+  "category": "Autre",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Formule : Mines",
+  "type": "Other",
+  "game_item_id": 2980903038,
+  "category": "Autre",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Formule : Munitions de fusil d'assaut",
+  "type": "Other",
+  "game_item_id": 794293600,
+  "category": "Autre",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Formule : Munitions de fusil sniper",
+  "type": "Other",
+  "game_item_id": 3131688569,
+  "category": "Autre",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Fragment de cristal",
+  "type": "Treasure",
+  "game_item_id": 1943719610,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Fusil F2",
+  "type": "Weapon",
+  "game_item_id": 4186049118,
+  "category": "Fusil sniper",
+  "description": "Un fusil de précision à verrou pour tirer de loin.",
+  "quantity": 1
+ },
+ {
+  "name": "GM 79",
+  "type": "Weapon",
+  "game_item_id": 2576167331,
+  "category": "Lance-grenades",
+  "description": "Un lance-grenades à canon basculant.",
+  "quantity": 1
+ },
+ {
+  "name": "Grenade assourdissante",
+  "type": "Ammo",
+  "game_item_id": 1131327709,
+  "category": "Explosif",
+  "description": "Une grenade à main qui émet un flash aveuglant.",
+  "quantity": 1,
+  "chris_only": true
+ },
+ {
+  "name": "Grenade à main",
+  "type": "Ammo",
+  "game_item_id": 1617108900,
+  "category": "Explosif",
+  "description": "Une grenade qui explose après un court instant.",
+  "quantity": 1,
+  "chris_only": true
+ },
+ {
+  "name": "Grenades aveuglantes",
+  "type": "Ammo",
+  "game_item_id": 1583016682,
+  "category": "Munitions",
+  "description": "Projectiles aveuglants pour lance-grenades.",
+  "quantity": 3
+ },
+ {
+  "name": "Grenades explosives",
+  "type": "Ammo",
+  "game_item_id": 1927571624,
+  "category": "Munitions",
+  "description": "Projectiles explosifs pour lance-grenades.",
+  "quantity": 1
+ },
+ {
+  "name": "Gros barillet (M1851 Wolfsbane)",
+  "type": "Upgrade",
+  "game_item_id": 879197051,
+  "category": "Élément de modification",
+  "description": "Augmente la capacité.",
+  "quantity": 1
+ },
+ {
+  "name": "Hræsvelg d'acier",
+  "type": "Treasure",
+  "game_item_id": 238321852,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Lunette grossissante (Fusil F2)",
+  "type": "Upgrade",
+  "game_item_id": 1959464596,
+  "category": "Élément de modification",
+  "description": "Augmente le grossissement de la lunette de visée.",
+  "quantity": 1
+ },
+ {
+  "name": "M1851 Wolfsbane",
+  "type": "Weapon",
+  "game_item_id": 331140406,
+  "category": "Magnum",
+  "description": "Un revolver qui utilise des munitions magnum.",
+  "quantity": 1
+ },
+ {
+  "name": "M1897",
+  "type": "Weapon",
+  "game_item_id": 2838037082,
+  "category": "Fusil",
+  "description": "Un fusil à pompe couramment utilisé pour la chasse.",
+  "quantity": 1
+ },
+ {
+  "name": "M1911",
+  "type": "Weapon",
+  "game_item_id": 2735256250,
+  "category": "Arme de poing",
+  "description": "Un pistolet entièrement automatique.",
+  "quantity": 1
+ },
+ {
+  "name": "Madalina (corps)",
+  "type": "Treasure",
+  "game_item_id": 2335451335,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Madalina (tête)",
+  "type": "Treasure",
+  "game_item_id": 4047567124,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Mine",
+  "type": "Ammo",
+  "game_item_id": 3213662355,
+  "category": "Explosif",
+  "description": "Une mine antipersonnel.",
+  "quantity": 1
+ },
+ {
+  "name": "Munitions de fusil d'assaut",
+  "type": "Ammo",
+  "game_item_id": 3188868396,
+  "category": "Munitions",
+  "description": "Munitions de petit calibre pour fusil d'assaut.",
+  "quantity": 30,
+  "chris_only": true
+ },
+ {
+  "name": "Munitions de fusil sniper",
+  "type": "Ammo",
+  "game_item_id": 3919597625,
+  "category": "Munitions",
+  "description": "Munitions de gros calibre pour le tir à longue distance.",
+  "quantity": 3
+ },
+ {
+  "name": "Munitions magnum",
+  "type": "Ammo",
+  "game_item_id": 2182652875,
+  "category": "Munitions",
+  "description": "Munitions magnum de calibre .50.",
+  "quantity": 4
+ },
+ {
+  "name": "Munitions pour pistolet",
+  "type": "Ammo",
+  "game_item_id": 1179972000,
+  "category": "Munitions",
+  "description": "Munitions standard pour arme de poing.",
+  "quantity": 25
+ },
+ {
+  "name": "Ours en peluche",
+  "type": "Treasure",
+  "game_item_id": 2705272849,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Pièce mécanique (arbre)",
+  "type": "Treasure",
+  "game_item_id": 1743943559,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Pièce mécanique (cylindre)",
+  "type": "Treasure",
+  "game_item_id": 153626337,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Pièces détachées",
+  "type": "Craft",
+  "game_item_id": 3397831806,
+  "category": "",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Plante",
+  "type": "Craft",
+  "game_item_id": 1166469749,
+  "category": "",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Plat de Guglielmo",
+  "type": "Treasure",
+  "game_item_id": 2019423836,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Poignée ergonomique (M1911)",
+  "type": "Upgrade",
+  "game_item_id": 80959953,
+  "category": "Élément de modification",
+  "description": "Réduit grandement le recul.",
+  "quantity": 1
+ },
+ {
+  "name": "Poudre noire",
+  "type": "Craft",
+  "game_item_id": 3461208890,
+  "category": "",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Quartz jaune",
+  "type": "Treasure",
+  "game_item_id": 3943127851,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Remède de premiers soins",
+  "type": "Recovery",
+  "game_item_id": 1429493426,
+  "category": "Objet de soin",
+  "description": "Un remède qui guérit toutes les blessures.",
+  "quantity": 1
+ },
+ {
+  "name": "Remède injectable",
+  "type": "Recovery",
+  "game_item_id": 941205456,
+  "category": "Objet de soin",
+  "description": "Un remède qui guérit toutes les blessures.",
+  "quantity": 1,
+  "chris_only": true
+ },
+ {
+  "name": "Rouge à lèvres",
+  "type": "Treasure",
+  "game_item_id": 351490193,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Rubis sang de pigeon",
+  "type": "Treasure",
+  "game_item_id": 1970592906,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "SYG-12",
+  "type": "Weapon",
+  "game_item_id": 241847407,
+  "category": "Fusil",
+  "description": "Un fusil semi-automatique à la dispersion réduite.",
+  "quantity": 1
+ },
+ {
+  "name": "Sac de Lei",
+  "type": "Money",
+  "game_item_id": 3196868754,
+  "category": "",
+  "description": "",
+  "quantity": 500
+ },
+ {
+  "name": "V61 Custom",
+  "type": "Weapon",
+  "game_item_id": 1157345091,
+  "category": "Arme de poing",
+  "description": "Un puissant pistolet-mitrailleur.",
+  "quantity": 1
+ },
+ {
+  "name": "Valise",
+  "type": "Other",
+  "game_item_id": 269218988,
+  "category": "Autre",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Verre carmin",
+  "type": "Treasure",
+  "game_item_id": 3749759,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Viseur point rouge (SYG-12)",
+  "type": "Upgrade",
+  "game_item_id": 1212053308,
+  "category": "Élément de modification",
+  "description": "Augmente la puissance et la cadence de tir.",
+  "quantity": 1
+ },
+ {
+  "name": "Vivianite",
+  "type": "Treasure",
+  "game_item_id": 1399639302,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "W870 TAC",
+  "type": "Weapon",
+  "game_item_id": 738899953,
+  "category": "Fusil",
+  "description": "Un puissant fusil à pompe de combat.",
+  "quantity": 1
+ },
+ {
+  "name": "Yeux de Moreau",
+  "type": "Treasure",
+  "game_item_id": 2641189703,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Œil azur",
+  "type": "Treasure",
+  "game_item_id": 3937405541,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Victory",
+  "type": "Event"
+ },
+ {
+  "name": "Alliance",
+  "type": "Key",
+  "game_item_id": 895810843,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 239,
+  "key_use": 239.5,
+  "key_zone": "Maison Beneviento",
+  "internal": "SpiritRing",
+  "description": "",
+  "beneviento": true
+ },
+ {
+  "name": "Bague avec un œil écarlate",
+  "type": "Key",
+  "game_item_id": 2183898626,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 38,
+  "key_use": 45,
+  "key_zone": "Chateau Dimitrescu",
+  "internal": "WitchJeweledRing",
+  "description": ""
+ },
+ {
+  "name": "Bague couverte de sang",
+  "type": "Key",
+  "game_item_id": 2896087978,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 236,
+  "key_use": 236.5,
+  "key_zone": "Maison Beneviento",
+  "internal": "SpiritDirtyRing",
+  "description": "",
+  "beneviento": true
+ },
+ {
+  "name": "Boule (fleur et épées)",
+  "type": "Key",
+  "game_item_id": 218464484,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 123,
+  "key_use": 125,
+  "key_zone": "Chateau Dimitrescu",
+  "internal": "WitchBrassJewel",
+  "description": ""
+ },
+ {
+  "name": "Boule (sirène)",
+  "type": "Key",
+  "game_item_id": 1976646859,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 346,
+  "key_use": 346.5,
+  "key_zone": "Village",
+  "internal": "HalfFishBallPuzzleBall",
+  "description": ""
+ },
+ {
+  "name": "Ciseaux",
+  "type": "Key",
+  "game_item_id": 2554874516,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 242,
+  "key_use": 242.5,
+  "key_zone": "Maison Beneviento",
+  "internal": "SpiritScissors",
+  "description": "",
+  "beneviento": true
+ },
+ {
+  "name": "Clé ailée (progressive)",
+  "type": "Key",
+  "progressive": true,
+  "key_item": true,
+  "quantity": 1,
+  "category": "Objet clé",
+  "key_zone": "Village",
+  "key_orders": [
+   184,
+   230,
+   247,
+   331
+  ],
+  "key_uses": [
+   184.5,
+   230.5,
+   247.5,
+   331.5
+  ],
+  "levels": [
+   808039580,
+   185799830,
+   360286557,
+   847933194
+  ],
+  "game_item_id": 808039580,
+  "description": "Chaque exemplaire reçu donne le niveau suivant de la clé ailée."
+ },
+ {
+  "name": "Clé d'Heisenberg",
+  "type": "Key",
+  "game_item_id": 4041096499,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 504,
+  "key_use": 504.5,
+  "key_zone": "Usine Heisenberg",
+  "internal": "GeekGeekKey",
+  "description": ""
+ },
+ {
+  "name": "Clé de Dimitrescu",
+  "type": "Key",
+  "game_item_id": 1738775830,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 110,
+  "key_use": 111,
+  "key_zone": "Chateau Dimitrescu",
+  "internal": "WitchKey",
+  "description": ""
+ },
+ {
+  "name": "Clé de la cour",
+  "type": "Key",
+  "game_item_id": 1354786552,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 82,
+  "key_use": 83,
+  "key_zone": "Chateau Dimitrescu",
+  "internal": "WitchCourtyardKey",
+  "description": ""
+ },
+ {
+  "name": "Clé de remontage",
+  "type": "Key",
+  "game_item_id": 3856576850,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 237,
+  "key_use": 237.5,
+  "key_zone": "Maison Beneviento",
+  "internal": "SpiritSpring",
+  "description": "",
+  "beneviento": true
+ },
+ {
+  "name": "Clé du bateau",
+  "type": "Key",
+  "game_item_id": 2844148845,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 292,
+  "key_use": 292.5,
+  "key_zone": "Reservoir",
+  "internal": "HalfFishBoatKey",
+  "description": ""
+ },
+ {
+  "name": "Clé du luthier",
+  "type": "Key",
+  "game_item_id": 1233743624,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 266,
+  "key_use": 266.5,
+  "key_zone": "Village",
+  "internal": "VillageMusicalCraftManKey",
+  "description": ""
+ },
+ {
+  "name": "Clé du tableau électrique",
+  "type": "Key",
+  "game_item_id": 1042056128,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 244,
+  "key_use": 244.5,
+  "key_zone": "Maison Beneviento",
+  "internal": "SpiritSwitchBoardKey",
+  "description": "",
+  "beneviento": true
+ },
+ {
+  "name": "Clé en argent",
+  "type": "Key",
+  "game_item_id": 2573570207,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 238,
+  "key_use": 238.5,
+  "key_zone": "Maison Beneviento",
+  "internal": "SpiritToyBoxKey",
+  "description": "",
+  "beneviento": true
+ },
+ {
+  "name": "Clé en fer forgé",
+  "type": "Key",
+  "game_item_id": 418018598,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 125,
+  "key_use": 125.5,
+  "key_zone": "Chateau Dimitrescu",
+  "internal": "WitchPrisonKey",
+  "description": ""
+ },
+ {
+  "name": "Collier de Luiza",
+  "type": "Key",
+  "game_item_id": 3518440748,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 221,
+  "key_use": 221.5,
+  "key_zone": "Village",
+  "internal": "VillageElenaNecklaceFallByAttack",
+  "description": ""
+ },
+ {
+  "name": "Fusibles",
+  "type": "Key",
+  "game_item_id": 709500517,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 246,
+  "key_use": 246.5,
+  "key_zone": "Maison Beneviento",
+  "internal": "SpiritFuse",
+  "description": "",
+  "beneviento": true
+ },
+ {
+  "name": "Grande roue dentée",
+  "type": "Key",
+  "game_item_id": 1858058345,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 457,
+  "key_use": 457.5,
+  "key_zone": "Usine Heisenberg",
+  "internal": "GeekGear",
+  "description": ""
+ },
+ {
+  "name": "Manivelle de cric",
+  "type": "Key",
+  "game_item_id": 1093531362,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 197,
+  "key_use": 197.5,
+  "key_zone": "Village",
+  "internal": "VillageJackHandle",
+  "description": ""
+ },
+ {
+  "name": "Masque de la colère",
+  "type": "Key",
+  "game_item_id": 314002296,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 170,
+  "key_use": 171,
+  "key_zone": "Chateau Dimitrescu",
+  "internal": "WitchFuryDeathMask",
+  "description": ""
+ },
+ {
+  "name": "Masque de la joie",
+  "type": "Key",
+  "game_item_id": 2365661828,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 159,
+  "key_use": 171,
+  "key_zone": "Chateau Dimitrescu",
+  "internal": "WitchDelightDeathMask",
+  "description": ""
+ },
+ {
+  "name": "Masque du chagrin",
+  "type": "Key",
+  "game_item_id": 3513834249,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 116,
+  "key_use": 171,
+  "key_zone": "Chateau Dimitrescu",
+  "internal": "WitchMouringDeathMask",
+  "description": ""
+ },
+ {
+  "name": "Masque du plaisir",
+  "type": "Key",
+  "game_item_id": 1344029762,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 129,
+  "key_use": 171,
+  "key_zone": "Chateau Dimitrescu",
+  "internal": "WitchPleasureDeathMask",
+  "description": ""
+ },
+ {
+  "name": "Morceau de pellicule",
+  "type": "Key",
+  "game_item_id": 3542466670,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 241,
+  "key_use": 241.5,
+  "key_zone": "Maison Beneviento",
+  "internal": "SpiritFilm",
+  "description": "",
+  "beneviento": true
+ },
+ {
+  "name": "Moule (clé)",
+  "type": "Key",
+  "game_item_id": 1876186812,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 498,
+  "key_use": 498.5,
+  "key_zone": "Usine Heisenberg",
+  "internal": "GeekMoldGeekKey",
+  "description": ""
+ },
+ {
+  "name": "Moule (relief)",
+  "type": "Key",
+  "game_item_id": 1911895058,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 437,
+  "key_use": 437.5,
+  "key_zone": "Usine Heisenberg",
+  "internal": "GeekMoldRelief",
+  "description": ""
+ },
+ {
+  "name": "Moule (roue dentée)",
+  "type": "Key",
+  "game_item_id": 1629499072,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 455,
+  "key_use": 455.5,
+  "key_zone": "Usine Heisenberg",
+  "internal": "GeekMoldGear",
+  "description": ""
+ },
+ {
+  "name": "Médaillon en laiton",
+  "type": "Key",
+  "game_item_id": 2564145014,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 243,
+  "key_use": 243.5,
+  "key_zone": "Maison Beneviento",
+  "internal": "SpiritDollChestCrest",
+  "description": "",
+  "beneviento": true
+ },
+ {
+  "name": "Pincette",
+  "type": "Key",
+  "game_item_id": 2925641544,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 240,
+  "key_use": 240.5,
+  "key_zone": "Maison Beneviento",
+  "internal": "SpiritTweezers",
+  "description": "",
+  "beneviento": true
+ },
+ {
+  "name": "Relief d'un enfant",
+  "type": "Key",
+  "game_item_id": 988104371,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 245,
+  "key_use": 245.5,
+  "key_zone": "Maison Beneviento",
+  "internal": "SpiritRestRoomKey",
+  "description": "",
+  "beneviento": true
+ },
+ {
+  "name": "Relief de cheval",
+  "type": "Key",
+  "game_item_id": 1152567186,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 440,
+  "key_use": 440.5,
+  "key_zone": "Usine Heisenberg",
+  "internal": "GeekRelief",
+  "description": ""
+ },
+ {
+  "name": "Sanguis Virginis",
+  "type": "Key",
+  "game_item_id": 2685023068,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 80,
+  "key_use": 81,
+  "key_zone": "Chateau Dimitrescu",
+  "internal": "WitchBottleWine",
+  "description": ""
+ },
+ {
+  "name": "Trophée de chasse",
+  "type": "Key",
+  "game_item_id": 3784287352,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 137,
+  "key_use": 138,
+  "key_zone": "Chateau Dimitrescu",
+  "internal": "WitchStuffedPlate",
+  "description": ""
+ },
+ {
+  "name": "Volant de puits",
+  "type": "Key",
+  "game_item_id": 997874151,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 208,
+  "key_use": 208.5,
+  "key_zone": "Village",
+  "internal": "VillageWellHandle",
+  "description": ""
+ },
+ {
+  "name": "Buste cristallisé",
+  "type": "Treasure",
+  "game_item_id": 2078728602,
+  "category": "Trésor",
+  "quantity": 1,
+  "description": ""
+ },
+ {
+  "name": "Bête ancienne cristallisée",
+  "type": "Treasure",
+  "game_item_id": 3720758584,
+  "category": "Trésor",
+  "quantity": 1,
+  "description": ""
+ },
+ {
+  "name": "Cœur mécanique complexe",
+  "type": "Treasure",
+  "game_item_id": 1650702965,
+  "category": "Trésor",
+  "quantity": 1,
+  "description": ""
+ },
+ {
+  "name": "Grand marteau cristallisé",
+  "type": "Treasure",
+  "game_item_id": 3176129225,
+  "category": "Trésor",
+  "quantity": 1,
+  "description": ""
+ },
+ {
+  "name": "Viande",
+  "type": "Other",
+  "game_item_id": 3069621231,
+  "category": "Ingrédient",
+  "quantity": 1,
+  "description": "Ingrédient commun."
+ },
+ {
+  "name": "Volaille",
+  "type": "Other",
+  "game_item_id": 3556586016,
+  "category": "Ingrédient",
+  "quantity": 1,
+  "description": "Ingrédient commun."
+ },
+ {
+  "name": "Poisson",
+  "type": "Other",
+  "game_item_id": 471813919,
+  "category": "Ingrédient",
+  "quantity": 1,
+  "description": "Ingrédient commun."
+ },
+ {
+  "name": "Viande de qualité",
+  "type": "Other",
+  "game_item_id": 3577251366,
+  "category": "Ingrédient",
+  "quantity": 1,
+  "description": "Ingrédient rare provenant d'un cochon blanc."
+ },
+ {
+  "name": "Poisson raffiné",
+  "type": "Other",
+  "game_item_id": 3524738970,
+  "category": "Ingrédient",
+  "quantity": 1,
+  "description": "Ingrédient rare provenant d'un poisson doré."
+ },
+ {
+  "name": "Gibier juteux",
+  "type": "Other",
+  "game_item_id": 2615454163,
+  "category": "Ingrédient",
+  "quantity": 1,
+  "description": "Ingrédient rare provenant d'un oiseau bleu."
+ },
+ {
+  "name": "Morceau de plaque",
+  "type": "Key",
+  "game_item_id": 3801239996,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 415.5,
+  "key_use": 1000000,
+  "key_zone": "Village",
+  "internal": "VillageTombStonePlate",
+  "description": ""
+ },
+ {
+  "name": "Grande hache cristallisée",
+  "type": "Treasure",
+  "game_item_id": 1863717,
+  "category": "Trésor",
+  "quantity": 1,
+  "description": ""
+ },
+ {
+  "name": "Morceau de relief (démon)",
+  "type": "Key",
+  "game_item_id": 1132688171,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 30,
+  "key_use": 31,
+  "key_zone": "Village",
+  "internal": "VillageReliefEye",
+  "description": ""
+ },
+ {
+  "name": "Morceau de relief (vierge)",
+  "type": "Key",
+  "game_item_id": 3619364444,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 2,
+  "key_use": 31,
+  "key_zone": "Village",
+  "internal": "VillageReliefSword",
+  "description": ""
+ },
+ {
+  "name": "Piège : Faillite",
+  "type": "Trap",
+  "trap": "bankrupt",
+  "quantity": 1
+ },
+ {
+  "name": "Piège : Screamer",
+  "type": "Trap",
+  "trap": "screamer",
+  "quantity": 1
+ },
+ {
+  "name": "Piège : Armes bloquées",
+  "type": "Trap",
+  "trap": "jam",
+  "quantity": 1
+ },
+ {
+  "name": "Piège : Dégâts",
+  "type": "Trap",
+  "trap": "damage",
+  "quantity": 1
+ },
+ {
+  "name": "Piège : Chargeur vidé",
+  "type": "Trap",
+  "trap": "empty_mag",
+  "quantity": 1
+ }
+]

@@ -1,5 +1,7 @@
 # RE Village Archipelago — alpha 0.9.0
 
+### 📖 [Guide d'installation / Setup guide](SETUP_GUIDE.md) · ⬇️ [Télécharger / Download](../../releases)
+
 *(English below)*
 
 Mod [Archipelago](https://archipelago.gg) pour **Resident Evil Village** (Steam, PC) : les objets du jeu
@@ -28,7 +30,7 @@ autre jeu, et tes objets peuvent tomber chez les autres.
 
 ## Installation
 
-Télécharge la dernière version dans **Releases**.
+👉 **Tout est expliqué pas à pas dans le [guide d'installation](SETUP_GUIDE.md).** En bref :
 
 ### Avec le launcher (conseillé)
 
@@ -95,7 +97,7 @@ are shuffled with the other players of a multiworld.
 
 ## Install
 
-Download the latest version from **Releases**.
+👉 **Step by step in the [setup guide](SETUP_GUIDE.md#setup-guide--re-village-archipelago).** In short:
 
 - **Launcher (recommended)**: unzip `RE_Village_Archipelago_0.9.0_launcher.zip`, run
   `RE_Village_AP_Launcher.exe`, **Setup** tab > pick the apworld language > **Install / update**

@@ -7969,7 +7969,13 @@ shop_ui.no_return = {
         { name = "Salle des statues (vin à poser)", always = true,
           blockers = function()
               local loc = shop_ui.no_return.courtyard_loc()
-              if not loc or location_done(loc) ~= false then return {} end
+              if not loc then return {} end
+              -- Check validé mais sauvegarde rechargée d'avant l'énigme (2026-10-09, rapport du
+              -- joueur) : le serveur garde le check, pas la partie. Sanguis Virginis encore dans la
+              -- mallette = vin pas posé (le poser le retire).
+              local sv = item_by_name["Sanguis Virginis"]
+              local holding = sv and (inventory_quantity(sv.game_item_id) or 0) > 0
+              if location_done(loc) ~= false and not holding then return {} end
               return { tr("pose le Sanguis Virginis à l'étage (énigme du vin) et prends ce qu'il donne",
                   "place the Sanguis Virginis upstairs (wine puzzle) and take what it gives") }
           end,

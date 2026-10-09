@@ -3988,6 +3988,8 @@ local function process_shop_purchases()
         local shop = open_shop
         local report = {}
         for _, step in ipairs({ "collectBuyUnits", "sortBuyItem", "setupScrollGrid", "setupScrollList" }) do
+            -- liste nettoyée avant que le jeu la dessine (gel du 2026-10-09)
+            if step == "setupScrollGrid" then pcall(function() shop_ui.clean_units(shop:call("get_buyUnits")) end) end
             local ok = pcall(function() shop:call(step) end)
             report[#report + 1] = step .. "=" .. (ok and "ok" or "échec")
         end
@@ -4027,7 +4029,14 @@ local function shop_has_unit(units, item_id, price)
 end
 
 local function add_shop_unit(units, item_id, price, count)
+    -- Gel de la boutique (2026-10-09 22:39, partie du développeur) : List<BuyUnit>.Add en accès
+    -- mémoire invalide pendant la reconstruction d'après achat, puis setupScrollGrid en
+    -- NullReferenceException (liste avec une entrée vide). Objets créés retenus (add_ref) pour que
+    -- le moteur ne les libère pas avant l'ajout ; entrées vides retirées après (shop_ui.clean_units).
+    if not units then return end
     local unit = sdk.create_instance("app.GUIShopBuy.BuyUnit")
+    if not unit then return end
+    pcall(function() unit:add_ref() end)
     unit:call(".ctor")
     unit:call("set_itemID", item_id)
     unit:call("set_price", price)
@@ -4044,8 +4053,26 @@ local function add_shop_unit(units, item_id, price, count)
         end
         return
     end
+    pcall(function() core:add_ref() end)
     unit:call("set_work", core:call("get_work"))
     units:call("Add", unit)
+end
+
+-- Entrées vides (ou sans objet) retirées de la liste du Duc : une seule fait geler la boutique
+-- (setupScrollGrid, 2026-10-09). Renvoie le nombre d'entrées retirées.
+function shop_ui.clean_units(units)
+    local removed = 0
+    if not units then return 0 end
+    for i = units:call("get_Count") - 1, 0, -1 do
+        local u = units:call("get_Item", i)
+        local ok, work = pcall(function() return u and u:call("get_work") end)
+        if not u or not ok or not work then
+            units:call("RemoveAt", i)
+            removed = removed + 1
+        end
+    end
+    if removed > 0 then debug_log("boutique : " .. removed .. " entrée(s) vide(s) retirée(s) de la liste") end
+    return removed
 end
 
 local function add_ap_shop_units(shop)
@@ -4066,6 +4093,7 @@ local function add_ap_shop_units(shop)
             add_shop_unit(units, gid, 0, def.quantity or 1)
         end
     end
+    pcall(shop_ui.clean_units, units)
 end
 
 

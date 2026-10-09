@@ -50,11 +50,10 @@ Otherwise: launcher > **Bug report** (zips the logs on your Desktop) and send it
 
 ## Credits
 
-Mod by **Snokayy**. Built on [REFramework](https://github.com/praydog/REFramework) and
-[lua-apclientpp](https://github.com/black-sliver/lua-apclientpp). Inspired by the Resident Evil 7
-Archipelago client and the Resident Evil 4 Archipelago launcher. Resident Evil Village © Capcom; this
-project is not affiliated with Capcom.
-
+- Mod by **Snokayy**. 
+- Built on [REFramework](https://github.com/praydog/REFramework) and [lua-apclientpp](https://github.com/black-sliver/lua-apclientpp). 
+- Inspired by the [Resident Evil 7 Archipelago client from ElGrenier](https://github.com/ElGrenier/RE7_AP_SetupGuide) and the [Resident Evil 4 Archipelago launcher from Meta](https://github.com/LiterallyMetaphorical/RE4R-AP-Wizard). 
+- Resident Evil Village © Capcom; this project is not affiliated with Capcom.
 ---
 
 # RE Village Archipelago — alpha 0.9.1.7 (français)

@@ -8703,6 +8703,9 @@ re.on_pre_application_entry("UpdateBehavior", function()
         requests.shop = false
         dump_shop()
     end
+    -- onglet Checks rempli même hors jeu (2026-10-09 : prologue sans mallette -> « Connecte-toi
+    -- à une partie » alors que la connexion était faite) ; il ne dépend que du serveur
+    pcall(shop_ui.menu.refresh)
     if not is_in_game() then return end
 
     if requests.scan then

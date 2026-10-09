@@ -264,7 +264,7 @@ function i18n.loc(loc)
     local name = loc and loc.name
     if i18n.fr or not name then return name end
     local prefix = ""
-    for fr, en in pairs({ ["Chasse - "] = "Hunt - ", ["Boss - "] = "Boss - " }) do
+    for fr, en in pairs({ ["Chasse - "] = "Hunt - ", ["Boss - "] = "Boss - ", ["Duc - "] = "Duke - " }) do
         if name:sub(1, #fr) == fr then prefix, name = en, name:sub(#fr + 1) end
     end
     local base = loc.original_item
@@ -7766,7 +7766,8 @@ function shop_ui.hud.update()
                     local d2 = dx * dx + dy * dy + dz * dz
                     local other = shop_ui.other_chapter(loc)
                     if d2 <= 100 and not other then
-                        nearby[#nearby + 1] = { guid = guid, name = loc.name, d = math.sqrt(d2) }
+                        -- nom dans la langue du jeu (2026-10-10, joueur anglais : noms français dans le menu)
+                        nearby[#nearby + 1] = { guid = guid, name = i18n.loc(loc) or loc.name, d = math.sqrt(d2) }
                     end
                     if h.prefs.markers and d2 <= max_d2 and (not other or h.prefs.other_chapters) then
                         local scout = scouted_items[id]
@@ -9242,7 +9243,8 @@ function shop_ui.menu.refresh()
             if done then
                 zone.done, group.done, done_all = zone.done + 1, group.done + 1, done_all + 1
             else
-                group.missing[#group.missing + 1] = m.check_label(loc.name)
+                -- nom dans la langue du jeu (2026-10-10, joueur anglais : « Animal en bois (tête) #003 »)
+                group.missing[#group.missing + 1] = m.check_label(i18n.loc(loc) or loc.name)
             end
         end
     end

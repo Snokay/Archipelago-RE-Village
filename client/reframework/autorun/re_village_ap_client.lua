@@ -1063,6 +1063,13 @@ local function apply_item(row)
     end
 
     if not row.fails then debug_log("don : " .. item_name) end -- une ligne, pas une par essai
+    -- Formule déjà dans la mallette (2026-10-09 23:49, crash 11 ms après le don d'une 3e « Formule :
+    -- Munitions de fusil sniper », pile : InventoryManager.doUpdate -> Inventory.updateOrder) : une
+    -- recette est unique, le jeu n'en donne jamais deux. Comptée comme donnée.
+    if item_name:find("^Formule") and (inventory_quantity(item.game_item_id) or 0) > 0 then
+        debug_log("don : " .. item_name .. " déjà dans la mallette (formule), pas redonnée")
+        return true
+    end
     local ok, reason
     if item.type == "Trap" then
         ok = K.traps.apply(item) -- K : déclaré en haut du fichier (shop_ui n'existe pas encore ici)
@@ -1230,6 +1237,24 @@ function inventory_repair.run()
         end
     end
     local moved, parceled, stuck = {}, {}, {}
+    -- Formules en double (2026-10-09 : crash du jeu en ajoutant une 3e fois la même) : une seule gardée
+    pcall(function()
+        local list = inv:call("get_items")
+        local seen, extra = {}, {}
+        for i = 0, list:call("get_Count") - 1 do
+            local work = list:call("get_Item", i):call("get_work")
+            local id = work:call("get_itemID")
+            local name = inventory_repair.gid_to_name[id]
+            if name and name:find("^Formule") then
+                if seen[id] then extra[#extra + 1] = work else seen[id] = true end
+            end
+        end
+        for _, work in ipairs(extra) do
+            local id = work:call("get_itemID")
+            inv:call("removeItem", work, true)
+            debug_log("mallette : formule en double retirée : " .. tostring(inventory_repair.gid_to_name[id]))
+        end
+    end)
     pcall(function()
         local list = inv:call("get_items")
         local cores = {}

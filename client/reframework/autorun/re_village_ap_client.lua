@@ -40,6 +40,9 @@ K.MAX_MATCH_DISTANCE = 5.0
 -- près de la première sauvegarde), le second devient des Lei si on a déjà le fusil. Ramasser l'un
 -- valide aussi l'autre, sinon un check impossible à prendre reste affiché.
 K.TWINS = { { "M1897", "M1897 #001" } }
+-- Taille maximale des piles (munitions, soins, armes ; catalogue du jeu, docs/reference/item_catalog_fr.json),
+-- pour savoir si un don tient dans une pile existante (2026-10-09, objets sortis de la mallette).
+K.MAX_STACK = { [241847407] = 1, [331140406] = 1, [738899953] = 1, [941205456] = 1, [1042576120] = 5, [1131327709] = 5, [1157345091] = 1, [1179972000] = 30, [1429493426] = 1, [1583016682] = 5, [1617108900] = 5, [1731811000] = 15, [1927571624] = 5, [2182652875] = 10, [2576167331] = 1, [2735256250] = 1, [2838037082] = 1, [3188868396] = 100, [3213662355] = 5, [3919597625] = 15, [4186049118] = 1 }
 K.twin_ids = {} -- numéro AP -> numéro AP de la jumelle (rempli par cache_location_ids)
 
 K.SHOW_OVERLAY = true
@@ -773,9 +776,26 @@ local function give_item(item_id, count, item)
             local res = inv:call("getBlankSlotNo", item_id, false)
             free = res and res:call("get_slotNo")
         end)
-        if free ~= nil and free < 0 and (inventory_quantity(item_id) or 0) == 0 then
-            debug_log("don : " .. tostring(item.name) .. " : aucune case libre dans la mallette")
-            return false, "plein"
+        -- Pile existante (2026-10-09, objets sortis de la mallette) : avant, n'importe quelle pile
+        -- suffisait, même pleine ou d'un objet qui ne s'empile pas (Remède : 1 par case) -> objet
+        -- posé sans place. Il faut maintenant assez de place dans les piles de la grille (case >= 0 ;
+        -- les munitions sans case sont celles chargées dans l'arme).
+        if free ~= nil and free < 0 then
+            local room = 0
+            pcall(function()
+                local list = inv:call("get_items")
+                for i = 0, list:call("get_Count") - 1 do
+                    local work = list:call("get_Item", i):call("get_work")
+                    if work:call("get_itemID") == item_id and (work:call("get_slotNo") or -1) >= 0 then
+                        room = room + math.max(0, (K.MAX_STACK[item_id] or 1) - (work:call("get_stackSize") or 0))
+                    end
+                end
+            end)
+            if room < (count or 1) then
+                debug_log(string.format("don : %s : aucune case libre dans la mallette (place dans les piles : %d)",
+                    tostring(item.name), room))
+                return false, "plein"
+            end
         end
     end
     local ok, core = pcall(function() return mgr:call("createAndAddItem", item_id, count, 0, 0) end)
@@ -1217,7 +1237,11 @@ function inventory_repair.run()
         for _, core in ipairs(cores) do
             local work = core:call("get_work")
             local slot = work:call("get_slotNo")
-            if slot and slot >= 0 and not work:get_field("IsHidden") and inv:call("isOverlap", core) then
+            -- Soin ou arme sorti de la grille (case -1, 2026-10-09 : Remède sorti par le jeu en
+            -- déplaçant un objet, mallette trop pleine). Pas les munitions : sans case = chargées.
+            local def = item_by_name[inventory_repair.gid_to_name[work:call("get_itemID")] or ""]
+            local out = slot and slot < 0 and def and (def.type == "Recovery" or def.type == "Weapon")
+            if slot and not work:get_field("IsHidden") and (out or (slot >= 0 and inv:call("isOverlap", core))) then
                 local id = work:call("get_itemID")
                 local horizontal = work:call("get_isHorizontal")
                 work:call("set_slotNo", -1)
@@ -8477,7 +8501,11 @@ function shop_ui.no_return.update()
         target = { c[1] + dx / len * (r + 1), pos[2], c[3] + dz / len * (r + 1) }
     end
     local warped = shop_ui.no_return.warp(player, target)
-    if shop_ui.popup.title and not shop_ui.popup.modal then shop_ui.popup.until_t = math.max(shop_ui.popup.until_t, os.clock() + 4) end
+    -- prolongée seulement si elle est encore affichée (2026-10-09 : une fenêtre fermée était
+    -- réaffichée au mur, avec son ancien texte, « Piège ! Screamer ! »)
+    if shop_ui.popup.title and not shop_ui.popup.modal and os.clock() <= shop_ui.popup.until_t then
+        shop_ui.popup.until_t = math.max(shop_ui.popup.until_t, os.clock() + 4)
+    end
     if not shop_ui.popup.modal and not shop_ui.dialog.is_open() then
         local shown = {}
         for i = 1, math.min(#missing, 6) do shown[i] = missing[i] end
@@ -8736,7 +8764,9 @@ re.on_pre_application_entry("UpdateBehavior", function()
             for i = 0, list:call("get_Count") - 1 do
                 local work = list:call("get_Item", i):call("get_work")
                 local slot = work:call("get_slotNo")
-                if grid_types[type_of[work:call("get_itemID")] or ""] and slot then
+                local t = type_of[work:call("get_itemID")] or ""
+                -- munitions sans case = balles chargées dans l'arme (2026-10-09) : jamais déplacées
+                if grid_types[t] and slot and not (slot < 0 and t == "Ammo") then
                     if slot < 0 or seen[slot] or (max and slot >= max) then
                         conflicts[#conflicts + 1] = work
                     else

@@ -6503,16 +6503,37 @@ function shop_ui.world.copy_sound(from, to)
     end
 end
 
+-- vrai si l'arme tient dans la mallette (case libre, à plat ou tournée)
+function shop_ui.world.weapon_fits(def)
+    local fits = true
+    pcall(function()
+        local _, inv = get_active_inventory()
+        local id = def.give_id or def.game_item_id
+        if not inv or not id then return end
+        fits = false
+        for _, horizontal in ipairs({ false, true }) do
+            local res = inv:call("getBlankSlotNo", id, horizontal)
+            if res and (res:call("get_slotNo") or -1) >= 0 then fits = true end
+        end
+    end)
+    return fits
+end
+
 function shop_ui.world.swap_pickup(e, rec)
     pcall(shop_ui.world.learn_get_mode, e)
-    -- Arme posée : ni mode de ramassage changé, ni objet modifié (voir shop_ui.world.model_for)
+    -- Arme posée : ni mode de ramassage changé, ni objet modifié (voir shop_ui.world.model_for)...
+    -- sauf si elle ne tient pas dans la mallette (2026-10-10, Fusil F2 #013 : « inventaire
+    -- complet », check impossible) : objet modifié sur place en objet d'une case, mode de
+    -- ramassage JAMAIS changé (c'est ce qui cassait le M1897 #001 en 0.9.1.1).
     local weapon_def = item_by_name[e.loc.original_item or ""]
-    if weapon_def and weapon_def.type == "Weapon" then return end
+    local weapon = weapon_def and weapon_def.type == "Weapon"
+    if weapon and (rec.pickup or shop_ui.world.weapon_fits(weapon_def)) then return end
     rec.si, rec.loc, rec.get = rec.si or e.si, rec.loc or e.loc, rec.get or e.get
     if rec.pickup then shop_ui.world.apply_key_mode(rec) return end
-    local key_def = shop_ui.world.own_key(e.loc)
+    local key_def = not weapon and shop_ui.world.own_key(e.loc) or nil
     rec.pickup_key = key_def ~= nil
-    shop_ui.world.apply_key_mode(rec)
+    if not weapon then shop_ui.world.apply_key_mode(rec) end
+    if weapon then debug_log("objet au sol : " .. e.loc.name .. " : arme sans place dans la mallette, ramassée comme objet d'une case") end
     -- Objet qui TOMBE quand on tire dessus (FallByAttack : fragments de cristal sur les murs,
     -- 2026-10-08 : Fragment de cristal #015 [S01] ramassé à plus de 5 m de son emplacement, check
     -- perdu) : son objet à ramasser est noté, le ramassage le retrouve où qu'il soit tombé.

@@ -713,12 +713,30 @@ local function give_item(item_id, count, item)
             debug_log("valise : mallette déjà au niveau maximum, pas d'agrandissement")
             return true
         end
-        -- La réussite ne dépend QUE de addExtendLevel : tout le reste est protégé à part, pour
-        -- ne jamais réessayer (et agrandir la mallette en boucle) après un agrandissement fait.
+        -- Objet Valise mis dans la mallette, comme après un vrai achat (2026-10-09) : le jeu
+        -- n'enregistre pas le niveau de mallette, il le recalcule au chargement (restoreExtendLevel),
+        -- sans doute d'après les objets Valise ; sans lui, l'agrandissement était perdu au
+        -- rechargement. createAndAddItem agrandissait déjà la grille (test du 2026-09-26) :
+        -- addExtendLevel seulement si le niveau n'a pas bougé (jamais deux agrandissements).
+        local qty_before = inventory_quantity(VALISE_ITEM_ID) or 0
         own_extend = true
-        local ok = pcall(function() inv:call("addExtendLevel") end)
+        local ok_add, core = pcall(function() return mgr:call("createAndAddItem", VALISE_ITEM_ID, 1, 0, 0) end)
         own_extend = false
-        if not ok then return false, "pas_pret" end
+        local added = ok_add and core ~= nil
+        local after_add = i18n.extend_level_info(inv, false)
+        local grown = after_add ~= nil and cur ~= nil and after_add > cur
+        debug_log(string.format("valise : objet Valise %s (%d -> %s), niveau %s -> %s",
+            added and "ajouté" or ("refusé : " .. tostring(core)), qty_before,
+            tostring(inventory_quantity(VALISE_ITEM_ID)), tostring(cur), tostring(after_add)))
+        -- La réussite ne dépend QUE de l'agrandissement (ou de l'objet ajouté) : tout le reste est
+        -- protégé à part, pour ne jamais réessayer (et agrandir la mallette en boucle) après coup.
+        local ok = true
+        if not grown then
+            own_extend = true
+            ok = pcall(function() inv:call("addExtendLevel") end)
+            own_extend = false
+        end
+        if not ok and not added then return false, "pas_pret" end
         pcall(function()
             -- 2e test du 2026-09-26 : addExtendLevel renumérote bien les cases (9 -> 11
             -- colonnes), mais 2 s plus tard une partie des objets revenait à son ANCIEN numéro

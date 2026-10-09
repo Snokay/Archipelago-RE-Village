@@ -4021,6 +4021,47 @@ local function apply_shop_swaps(shop)
     end
 end
 
+-- Arme-check du Duc vendue par le joueur (2026-10-09, crash rapporté après la vente du V61 Custom ;
+-- idée du joueur) : le jeu ajoute un article de RACHAT pour l'arme, en plus de l'article-check
+-- (celui du jeu ou celui remis en vente par le mod) : deux articles pour la même arme, reliés au
+-- même check. On n'en garde qu'un (le premier). Seulement les armes qui sont des checks de la
+-- boutique, articles payants (le colis donne à 0 Lei).
+function shop_ui.dedupe_weapons(shop)
+    if not shop_ui.weapon_gids then
+        shop_ui.weapon_gids = {}
+        for _, d in pairs(item_by_name) do
+            if d.type == "Weapon" and d.game_item_id then shop_ui.weapon_gids[d.game_item_id] = true end
+        end
+    end
+    local units = shop:call("get_buyUnits")
+    local seen = {}
+    for i = 0, units:call("get_Count") - 1 do
+        local id = unit_item_id(units:call("get_Item", i))
+        if seen[id] == nil then seen[id] = false end
+    end
+    local removed = 0
+    local i = 0
+    while i < units:call("get_Count") do
+        local unit = units:call("get_Item", i)
+        local id = unit_item_id(unit)
+        if shop_ui.weapon_gids[id] and shop_locations_by_item[id] and (unit:call("get_price") or 0) > 0 then
+            if seen[id] then
+                units:call("RemoveAt", i)
+                removed = removed + 1
+            else
+                seen[id] = true
+                i = i + 1
+            end
+        else
+            i = i + 1
+        end
+    end
+    if removed > 0 and not shop_ui.dedupe_logged then
+        shop_ui.dedupe_logged = true
+        debug_log(string.format("boutique : %d article(s) d'arme en double retiré(s) (rachat après revente)", removed))
+    end
+end
+
 -- Article sélectionné : lastIndex = sa position dans la liste (vérifié en jeu le 2026-09-26,
 -- objet et prix concordants sur 12 sélections, onglets Tout et Autres).
 function shop_ui.selected(shop)
@@ -6843,6 +6884,8 @@ local function install_shop_hooks()
                 if not ok then debug_log("boutique : échec masquage : " .. tostring(err)) end
                 ok, err = pcall(add_ap_shop_units, shop)
                 if not ok then debug_log("boutique : échec ajout articles AP : " .. tostring(err)) end
+                ok, err = pcall(shop_ui.dedupe_weapons, shop)
+                if not ok then debug_log("boutique : échec retrait des doublons : " .. tostring(err)) end
                 ok, err = pcall(regroup_ap_units, shop)
                 if not ok then debug_log("boutique : échec regroupement dans Autres : " .. tostring(err)) end
                 ok, err = pcall(apply_shop_swaps, shop)

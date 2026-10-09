@@ -1283,6 +1283,39 @@ function inventory_repair.update()
     inventory_repair.run()
 end
 
+-- Colis récupéré chez le Duc (2026-10-09) : 1 seul exemplaire donné par le jeu ; le mod complète
+-- jusqu'à la quantité de l'objet Archipelago (ex. 25 balles), en réessayant toutes les 5 s faute de place.
+function K.parcel_topup()
+    local list = K.parcel_topups
+    if not list or #list == 0 or not is_in_game() then return end
+    local row = list[1]
+    if os.clock() < row.due then return end
+    -- manque mesuré une seule fois (1 s après l'achat), puis gardé : les balles tirées entre deux
+    -- essais ne doivent pas être redonnées
+    if not row.missing then
+        local got = (inventory_quantity(row.id) or 0) - row.before
+        row.missing = row.want - math.max(got, 0)
+        debug_log(string.format("colis : %s : %d donné(s) par le jeu, %d à compléter", tostring(row.def.name), got, row.missing))
+    end
+    if row.missing <= 0 then
+        table.remove(list, 1)
+        return
+    end
+    local ok = give_item(row.id, row.missing, row.def)
+    debug_log(string.format("colis : %s : %d de plus par le mod -> %s", tostring(row.def.name), row.missing,
+        ok and "ok" or "pas de place, nouvel essai dans 5 s"))
+    if ok then
+        table.remove(list, 1)
+    else
+        if not row.warned then
+            row.warned = true
+            add_message(string.format(tr("Colis : %d %s de plus dès qu'il y aura de la place", "Parcel: %d more %s as soon as there is room"),
+                row.missing, tostring(row.def.name)))
+        end
+        row.due = os.clock() + 5.0
+    end
+end
+
 local function process_parcel()
     if #state.parcel == 0 or not is_in_game() or ending_active or #vanilla_removals > 0 then return end
     if os.clock() - inventory_repair.last_parcel_try < 10.0 then return end
@@ -7130,6 +7163,15 @@ local function install_shop_hooks()
                         -- l'objet est donné par le jeu, on le retire du colis.
                         debug_log("boutique : colis récupéré : " .. state.parcel[parcel_i])
                         add_message(string.format(tr("Colis : %s récupéré chez le Duc", "Parcel: %s collected at the Duke"), state.parcel[parcel_i]))
+                        -- Quantité (2026-10-09, retour du joueur : 1 balle au lieu de 25) : le jeu vend
+                        -- les munitions à l'unité (pile de l'article ignorée) ; le reste est complété
+                        -- par le mod (K.parcel_topup).
+                        local def = item_by_name[state.parcel[parcel_i]]
+                        if def and (def.quantity or 1) > 1 then
+                            K.parcel_topups = K.parcel_topups or {}
+                            table.insert(K.parcel_topups, { id = picked, def = def, want = def.quantity,
+                                before = inventory_quantity(picked) or 0, due = os.clock() + 1.0 })
+                        end
                         table.remove(state.parcel, parcel_i)
                         save_state()
                     end
@@ -8886,6 +8928,7 @@ re.on_pre_application_entry("UpdateBehavior", function()
         i18n.key_diag = nil
     end
     process_parcel()
+    pcall(K.parcel_topup)
     inventory_repair.update()
     snapshot_quantities()
     update_zone_stats()

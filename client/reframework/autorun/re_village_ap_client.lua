@@ -34,7 +34,7 @@ local MOD_NAME = "re_village_ap_client"
 -- 200 variables locales de Lua (script refusé au chargement).
 local K = {}
 K.GAME_NAME = "Resident Evil Village"
-K.MOD_VERSION = "0.9.1.10" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
+K.MOD_VERSION = "0.9.1.11" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
 K.MAX_MATCH_DISTANCE = 5.0
 -- Emplacements jumeaux (2026-10-08) : le jeu pose deux exemplaires du M1897 (table du village et
 -- près de la première sauvegarde), le second devient des Lei si on a déjà le fusil. Ramasser l'un
@@ -327,6 +327,7 @@ local function load_state(seed, slot)
         state.tracks_saves = loaded.tracks_saves
         state.given_by_pickup = loaded.given_by_pickup
         state.valise_no_item = loaded.valise_no_item
+        state.wine_placed = loaded.wine_placed
     end
     -- Toutes les sauvegardes de cette seed sont suivies (2026-09-30) : état neuf, ou aucun
     -- emplacement réel noté jusqu'ici. Alors une sauvegarde inconnue date d'AVANT la seed.
@@ -1306,13 +1307,13 @@ function save_sync.snapshot()
     end
     local parcel = {}
     for i, name in ipairs(src or {}) do parcel[i] = name end
-    local level = save_sync.level_v()
+    local level, wine = save_sync.level_v(), state.wine_placed
     if src ~= state.parcel then
         local t = save_sync.load_target
         if t == nil and save_sync.load_slot then t = state.saves and state.saves[tostring(save_sync.load_slot)] end
-        level = t and t.level or nil
+        level, wine = t and t.level or nil, t and t.wine or nil
     end
-    return { index = index, parcel = parcel, level = level }
+    return { index = index, parcel = parcel, level = level, wine = wine }
 end
 
 -- Niveau de mallette perdu au chargement (2026-10-09, rapport d'un joueur : objets superposés,
@@ -1511,7 +1512,7 @@ function save_sync.install_hooks()
         -- WriteBackSaveData).
         if session then
             local t = state.saves and state.saves[tostring(save_sync.load_slot)]
-            save_sync.load_target = t and { index = t.index, parcel = t.parcel, level = t.level } or false
+            save_sync.load_target = t and { index = t.index, parcel = t.parcel, level = t.level, wine = t.wine } or false
             save_sync.load_target_slot = save_sync.load_slot
         end
     end)
@@ -1534,7 +1535,7 @@ function save_sync.install_hooks()
         -- sans StartLoad (reprise après une mort : point de reprise), état retenu ici
         if session and not save_sync.loaded and save_sync.load_target == nil and not save_sync.load_slot then
             local t = state.checkpoint
-            save_sync.load_target = t and { index = t.index, parcel = t.parcel, level = t.level } or false
+            save_sync.load_target = t and { index = t.index, parcel = t.parcel, level = t.level, wine = t.wine } or false
         end
         save_sync.loaded = true
         save_sync.picked_locs = {} -- objets au sol revenus avec la sauvegarde : habillés à nouveau
@@ -1603,6 +1604,8 @@ function save_sync.update()
         local _, inv = get_active_inventory()
         if inv then i18n.extend_level_info(inv, true) end
     end)
+    -- vin posé ou non dans la sauvegarde chargée (mur de la salle des statues) ; inconnu = nil
+    if target then state.wine_placed = target.wine end
     -- niveau de mallette perdu (voir save_sync.restore_level) ; revérifié 5 s plus tard
     -- (au chargement : seulement les Valises que la sauvegarde contient ; les suivantes sont redonnées par la file)
     save_sync.valise_check("chargement", math.min(state.last_applied_index, target and target.index or state.last_applied_index))
@@ -3008,6 +3011,12 @@ local function on_item_picked(interact, core)
     end
     save_sync.picked_locs = save_sync.picked_locs or {}
     save_sync.picked_locs[loc.key] = true -- objet au sol : modèle d'origine remis (objet recyclé)
+    -- récompense de l'énigme du vin ramassée : vin posé dans cette sauvegarde (mur de la salle des statues)
+    if loc == shop_ui.no_return.courtyard_loc() then
+        state.wine_placed = true
+        save_state()
+        debug_log("vin : récompense de l'énigme ramassée, vin posé dans cette sauvegarde")
+    end
     shop_ui.sound.on_pickup(loc, picked_item_id)
     shop_ui.detail.on_pickup(loc)
     -- Objet clé à moi ramassé sous sa vraie forme (swap_pickup) : on le garde (pas de retrait), le
@@ -8257,9 +8266,13 @@ shop_ui.no_return = {
               -- Check validé mais sauvegarde rechargée d'avant l'énigme (2026-10-09, rapport du
               -- joueur) : le serveur garde le check, pas la partie. Sanguis Virginis encore dans la
               -- mallette = vin pas posé (le poser le retire).
+              -- 2e Sanguis Virginis (2026-10-09, rapport du joueur) : le jeu en fait apparaître un
+              -- autre (Appartements de Dimitrescu, aucun emplacement d'objet) après l'énigme ; le
+              -- mur restait fermé. Vin posé dans cette sauvegarde (récompense ramassée, retenu par
+              -- sauvegarde, ou bouton de l'Aide) : le Sanguis de la mallette ne compte plus.
               local sv = item_by_name["Sanguis Virginis"]
               local holding = sv and (inventory_quantity(sv.game_item_id) or 0) > 0
-              if location_done(loc) ~= false and not holding then return {} end
+              if location_done(loc) ~= false and (state.wine_placed or not holding) then return {} end
               return { tr("pose le Sanguis Virginis à l'étage (énigme du vin) et prends ce qu'il donne",
                   "place the Sanguis Virginis upstairs (wine puzzle) and take what it gives") }
           end,
@@ -9178,6 +9191,13 @@ function shop_ui.help.draw()
     imgui.text(tr("Objets superposés, quantité 0, case qu'on ne peut pas utiliser : remet la mallette en ordre.",
         "Overlapping items, quantity 0, unusable slot: puts the case back in order."))
     if imgui.button(tr("Réparer la mallette", "Repair the case")) then requests.fix_zero = true end
+    -- mur de la salle des statues fermé alors que le vin est posé (2e Sanguis, 2026-10-09)
+    if not state.wine_placed and imgui.button(tr("Le vin est déjà posé (ouvrir le mur de la salle des statues)",
+            "The wine is already placed (open the statue room wall)")) then
+        state.wine_placed = true
+        save_state()
+        debug_log("vin : bouton de l'Aide, vin déclaré posé")
+    end
     imgui.spacing()
     imgui.text_colored(tr("Check bloqué", "Stuck check"), shop_ui.menu.ACCENT)
     imgui.text(tr("Un objet impossible à ramasser ou un check qui ne part pas : valide un check à moins de 10 m.",

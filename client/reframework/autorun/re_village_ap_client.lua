@@ -1092,8 +1092,8 @@ local function apply_item(row)
         table.insert(state.parcel, item_name)
         state.received_ids[tostring(item.game_item_id)] = true
         debug_log("don refusé (mallette pleine) : " .. item_name .. " -> colis")
-        add_message(tr("Mallette pleine : " .. item_name .. " mis dans le colis (fais de la place)",
-            "Case full: " .. i18n.item(item_name) .. " put in the parcel (make some room)"))
+        add_message(tr("Mallette pleine : " .. item_name .. " mis dans le colis (à récupérer chez le Duc, 0 Lei)",
+            "Case full: " .. i18n.item(item_name) .. " put in the parcel (collect it at the Duke, 0 Lei)"))
         return true
     end
     if not ok then
@@ -1191,8 +1191,8 @@ local function process_items_queue()
     items_queue = remaining
 end
 
--- Colis : objets refusés faute de place. On en redonne un toutes les 10 s, dans l'ordre,
--- dès que la mallette a de la place.
+-- Colis : objets refusés faute de place, récupérés chez le Duc (articles à 0 Lei) ; seuls les objets
+-- clés sont encore redonnés d'eux-mêmes, un toutes les 10 s (voir process_parcel).
 
 -- Objets superposés (2026-09-27, après la Valise reçue à la sortie du château) : la mallette
 -- croyait avoir de la place et le colis y ajoutait des armes par-dessus d'autres objets. Chaque
@@ -1249,7 +1249,7 @@ function inventory_repair.run()
     debug_log(string.format("mallette : objets superposés : déplacés [%s], remis au colis [%s], sans place [%s]",
         table.concat(moved, ", "), table.concat(parceled, ", "), table.concat(stuck, ", ")))
     if #parceled > 0 then
-        add_message(string.format(tr("Mallette pleine : %s remis au colis", "Case full: %s put back in the parcel"),
+        add_message(string.format(tr("Mallette pleine : %s remis au colis (à récupérer chez le Duc)", "Case full: %s put back in the parcel (collect it at the Duke)"),
             table.concat(parceled, ", ")))
     end
 end
@@ -1263,17 +1263,30 @@ local function process_parcel()
     if #state.parcel == 0 or not is_in_game() or ending_active or #vanilla_removals > 0 then return end
     if os.clock() - inventory_repair.last_parcel_try < 10.0 then return end
     inventory_repair.last_parcel_try = os.clock()
-    inventory_repair.run()
-    local name = state.parcel[1]
-    local item = item_by_name[name]
-    if not item then
-        table.remove(state.parcel, 1)
-        save_state()
-        return
+    -- Crash du 2026-10-09 22:25 (partie du développeur, idée du joueur) : le colis réessayait
+    -- toutes les 10 s, sans rien noter quand le jeu refusait, et un essai a pu tomber pendant une
+    -- combinaison de trésors. Objet refusé faute de place = récupéré chez le Duc (article à 0 Lei,
+    -- refusé sans place) ; seuls les objets clés (pas de case, peuvent bloquer la progression, pas
+    -- de Duc partout) sont encore redonnés d'eux-mêmes. Chaque essai est noté AVANT le don.
+    local index, name, item = nil, nil, nil
+    for i, n in ipairs(state.parcel) do
+        local def = item_by_name[n]
+        if not def then
+            table.remove(state.parcel, i)
+            save_state()
+            return
+        end
+        if def.type == "Key" then
+            index, name, item = i, n, def
+            break
+        end
     end
+    if not index then return end
+    inventory_repair.run()
+    debug_log("colis : essai " .. name)
     local ok = give_item(item.give_id or item.game_item_id, item.quantity or 1, item)
     if ok then
-        table.remove(state.parcel, 1)
+        table.remove(state.parcel, index)
         save_state()
         debug_log("colis : " .. name .. " donné")
         add_message(string.format(tr("Colis : %s récupéré (%d restant(s))", "Parcel: %s collected (%d left)"), name, #state.parcel))
@@ -9387,7 +9400,7 @@ re.on_draw_ui(function()
     local status_color = net_status == "connecté" and 0xFF00FF7F or 0xFF7280FA
     imgui.text_colored(tr("Etat : ", "Status: ") .. i18n.status(net_status), status_color)
     if #state.parcel > 0 then
-        imgui.text(string.format(tr("Colis (mallette pleine) : %d objet(s) : %s", "Parcel (case full): %d item(s): %s"), #state.parcel,
+        imgui.text(string.format(tr("Colis (chez le Duc, 0 Lei) : %d objet(s) : %s", "Parcel (at the Duke, 0 Lei): %d item(s): %s"), #state.parcel,
             table.concat(state.parcel, ", ")))
     end
     if shop_ui.DEV and imgui.tree_node("Outils de développement") then

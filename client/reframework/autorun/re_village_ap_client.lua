@@ -4095,8 +4095,24 @@ local function hide_done_shop_units(shop)
                 if done == false then all_done = false end
             end
             if any and all_done then units:call("RemoveAt", i) end
+        elseif K.is_formula(id) and not next_shop_location(id) and (inventory_quantity(id) or 0) > 0 then
+            -- Formule déjà dans la mallette (2026-10-10 : Formule : Munitions de fusil sniper reçue
+            -- d'Archipelago, toujours vendue par le Duc, rachetée puis retirée comme doublon) : le
+            -- jeu ne sait pas qu'elle est connue ; on ne la propose plus.
+            units:call("RemoveAt", i)
         end
     end
+end
+
+-- vrai pour une formule (recette), d'après items.json
+function K.is_formula(id)
+    if not K.formula_ids then
+        K.formula_ids = {}
+        for name, def in pairs(item_by_name) do
+            if name:find("^Formule") and def.game_item_id then K.formula_ids[def.game_item_id] = true end
+        end
+    end
+    return id ~= nil and K.formula_ids[id] == true
 end
 
 -- Boutique ouverte : collectBuyUnits est rappelé sans cesse tant qu'elle est affichée.

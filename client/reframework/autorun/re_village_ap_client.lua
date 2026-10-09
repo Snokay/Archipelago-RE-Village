@@ -34,7 +34,7 @@ local MOD_NAME = "re_village_ap_client"
 -- 200 variables locales de Lua (script refusé au chargement).
 local K = {}
 K.GAME_NAME = "Resident Evil Village"
-K.MOD_VERSION = "0.9.1.6" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
+K.MOD_VERSION = "0.9.1.7" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
 K.MAX_MATCH_DISTANCE = 5.0
 -- Emplacements jumeaux (2026-10-08) : le jeu pose deux exemplaires du M1897 (table du village et
 -- près de la première sauvegarde), le second devient des Lei si on a déjà le fusil. Ramasser l'un

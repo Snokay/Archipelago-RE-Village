@@ -1370,7 +1370,7 @@ end
 
 local function process_parcel()
     if #state.parcel == 0 or not is_in_game() or ending_active or #vanilla_removals > 0 then return end
-    if K.case_busy() or K.chapter == "Chapter1" then return end -- prologue : inventoire remis à zéro ensuite
+    if K.case_busy() or K.chapter == "Chapter1" then return end -- prologue : inventaire remis à zéro ensuite
     if os.clock() - inventory_repair.last_parcel_try < 10.0 then return end
     inventory_repair.last_parcel_try = os.clock()
     -- Crash du 2026-10-09 22:25 (partie du développeur, idée du joueur) : le colis réessayait

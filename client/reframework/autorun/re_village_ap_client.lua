@@ -1345,8 +1345,10 @@ function K.parcel_topup()
     -- manque mesuré une seule fois (1 s après l'achat), puis gardé : les balles tirées entre deux
     -- essais ne doivent pas être redonnées
     if not row.missing then
+        -- au moins 1 donné par le jeu (2026-10-10 : mesure de départ prise après son don -> « 0 donné »,
+        -- 26 balles au lieu de 25)
         local got = (inventory_quantity(row.id) or 0) - row.before
-        row.missing = row.want - math.max(got, 0)
+        row.missing = row.want - math.max(got, 1)
         debug_log(string.format("colis : %s : %d donné(s) par le jeu, %d à compléter", tostring(row.def.name), got, row.missing))
     end
     if row.missing <= 0 then
@@ -7251,9 +7253,14 @@ local function install_shop_hooks()
                             K.parcel_topups = K.parcel_topups or {}
                             table.insert(K.parcel_topups, { id = picked, def = def, want = def.quantity,
                                 before = inventory_quantity(picked) or 0, due = os.clock() + 1.0 })
+                            add_message(string.format(tr("Colis : le reste (%d) arrive en quittant le Duc", "Parcel: the rest (%d) arrives when you leave the Duke"),
+                                def.quantity - 1))
                         end
                         table.remove(state.parcel, parcel_i)
                         save_state()
+                        -- 2e colis du même objet (2026-10-10) : le jeu ne reconstruit pas la liste après
+                        -- un achat normal ; l'article épuisé restait affiché. Liste refaite 0,5 s après.
+                        if parcel_index_of(picked) then K.shop_refresh_at = os.clock() + 0.5 end
                     end
                     if loc then
                         -- Test en jeu du 2026-09-26 : bloquer decideBuyItem n'empêchait ni le
@@ -8893,6 +8900,19 @@ re.on_pre_application_entry("UpdateBehavior", function()
     -- onglet Checks rempli même hors jeu (2026-10-09 : prologue sans mallette -> « Connecte-toi
     -- à une partie » alors que la connexion était faite) ; il ne dépend que du serveur
     pcall(shop_ui.menu.refresh)
+    if K.shop_refresh_at and os.clock() >= K.shop_refresh_at then
+        K.shop_refresh_at = nil
+        if shop_is_open() then
+            local shop, report = open_shop, {}
+            for _, step in ipairs({ "collectBuyUnits", "sortBuyItem", "setupScrollGrid", "setupScrollList" }) do
+                if step == "setupScrollGrid" then pcall(function() shop_ui.clean_units(shop:call("get_buyUnits")) end) end
+                local ok = pcall(function() shop:call(step) end)
+                report[#report + 1] = step .. "=" .. (ok and "ok" or "échec")
+            end
+            pcall(function() shop:call("set_changed", true) end)
+            debug_log("boutique : liste refaite après un colis (2e colis du même objet) : " .. table.concat(report, " "))
+        end
+    end
     if not is_in_game() then return end
 
     if requests.scan then

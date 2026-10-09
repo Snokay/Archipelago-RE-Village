@@ -331,6 +331,7 @@ local function load_state(seed, slot)
         state.given_by_pickup = loaded.given_by_pickup
         state.valise_no_item = loaded.valise_no_item
         state.wine_placed = loaded.wine_placed
+        state.story = loaded.story
     end
     -- Toutes les sauvegardes de cette seed sont suivies (2026-09-30) : état neuf, ou aucun
     -- emplacement réel noté jusqu'ici. Alors une sauvegarde inconnue date d'AVANT la seed.
@@ -1402,13 +1403,18 @@ function save_sync.snapshot()
     end
     local parcel = {}
     for i, name in ipairs(src or {}) do parcel[i] = name end
-    local level, wine = save_sync.level_v(), state.wine_placed
+    local level, wine, story = save_sync.level_v(), state.wine_placed, state.story
     if src ~= state.parcel then
         local t = save_sync.load_target
         if t == nil and save_sync.load_slot then t = state.saves and state.saves[tostring(save_sync.load_slot)] end
-        level, wine = t and t.level or nil, t and t.wine or nil
+        level, wine, story = t and t.level or nil, t and t.wine or nil, t and t.story or nil
     end
-    return { index = index, parcel = parcel, level = level, wine = wine }
+    local story_copy = nil
+    if story then
+        story_copy = {}
+        for k, v in pairs(story) do story_copy[k] = v end
+    end
+    return { index = index, parcel = parcel, level = level, wine = wine, story = story_copy }
 end
 
 -- Niveau de mallette perdu au chargement (2026-10-09, rapport d'un joueur : objets superposés,
@@ -1607,7 +1613,7 @@ function save_sync.install_hooks()
         -- WriteBackSaveData).
         if session then
             local t = state.saves and state.saves[tostring(save_sync.load_slot)]
-            save_sync.load_target = t and { index = t.index, parcel = t.parcel, level = t.level, wine = t.wine } or false
+            save_sync.load_target = t and { index = t.index, parcel = t.parcel, level = t.level, wine = t.wine, story = t.story } or false
             save_sync.load_target_slot = save_sync.load_slot
         end
     end)
@@ -1630,7 +1636,7 @@ function save_sync.install_hooks()
         -- sans StartLoad (reprise après une mort : point de reprise), état retenu ici
         if session and not save_sync.loaded and save_sync.load_target == nil and not save_sync.load_slot then
             local t = state.checkpoint
-            save_sync.load_target = t and { index = t.index, parcel = t.parcel, level = t.level, wine = t.wine } or false
+            save_sync.load_target = t and { index = t.index, parcel = t.parcel, level = t.level, wine = t.wine, story = t.story } or false
         end
         save_sync.loaded = true
         save_sync.picked_locs = {} -- objets au sol revenus avec la sauvegarde : habillés à nouveau
@@ -1700,7 +1706,15 @@ function save_sync.update()
         if inv then i18n.extend_level_info(inv, true) end
     end)
     -- vin posé ou non dans la sauvegarde chargée (mur de la salle des statues) ; inconnu = nil
-    if target then state.wine_placed = target.wine end
+    if target then
+        state.wine_placed = target.wine
+        -- étapes de l'histoire de la sauvegarde chargée (inconnues : relues sur le serveur)
+        state.story = nil
+        if target.story then
+            state.story = {}
+            for k, v in pairs(target.story) do state.story[k] = v end
+        end
+    end
     -- niveau de mallette perdu (voir save_sync.restore_level) ; revérifié 5 s plus tard
     -- (au chargement : seulement les Valises que la sauvegarde contient ; les suivantes sont redonnées par la file)
     save_sync.valise_check("chargement", math.min(state.last_applied_index, target and target.index or state.last_applied_index))
@@ -3121,6 +3135,7 @@ local function on_item_picked(interact, core)
     end
     save_sync.picked_locs = save_sync.picked_locs or {}
     save_sync.picked_locs[loc.key] = true -- objet au sol : modèle d'origine remis (objet recyclé)
+    pcall(K.story_mark, loc) -- étapes de l'histoire (murs « Tracteur » / « Ascenseur de Beneviento »)
     -- récompense de l'énigme du vin ramassée : vin posé dans cette sauvegarde (mur de la salle des statues)
     if loc == shop_ui.no_return.courtyard_loc() then
         state.wine_placed = true
@@ -8418,6 +8433,23 @@ shop_ui.no_return = {
         -- avec la Clé de la cour reçue du multiworld, on pouvait y entrer sans avoir posé le vin
         -- (statues validées, sang jamais vidé, porte fermée). Vin posé = check de l'emplacement
         -- d'origine de la Clé de la cour fait (l'énigme y fait apparaître l'objet).
+        -- Étapes de l'histoire déclenchées par un ramassage (2026-10-09, ascenseur de Beneviento
+        -- infini chez un joueur : Manivelle de cric reçue d'Archipelago, jamais ramassée à son
+        -- emplacement d'origine ; la prendre là lance la scène du lycan sur le tracteur, puis
+        -- Beneviento). Murs actifs dans TOUS les modes, positions relevées en jeu (no_return.json).
+        { name = "Tracteur (Manivelle de cric)", name_en = "Tractor (Jack Handle)", always = true,
+          blockers = function() return K.story_missing({ "Manivelle de cric #001 [S02]" }) end,
+          message = function()
+              return tr("Avant de continuer, prends le check à l'endroit d'origine de la Manivelle de cric (près du tracteur) : il lance la suite de l'histoire.",
+                  "Before going further, pick up the check at the Jack Handle's original spot (near the tractor): it starts the next part of the story.")
+          end },
+        { name = "Ascenseur de Beneviento", name_en = "Beneviento elevator", always = true,
+          blockers = function() return K.story_missing(K.STORY_LOCS) end,
+          message = function(missing)
+              return tr("Avant de descendre chez Beneviento, prends le check à l'endroit d'origine de ces objets (sinon la maison ne se lance pas) : ",
+                  "Before going down to House Beneviento, pick up the check at the original spot of these items (otherwise the house never starts): ")
+                  .. table.concat(missing or {}, ", ")
+          end },
         { name = "Salle des statues (vin à poser)", always = true,
           blockers = function()
               local loc = shop_ui.no_return.courtyard_loc()
@@ -8498,6 +8530,52 @@ function shop_ui.no_return.movement(player)
 end
 
 -- Emplacement d'origine de la Clé de la cour (récompense de l'énigme du vin), s'il est dans la seed.
+-- Emplacements d'origine qui lancent une étape de l'histoire (voir les murs « Tracteur » et
+-- « Ascenseur de Beneviento »). Fait = ramassé DANS CETTE SAUVEGARDE (state.story, retenu par
+-- sauvegarde comme le vin) ; sauvegarde inconnue (d'avant 0.9.1.16) : état du serveur.
+K.STORY_LOCS = { "Manivelle de cric #001 [S02]", "Volant de puits #001 [S00]", "Clé à quatre ailes #004 [S00]" }
+function K.story_loc(name)
+    if not K.story_by_name then
+        K.story_by_name = {}
+        for _, loc in pairs(location_by_guid) do K.story_by_name[loc.name] = loc end
+    end
+    return K.story_by_name[name]
+end
+function K.story_done(name)
+    local loc = K.story_loc(name)
+    if not loc or not get_location_id(loc) then return true end -- pas mélangé : le joueur y passe forcément
+    if state.story == nil then
+        local seed = {}
+        for _, n in ipairs(K.STORY_LOCS) do
+            local l = K.story_loc(n)
+            local done = l and get_location_id(l) and location_done(l)
+            if l and get_location_id(l) and done == nil then return true end -- serveur pas encore lu : on ne bloque pas
+            if done == true then seed[n] = true end
+        end
+        state.story = seed
+        save_state()
+    end
+    return state.story[name] == true
+end
+function K.story_missing(names)
+    local out = {}
+    for _, n in ipairs(names) do
+        if not K.story_done(n) then out[#out + 1] = i18n.loc(K.story_loc(n)) end
+    end
+    return out
+end
+function K.story_mark(loc)
+    if not loc then return end
+    for _, n in ipairs(K.STORY_LOCS) do
+        if n == loc.name then
+            state.story = state.story or {}
+            state.story[n] = true
+            save_state()
+            debug_log("histoire : " .. n .. " ramassé dans cette sauvegarde")
+        end
+    end
+end
+
 function shop_ui.no_return.courtyard_loc()
     if shop_ui.no_return.courtyard == nil then
         shop_ui.no_return.courtyard = false

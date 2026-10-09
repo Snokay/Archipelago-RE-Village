@@ -6771,6 +6771,26 @@ local function hide_unreceived_rebuys(shop)
     end
 end
 
+function shop_ui.parcel_blocked(shop)
+    local blocked = false
+    pcall(function()
+        local unit = shop_ui.selected(shop)
+        local id = unit and unit_item_id(unit)
+        if not id or not parcel_index_of(id) or (inventory_quantity(id) or 0) > 0 then return end
+        local _, inv = get_active_inventory()
+        local res = inv and inv:call("getBlankSlotNo", id, false)
+        local free = res and res:call("get_slotNo")
+        if free ~= nil and free < 0 then
+            blocked = true
+            local name = state.parcel[parcel_index_of(id)]
+            debug_log("boutique : colis " .. tostring(name) .. " refusé, aucune case libre dans la mallette")
+            add_message(string.format(tr("Pas assez de place dans la mallette pour %s : fais de la place puis reviens",
+                "Not enough room in the case for %s: make room and come back"), i18n.item(name or "")))
+        end
+    end)
+    return blocked
+end
+
 -- Journal des achats + expérience ci-dessus.
 local function install_shop_hooks()
     local def = sdk.find_type_definition("app.GUIShopBuy")
@@ -6781,6 +6801,14 @@ local function install_shop_hooks()
             local skip_result = false
             sdk.hook(method, function(args)
                 skip_result = false
+                -- Colis récupéré chez le Duc mallette pleine (2026-10-09, crash d'un joueur : W870 TAC
+                -- du colis acheté à 0 Lei juste après avoir vendu une amélioration, jeu planté < 1 s
+                -- après) : le jeu ne refuse pas l'ajout, l'arme est posée sur des cases occupées.
+                -- Achat refusé tant qu'il n'y a pas de case libre pour l'objet.
+                if name == "buyItem" and shop_ui.parcel_blocked(sdk.to_managed_object(args[2])) then
+                    skip_result = "refus"
+                    return sdk.PreHookResult.SKIP_ORIGINAL
+                end
                 if name == "buyItem" then
                     -- Article-check (2026-09-26) : on saute l'achat du jeu, le mod débite le prix
                     -- affiché et envoie le check, rien n'est donné. Validé d'abord sur les
@@ -6880,6 +6908,10 @@ local function install_shop_hooks()
                 end)
                 return sdk.PreHookResult.CALL_ORIGINAL
             end, function(retval)
+                if skip_result == "refus" then
+                    skip_result = false
+                    return sdk.to_ptr(0) -- achat non fait
+                end
                 if skip_result then
                     skip_result = false
                     return sdk.to_ptr(1) -- "achat fait" pour l'interface

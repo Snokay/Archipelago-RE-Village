@@ -398,6 +398,18 @@ local function is_in_game()
     return in_game
 end
 
+-- Mallette ou boutique affichée (2026-10-09 : la réparation automatique tournait pendant que le
+-- joueur promenait un objet dans la mallette ; l'objet tenu « recouvrait » un soin, sorti de la
+-- grille). Ni réparation, ni don, ni colis tant que l'une des deux est ouverte.
+function K.case_busy()
+    local busy = false
+    pcall(function()
+        local gm = sdk.get_managed_singleton("app.GUIManager")
+        busy = gm:call("isShowingGUIInventory") == true or gm:call("isShowingGUIShop") == true
+    end)
+    return busy
+end
+
 -- Relevé complet de la mallette (diagnostic des achats-checks, 2026-09-26) : "ItemID x pile"
 -- pour chaque emplacement, pour voir où le jeu range un objet acheté.
 local function inventory_dump()
@@ -1168,7 +1180,7 @@ local function current_zone_is_chris()
 end
 
 local function process_items_queue()
-    if #items_queue == 0 or not is_in_game() then return end
+    if #items_queue == 0 or not is_in_game() or K.case_busy() then return end
     -- seulement les objets vraiment à donner (2026-10-08 : à la connexion le serveur renvoie toute
     -- la liste, déjà donnée ; le message annonçait « 14 en attente » pour rien)
     local to_give = 0
@@ -1261,8 +1273,11 @@ function inventory_repair.run()
         local cores = {}
         for i = 0, list:call("get_Count") - 1 do cores[#cores + 1] = list:call("get_Item", i) end
         for _, core in ipairs(cores) do
-            local work = core:call("get_work")
-            local slot = work:call("get_slotNo")
+          -- chaque objet à part : une erreur ne laisse jamais un objet hors de la grille (2026-10-09 :
+          -- soin resté en case -1 sans rien au journal, l'erreur interrompait toute la boucle)
+          local work = core:call("get_work")
+          local slot = work:call("get_slotNo")
+          local ok_item, err_item = pcall(function()
             -- Soin ou arme sorti de la grille (case -1, 2026-10-09 : Remède sorti par le jeu en
             -- déplaçant un objet, mallette trop pleine). Pas les munitions : sans case = chargées.
             local def = item_by_name[inventory_repair.gid_to_name[work:call("get_itemID")] or ""]
@@ -1289,6 +1304,12 @@ function inventory_repair.run()
                     stuck[#stuck + 1] = tostring(id)
                 end
             end
+          end)
+          if not ok_item then
+              -- remis à sa case d'origine (jamais laissé en case -1 par la réparation)
+              pcall(function() if slot and slot >= 0 and work:call("get_slotNo") ~= slot then work:call("set_slotNo", slot) end end)
+              debug_log("mallette : réparation d'un objet interrompue, objet remis à sa case : " .. tostring(err_item))
+          end
         end
     end)
     if #moved + #parceled + #stuck == 0 then return end
@@ -1305,6 +1326,7 @@ function inventory_repair.run()
 end
 function inventory_repair.update()
     if not is_in_game() or ending_active or #vanilla_removals > 0 or os.clock() < inventory_repair.next then return end
+    if K.case_busy() then return end
     inventory_repair.next = os.clock() + 5.0
     inventory_repair.run()
 end
@@ -1313,7 +1335,7 @@ end
 -- jusqu'à la quantité de l'objet Archipelago (ex. 25 balles), en réessayant toutes les 5 s faute de place.
 function K.parcel_topup()
     local list = K.parcel_topups
-    if not list or #list == 0 or not is_in_game() then return end
+    if not list or #list == 0 or not is_in_game() or K.case_busy() then return end
     local row = list[1]
     if os.clock() < row.due then return end
     -- manque mesuré une seule fois (1 s après l'achat), puis gardé : les balles tirées entre deux
@@ -1344,6 +1366,7 @@ end
 
 local function process_parcel()
     if #state.parcel == 0 or not is_in_game() or ending_active or #vanilla_removals > 0 then return end
+    if K.case_busy() then return end
     if os.clock() - inventory_repair.last_parcel_try < 10.0 then return end
     inventory_repair.last_parcel_try = os.clock()
     -- Crash du 2026-10-09 22:25 (partie du développeur, idée du joueur) : le colis réessayait
@@ -8446,8 +8469,10 @@ shop_ui.no_return = {
         { name = "Ascenseur de Beneviento", name_en = "Beneviento elevator", always = true,
           blockers = function() return K.story_missing(K.STORY_LOCS) end,
           message = function(missing)
-              return tr("Avant de descendre chez Beneviento, prends le check à l'endroit d'origine de ces objets (sinon la maison ne se lance pas) : ",
-                  "Before going down to House Beneviento, pick up the check at the original spot of these items (otherwise the house never starts): ")
+              -- ordre du jeu (rappel du joueur, 2026-10-09) : Cric + Volant -> Clé ailée 2 -> cinématique
+              -- du Duc -> maison Beneviento ; une étape ratée = maison jamais lancée
+              return tr("Avant de descendre chez Beneviento, prends le check à l'endroit d'origine de ces objets, dans l'ordre Manivelle de cric et Volant de puits, puis Clé à quatre ailes (la scène du Duc suit), sinon la maison ne se lance pas : ",
+                  "Before going down to House Beneviento, pick up the check at the original spot of these items, in order Jack Handle and Well Wheel, then Four-Winged Key (the Duke's scene follows), otherwise the house never starts: ")
                   .. table.concat(missing or {}, ", ")
           end },
         { name = "Salle des statues (vin à poser)", always = true,

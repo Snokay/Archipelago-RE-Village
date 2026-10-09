@@ -4003,9 +4003,23 @@ local function apply_shop_swaps(shop)
                 gid = nil
             end
             if gid and gid ~= id then
+                -- createItemCore peut répondre nil (2026-10-09, après la revente des pièces du
+                -- V61) : l'article gardait le NOUVEAU numéro avec l'ANCIENNE fiche (objet à moitié
+                -- échangé, crash possible de la boutique). On ne touche à l'article que si l'objet
+                -- a bien été créé.
                 local core = mgr:call("createItemCore", gid, def and def.quantity or 1, 0, 0)
+                local work = core and core:call("get_work")
+                if not work then
+                    shop_ui.core_nil_logged = shop_ui.core_nil_logged or {}
+                    if not shop_ui.core_nil_logged[gid] then
+                        shop_ui.core_nil_logged[gid] = true
+                        debug_log(string.format("boutique : %s : objet affiché %s impossible à créer, article laissé tel quel",
+                            loc.name, tostring(gid)))
+                    end
+                    return
+                end
                 unit:call("set_itemID", gid)
-                unit:call("set_work", core:call("get_work"))
+                unit:call("set_work", work)
                 shop_ui.swap_map[gid] = loc
                 stats.swapped = stats.swapped + 1
             end

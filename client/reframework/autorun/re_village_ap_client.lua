@@ -4009,6 +4009,18 @@ local function apply_shop_swaps(shop)
                 -- a bien été créé.
                 local core = mgr:call("createItemCore", gid, def and def.quantity or 1, 0, 0)
                 local work = core and core:call("get_work")
+                -- Variante (« (2) ») que le jeu refuse de créer (Compensateur de recul (LEMI) (2)) :
+                -- affichée sous une autre variante du même objet (même nom, même texte).
+                if not work then
+                    for _, it in ipairs(items) do
+                        local alt = it.game_item_id
+                        if alt and alt ~= gid and shop_ui.world.same_variant(gid, alt) then
+                            local c2 = mgr:call("createItemCore", alt, def and def.quantity or 1, 0, 0)
+                            work = c2 and c2:call("get_work")
+                            if work then gid = alt break end
+                        end
+                    end
+                end
                 if not work then
                     shop_ui.core_nil_logged = shop_ui.core_nil_logged or {}
                     if not shop_ui.core_nil_logged[gid] then

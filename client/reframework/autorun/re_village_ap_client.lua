@@ -1181,6 +1181,10 @@ end
 
 local function process_items_queue()
     if #items_queue == 0 or not is_in_game() or K.case_busy() then return end
+    -- Prologue (2026-10-09, deux joueurs : objets reçus puis perdus) : le jeu a un inventaire dans
+    -- la maison d'Ethan, mais le remet à zéro au passage au village (Chapter2_1). Les dons
+    -- attendent donc la fin du prologue.
+    if K.chapter == "Chapter1" then return end
     -- seulement les objets vraiment à donner (2026-10-08 : à la connexion le serveur renvoie toute
     -- la liste, déjà donnée ; le message annonçait « 14 en attente » pour rien)
     local to_give = 0
@@ -1366,7 +1370,7 @@ end
 
 local function process_parcel()
     if #state.parcel == 0 or not is_in_game() or ending_active or #vanilla_removals > 0 then return end
-    if K.case_busy() then return end
+    if K.case_busy() or K.chapter == "Chapter1" then return end -- prologue : inventoire remis à zéro ensuite
     if os.clock() - inventory_repair.last_parcel_try < 10.0 then return end
     inventory_repair.last_parcel_try = os.clock()
     -- Crash du 2026-10-09 22:25 (partie du développeur, idée du joueur) : le colis réessayait
@@ -3937,6 +3941,7 @@ local function watch_current_chapter()
         local old = last_chapter
         last_chapter = chapter
         shop_ui.chapter = chapter -- lisible par le code écrit avant cette variable (ramassage)
+        K.chapter = chapter -- idem pour la file des dons (déclarée avant shop_ui)
         current_zone = K.CHAPTER_ZONES[chapter]
         -- Zone ratable terminée : le jeu quitte son chapitre pour un AUTRE chapitre (pas pour
         -- l'écran titre, où le chapitre devient "").

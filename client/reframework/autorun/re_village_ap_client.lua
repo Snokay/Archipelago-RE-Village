@@ -326,6 +326,7 @@ local function load_state(seed, slot)
         state.checkpoint = loaded.checkpoint
         state.tracks_saves = loaded.tracks_saves
         state.given_by_pickup = loaded.given_by_pickup
+        state.valise_no_item = loaded.valise_no_item
     end
     -- Toutes les sauvegardes de cette seed sont suivies (2026-09-30) : état neuf, ou aucun
     -- emplacement réel noté jusqu'ici. Alors une sauvegarde inconnue date d'AVANT la seed.
@@ -1370,7 +1371,7 @@ function save_sync.restore_level(want_v, why)
         if want_v and want_v > cur then
             for _, lv in ipairs(levels) do
                 if lv.v == want_v then
-                    inv:call("set_extendLevel", lv.value)
+                    inv:call("setExtendLevel", lv.value)
                     changed = true
                 end
             end
@@ -1380,7 +1381,7 @@ function save_sync.restore_level(want_v, why)
             local fitted = false
             for _, lv in ipairs(levels) do
                 if lv.v > inv:call("get_extendLevel"):get_field("V") then
-                    inv:call("set_extendLevel", lv.value)
+                    inv:call("setExtendLevel", lv.value)
                     if top < inv:call("getMaxSlotCount") then
                         fitted = true
                         break
@@ -1390,7 +1391,7 @@ function save_sync.restore_level(want_v, why)
             if fitted then
                 changed = true
             else
-                inv:call("set_extendLevel", before)
+                inv:call("setExtendLevel", before)
                 changed = false
                 debug_log(string.format("valise (%s) : case %d hors de la mallette, aucun niveau ne convient", why, top))
             end
@@ -1404,6 +1405,47 @@ function save_sync.restore_level(want_v, why)
         end
     end)
     if not ok then debug_log("valise (" .. why .. ") : erreur " .. tostring(err)) end
+end
+
+-- Contrôle de sécurité des Valises (2026-10-09, idée du joueur ; 2e rapport : 0.9.1.8 voyait la
+-- case 55 hors de la mallette mais set_extendLevel ne change pas le nombre de cases) : Valises
+-- reçues d'Archipelago et déjà données (index <= last_applied_index ; les suivantes sont dans la
+-- file) comparées aux objets Valise de la mallette, d'après lesquels le jeu recalcule le niveau au
+-- chargement (validé en jeu le 2026-10-09). Il en manque (Valises données avant 0.9.1.9, sans
+-- l'objet) : redonnées par give_item (objet Valise + agrandissement). Ne fait que redonner ce qui
+-- manque, jamais plus que les Valises reçues.
+function save_sync.valise_check(why, limit)
+    limit = limit or state.last_applied_index
+    local _, inv = get_active_inventory()
+    if not inv then return end
+    local received = 0
+    for index, row in pairs(save_sync.history) do
+        local def = item_by_name[net.get_item_name(row.item) or ""]
+        if def and def.game_item_id == VALISE_ITEM_ID and index <= limit then
+            received = received + 1
+        end
+    end
+    local have = inventory_quantity(VALISE_ITEM_ID) or 0
+    if received <= have or state.valise_no_item then return end
+    debug_log(string.format("valise (%s) : %d Valise(s) reçue(s), %d objet(s) Valise dans la mallette -> %d redonnée(s)",
+        why, received, have, received - have))
+    for _ = 1, received - have do
+        local cur, max_v = i18n.extend_level_info(inv, true)
+        if cur and max_v and cur >= max_v then break end
+        local ok, given, reason = pcall(give_item, VALISE_ITEM_ID, 1)
+        if not (ok and given) then
+            debug_log(string.format("valise (%s) : échec du redon (%s)", why, tostring(ok and reason or given)))
+            break
+        end
+        -- agrandi sans objet Valise : le contrôle agrandirait encore à chaque chargement -> coupé
+        if (inventory_quantity(VALISE_ITEM_ID) or 0) <= have then
+            state.valise_no_item = true
+            save_state()
+            debug_log("valise (" .. why .. ") : objet Valise pas ajouté, contrôle désactivé pour cette seed")
+            break
+        end
+        have = have + 1
+    end
 end
 
 -- Objets clés manquants (2026-10-09) : objets clés reçus (pas les clés progressives) absents de
@@ -1523,6 +1565,7 @@ function save_sync.update()
     local recheck = save_sync.level_recheck
     if recheck and os.clock() >= recheck.at and session then
         save_sync.level_recheck = nil
+        save_sync.valise_check("chargement +5 s")
         save_sync.restore_level(recheck.v, "chargement +5 s")
     end
     -- Mallette remise : on attend d'être connecté (état de la seed chargé) pour comparer.
@@ -1561,6 +1604,8 @@ function save_sync.update()
         if inv then i18n.extend_level_info(inv, true) end
     end)
     -- niveau de mallette perdu (voir save_sync.restore_level) ; revérifié 5 s plus tard
+    -- (au chargement : seulement les Valises que la sauvegarde contient ; les suivantes sont redonnées par la file)
+    save_sync.valise_check("chargement", math.min(state.last_applied_index, target and target.index or state.last_applied_index))
     save_sync.restore_level(target and target.level, "chargement")
     save_sync.level_recheck = { at = os.clock() + 5, v = target and target.level }
     if not target or target.index >= state.last_applied_index then return end
@@ -8586,6 +8631,7 @@ re.on_pre_application_entry("UpdateBehavior", function()
         requests.fix_zero = false
         debug_log("réparation mallette : AVANT : " .. inventory_dump())
         -- d'abord le niveau de mallette (objets rangés pour une mallette plus grande, 2026-10-09)
+        save_sync.valise_check("réparation")
         save_sync.restore_level(nil, "réparation")
         local _, inv = get_active_inventory()
         local fixed = 0
@@ -8653,6 +8699,16 @@ re.on_pre_application_entry("UpdateBehavior", function()
         if fixed + moved > 0 then
             add_message(string.format(tr("Mallette réparée : %d objet(s) replacé(s)", "Case repaired: %d item(s) moved"), fixed + moved))
         end
+    end
+    -- Outil de dev (2026-10-09) : retire l'objet Valise sans toucher au niveau, pour reproduire une
+    -- mallette agrandie sans objet Valise (Valise donnée avant 0.9.1.9) après sauvegarde + chargement.
+    if requests.take_valise then
+        requests.take_valise = nil
+        local _, inv_v = get_active_inventory()
+        local count = inventory_quantity(VALISE_ITEM_ID) or 0
+        local ok_v, taken = pcall(shop_ui.inv_take, inv_v, VALISE_ITEM_ID, count)
+        last_tool_message = string.format("Objet Valise : %s retiré(s) sur %d", ok_v and tostring(taken) or tostring(taken), count)
+        debug_log(last_tool_message)
     end
     if requests.clear_fragments then
         requests.clear_fragments = nil
@@ -9357,6 +9413,7 @@ re.on_draw_ui(function()
             requests.give = { id = tonumber(test_item_id), count = tonumber(test_item_count) or 1 }
         end
         if imgui.button("TEST : +1000 Lei") then requests.money = true end
+        if imgui.button("TEST : retirer l'objet Valise (niveau gardé)") then requests.take_valise = true end
         if imgui.button("REPARER la mallette (objets superposés, quantité 0)") then requests.fix_zero = true end
         if imgui.button("DIAG : modèles au sol (texture manquante)") then
             -- 2026-09-27 : boîte de munitions sans texture. Compare nos objets modifiés à ceux du

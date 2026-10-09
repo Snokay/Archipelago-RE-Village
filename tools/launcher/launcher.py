@@ -438,7 +438,8 @@ class App(tk.Tk):
         table = tk.Frame(page, bg=PANEL)
         table.pack(fill="x", pady=18)
         names = {"game": tr("Jeu", "Game"), "reframework": "REFramework", "mod": tr("Mod Archipelago", "Archipelago mod"),
-                 "loose": tr("Fichiers « loose »", "Loose files"), "apworld": "apworld"}
+                 "loose": tr("Fichiers « loose »", "Loose files"), "apworld": "apworld",
+                 "others": tr("Autres mods", "Other mods")}
         for row, (key, level, text) in enumerate(core.status(self.game_dir(), self.ap_dir())):
             label(table, names[key], 10).grid(row=row, column=0, sticky="w", pady=4, padx=(0, 24))
             badge(table, level, text).grid(row=row, column=1, sticky="w")

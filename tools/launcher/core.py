@@ -332,6 +332,24 @@ def read_manifest(game_dir):
         return None
 
 
+# Autres mods REFramework (2026-10-09 : re8_trainer.dll de 2023 dans reframework\plugins figeait le
+# jeu au démarrage avec notre REFramework ; retiré, le jeu démarre). Plugins (.dll) et scripts Lua
+# qui ne sont pas les nôtres.
+OUR_SCRIPTS = {"re_village_ap_client.lua", "re_village_ap/net.lua"}
+
+
+def other_mods(game_dir):
+    found = []
+    plugins = game_dir / "reframework" / "plugins"
+    if plugins.exists():
+        found += ["reframework/plugins/" + p.relative_to(plugins).as_posix() for p in sorted(plugins.rglob("*.dll"))]
+    autorun = game_dir / "reframework" / "autorun"
+    if autorun.exists():
+        found += ["reframework/autorun/" + p.relative_to(autorun).as_posix() for p in sorted(autorun.rglob("*.lua"))
+                  if p.relative_to(autorun).as_posix() not in OUR_SCRIPTS]
+    return found
+
+
 def status(game_dir, ap_dir):
     """Liste de (clé, niveau, texte) : niveau = "ok", "warn" ou "bad"."""
     rows = []
@@ -359,6 +377,13 @@ def status(game_dir, ap_dir):
                                            f"Version {installed} installed, {current} available: update")))
         else:
             rows.append(("mod", "ok", tr(f"Version {installed}", f"Version {installed}")))
+    others = other_mods(game_dir)
+    rows.append(("others", "warn" if others else "ok",
+                 tr(f"{len(others)} autre(s) mod(s) REFramework : {', '.join(p.split('/')[-1] for p in others[:3])}"
+                    f"{' …' if len(others) > 3 else ''} — en cas de gel au démarrage, retire-les (ex. trainer)",
+                    f"{len(others)} other REFramework mod(s): {', '.join(p.split('/')[-1] for p in others[:3])}"
+                    f"{' …' if len(others) > 3 else ''} — if the game freezes at start, remove them (e.g. trainer)")
+                 if others else tr("Aucun", "None")))
     config = game_dir / "re2_fw_config.txt"
     loose = config.exists() and "LooseFileLoader_Enabled=true" in config.read_text(encoding="utf-8", errors="replace")
     rows.append(("loose", "ok" if loose else "warn",
@@ -433,6 +458,10 @@ def check_reframework(game_dir, log):
     manifest = read_manifest(game_dir) if game_dir else None
     if manifest is None or game_running():
         return
+    others = other_mods(game_dir)
+    if others:
+        log(tr("Autres mods REFramework présents (en cas de gel au démarrage, retire-les) : " + ", ".join(others),
+               "Other REFramework mods present (if the game freezes at start, remove them): " + ", ".join(others)))
     current = game_dir / "dinput8.dll"
     if current.exists() and same_file(current, FILES / "REFramework" / "dinput8.dll"):
         return
@@ -598,6 +627,17 @@ def bug_report(game_dir):
             listing = ["scripts REFramework :"]
             if autorun.exists():
                 listing += ["  " + p.relative_to(autorun).as_posix() for p in sorted(autorun.rglob("*")) if p.is_file()]
+            plugins = game_dir / "reframework" / "plugins"
+            listing.append("plugins REFramework :")
+            if plugins.exists():
+                listing += ["  " + p.relative_to(plugins).as_posix() for p in sorted(plugins.rglob("*")) if p.is_file()]
+            natives = game_dir / "natives"
+            listing.append("dossier natives (fichiers séparés, ex. Fluffy Mod Manager) :")
+            if natives.exists():
+                files = [p for p in sorted(natives.rglob("*")) if p.is_file()]
+                listing += ["  " + p.relative_to(natives).as_posix() for p in files[:200]]
+                if len(files) > 200:
+                    listing.append(f"  ... ({len(files)} fichiers)")
             listing.append("paks :")
             listing += ["  %s (%d octets)" % (p.name, p.stat().st_size) for p in sorted(game_dir.glob("re_chunk_000.pak*"))]
             z.writestr("autres_mods.txt", "\n".join(listing))

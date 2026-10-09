@@ -15,6 +15,7 @@ install_manifest.json (avec la version), pour la mise à jour et la désinstalla
 """
 
 import ctypes
+import hashlib
 import json
 import os
 import re
@@ -391,6 +392,56 @@ def enable_loose_files(game_dir, log):
     log(tr("Chargeur de fichiers « loose » de REFramework activé", "REFramework loose file loader enabled"))
 
 
+# REFramework d'un autre (2026-10-09, joueur bloqué sur un écran noir au démarrage) : il avait une
+# version récente (v1.5.9.1 + 503 commits, 05/09/2026), gardée par l'installation ; le mod n'est
+# testé qu'avec la nôtre. Avec notre dinput8.dll, le jeu démarre. La sienne est mise de côté sous ce
+# nom, et remise à la désinstallation.
+REFRAMEWORK_BACKUP = "dinput8.dll.avant_archipelago"
+
+
+def same_file(a, b):
+    try:
+        if a.stat().st_size != b.stat().st_size:
+            return False
+        return hashlib.sha256(a.read_bytes()).digest() == hashlib.sha256(b.read_bytes()).digest()
+    except OSError:
+        return False
+
+
+def ensure_reframework(game_dir, ours_before, log):
+    """Pose notre dinput8.dll ; un REFramework d'une autre version qui n'est pas le nôtre (ours_before
+    faux) est mis de côté (REFRAMEWORK_BACKUP). Renvoie vrai si le fichier en place est le nôtre."""
+    ours, current = FILES / "REFramework" / "dinput8.dll", game_dir / "dinput8.dll"
+    if current.exists() and same_file(current, ours):
+        return True
+    if current.exists():
+        backup = game_dir / REFRAMEWORK_BACKUP
+        if ours_before or backup.exists():
+            current.unlink()  # notre ancienne version (ou la sienne déjà mise de côté) : remplacée
+        else:
+            current.replace(backup)
+            log(tr(f"REFramework d'une autre version : mis de côté sous {REFRAMEWORK_BACKUP}, remplacé par celui du mod",
+                   f"REFramework of another version: moved to {REFRAMEWORK_BACKUP}, replaced by the mod's"))
+    shutil.copy2(ours, current)
+    log(tr("REFramework installé (dinput8.dll)", "REFramework installed (dinput8.dll)"))
+    return True
+
+
+def check_reframework(game_dir, log):
+    """Avant de lancer le jeu (« Jouer ») : remet notre REFramework s'il a été remplacé, mod installé
+    seulement (la mise à jour automatique passe par l'installation de l'ANCIEN launcher)."""
+    manifest = read_manifest(game_dir) if game_dir else None
+    if manifest is None or game_running():
+        return
+    current = game_dir / "dinput8.dll"
+    if current.exists() and same_file(current, FILES / "REFramework" / "dinput8.dll"):
+        return
+    ensure_reframework(game_dir, "dinput8.dll" in manifest.get("files", []), log)
+    if "dinput8.dll" not in manifest.get("files", []):
+        manifest.setdefault("files", []).append("dinput8.dll")
+        (game_dir / MANIFEST).write_text(json.dumps(manifest, indent=1), encoding="utf-8")
+
+
 def install(game_dir, ap_dir, log):
     if not (game_dir / "re8.exe").exists():
         raise RuntimeError(tr(f"re8.exe introuvable dans {game_dir}", f"re8.exe not found in {game_dir}"))
@@ -399,13 +450,7 @@ def install(game_dir, ap_dir, log):
     old = read_manifest(game_dir)
     had_reframework = bool(old) and "dinput8.dll" in old.get("files", [])
     uninstall(game_dir, None, lambda _msg: None, quiet=True)  # repart propre (ancienne version)
-    placed = ["dinput8.dll"] if had_reframework else []
-    if not (game_dir / "dinput8.dll").exists():
-        shutil.copy2(FILES / "REFramework" / "dinput8.dll", game_dir / "dinput8.dll")
-        placed.append("dinput8.dll")
-        log(tr("REFramework installé (dinput8.dll)", "REFramework installed (dinput8.dll)"))
-    else:
-        log(tr("REFramework déjà présent : gardé", "REFramework already present: kept"))
+    placed = ["dinput8.dll"] if ensure_reframework(game_dir, had_reframework, log) else []
     for rel in OBSOLETE:
         if (game_dir / rel).exists():
             (game_dir / rel).unlink()
@@ -471,6 +516,10 @@ def uninstall(game_dir, ap_dir, log, quiet=False):
             path.unlink()
             removed += 1
     (game_dir / MANIFEST).unlink()
+    backup = game_dir / REFRAMEWORK_BACKUP
+    if not quiet and backup.exists() and not (game_dir / "dinput8.dll").exists():
+        backup.replace(game_dir / "dinput8.dll")
+        log(tr("REFramework d'avant le mod remis (dinput8.dll)", "REFramework from before the mod restored (dinput8.dll)"))
     if ap_dir:
         world = ap_dir / "custom_worlds" / APWORLD
         if world.exists():

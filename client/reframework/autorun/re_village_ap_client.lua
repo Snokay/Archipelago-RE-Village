@@ -4161,6 +4161,18 @@ local function add_ap_shop_units(shop)
         local gid = def and (def.give_id or def.game_item_id)
         if gid and not shop_has_unit(units, gid, 0) then
             add_shop_unit(units, gid, 0, def.quantity or 1)
+        elseif gid then
+            -- 2e colis du même objet (2026-10-09, retour du joueur) : l'article déjà acheté restait
+            -- affiché avec un stock à 0, impossible à acheter ; on lui redonne du stock.
+            pcall(function()
+                for i = 0, units:call("get_Count") - 1 do
+                    local u = units:call("get_Item", i)
+                    if unit_item_id(u) == gid and u:call("get_price") == 0 and (u:call("get_stockCount") or 0) <= 0 then
+                        u:call("set_stockCount", 1)
+                        debug_log("boutique : colis " .. name .. " : article remis en stock")
+                    end
+                end
+            end)
         end
     end
     pcall(shop_ui.clean_units, units)

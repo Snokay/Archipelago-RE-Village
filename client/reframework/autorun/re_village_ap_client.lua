@@ -2987,6 +2987,21 @@ local function on_item_picked(interact, core)
         debug_log("chasse : viande " .. tostring(picked_item_id) .. " -> " .. (loc and loc.name or "aucun check restant"))
         ident.location = loc and loc.name or nil
     end
+    -- 2e Sanguis Virginis (2026-10-09, rapport du joueur) : après l'énigme du vin, le jeu en fait
+    -- apparaître un autre (Appartements de Dimitrescu, aucun emplacement d'objet : le seul du jeu est
+    -- le seau, SpawnInfo_WitchBottleWine_001). Vin déjà posé dans cette sauvegarde : doublon inutile,
+    -- retiré (il gardait aussi le mur de la salle des statues fermé).
+    if not loc and picked_item_id and state.wine_placed then
+        local sv = item_by_name["Sanguis Virginis"]
+        if sv and picked_item_id == sv.game_item_id then
+            debug_log("ramassage : Sanguis Virginis en double (vin déjà posé), retiré")
+            add_message(tr("Sanguis Virginis en double retiré (le vin est déjà posé)",
+                "Duplicate Sanguis Virginis removed (the wine is already placed)"))
+            table.insert(vanilla_removals, { item_id = picked_item_id, before = quantities_before[picked_item_id] or 0,
+                due = os.clock() + REMOVAL_DELAY_SECONDS })
+            return
+        end
+    end
     -- Fragments de cristal ramassés hors emplacement (2026-10-08, rapport du joueur : +13 Fragments à
     -- chaque fois, château) : objet de ramassage du mod (PICKUP_ID) réutilisé par le jeu avec la pile
     -- d'un autre objet. Tous les vrais Fragments sont des checks : celui-ci est retiré en entier.
@@ -8715,6 +8730,22 @@ re.on_pre_application_entry("UpdateBehavior", function()
     end
     -- Outil de dev (2026-10-09) : retire l'objet Valise sans toucher au niveau, pour reproduire une
     -- mallette agrandie sans objet Valise (Valise donnée avant 0.9.1.9) après sauvegarde + chargement.
+    -- Bouton de l'Aide « Le vin est déjà posé » (2026-10-09, 2e Sanguis) : mur ouvert, et le
+    -- Sanguis Virginis en double retiré de la mallette (inutile une fois le vin posé).
+    if requests.wine_placed then
+        requests.wine_placed = nil
+        state.wine_placed = true
+        save_state()
+        local sv = item_by_name["Sanguis Virginis"]
+        local count = sv and inventory_quantity(sv.game_item_id) or 0
+        local taken = 0
+        if count > 0 then
+            local _, inv_w = get_active_inventory()
+            local ok_w, n = pcall(shop_ui.inv_take, inv_w, sv.game_item_id, count)
+            taken = ok_w and n or 0
+        end
+        debug_log(string.format("vin : bouton de l'Aide, vin déclaré posé ; Sanguis en double retiré(s) : %s sur %d", tostring(taken), count))
+    end
     if requests.take_valise then
         requests.take_valise = nil
         local _, inv_v = get_active_inventory()
@@ -9194,9 +9225,7 @@ function shop_ui.help.draw()
     -- mur de la salle des statues fermé alors que le vin est posé (2e Sanguis, 2026-10-09)
     if not state.wine_placed and imgui.button(tr("Le vin est déjà posé (ouvrir le mur de la salle des statues)",
             "The wine is already placed (open the statue room wall)")) then
-        state.wine_placed = true
-        save_state()
-        debug_log("vin : bouton de l'Aide, vin déclaré posé")
+        requests.wine_placed = true
     end
     imgui.spacing()
     imgui.text_colored(tr("Check bloqué", "Stuck check"), shop_ui.menu.ACCENT)

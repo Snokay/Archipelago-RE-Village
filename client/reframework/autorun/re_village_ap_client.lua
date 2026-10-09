@@ -1287,7 +1287,105 @@ function save_sync.snapshot()
     end
     local parcel = {}
     for i, name in ipairs(src or {}) do parcel[i] = name end
-    return { index = index, parcel = parcel }
+    local level = save_sync.level_v()
+    if src ~= state.parcel then
+        local t = save_sync.load_target
+        if t == nil and save_sync.load_slot then t = state.saves and state.saves[tostring(save_sync.load_slot)] end
+        level = t and t.level or nil
+    end
+    return { index = index, parcel = parcel, level = level }
+end
+
+-- Niveau de mallette perdu au chargement (2026-10-09, rapport d'un joueur : objets superposés,
+-- onglet Confection figé, réparation sans effet) : une Valise reçue d'Archipelago agrandit la
+-- mallette (addExtendLevel) sans l'objet Valise que le jeu garde après un vrai achat ; au
+-- chargement, le jeu recalcule le niveau sans elle (77 -> 45 cases) alors que les objets de la
+-- sauvegarde sont rangés pour 77 cases (cases 46, 48, 55 hors de la mallette). Le niveau (champ V)
+-- est donc noté à chaque sauvegarde et remis au chargement.
+function save_sync.level_v()
+    local _, inv = get_active_inventory()
+    local v = nil
+    if inv then pcall(function() v = inv:call("get_extendLevel"):get_field("V") end) end
+    return v
+end
+
+-- Level1..Level6 de app.InventoryExtendLevel, du plus petit au plus grand.
+function save_sync.levels()
+    local td = sdk.find_type_definition("app.InventoryExtendLevel")
+    local list = {}
+    for i = 1, 6 do
+        local value = td:get_field("Level" .. i):get_data(nil)
+        list[#list + 1] = { value = value, v = value:get_field("V") }
+    end
+    table.sort(list, function(a, b) return a.v < b.v end)
+    return list
+end
+
+-- Plus grande case occupée par un objet de la grille (munitions, soins, armes ; les autres
+-- objets ont leur propre numérotation).
+function save_sync.highest_grid_slot(inv)
+    local type_of = {}
+    for _, def in pairs(item_by_name) do
+        if def.game_item_id then type_of[def.game_item_id] = def.type end
+    end
+    local top = -1
+    local list = inv:call("get_items")
+    for i = 0, list:call("get_Count") - 1 do
+        local work = list:call("get_Item", i):call("get_work")
+        local t, slot = type_of[work:call("get_itemID")], work:call("get_slotNo")
+        if (t == "Ammo" or t == "Recovery" or t == "Weapon") and slot and slot > top then top = slot end
+    end
+    return top
+end
+
+-- Remet le niveau noté (want_v) s'il est plus haut ; sans niveau noté (sauvegarde d'avant
+-- 0.9.1.8), monte jusqu'au premier niveau qui contient toutes les cases occupées (niveau
+-- d'origine gardé si aucun ne convient). Ne baisse jamais le niveau.
+function save_sync.restore_level(want_v, why)
+    local _, inv = get_active_inventory()
+    if not inv then return end
+    local ok, err = pcall(function()
+        local before = inv:call("get_extendLevel")
+        local cur = before:get_field("V")
+        local levels = save_sync.levels()
+        local changed = false
+        if want_v and want_v > cur then
+            for _, lv in ipairs(levels) do
+                if lv.v == want_v then
+                    inv:call("set_extendLevel", lv.value)
+                    changed = true
+                end
+            end
+        end
+        local top = save_sync.highest_grid_slot(inv)
+        if top >= inv:call("getMaxSlotCount") then
+            local fitted = false
+            for _, lv in ipairs(levels) do
+                if lv.v > inv:call("get_extendLevel"):get_field("V") then
+                    inv:call("set_extendLevel", lv.value)
+                    if top < inv:call("getMaxSlotCount") then
+                        fitted = true
+                        break
+                    end
+                end
+            end
+            if fitted then
+                changed = true
+            else
+                inv:call("set_extendLevel", before)
+                changed = false
+                debug_log(string.format("valise (%s) : case %d hors de la mallette, aucun niveau ne convient", why, top))
+            end
+        end
+        if changed then
+            sync_last_slots(inv)
+            for _, gui in ipairs(find_all_components("app.GUIInventory")) do pcall(function() gui:call("setupItemExtend") end) end
+            debug_log(string.format("valise (%s) : niveau de mallette %s -> %s (noté %s), cases max %s",
+                why, tostring(cur), tostring(inv:call("get_extendLevel"):get_field("V")), tostring(want_v),
+                tostring(inv:call("getMaxSlotCount"))))
+        end
+    end)
+    if not ok then debug_log("valise (" .. why .. ") : erreur " .. tostring(err)) end
 end
 
 -- Objets clés manquants (2026-10-09) : objets clés reçus (pas les clés progressives) absents de
@@ -1353,7 +1451,7 @@ function save_sync.install_hooks()
         -- WriteBackSaveData).
         if session then
             local t = state.saves and state.saves[tostring(save_sync.load_slot)]
-            save_sync.load_target = t and { index = t.index, parcel = t.parcel } or false
+            save_sync.load_target = t and { index = t.index, parcel = t.parcel, level = t.level } or false
             save_sync.load_target_slot = save_sync.load_slot
         end
     end)
@@ -1376,7 +1474,7 @@ function save_sync.install_hooks()
         -- sans StartLoad (reprise après une mort : point de reprise), état retenu ici
         if session and not save_sync.loaded and save_sync.load_target == nil and not save_sync.load_slot then
             local t = state.checkpoint
-            save_sync.load_target = t and { index = t.index, parcel = t.parcel } or false
+            save_sync.load_target = t and { index = t.index, parcel = t.parcel, level = t.level } or false
         end
         save_sync.loaded = true
         save_sync.picked_locs = {} -- objets au sol revenus avec la sauvegarde : habillés à nouveau
@@ -1403,6 +1501,11 @@ function save_sync.update()
     if save_sync.dirty then
         save_sync.dirty = false
         save_state()
+    end
+    local recheck = save_sync.level_recheck
+    if recheck and os.clock() >= recheck.at and session then
+        save_sync.level_recheck = nil
+        save_sync.restore_level(recheck.v, "chargement +5 s")
     end
     -- Mallette remise : on attend d'être connecté (état de la seed chargé) pour comparer.
     if not save_sync.loaded or not session or ending_active then return end
@@ -1439,6 +1542,9 @@ function save_sync.update()
         local _, inv = get_active_inventory()
         if inv then i18n.extend_level_info(inv, true) end
     end)
+    -- niveau de mallette perdu (voir save_sync.restore_level) ; revérifié 5 s plus tard
+    save_sync.restore_level(target and target.level, "chargement")
+    save_sync.level_recheck = { at = os.clock() + 5, v = target and target.level }
     if not target or target.index >= state.last_applied_index then return end
     local lost = state.last_applied_index - target.index
     state.last_applied_index = target.index
@@ -8461,6 +8567,8 @@ re.on_pre_application_entry("UpdateBehavior", function()
     if requests.fix_zero then
         requests.fix_zero = false
         debug_log("réparation mallette : AVANT : " .. inventory_dump())
+        -- d'abord le niveau de mallette (objets rangés pour une mallette plus grande, 2026-10-09)
+        save_sync.restore_level(nil, "réparation")
         local _, inv = get_active_inventory()
         local fixed = 0
         pcall(function()
@@ -8480,7 +8588,7 @@ re.on_pre_application_entry("UpdateBehavior", function()
         -- cases) : un objet sur une case déjà prise, ou hors de la mallette, est déplacé sur une
         -- case libre trouvée par le jeu (Inventory.getBlankSlotNo), puis l'affichage est refait.
         local moved = 0
-        pcall(function()
+        local ok_m, err_m = pcall(function()
             local max = inv:call("getMaxSlotCount")
             local list = inv:call("get_items")
             -- SEULEMENT les objets de la grille (munitions, soins, armes, explosifs) : objets clés,
@@ -8520,6 +8628,7 @@ re.on_pre_application_entry("UpdateBehavior", function()
                 end
             end
         end)
+        if not ok_m then debug_log("réparation mallette : erreur " .. tostring(err_m)) end
         for _, gui in ipairs(find_all_components("app.GUIInventory")) do pcall(function() gui:call("setupItemExtend") end) end
         debug_log("réparation mallette : APRÈS : " .. inventory_dump())
         last_tool_message = string.format("Mallette : %d objet(s) à 0 retiré(s), %d objet(s) superposé(s) replacé(s)", fixed, moved)

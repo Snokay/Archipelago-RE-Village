@@ -260,6 +260,18 @@ function i18n.item(name)
     i18n.names[cache_key] = text or false
     return text or name
 end
+-- Nom affiché d'un objet scouté (2026-10-10, joueur anglais : « [AP] Munitions de fusil sniper ») :
+-- objet de ce jeu = nom lu dans le jeu, dans sa langue, sans le « (2) » des variantes ; objet d'un
+-- autre jeu = nom envoyé par le serveur (déjà dans sa langue) suivi du joueur.
+function K.ap_label(s, fallback)
+    if not s then return fallback and i18n.item(fallback) or fallback end
+    if s.mine then
+        local name = (i18n.item(s.name) or s.name):gsub("%s*%(%d+%)$", "")
+        return name
+    end
+    return s.label
+end
+
 function i18n.loc(loc)
     local name = loc and loc.name
     if i18n.fr or not name then return name end
@@ -1899,9 +1911,9 @@ function shop_ui.detail.on_pickup(loc)
     local sc = lid and scouted_items[lid]
     if not sc then return end
     local def = sc.mine and item_by_name[sc.name]
-    local desc = def and def.description ~= "" and def.description
+    local desc = i18n.fr and def and def.description ~= "" and def.description
         or string.format(tr("Objet Archipelago pour %s (%s).", "Archipelago item for %s (%s)."), sc.player, sc.game)
-    shop_ui.detail.pending = { name = "[AP] " .. sc.label, desc = desc, until_t = os.clock() + 5 }
+    shop_ui.detail.pending = { name = "[AP] " .. K.ap_label(sc), desc = desc, until_t = os.clock() + 5 }
 end
 function shop_ui.detail.install()
     local def = sdk.find_type_definition("app.GUIDetailSearch")
@@ -2084,7 +2096,7 @@ function shop_ui.detail.on_set_mode(args)
             -- objet d'un autre jeu : pas de fiche, nom écrit seulement dans le titre (keep_title)
             if k.game_item_id then p:call("set_messageID", shop_ui.detail.key_name_guid(k.game_item_id)) end
             what = "messageID -> nom de " .. k.name
-            shop_ui.detail.title = { gui = sdk.to_managed_object(args[2]):add_ref(), text = "[AP] " .. k.name,
+            shop_ui.detail.title = { gui = sdk.to_managed_object(args[2]):add_ref(), text = "[AP] " .. (i18n.item(k.name) or k.name),
                 until_t = os.clock() + 20 }
         end
     end
@@ -4273,10 +4285,10 @@ local function ap_shop_label(item_id, unit_price)
     if loc then
         local id = get_location_id(loc)
         local s = id and scouted_items[id]
-        return "[AP] " .. ((s and s.label) or loc.original_item)
+        return "[AP] " .. K.ap_label(s, loc.original_item)
     end
     local i = item_id and unit_price == 0 and parcel_index_of(item_id)
-    if i then return "[Colis AP] " .. state.parcel[i] end
+    if i then return tr("[Colis AP] ", "[AP Parcel] ") .. i18n.item(state.parcel[i]) end
     return nil
 end
 
@@ -5581,7 +5593,7 @@ function shop_ui.world.model_for(loc, specs)
     local lid = get_location_id(loc)
     local s = lid and scouted_items[lid]
     if not s then return nil, nil end
-    local label = "[AP] " .. s.label
+    local label = "[AP] " .. K.ap_label(s)
     -- Check déjà fait mais objet encore là (sauvegarde rechargée, demande du joueur 2026-09-27) :
     -- toujours habillé ; le ramasser ne donne rien (objet d'origine retiré, pas de renvoi).
     if location_done(loc) then label = label .. tr(" (déjà obtenu)", " (already obtained)") end
@@ -7130,9 +7142,9 @@ local function update_shop_label()
         local s = lid and scouted_items[lid]
         local label = nil
         if loc then
-            label = "[AP] " .. ((s and s.label) or loc.original_item)
+            label = "[AP] " .. K.ap_label(s, loc.original_item)
         elseif unit:call("get_price") == 0 and parcel_index_of(item_id) then
-            label = "[Colis AP] " .. state.parcel[parcel_index_of(item_id)]
+            label = tr("[Colis AP] ", "[AP Parcel] ") .. i18n.item(state.parcel[parcel_index_of(item_id)])
         end
         if label then open_shop:call("get_itemNameText"):call("set_Message", label) end
         local model = loc and shop_ui.ap_model_units[unit:get_address()] or nil

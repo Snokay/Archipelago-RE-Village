@@ -41,6 +41,7 @@ K.MAX_MATCH_DISTANCE = 5.0
 -- valide aussi l'autre, sinon un check impossible à prendre reste affiché.
 K.TWINS = { { "M1897", "M1897 #001" } }
 -- Rayon de reconnaissance par position plus large que 3 m pour ces emplacements (voir ramassage)
+-- (objets NON habillés seulement : un objet AP ramassé est rattaché jusqu'à 8 m partout)
 K.POSITION_RADIUS = { ["Animal en bois (tête) #003 [S09]"] = 8, ["Bombe tuyau #007 [S12]"] = 8 }
 -- Taille maximale des piles (munitions, soins, armes ; catalogue du jeu, docs/reference/item_catalog_fr.json),
 -- pour savoir si un don tient dans une pile existante (2026-10-09, objets sortis de la mallette).
@@ -3146,8 +3147,7 @@ local function on_item_picked(interact, core)
     end
     -- Objet AP ramassé sans emplacement reconnu (2026-10-10, Bombe tuyau #007 [S12] remontée par le
     -- seau d'un puits : autre objet du jeu, et la recherche par position ne voit que les emplacements
-    -- du même numéro d'objet) : emplacement habillé, pas encore fait, le plus proche (8 m au plus) ;
-    -- la règle des caisses (3 m, ou K.POSITION_RADIUS) décide ensuite.
+    -- du même numéro d'objet) : emplacement habillé, pas encore fait, le plus proche (8 m au plus).
     if not spawn_info and picked_item_id == shop_ui.world.PICKUP_ID then
         pcall(function()
             local gp = go and get_gameobject_identity(go).item_position
@@ -3163,7 +3163,9 @@ local function on_item_picked(interact, core)
                 end
             end
             if best then
-                spawn_info, dist, by_position = best.si, best_d, true
+                -- objet AP : créé seulement par le mod, pas de confusion possible avec une caisse ;
+                -- valable pour tous les puits (2026-10-10, « il y a beaucoup de checks de puits »)
+                spawn_info, dist, by_position = best.si, best_d, false
                 debug_log(string.format("ramassage : objet AP sans emplacement, emplacement habillé le plus proche : %s à %.1f m",
                     best.loc.name, best_d))
             end

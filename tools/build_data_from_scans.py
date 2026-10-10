@@ -329,6 +329,20 @@ def main():
         locations.append(loc)
 
     # --- Boutique du Duc ---
+    # Rang d'arrivée de chaque article (2026-10-10, softlock d'un joueur : la logique croyait la
+    # boutique ouverte dès le départ) : 1er relevé où l'article apparaît, au rang de la partie de
+    # référence où ce relevé est sûr d'être atteint. 1re rencontre du Duc juste avant le château
+    # (après le Morceau de relief (démon), rang 31) ; après le château : compté seulement après la
+    # cinématique du Duc (Cric + Volant + Clé à quatre ailes, rang 230.5), moment exact inconnu.
+    shop_stage_files = [("shop_duc_chateau_*.json", 37.9), ("shop_duc_complet_village2_*.json", 231),
+                        ("shop_duc_complet_reservoir_*.json", 332), ("shop_duc_complet_apres_forteresse_*.json", 416),
+                        ("shop_duc_complet_usine_*.json", 522.9), ("shop_duc_complet_fin_*.json", 545.9)]
+    shop_stages = []
+    for pattern, stage_order in shop_stage_files:
+        snap = json.loads(sorted(REF.glob(pattern))[-1].read_text(encoding="utf-8"))
+        if "units" in snap:  # relevé du château : autre format
+            snap = {str(u["item_id"]): u for u in snap["units"].values() if isinstance(u, dict)}
+        shop_stages.append(({k: max(1, u.get("stock", 1)) for k, u in snap.items()}, stage_order))
     shop = json.loads(sorted(REF.glob("shop_duc_complet_fin_*.json"))[-1].read_text(encoding="utf-8"))
     for iid, unit in shop.items():
         name = raw_name(iid)
@@ -342,13 +356,16 @@ def main():
             locations.append({"name": f"Duc - {original}" + (f" {n + 1}" if stock > 1 else ""),
                               "region": "Boutique du Duc", "kind": "shop", "original_item": original,
                               "shop_item_id": int(iid), "price": unit.get("price", 0), "shop_index": n,
-                              "inventory_expansion": name == "Valise"})
+                              "inventory_expansion": name == "Valise",
+                              # n-ième exemplaire (Valises) : 1er relevé où le stock le contient
+                              "order": next(o for stocks, o in shop_stages if stocks.get(str(iid), 0) > n)})
 
     # --- Plats du Duc (bonus vanilla conservé ; un sac de Lei dans le pool) ---
     recipes = json.loads((REF / "plats_du_duc.json").read_text(encoding="utf-8"))
     for rid, r in recipes.items():
         locations.append({"name": f"Duc - Plat : {r.get('title') or rid}", "region": "Boutique du Duc",
-                          "kind": "recipe", "recipe_id": int(rid), "original_item": MONEY_NAME})
+                          "kind": "recipe", "recipe_id": int(rid), "original_item": MONEY_NAME,
+                          "order": 231})  # plats : après la cinématique du Duc (rang 230.5)
     if MONEY_NAME not in items:
         items[MONEY_NAME] = {"name": MONEY_NAME, "type": "Money", "game_item_id": MONEY_ITEM_ID, "category": ""}
 

@@ -55,7 +55,7 @@ class ResidentEvilVillage(World):
     game: str = "Resident Evil Village"
 
     data_version = 1
-    apworld_release_version = "0.9.2"  # alpha publique (2026-10-08) ; X.Y.Z exigé par Archipelago 0.7
+    apworld_release_version = "0.9.3"  # alpha publique (2026-10-10) ; X.Y.Z exigé par Archipelago 0.7
 
     item_name_to_id = {
         item['name']: item['id']
@@ -158,6 +158,22 @@ class ResidentEvilVillage(World):
         "Trophée de chasse", "Clé de Dimitrescu",
     )}
 
+    # Boutique du Duc et objets clés (2026-10-10, softlock d'un joueur, choix du développeur) : un
+    # article peut porter un objet clé de n'importe quelle zone (le Duc est au château, au Village et
+    # à l'usine), seulement s'il est vendu avant l'endroit où l'objet sert (champ "order" = rang
+    # d'arrivée de l'article, données) et s'il coûte au plus SHOP_KEY_MAX_PRICE : le joueur doit
+    # pouvoir le payer (Lei mélangés, piège Faillite). Plats : jamais (ingrédients de chasse
+    # mélangés, viandes rares sans rang connu). Marge SHOP_KEY_MARGIN rangs entre l'arrivée de
+    # l'article et l'endroit où l'objet sert, le temps de gagner les Lei (sinon la Bague avec un œil
+    # écarlate, rang 45, tombait sur un article à 4 000 Lei du début : rien en poche au château).
+    SHOP_KEY_MAX_PRICE = 5000
+    SHOP_KEY_MARGIN = 30
+
+    @classmethod
+    def _shop_takes_keys(cls, data):
+        return data.get('kind') == 'shop' and data.get('order') is not None \
+            and data.get('price', 0) <= cls.SHOP_KEY_MAX_PRICE
+
     @staticmethod
     def _no_key_items(data):
         """Location qui ne reçoit jamais un de mes objets clés. Sacs de Lei (2026-10-06, choix du
@@ -256,14 +272,21 @@ class ResidentEvilVillage(World):
             if needed:
                 set_rule(location, lambda state, needed=needed: all(
                     state.has(name, player, count) for name, count in needed))
-            # Où un objet clé de cette partie ne peut PAS aller : boutique et plats (dispo selon
-            # l'avancement, pas modélisé), 1er passage au Village (placements disparus ensuite),
-            # et hors de sa zone avec "dans_leur_zone".
-            forbid_all = data.get('kind') in ('shop', 'recipe', 'bossdrop') or self._no_key_items(data)
-            region = data.get('region')
-            add_item_rule(location, lambda item, forbid_all=forbid_all, region=region: not (
+            # Où un objet clé de cette partie ne peut PAS aller : plats, drops de boss, articles du
+            # Duc trop chers (_shop_takes_keys), 1er passage au Village (placements disparus ensuite),
+            # et hors de sa zone avec "dans_leur_zone" (sauf boutique : rang d'arrivée seulement).
+            shop_ok = self._shop_takes_keys(data)
+            forbid_all = (data.get('kind') in ('shop', 'recipe', 'bossdrop') and not shop_ok) \
+                or self._no_key_items(data)
+            region = None if shop_ok else data.get('region')
+            # boutique : au moins un exemplaire de l'objet doit servir après la marge (le rang exact
+            # de chaque exemplaire est assuré par les règles d'accès)
+            too_soon = {name for name, item in key_items.items()
+                        if shop_ok and max(self._key_uses(item)) < data['order'] + self.SHOP_KEY_MARGIN}
+            add_item_rule(location, lambda item, forbid_all=forbid_all, region=region, too_soon=too_soon: not (
                 item.player == player and item.name in key_items and (
-                    forbid_all or (in_zone and key_items[item.name].get('key_zone') != region))))
+                    forbid_all or item.name in too_soon
+                    or (in_zone and region and key_items[item.name].get('key_zone') != region))))
 
     def create_items(self):
         # Une copie de l'objet d'origine par location active (hors Victory).
@@ -334,12 +357,15 @@ class ResidentEvilVillage(World):
         free = []
         for location in self.multiworld.get_locations(self.player):
             data = self.location_name_to_location.get(location.name, {})
-            if location.item is None and data.get('kind') == 'world' and data.get('order') is not None \
+            if location.item is None and (data.get('kind') == 'world' or self._shop_takes_keys(data)) \
+                    and data.get('order') is not None \
                     and not self._no_key_items(data) and location.progress_type != LocationProgressType.EXCLUDED:
                 free.append((location, data))
         for deadline, name in todo:
             zone = self.item_name_to_item[name]['key_zone']
-            candidates = [(loc, d) for loc, d in free if d['region'] == zone and d['order'] < deadline]
+            candidates = [(loc, d) for loc, d in free
+                          if (d['region'] == zone and d['order'] < deadline)
+                          or (d.get('kind') == 'shop' and d['order'] + self.SHOP_KEY_MARGIN <= deadline)]
             if not candidates:
                 raise REVillageOptionError(f"Resident Evil Village : aucune place pour l'objet clé {name}")
             # Tirage penché vers les places tardives (racine carrée) : sinon les objets clés se

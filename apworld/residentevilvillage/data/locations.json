@@ -6863,7 +6863,8 @@
   "shop_item_id": 1060602647,
   "price": 3000,
   "shop_index": 0,
-  "inventory_expansion": false
+  "inventory_expansion": false,
+  "order": 332
  },
  {
   "name": "Duc - V61 Custom",
@@ -6873,7 +6874,8 @@
   "shop_item_id": 1157345091,
   "price": 120000,
   "shop_index": 0,
-  "inventory_expansion": false
+  "inventory_expansion": false,
+  "order": 522.9
  },
  {
   "name": "Duc - Viseur point rouge (SYG-12)",
@@ -6883,7 +6885,8 @@
   "shop_item_id": 1212053308,
   "price": 42000,
   "shop_index": 0,
-  "inventory_expansion": false
+  "inventory_expansion": false,
+  "order": 522.9
  },
  {
   "name": "Duc - Appui-joue (Fusil F2)",
@@ -6893,7 +6896,8 @@
   "shop_item_id": 1839743046,
   "price": 20000,
   "shop_index": 0,
-  "inventory_expansion": false
+  "inventory_expansion": false,
+  "order": 231
  },
  {
   "name": "Duc - Lunette grossissante (Fusil F2)",
@@ -6903,7 +6907,8 @@
   "shop_item_id": 1959464596,
   "price": 15000,
   "shop_index": 0,
-  "inventory_expansion": false
+  "inventory_expansion": false,
+  "order": 231
  },
  {
   "name": "Duc - Compensateur de recul (LEMI) (1)",
@@ -6913,7 +6918,8 @@
   "shop_item_id": 2255157331,
   "price": 10000,
   "shop_index": 0,
-  "inventory_expansion": false
+  "inventory_expansion": false,
+  "order": 332
  },
  {
   "name": "Duc - SYG-12",
@@ -6923,7 +6929,8 @@
   "shop_item_id": 241847407,
   "price": 180000,
   "shop_index": 0,
-  "inventory_expansion": false
+  "inventory_expansion": false,
+  "order": 522.9
  },
  {
   "name": "Duc - Formule : Bombes tuyaux",
@@ -6933,7 +6940,8 @@
   "shop_item_id": 2445047744,
   "price": 2500,
   "shop_index": 0,
-  "inventory_expansion": false
+  "inventory_expansion": false,
+  "order": 231
  },
  {
   "name": "Duc - Crosse (V61 Custom)",
@@ -6943,7 +6951,8 @@
   "shop_item_id": 2500933730,
   "price": 35000,
   "shop_index": 0,
-  "inventory_expansion": false
+  "inventory_expansion": false,
+  "order": 522.9
  },
  {
   "name": "Duc - Canon long (V61 Custom)",
@@ -6953,7 +6962,8 @@
   "shop_item_id": 2653529981,
   "price": 56000,
   "shop_index": 0,
-  "inventory_expansion": false
+  "inventory_expansion": false,
+  "order": 545.9
  },
  {
   "name": "Duc - Valise 1",
@@ -6963,7 +6973,8 @@
   "shop_item_id": 269218988,
   "price": 50000,
   "shop_index": 0,
-  "inventory_expansion": true
+  "inventory_expansion": true,
+  "order": 37.9
  },
  {
   "name": "Duc - Valise 2",
@@ -6973,7 +6984,8 @@
   "shop_item_id": 269218988,
   "price": 50000,
   "shop_index": 1,
-  "inventory_expansion": true
+  "inventory_expansion": true,
+  "order": 231
  },
  {
   "name": "Duc - Valise 3",
@@ -6983,7 +6995,8 @@
   "shop_item_id": 269218988,
   "price": 50000,
   "shop_index": 2,
-  "inventory_expansion": true
+  "inventory_expansion": true,
+  "order": 522.9
  },
  {
   "name": "Duc - Formule : Mines",
@@ -6993,7 +7006,8 @@
   "shop_item_id": 2980903038,
   "price": 3500,
   "shop_index": 0,
-  "inventory_expansion": false
+  "inventory_expansion": false,
+  "order": 37.9
  },
  {
   "name": "Duc - Formule : Cartouches de fusil",
@@ -7003,7 +7017,8 @@
   "shop_item_id": 3064876456,
   "price": 3000,
   "shop_index": 0,
-  "inventory_expansion": false
+  "inventory_expansion": false,
+  "order": 37.9
  },
  {
   "name": "Duc - Formule : Munitions de fusil sniper",
@@ -7013,7 +7028,8 @@
   "shop_item_id": 3131688569,
   "price": 4000,
   "shop_index": 0,
-  "inventory_expansion": false
+  "inventory_expansion": false,
+  "order": 37.9
  },
  {
   "name": "Duc - Crosse améliorée (W870 TAC)",
@@ -7023,7 +7039,8 @@
   "shop_item_id": 3154753836,
   "price": 22000,
   "shop_index": 0,
-  "inventory_expansion": false
+  "inventory_expansion": false,
+  "order": 332
  },
  {
   "name": "Duc - Chargeur grande capacité (LEMI)",
@@ -7033,7 +7050,8 @@
   "shop_item_id": 3593098140,
   "price": 9000,
   "shop_index": 0,
-  "inventory_expansion": false
+  "inventory_expansion": false,
+  "order": 37.9
  },
  {
   "name": "Duc - Détente sensible (M1897)",
@@ -7043,7 +7061,8 @@
   "shop_item_id": 3787717904,
   "price": 8000,
   "shop_index": 0,
-  "inventory_expansion": false
+  "inventory_expansion": false,
+  "order": 37.9
  },
  {
   "name": "Duc - Formule : Grenades explosives",
@@ -7053,7 +7072,8 @@
   "shop_item_id": 629367356,
   "price": 3000,
   "shop_index": 0,
-  "inventory_expansion": false
+  "inventory_expansion": false,
+  "order": 332
  },
  {
   "name": "Duc - Formule : Munitions de fusil d'assaut",
@@ -7063,7 +7083,8 @@
   "shop_item_id": 794293600,
   "price": 10000,
   "shop_index": 0,
-  "inventory_expansion": false
+  "inventory_expansion": false,
+  "order": 37.9
  },
  {
   "name": "Duc - Poignée ergonomique (M1911)",
@@ -7073,7 +7094,8 @@
   "shop_item_id": 80959953,
   "price": 12000,
   "shop_index": 0,
-  "inventory_expansion": false
+  "inventory_expansion": false,
+  "order": 332
  },
  {
   "name": "Duc - Gros barillet (M1851 Wolfsbane)",
@@ -7083,7 +7105,8 @@
   "shop_item_id": 879197051,
   "price": 100000,
   "shop_index": 0,
-  "inventory_expansion": false
+  "inventory_expansion": false,
+  "order": 522.9
  },
  {
   "name": "Duc - Chargeur grande capacité (Fusil F2) (1)",
@@ -7093,7 +7116,8 @@
   "shop_item_id": 89877500,
   "price": 16000,
   "shop_index": 0,
-  "inventory_expansion": false
+  "inventory_expansion": false,
+  "order": 416
  },
  {
   "name": "Duc - Chargeur grande capacité (M1911) (1)",
@@ -7103,49 +7127,56 @@
   "shop_item_id": 913733353,
   "price": 18000,
   "shop_index": 0,
-  "inventory_expansion": false
+  "inventory_expansion": false,
+  "order": 416
  },
  {
   "name": "Duc - Plat : Sarmale de peste",
   "region": "Boutique du Duc",
   "kind": "recipe",
   "recipe_id": 1011080918,
-  "original_item": "Sac de Lei"
+  "original_item": "Sac de Lei",
+  "order": 231
  },
  {
   "name": "Duc - Plat : Tochitura de pui",
   "region": "Boutique du Duc",
   "kind": "recipe",
   "recipe_id": 1116309985,
-  "original_item": "Sac de Lei"
+  "original_item": "Sac de Lei",
+  "order": 231
  },
  {
   "name": "Duc - Plat : Mititei aux trois saveurs",
   "region": "Boutique du Duc",
   "kind": "recipe",
   "recipe_id": 1376849669,
-  "original_item": "Sac de Lei"
+  "original_item": "Sac de Lei",
+  "order": 231
  },
  {
   "name": "Duc - Plat : Pilaf complet",
   "region": "Boutique du Duc",
   "kind": "recipe",
   "recipe_id": 225784948,
-  "original_item": "Sac de Lei"
+  "original_item": "Sac de Lei",
+  "order": 231
  },
  {
   "name": "Duc - Plat : Ciorba de porc",
   "region": "Boutique du Duc",
   "kind": "recipe",
   "recipe_id": 3523218967,
-  "original_item": "Sac de Lei"
+  "original_item": "Sac de Lei",
+  "order": 231
  },
  {
   "name": "Duc - Plat : Poisson aux herbes",
   "region": "Boutique du Duc",
   "kind": "recipe",
   "recipe_id": 4293784029,
-  "original_item": "Sac de Lei"
+  "original_item": "Sac de Lei",
+  "order": 231
  },
  {
   "name": "Victory",

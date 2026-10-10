@@ -54,7 +54,8 @@ class KeyItems(Choice):
         toujours placé avant l'endroit où il sert : la partie reste faisable.
         a_leur_place : chaque objet clé reste à sa place d'origine.
         dans_leur_zone : mélangés dans ta partie, chacun dans la zone où il sert (Village, château,
-        maison Beneviento, réservoir, usine). Aucun autre joueur ne peut te bloquer.
+        maison Beneviento, réservoir, usine) ou chez le Duc, sur un article bon marché vendu bien
+        avant l'endroit où il sert. Aucun autre joueur ne peut te bloquer.
         zone_ou_multiworld : comme dans_leur_zone, mais environ la moitié part chez les autres
         joueurs du multiworld.
         Restent toujours à leur place : couteau, pistolet de départ, masques et Trophée de chasse
@@ -64,7 +65,8 @@ class KeyItems(Choice):
         placed before the place where it is used: the game stays beatable.
         vanilla: every key item stays at its original place.
         own_zone: shuffled in your game, each one in the area where it is used (Village, castle,
-        House Beneviento, reservoir, factory). No other player can block you.
+        House Beneviento, reservoir, factory) or at the Duke's, on a cheap article sold well before
+        the place where it is used. No other player can block you.
         zone_or_multiworld: like own_zone, but about half of them go to the other players of the
         multiworld.
         Always at their original place: knife, starting pistol, the castle's masks and Hunting

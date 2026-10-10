@@ -1507,7 +1507,7 @@ end
 -- Les hooks ne font que noter ; le travail est fait dans la boucle du jeu (save_sync.update).
 local save_sync = { history = {}, saving_slot = nil, load_slot = nil, loaded = false, dirty = false, captures = 0 }
 
--- Sécurité des clés ailées (2026-10-10, demande du joueur) : au chargement et toutes les 30 s en jeu,
+-- Sécurité des clés ailées (2026-10-10, demande du joueur) : au chargement d'une sauvegarde,
 -- autant de niveaux dans la mallette que d'exemplaires reçus et déjà donnés (index <= limit) ;
 -- les manquants sont redonnés, jamais plus que reçus.
 function K.progressive_check(limit)
@@ -9295,10 +9295,9 @@ re.on_pre_application_entry("UpdateBehavior", function()
     end
     process_parcel()
     pcall(K.parcel_topup)
-    if os.clock() >= (K.progressive_next or 0) and #items_queue == 0 and not K.case_busy() and K.chapter ~= "Chapter1" then
-        K.progressive_next = os.clock() + 30
-        pcall(K.progressive_check)
-    end
+    -- (vérification des clés ailées toutes les 30 s retirée, 2026-10-10 : le jeu retire lui-même la
+    -- Clé ailée pendant sa séquence d'après la Clé à quatre ailes ; la redonner a été suivi d'un crash
+    -- 5 s plus tard. Vérification gardée au chargement d'une sauvegarde seulement.)
     inventory_repair.update()
     snapshot_quantities()
     update_zone_stats()

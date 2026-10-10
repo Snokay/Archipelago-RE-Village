@@ -34,7 +34,7 @@ local MOD_NAME = "re_village_ap_client"
 -- 200 variables locales de Lua (script refusé au chargement).
 local K = {}
 K.GAME_NAME = "Resident Evil Village"
-K.MOD_VERSION = "0.9.1.19" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
+K.MOD_VERSION = "0.9.1.20" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
 K.MAX_MATCH_DISTANCE = 5.0
 -- Emplacements jumeaux (2026-10-08) : le jeu pose deux exemplaires du M1897 (table du village et
 -- près de la première sauvegarde), le second devient des Lei si on a déjà le fusil. Ramasser l'un
@@ -1439,6 +1439,20 @@ end
 -- Les hooks ne font que noter ; le travail est fait dans la boucle du jeu (save_sync.update).
 local save_sync = { history = {}, saving_slot = nil, load_slot = nil, loaded = false, dirty = false, captures = 0 }
 
+-- Sécurité des clés ailées (2026-10-10, demande du joueur) : au chargement et toutes les 30 s en jeu,
+-- autant de niveaux dans la mallette que d'exemplaires reçus et déjà donnés (index <= limit) ;
+-- les manquants sont redonnés, jamais plus que reçus.
+function K.progressive_check(limit)
+    limit = limit or state.last_applied_index
+    local counts = {}
+    for index, row in pairs(save_sync.history) do
+        local def = item_by_name[net.get_item_name(row.item) or ""]
+        if def and def.levels and index <= limit then counts[def] = (counts[def] or 0) + 1 end
+    end
+    for def, n in pairs(counts) do K.progressive_fill(def, n) end
+end
+
+
 function save_sync.snapshot()
     local index, src = state.last_applied_index, state.parcel
     -- Sauvegarde automatique faite PENDANT un chargement (2026-10-09, Sanguis Virginis perdu) : la
@@ -1768,16 +1782,8 @@ function save_sync.update()
     -- niveau de mallette perdu (voir save_sync.restore_level) ; revérifié 5 s plus tard
     -- (au chargement : seulement les Valises que la sauvegarde contient ; les suivantes sont redonnées par la file)
     save_sync.valise_check("chargement", math.min(state.last_applied_index, target and target.index or state.last_applied_index))
-    -- clés ailées : niveaux reçus (dans la sauvegarde) tous présents (voir K.progressive_fill)
-    pcall(function()
-        local limit = math.min(state.last_applied_index, target and target.index or state.last_applied_index)
-        local counts = {}
-        for index, row in pairs(save_sync.history) do
-            local def = item_by_name[net.get_item_name(row.item) or ""]
-            if def and def.levels and index <= limit then counts[def] = (counts[def] or 0) + 1 end
-        end
-        for def, n in pairs(counts) do K.progressive_fill(def, n) end
-    end)
+    -- clés ailées : niveaux reçus (dans la sauvegarde) tous présents (voir K.progressive_check)
+    pcall(K.progressive_check, math.min(state.last_applied_index, target and target.index or state.last_applied_index))
     save_sync.restore_level(target and target.level, "chargement")
     save_sync.level_recheck = { at = os.clock() + 5, v = target and target.level }
     if not target or target.index >= state.last_applied_index then return end
@@ -9163,6 +9169,10 @@ re.on_pre_application_entry("UpdateBehavior", function()
     end
     process_parcel()
     pcall(K.parcel_topup)
+    if os.clock() >= (K.progressive_next or 0) and #items_queue == 0 and not K.case_busy() and K.chapter ~= "Chapter1" then
+        K.progressive_next = os.clock() + 30
+        pcall(K.progressive_check)
+    end
     inventory_repair.update()
     snapshot_quantities()
     update_zone_stats()

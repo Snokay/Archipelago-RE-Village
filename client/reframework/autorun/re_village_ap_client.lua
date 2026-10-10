@@ -9096,7 +9096,7 @@ re.on_pre_application_entry("UpdateBehavior", function()
     -- onglet Checks rempli même hors jeu (2026-10-09 : prologue sans mallette -> « Connecte-toi
     -- à une partie » alors que la connexion était faite) ; il ne dépend que du serveur
     pcall(shop_ui.menu.refresh)
-    pcall(K.flow_watch)
+    -- (surveillance toutes les 2 s retirée : elle a servi à relever la scène du Duc ; demande du joueur)
     if K.flow_dump then
         K.flow_dump = nil
         pcall(K.flow_watch, true)

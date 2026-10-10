@@ -344,6 +344,7 @@ local function load_state(seed, slot)
         state.valise_no_item = loaded.valise_no_item
         state.wine_placed = loaded.wine_placed
         state.story = loaded.story
+        state.hunts = loaded.hunts
     end
     -- Toutes les sauvegardes de cette seed sont suivies (2026-09-30) : état neuf, ou aucun
     -- emplacement réel noté jusqu'ici. Alors une sauvegarde inconnue date d'AVANT la seed.
@@ -1466,18 +1467,22 @@ function save_sync.snapshot()
     end
     local parcel = {}
     for i, name in ipairs(src or {}) do parcel[i] = name end
-    local level, wine, story = save_sync.level_v(), state.wine_placed, state.story
+    local level, wine, story, hunts = save_sync.level_v(), state.wine_placed, state.story, state.hunts
     if src ~= state.parcel then
         local t = save_sync.load_target
         if t == nil and save_sync.load_slot then t = state.saves and state.saves[tostring(save_sync.load_slot)] end
-        level, wine, story = t and t.level or nil, t and t.wine or nil, t and t.story or nil
+        level, wine, story, hunts = t and t.level or nil, t and t.wine or nil, t and t.story or nil, t and t.hunts or nil
     end
-    local story_copy = nil
+    local story_copy, hunts_copy = nil, nil
     if story then
         story_copy = {}
         for k, v in pairs(story) do story_copy[k] = v end
     end
-    return { index = index, parcel = parcel, level = level, wine = wine, story = story_copy }
+    if hunts then
+        hunts_copy = {}
+        for k, v in pairs(hunts) do hunts_copy[k] = v end
+    end
+    return { index = index, parcel = parcel, level = level, wine = wine, story = story_copy, hunts = hunts_copy }
 end
 
 -- Niveau de mallette perdu au chargement (2026-10-09, rapport d'un joueur : objets superposés,
@@ -1676,7 +1681,7 @@ function save_sync.install_hooks()
         -- WriteBackSaveData).
         if session then
             local t = state.saves and state.saves[tostring(save_sync.load_slot)]
-            save_sync.load_target = t and { index = t.index, parcel = t.parcel, level = t.level, wine = t.wine, story = t.story } or false
+            save_sync.load_target = t and { index = t.index, parcel = t.parcel, level = t.level, wine = t.wine, story = t.story, hunts = t.hunts } or false
             save_sync.load_target_slot = save_sync.load_slot
         end
     end)
@@ -1699,7 +1704,7 @@ function save_sync.install_hooks()
         -- sans StartLoad (reprise après une mort : point de reprise), état retenu ici
         if session and not save_sync.loaded and save_sync.load_target == nil and not save_sync.load_slot then
             local t = state.checkpoint
-            save_sync.load_target = t and { index = t.index, parcel = t.parcel, level = t.level, wine = t.wine, story = t.story } or false
+            save_sync.load_target = t and { index = t.index, parcel = t.parcel, level = t.level, wine = t.wine, story = t.story, hunts = t.hunts } or false
         end
         save_sync.loaded = true
         save_sync.picked_locs = {} -- objets au sol revenus avec la sauvegarde : habillés à nouveau
@@ -1777,6 +1782,12 @@ function save_sync.update()
             state.story = {}
             for k, v in pairs(target.story) do state.story[k] = v end
         end
+        -- compteurs de chasse de la sauvegarde chargée (inconnus : relus sur le serveur)
+        state.hunts = nil
+        if target.hunts then
+            state.hunts = {}
+            for k, v in pairs(target.hunts) do state.hunts[k] = v end
+        end
     end
     K.give_hold_until = os.clock() + 10 -- pas de dons pendant 10 s après un chargement (voir K.case_busy)
     -- niveau de mallette perdu (voir save_sync.restore_level) ; revérifié 5 s plus tard
@@ -1828,7 +1839,10 @@ end
 -- Identifiants : docs/README.md « Identifiants de boss confirmés » et kills.jsonl.
 death_link.KILLERS = {
     em1000 = "Lady Dimitrescu",                    -- griffes NailAttack_L, 400 (confirmé 2026-09-27)
-    em1240 = "a Lycan",                            -- lycans de base
+    em1240 = "a Lycan",                            -- lycans de base (aussi les lycans améliorés du 2_6, même identifiant)
+    em1250 = "a Moroaica",                         -- créatures à faucille du château (2026-10-10, 32 tués)
+    em1251 = "a Moroaica",
+    em1270 = "a Samca",                            -- créatures volantes du château (2026-10-10, 8 tuées)
     em1060 = "Urias",                              -- boss de la forteresse (marteau)
     em1061 = "Urias Strajer",                      -- version Mégamycète (partie Chris)
     em1062 = "a giant axe-wielding Lycan",         -- gardien de la tombe du Village (2026-10-07)
@@ -3152,14 +3166,29 @@ local function on_item_picked(interact, core)
 
     -- Viande d'animal ramassée hors emplacement AP (checks de chasse, 2026-10-07) : prochain check
     -- de cette viande actif dans la seed et pas encore fait (#1, puis #2...). Au-delà : viande normale.
+    -- Compté PAR SAUVEGARDE (2026-10-10, rapport du joueur : 2 poissons tués, sauvegarde rechargée,
+    -- les mêmes poissons ont donné les checks #3 à #5) : la N-ième viande de ce type ramassée dans
+    -- cette sauvegarde correspond au check #N ; déjà fait = viande normale. Compteur retenu avec chaque
+    -- sauvegarde (state.hunts) ; sauvegarde inconnue : nombre de checks déjà faits sur le serveur.
     if not loc and picked_item_id and (locations.hunts or {})[picked_item_id] then
+        local active = {}
         for _, candidate in ipairs(locations.hunts[picked_item_id]) do
-            if get_location_id(candidate) and shop_ui.location_done(candidate) == false then
-                loc = candidate
-                break
-            end
+            if get_location_id(candidate) then active[#active + 1] = candidate end
         end
-        debug_log("chasse : viande " .. tostring(picked_item_id) .. " -> " .. (loc and loc.name or "aucun check restant"))
+        local key = tostring(picked_item_id)
+        state.hunts = state.hunts or {}
+        if state.hunts[key] == nil then
+            local done = 0
+            for _, c in ipairs(active) do if shop_ui.location_done(c) == true then done = done + 1 end end
+            state.hunts[key] = done
+        end
+        local n = state.hunts[key] + 1
+        state.hunts[key] = n
+        save_state()
+        local candidate = active[n]
+        if candidate and shop_ui.location_done(candidate) == false then loc = candidate end
+        debug_log(string.format("chasse : viande %s n°%d dans cette sauvegarde -> %s", tostring(picked_item_id), n,
+            loc and loc.name or (candidate and (candidate.name .. " déjà fait, viande normale") or "aucun check restant")))
         ident.location = loc and loc.name or nil
     end
     -- 2e Sanguis Virginis (2026-10-09, rapport du joueur) : après l'énigme du vin, le jeu en fait

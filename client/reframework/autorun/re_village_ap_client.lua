@@ -561,8 +561,32 @@ end
 
 -- Ferme l'écran d'examen d'objet en cours (app.DetailSearch.SetForceEnd,
 -- DetailSearchBehavior.EndDetailSearchFromOutside). Renvoie le nombre d'appels réussis.
-function K.detail_force_end()
+function K.detail_force_end(hard)
     local n = 0
+    if hard then
+        -- 2e niveau : fin directe, forcée (si l'écran est toujours ouvert après la demande)
+        pcall(function()
+            local im = sdk.get_managed_singleton("app.InteractManager")
+            if im:call("NowDetailSearch") then
+                im:call("EndDetailSearch(System.Boolean)", true)
+                debug_log("écran d'examen : fin directe forcée (EndDetailSearch)")
+            end
+        end)
+        return 1
+    end
+    -- 1) gestionnaire d'interactions (2026-10-10 : la recherche de composants ne voyait rien, 0 appel)
+    pcall(function()
+        local im = sdk.get_managed_singleton("app.InteractManager")
+        local now = im:call("NowDetailSearch")
+        debug_log("écran d'examen : examen en cours = " .. tostring(now))
+        im:call("RequestForceEndDetailSearch")
+        n = n + 1
+        local ds = im:get_field("DetailSearchObject")
+        if ds then
+            ds:call("SetForceEnd")
+            n = n + 1
+        end
+    end)
     for _, ds in ipairs(find_all_components("app.DetailSearch")) do
         if pcall(function() ds:call("SetForceEnd") end) then n = n + 1 end
     end
@@ -9173,10 +9197,16 @@ re.on_pre_application_entry("UpdateBehavior", function()
     if K.detail_end_at and os.clock() >= K.detail_end_at then
         K.detail_end_at = nil
         pcall(K.detail_force_end)
+        K.detail_hard_at = os.clock() + 2
     end
     if requests.detail_end then
         requests.detail_end = nil
         pcall(K.detail_force_end)
+        K.detail_hard_at = os.clock() + 2
+    end
+    if K.detail_hard_at and os.clock() >= K.detail_hard_at then
+        K.detail_hard_at = nil
+        pcall(K.detail_force_end, true)
     end
     -- (surveillance toutes les 2 s retirée : elle a servi à relever la scène du Duc ; demande du joueur)
     if K.flow_dump then

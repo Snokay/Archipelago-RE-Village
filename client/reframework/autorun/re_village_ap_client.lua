@@ -413,13 +413,27 @@ end
 -- Mallette ou boutique affichée (2026-10-09 : la réparation automatique tournait pendant que le
 -- joueur promenait un objet dans la mallette ; l'objet tenu « recouvrait » un soin, sorti de la
 -- grille). Ni réparation, ni don, ni colis tant que l'une des deux est ouverte.
+-- Pause des dons (2026-10-10, crashs intermittents dans Inventory.updateOrder à 23:49 et 03:24,
+-- chacun peu après une série de dons faite juste après un chargement, cause non prouvée) : 10 s
+-- après un chargement (K.give_hold_until) et 2 s après la fermeture de la mallette ou de la boutique.
+K.give_hold_until = 0
 function K.case_busy()
     local busy = false
     pcall(function()
         local gm = sdk.get_managed_singleton("app.GUIManager")
         busy = gm:call("isShowingGUIInventory") == true or gm:call("isShowingGUIShop") == true
     end)
-    return busy
+    if busy then
+        K.case_closed_at = nil
+        K.case_was_busy = true
+        return true
+    end
+    if K.case_was_busy then
+        K.case_was_busy = nil
+        K.case_closed_at = os.clock()
+    end
+    if K.case_closed_at and os.clock() - K.case_closed_at < 2.0 then return true end
+    return os.clock() < K.give_hold_until
 end
 
 -- Relevé complet de la mallette (diagnostic des achats-checks, 2026-09-26) : "ItemID x pile"
@@ -1756,6 +1770,7 @@ function save_sync.update()
             for k, v in pairs(target.story) do state.story[k] = v end
         end
     end
+    K.give_hold_until = os.clock() + 10 -- pas de dons pendant 10 s après un chargement (voir K.case_busy)
     -- niveau de mallette perdu (voir save_sync.restore_level) ; revérifié 5 s plus tard
     -- (au chargement : seulement les Valises que la sauvegarde contient ; les suivantes sont redonnées par la file)
     save_sync.valise_check("chargement", math.min(state.last_applied_index, target and target.index or state.last_applied_index))

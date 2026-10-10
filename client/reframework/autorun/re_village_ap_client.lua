@@ -41,8 +41,8 @@ K.MAX_MATCH_DISTANCE = 5.0
 -- valide aussi l'autre, sinon un check impossible à prendre reste affiché.
 K.TWINS = { { "M1897", "M1897 #001" } }
 -- Emplacements de clé ailée avec une scène d'assemblage (2026-10-10, fin de la maison Beneviento :
--- l'assemblage veut le VRAI morceau ramassé ; remplacé par l'objet AP, la clé disparaissait et le menu
--- ne se fermait plus) : objet jamais remplacé, et gardé au ramassage (le check part quand même).
+-- l'assemblage veut le VRAI morceau ramassé ; remplacé par l'objet AP, la clé disparaissait et l'écran
+-- d'examen ne se fermait plus) : écran fermé de force 5 s après le ramassage (K.detail_force_end).
 K.ASSEMBLY_KEYS = { ["Clé fœtus à quatre ailes #008"] = true, ["Clé fœtus à six ailes #007"] = true }
 -- Rayon de reconnaissance par position plus large que 3 m pour ces emplacements (voir ramassage)
 -- (objets NON habillés seulement : un objet AP ramassé est rattaché jusqu'à 8 m partout)
@@ -557,6 +557,20 @@ local function find_all_components(type_name)
     end)
     if not ok or not comps then return {} end
     return comps:get_elements()
+end
+
+-- Ferme l'écran d'examen d'objet en cours (app.DetailSearch.SetForceEnd,
+-- DetailSearchBehavior.EndDetailSearchFromOutside). Renvoie le nombre d'appels réussis.
+function K.detail_force_end()
+    local n = 0
+    for _, ds in ipairs(find_all_components("app.DetailSearch")) do
+        if pcall(function() ds:call("SetForceEnd") end) then n = n + 1 end
+    end
+    for _, b in ipairs(find_all_components("app.DetailSearchBehavior")) do
+        if pcall(function() b:call("EndDetailSearchFromOutside()") end) then n = n + 1 end
+    end
+    debug_log("écran d'examen : fermeture forcée (" .. n .. " appel(s))")
+    return n
 end
 
 local function get_item_id_from_core(item_core)
@@ -3379,11 +3393,10 @@ local function on_item_picked(interact, core)
         end
     end
 
-    -- Morceau de clé ailée avec scène d'assemblage (K.ASSEMBLY_KEYS) : gardé, le check part.
+    -- Morceau de clé ailée avec scène d'assemblage (K.ASSEMBLY_KEYS) : écran d'examen fermé de force
     if K.ASSEMBLY_KEYS[loc.name or ""] then
-        table.insert(picked_locations, loc)
-        debug_log("ramassage : " .. loc.name .. " : vrai morceau de clé gardé (scène d'assemblage), check envoyé")
-        return
+        K.detail_end_at = os.clock() + 5
+        debug_log("ramassage : " .. loc.name .. " : écran d'examen fermé de force dans 5 s (scène d'assemblage)")
     end
 
     -- Chasse (option 2 du joueur, 2026-10-07) : traitée comme les autres checks (viande habillée
@@ -6718,7 +6731,6 @@ end
 
 function shop_ui.world.swap_pickup(e, rec)
     pcall(shop_ui.world.learn_get_mode, e)
-    if K.ASSEMBLY_KEYS[e.loc.name or ""] then return end -- vrai morceau de clé (scène d'assemblage)
     -- Arme posée : ni mode de ramassage changé, ni objet modifié (voir shop_ui.world.model_for)...
     -- sauf si elle ne tient pas dans la mallette (2026-10-10, Fusil F2 #013 : « inventaire
     -- complet », check impossible) : objet modifié sur place en objet d'une case, mode de
@@ -9158,6 +9170,14 @@ re.on_pre_application_entry("UpdateBehavior", function()
     -- onglet Checks rempli même hors jeu (2026-10-09 : prologue sans mallette -> « Connecte-toi
     -- à une partie » alors que la connexion était faite) ; il ne dépend que du serveur
     pcall(shop_ui.menu.refresh)
+    if K.detail_end_at and os.clock() >= K.detail_end_at then
+        K.detail_end_at = nil
+        pcall(K.detail_force_end)
+    end
+    if requests.detail_end then
+        requests.detail_end = nil
+        pcall(K.detail_force_end)
+    end
     -- (surveillance toutes les 2 s retirée : elle a servi à relever la scène du Duc ; demande du joueur)
     if K.flow_dump then
         K.flow_dump = nil
@@ -9792,6 +9812,8 @@ function shop_ui.help.draw()
     imgui.text(tr("Objets superposés, quantité 0, case qu'on ne peut pas utiliser : remet la mallette en ordre.",
         "Overlapping items, quantity 0, unusable slot: puts the case back in order."))
     if imgui.button(tr("Réparer la mallette", "Repair the case")) then requests.fix_zero = true end
+    -- écran d'examen d'objet bloqué (2026-10-10, scène d'assemblage d'une clé avec l'objet AP)
+    if imgui.button(tr("Fermer l'écran d'examen bloqué", "Close a stuck item-examine screen")) then requests.detail_end = true end
     -- mur de la salle des statues fermé alors que le vin est posé (2e Sanguis, 2026-10-09)
     if not state.wine_placed and imgui.button(tr("Le vin est déjà posé (ouvrir le mur de la salle des statues)",
             "The wine is already placed (open the statue room wall)")) then

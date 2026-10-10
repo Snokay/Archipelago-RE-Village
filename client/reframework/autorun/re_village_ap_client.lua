@@ -40,6 +40,8 @@ K.MAX_MATCH_DISTANCE = 5.0
 -- près de la première sauvegarde), le second devient des Lei si on a déjà le fusil. Ramasser l'un
 -- valide aussi l'autre, sinon un check impossible à prendre reste affiché.
 K.TWINS = { { "M1897", "M1897 #001" } }
+-- Rayon de reconnaissance par position plus large que 3 m pour ces emplacements (voir ramassage)
+K.POSITION_RADIUS = { ["Animal en bois (tête) #003 [S09]"] = 6 }
 -- Taille maximale des piles (munitions, soins, armes ; catalogue du jeu, docs/reference/item_catalog_fr.json),
 -- pour savoir si un don tient dans une pile existante (2026-10-09, objets sortis de la mallette).
 K.MAX_STACK = { [241847407] = 1, [331140406] = 1, [738899953] = 1, [941205456] = 1, [1042576120] = 5, [1131327709] = 5, [1157345091] = 1, [1179972000] = 30, [1429493426] = 1, [1583016682] = 5, [1617108900] = 5, [1731811000] = 15, [1927571624] = 5, [2182652875] = 10, [2576167331] = 1, [2735256250] = 1, [2838037082] = 1, [3188868396] = 100, [3213662355] = 5, [3919597625] = 15, [4186049118] = 1 }
@@ -3152,7 +3154,10 @@ local function on_item_picked(interact, core)
     -- sans check ») : reconnu seulement par la position (objet du même numéro à moins de 3 m),
     -- un objet de caisse ne doit pas valider un check déjà fait ni un check à plus de 3 m (sinon
     -- l'objet ramassé était retiré pour rien).
-    if loc and by_position and ((dist or 99) > 3 or shop_ui.location_done(loc) ~= false) then
+    -- Exceptions (2026-10-10) : objet remonté par le seau du puits (partie est du village), apparu à
+    -- 3,4 m de son emplacement noté ; le check ne partait pas et restait au tracker.
+    local max_dist = K.POSITION_RADIUS[loc and loc.name or ""] or 3
+    if loc and by_position and ((dist or 99) > max_dist or shop_ui.location_done(loc) ~= false) then
         debug_log(string.format("ramassage : %s ignoré (reconnu par position à %.1f m, déjà fait : %s)",
             loc.name, dist or -1, tostring(shop_ui.location_done(loc))))
         loc = nil

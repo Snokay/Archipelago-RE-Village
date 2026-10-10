@@ -150,7 +150,10 @@
   "Piège : Screamer": "Trap: Screamer",
   "Piège : Armes bloquées": "Trap: Jammed Weapons",
   "Piège : Dégâts": "Trap: Damage",
-  "Piège : Chargeur vidé": "Trap: Empty Magazine"
+  "Piège : Chargeur vidé": "Trap: Empty Magazine",
+  "Boule (cheval de fer)": "Iron Horse Ball",
+  "Boule (soleil et lune)": "Sun and Moon Ball",
+  "Moule (boule)": "Ball Mold"
  },
  "locations": {
   "Grenades explosives #005 [S01]": "Explosive Rounds #005 [S01]",
@@ -761,6 +764,9 @@
   "Morceau de plaque #001 [S03]": "Broken Slab #001 [S03]",
   "Boss - Grande hache cristallisée (gardien de la tombe)": "Boss - Giant Crystal Axe (tomb guardian)",
   "Morceau de relief (vierge) #005": "Maiden Crest #005",
-  "Morceau de relief (démon) #009": "Demon Crest #009"
+  "Morceau de relief (démon) #009": "Demon Crest #009",
+  "Moule (boule) #011 [Usine d'Heisenberg - Broyeur]": "Ball Mold #011 [Heisenberg's Factory - Grinder Shaft]",
+  "Boule (cheval de fer) #008 [Usine d'Heisenberg - -4B]": "Iron Horse Ball #008 [Heisenberg's Factory - MB4]",
+  "Boule (soleil et lune) #008": "Sun and Moon Ball #008"
  }
 }

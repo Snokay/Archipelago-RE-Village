@@ -55,7 +55,7 @@ class ResidentEvilVillage(World):
     game: str = "Resident Evil Village"
 
     data_version = 1
-    apworld_release_version = "0.9.3"  # alpha publique (2026-10-10) ; X.Y.Z exigé par Archipelago 0.7
+    apworld_release_version = "0.9.4"  # alpha publique (2026-10-10) ; X.Y.Z exigé par Archipelago 0.7
 
     item_name_to_id = {
         item['name']: item['id']

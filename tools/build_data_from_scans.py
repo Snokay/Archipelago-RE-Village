@@ -128,6 +128,13 @@ KEY_FORBIDDEN_CHAPTERS = ("Chapter2_1",)
 # joueur) : Morceau de plaque (tombe du centre du Village, l'autre morceau est déjà sur la tombe).
 # Rang = fin de son chapitre ; ajoutés EN FIN de données (ID existants inchangés).
 KEY_EXTRA = ("VillageTombStonePlate",)
+# Boules des labyrinthes à bille absentes de la partie de référence (2026-10-10, joueur : « la boule
+# soleil et lune devant moi, pas en check ») : Boule (soleil et lune) (Village, après la maison
+# Beneviento) et, à l'usine, Moule (boule) puis Boule (cheval de fer) coulée avec ce moule. Une
+# boule n'ouvre qu'un labyrinthe dont la récompense n'est pas un check (KEY_USE hors d'atteinte).
+# Groupe à part, TOUT à la fin (emplacements après ceux du 1er passage, objets après les pièges) :
+# aucun numéro existant ne bouge.
+KEY_EXTRA_BALLS = ("SpiritBallPuzzleBall", "GeekMoldGeekBallPuzzleBall", "GeekGeekBallPuzzleBall")
 # Objets clés du 1er passage au Village (Chapter2_1), mélangés eux aussi (2026-10-08, demande du
 # joueur ; le couteau reste à sa place, NEVER_RANDOMIZE). Leurs emplacements n'existent qu'au 1er
 # passage (absents des relevés suivants) : jamais d'objet important dessus (missable_spot ->
@@ -142,6 +149,7 @@ FIRST_PASS_KEYS = ("VillageReliefSword", "VillageReliefEye")
 # Trésor de la tombe du Village (vérifié en jeu le 2026-10-07 : [AP] à la place du Calice).
 LOCATION_REQUIRES_KEYS = {
     "af436ade-6c4c-099c-3a12-829036bf901c": ["Morceau de plaque"],  # Calice de Berengario #018
+    "e3d4bbec-5d19-035c-216c-f63b7244988e": ["Moule (boule)"],      # Boule (cheval de fer) #008, coulée
 }
 # Clés ailées (une par niveau) : un seul item « progressif », le client donne le niveau suivant.
 CROW_KEYS = ["VillageCrowKey", "VillageCrowKeyLv2", "VillageCrowKey_Lv3", "VillageCrowKey_Lv4"]
@@ -169,6 +177,9 @@ KEY_USE = {
     # Morceau de plaque : n'ouvre que la tombe à trésor, qui n'est pas un check -> ne sert à aucune
     # location (rang hors d'atteinte), placé n'importe où.
     "VillageTombStonePlate": 10 ** 6,
+    # Boules des labyrinthes (KEY_EXTRA_BALLS) : récompenses hors checks. Le moule sert à couler la
+    # Boule (cheval de fer) : son emplacement le demande (LOCATION_REQUIRES_KEYS).
+    "SpiritBallPuzzleBall": 10 ** 6, "GeekMoldGeekBallPuzzleBall": 10 ** 6, "GeekGeekBallPuzzleBall": 10 ** 6,
 }
 # Drops de boss (option boss_drops_as_checks, 2026-09-30, idée du joueur) : certains boss meurent
 # dans une scène scriptée, on ne voit pas leur mort ; leur trésor lâché, si. Le N-ième ramassage de
@@ -413,10 +424,12 @@ def main():
     key_items, key_locations, crow_orders = {}, [], []
     extra_key_items, extra_key_locations = {}, []
     first_key_items, first_key_locations = {}, []
+    ball_key_items, ball_key_locations = {}, []
     for guid, p, zone in sorted(key_placements, key=lambda t: vanilla_order.get(t[0], 1e9)):
         obj = internal_name(p.get("item_object", ""))
         first_pass = obj in FIRST_PASS_KEYS and chapter_of(p.get("folder_path")) == "Chapter2_1"
-        extra = (guid not in vanilla_order and obj in KEY_EXTRA) or first_pass
+        ball = guid not in vanilla_order and obj in KEY_EXTRA_BALLS
+        extra = (guid not in vanilla_order and obj in KEY_EXTRA) or first_pass or ball
         if (guid not in vanilla_order and not extra) or any(k in obj for k in KEY_VANILLA_PATTERNS):
             continue
         if chapter_of(p.get("folder_path")) in KEY_FORBIDDEN_CHAPTERS and not first_pass:
@@ -424,6 +437,8 @@ def main():
         order = order_of(guid, p.get("folder_path"))
         if first_pass:
             key_items, key_locations, saved = first_key_items, first_key_locations, (key_items, key_locations)
+        elif ball:
+            key_items, key_locations, saved = ball_key_items, ball_key_locations, (key_items, key_locations)
         elif extra:
             key_items, key_locations, saved = extra_key_items, extra_key_locations, (key_items, key_locations)
         # Énigmes de la maison Beneviento : option à part. La clé ailée de la maison n'en est pas
@@ -553,9 +568,17 @@ def main():
     item_list += sorted((i for i in first_key_items.values() if i["name"] not in have), key=lambda i: i["name"])
     locations += first_key_locations
 
+    # --- Boules des labyrinthes (KEY_EXTRA_BALLS, 2026-10-10) : emplacements tout à la fin ---
+    for loc in ball_key_locations:
+        if loc["name"] in taken:
+            loc["name"] += f" ({loc['guid'][:8]})"
+        taken.add(loc["name"])
+    locations += ball_key_locations
+
     for loc in locations:
         if loc.get("guid") in LOCATION_REQUIRES_KEYS:
             loc["requires_keys"] = LOCATION_REQUIRES_KEYS[loc["guid"]]
+            loc["no_key_items"] = True  # sinon l'objet demandé pourrait y être placé (pre_fill)
 
     region_names = ["Village", "Chateau Dimitrescu", "Maison Beneviento", "Reservoir", "Usine Heisenberg",
                     "Chris", "Fin du jeu", "Boutique du Duc"]
@@ -567,6 +590,9 @@ def main():
     item_list += [{"name": name, "type": "Trap", "trap": key, "quantity": 1} for name, key in (
         ("Piège : Faillite", "bankrupt"), ("Piège : Screamer", "screamer"), ("Piège : Armes bloquées", "jam"),
         ("Piège : Dégâts", "damage"), ("Piège : Chargeur vidé", "empty_mag"))]
+    # Boules des labyrinthes : objets après les pièges (numéros existants inchangés)
+    have = {i["name"] for i in item_list}
+    item_list += sorted((i for i in ball_key_items.values() if i["name"] not in have), key=lambda i: i["name"])
 
     def dump(path, data):
         path.parent.mkdir(parents=True, exist_ok=True)

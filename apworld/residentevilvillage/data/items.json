@@ -1325,5 +1325,44 @@
   "type": "Trap",
   "trap": "empty_mag",
   "quantity": 1
+ },
+ {
+  "name": "Boule (cheval de fer)",
+  "type": "Key",
+  "game_item_id": 815655584,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 522.5,
+  "key_use": 1000000,
+  "key_zone": "Usine Heisenberg",
+  "internal": "GeekGeekBallPuzzleBall",
+  "description": ""
+ },
+ {
+  "name": "Boule (soleil et lune)",
+  "type": "Key",
+  "game_item_id": 177382688,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 415.5,
+  "key_use": 1000000,
+  "key_zone": "Village",
+  "internal": "SpiritBallPuzzleBall",
+  "description": ""
+ },
+ {
+  "name": "Moule (boule)",
+  "type": "Key",
+  "game_item_id": 1895922302,
+  "category": "Objet clé",
+  "quantity": 1,
+  "key_item": true,
+  "key_order": 522.5,
+  "key_use": 1000000,
+  "key_zone": "Usine Heisenberg",
+  "internal": "GeekMoldGeekBallPuzzleBall",
+  "description": ""
  }
 ]

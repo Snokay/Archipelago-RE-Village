@@ -9076,5 +9076,59 @@
   "missable_chapter": "Chapter2_1",
   "auto_send_after": "Chapter2_1",
   "no_key_items": true
+ },
+ {
+  "name": "Moule (boule) #011 [Usine d'Heisenberg - Broyeur]",
+  "region": "Usine Heisenberg",
+  "kind": "world",
+  "key_item_location": true,
+  "original_item": "Moule (boule)",
+  "guid": "dac33622-f399-0f04-297b-dc3111924e95",
+  "item_object": "SpawnInfo_GeekMoldGeekBallPuzzleBall_011",
+  "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_KeyItem",
+  "item_position": [
+   -208.42,
+   -74.58,
+   331.59
+  ],
+  "order": 522.5,
+  "room_hash": 1690688364
+ },
+ {
+  "name": "Boule (cheval de fer) #008 [Usine d'Heisenberg - -4B]",
+  "region": "Usine Heisenberg",
+  "kind": "world",
+  "key_item_location": true,
+  "original_item": "Boule (cheval de fer)",
+  "guid": "e3d4bbec-5d19-035c-216c-f63b7244988e",
+  "item_object": "SpawnInfo_GeekGeekBallPuzzleBall_008",
+  "folder_path": "Chapter/Chapter2_5/st06_ItemSet/st06_ItemSet_SpawnInfo/st06_ItemSet_KeyItem",
+  "item_position": [
+   -242.51,
+   -108.37,
+   209.5
+  ],
+  "order": 522.5,
+  "room_hash": 2655372355,
+  "requires_keys": [
+   "Moule (boule)"
+  ],
+  "no_key_items": true
+ },
+ {
+  "name": "Boule (soleil et lune) #008",
+  "region": "Village",
+  "kind": "world",
+  "key_item_location": true,
+  "original_item": "Boule (soleil et lune)",
+  "guid": "1f810e2b-4f9b-09f6-3c54-b9d632043825",
+  "item_object": "SpawnInfo_SpiritBallPuzzleBall_008",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_06/c02_6_SpiritSecond_100",
+  "item_position": [
+   -158.36,
+   -28.18,
+   62.81
+  ],
+  "order": 415.5
  }
 ]

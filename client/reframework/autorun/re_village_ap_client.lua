@@ -34,7 +34,7 @@ local MOD_NAME = "re_village_ap_client"
 -- 200 variables locales de Lua (script refusé au chargement).
 local K = {}
 K.GAME_NAME = "Resident Evil Village"
-K.MOD_VERSION = "0.9.1.21" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
+K.MOD_VERSION = "0.9.1.22" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
 K.MAX_MATCH_DISTANCE = 5.0
 -- Emplacements jumeaux (2026-10-08) : le jeu pose deux exemplaires du M1897 (table du village et
 -- près de la première sauvegarde), le second devient des Lei si on a déjà le fusil. Ramasser l'un
@@ -3192,6 +3192,18 @@ local function on_item_picked(interact, core)
     -- Exceptions (2026-10-10) : objet remonté par le seau du puits (partie est du village), apparu à
     -- 3,4 m de son emplacement noté ; le check ne partait pas et restait au tracker.
     local max_dist = K.POSITION_RADIUS[loc and loc.name or ""] or 3
+    -- Objet ramassé = l'objet même de cet emplacement (2026-10-10, Collier incomplet #005 [S12] remonté
+    -- par le seau d'un puits, à 3,4 m ; l'objet de l'emplacement disparaissait juste après) : jusqu'à
+    -- 8 m, tous les puits. Une caisse donne un AUTRE objet que celui de l'emplacement voisin.
+    if loc and by_position and (dist or 99) > max_dist and spawn_info and go then
+        pcall(function()
+            local inst = spawn_info:call("get_spawnInstance")
+            if inst and inst:get_address() == go:get_address() and (dist or 99) <= 8 then
+                max_dist = 8
+                debug_log(string.format("ramassage : %s : objet de l'emplacement lui-même à %.1f m (puits), accepté", loc.name, dist))
+            end
+        end)
+    end
     if loc and by_position and ((dist or 99) > max_dist or shop_ui.location_done(loc) ~= false) then
         debug_log(string.format("ramassage : %s ignoré (reconnu par position à %.1f m, déjà fait : %s)",
             loc.name, dist or -1, tostring(shop_ui.location_done(loc))))

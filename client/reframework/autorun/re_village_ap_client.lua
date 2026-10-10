@@ -444,6 +444,14 @@ function K.flow_read()
     end
     return events, nums
 end
+-- Compteur de flux de l'histoire (nil si illisible)
+function K.flow_number(name)
+    local v = nil
+    pcall(function()
+        v = sdk.get_managed_singleton("app.LevelFlowManager"):call("getProgressiveNumber", name)
+    end)
+    return type(v) == "number" and v or nil
+end
 function K.flow_watch(force)
     if not force and os.clock() < (K.flow_next or 0) then return end
     K.flow_next = os.clock() + 2
@@ -8647,10 +8655,25 @@ shop_ui.no_return = {
         -- (2026-10-10 : mur placé par le joueur devant la porte à quatre ailes qui mène vers
         -- Beneviento, plus tôt que l'ascenseur ; rayon 3 m)
         { name = "Porte vers Beneviento", name_en = "Path to Beneviento", always = true,
-          blockers = function() return K.story_missing(K.STORY_LOCS) end,
+          -- État réel de l'histoire (2026-10-10, relevé en jeu) : compteur de flux c02_6_Main = 400 avant
+          -- la Clé à quatre ailes, 500 après (« je dois retourner voir le Duc »), 700 après la scène du
+          -- Duc. Atteint -> mur ouvert ; sinon checks d'origine manquants, puis la scène du Duc.
+          blockers = function()
+              local main = K.flow_number("c02_6_Main")
+              if main and main >= 700 then return {} end
+              local missing = K.story_missing(K.STORY_LOCS)
+              if #missing == 0 and main then
+                  missing[1] = tr("la scène du Duc (va le voir)", "the Duke's scene (go and see him)")
+              end
+              return missing
+          end,
           message = function(missing)
               -- ordre du jeu (rappel du joueur, 2026-10-09) : Cric + Volant -> Clé ailée 2 -> cinématique
               -- du Duc -> maison Beneviento ; une étape ratée = maison jamais lancée
+              if missing and #missing == 1 and missing[1] == tr("la scène du Duc (va le voir)", "the Duke's scene (go and see him)") then
+                  return tr("Avant d'aller chez Beneviento, retourne voir le Duc : sa scène lance la suite de l'histoire.",
+                      "Before heading to House Beneviento, go back and see the Duke: his scene starts the next part of the story.")
+              end
               return tr("Avant d'aller chez Beneviento, prends le check à l'endroit d'origine de ces objets, dans l'ordre Manivelle de cric et Volant de puits, puis Clé à quatre ailes (la scène du Duc suit), sinon la maison ne se lance pas : ",
                   "Before heading to House Beneviento, pick up the check at the original spot of these items, in order Jack Handle and Well Wheel, then Four-Winged Key (the Duke's scene follows), otherwise the house never starts: ")
                   .. table.concat(missing or {}, ", ")

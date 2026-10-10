@@ -9278,6 +9278,27 @@ re.on_pre_application_entry("UpdateBehavior", function()
         end
         debug_log(string.format("vin : bouton de l'Aide, vin déclaré posé ; Sanguis en double retiré(s) : %s sur %d", tostring(taken), count))
     end
+    -- Outil de dev (2026-10-10) : retire un objet de la mallette par son ID (objets clés compris :
+    -- removeItem sur l'objet lui-même), pour tester la scène d'assemblage des clés ailées.
+    if requests.remove_id then
+        local id = requests.remove_id
+        requests.remove_id = nil
+        local _, inv_r = get_active_inventory()
+        local removed = 0
+        pcall(function()
+            local list = inv_r:call("get_items")
+            local works = {}
+            for i = 0, list:call("get_Count") - 1 do works[#works + 1] = list:call("get_Item", i):call("get_work") end
+            for _, work in ipairs(works) do
+                if work:call("get_itemID") == id then
+                    inv_r:call("removeItem", work, true)
+                    removed = removed + 1
+                end
+            end
+        end)
+        last_tool_message = string.format("Objet %s : %d retiré(s)", tostring(id), removed)
+        debug_log(last_tool_message)
+    end
     if requests.take_valise then
         requests.take_valise = nil
         local _, inv_v = get_active_inventory()
@@ -10001,6 +10022,9 @@ re.on_draw_ui(function()
         if imgui.button("TEST : +1000 Lei") then requests.money = true end
         if imgui.button("Lister la progression de l'histoire (journal)") then K.flow_dump = true end
         if imgui.button("TEST : retirer l'objet Valise (niveau gardé)") then requests.take_valise = true end
+        if imgui.button("TEST : retirer l'objet de l'ID ci-dessus (même un objet clé)") then
+            requests.remove_id = tonumber(test_item_id)
+        end
         if imgui.button("REPARER la mallette (objets superposés, quantité 0)") then requests.fix_zero = true end
         if imgui.button("DIAG : modèles au sol (texture manquante)") then
             -- 2026-09-27 : boîte de munitions sans texture. Compare nos objets modifiés à ceux du

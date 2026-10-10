@@ -42,7 +42,9 @@ K.MAX_MATCH_DISTANCE = 5.0
 K.TWINS = { { "M1897", "M1897 #001" } }
 -- Emplacements de clé ailée avec une scène d'assemblage (2026-10-10, fin de la maison Beneviento :
 -- l'assemblage veut le VRAI morceau ramassé ; remplacé par l'objet AP, la clé disparaissait et l'écran
--- d'examen ne se fermait plus) : écran fermé de force 5 s après le ramassage (K.detail_force_end).
+-- d'examen ne se fermait plus ; le fermer de force bloquait le jeu). Solution du joueur : objet jamais
+-- remplacé (assemblage normal, check envoyé), puis clés remises en accord avec le progressif 15 s après
+-- (K.key_reconcile).
 K.ASSEMBLY_KEYS = { ["Clé fœtus à quatre ailes #008"] = true, ["Clé fœtus à six ailes #007"] = true }
 -- Rayon de reconnaissance par position plus large que 3 m pour ces emplacements (voir ramassage)
 -- (objets NON habillés seulement : un objet AP ramassé est rattaché jusqu'à 8 m partout)
@@ -1561,6 +1563,45 @@ function K.progressive_check(limit)
         if def and def.levels and index <= limit then counts[def] = (counts[def] or 0) + 1 end
     end
     for def, n in pairs(counts) do K.progressive_fill(def, n) end
+end
+
+-- Clés ailées en accord avec le progressif (après une scène d'assemblage du jeu, 2026-10-10) :
+-- niveaux 1..N reçus = 1 exemplaire chacun ; niveaux pas encore reçus = retirés ; doubles = retirés.
+function K.key_reconcile()
+    local counts = {}
+    for index, row in pairs(save_sync.history) do
+        local def = item_by_name[net.get_item_name(row.item) or ""]
+        if def and def.levels and index <= state.last_applied_index then counts[def] = (counts[def] or 0) + 1 end
+    end
+    local _, inv = get_active_inventory()
+    if not inv then return end
+    for _, def in pairs(item_by_name) do
+        if def.levels then
+            local received = counts[def] or 0
+            for i, id in ipairs(def.levels) do
+                local want = i <= received and 1 or 0
+                local have = inventory_quantity(id) or 0
+                if have < want then
+                    local ok = give_item(id, 1)
+                    debug_log(string.format("clés en accord : niveau %d (objet %s) redonné : %s", i, tostring(id), tostring(ok)))
+                elseif have > want then
+                    local extra, removed = have - want, 0
+                    pcall(function()
+                        local list = inv:call("get_items")
+                        local works = {}
+                        for j = 0, list:call("get_Count") - 1 do works[#works + 1] = list:call("get_Item", j):call("get_work") end
+                        for _, work in ipairs(works) do
+                            if removed < extra and work:call("get_itemID") == id then
+                                inv:call("removeItem", work, true)
+                                removed = removed + 1
+                            end
+                        end
+                    end)
+                    debug_log(string.format("clés en accord : niveau %d (objet %s) : %d en trop, %d retiré(s) (reçus : %d)", i, tostring(id), extra, removed, received))
+                end
+            end
+        end
+    end
 end
 
 
@@ -3417,10 +3458,13 @@ local function on_item_picked(interact, core)
         end
     end
 
-    -- Morceau de clé ailée avec scène d'assemblage (K.ASSEMBLY_KEYS) : écran d'examen fermé de force
+    -- Morceau de clé ailée avec scène d'assemblage (K.ASSEMBLY_KEYS) : gardé pour l'assemblage du jeu,
+    -- check envoyé, clés remises en accord avec le progressif 15 s après (K.key_reconcile).
     if K.ASSEMBLY_KEYS[loc.name or ""] then
-        K.detail_end_at = os.clock() + 5
-        debug_log("ramassage : " .. loc.name .. " : écran d'examen fermé de force dans 5 s (scène d'assemblage)")
+        table.insert(picked_locations, loc)
+        K.key_reconcile_at = os.clock() + 15
+        debug_log("ramassage : " .. loc.name .. " : vrai morceau gardé (assemblage du jeu), clés remises en accord dans 15 s")
+        return
     end
 
     -- Chasse (option 2 du joueur, 2026-10-07) : traitée comme les autres checks (viande habillée
@@ -6755,6 +6799,7 @@ end
 
 function shop_ui.world.swap_pickup(e, rec)
     pcall(shop_ui.world.learn_get_mode, e)
+    if K.ASSEMBLY_KEYS[e.loc.name or ""] then return end -- vrai morceau (scène d'assemblage du jeu)
     -- Arme posée : ni mode de ramassage changé, ni objet modifié (voir shop_ui.world.model_for)...
     -- sauf si elle ne tient pas dans la mallette (2026-10-10, Fusil F2 #013 : « inventaire
     -- complet », check impossible) : objet modifié sur place en objet d'une case, mode de
@@ -9194,10 +9239,9 @@ re.on_pre_application_entry("UpdateBehavior", function()
     -- onglet Checks rempli même hors jeu (2026-10-09 : prologue sans mallette -> « Connecte-toi
     -- à une partie » alors que la connexion était faite) ; il ne dépend que du serveur
     pcall(shop_ui.menu.refresh)
-    if K.detail_end_at and os.clock() >= K.detail_end_at then
-        K.detail_end_at = nil
-        pcall(K.detail_force_end)
-        K.detail_hard_at = os.clock() + 2
+    if K.key_reconcile_at and os.clock() >= K.key_reconcile_at and is_in_game() and not K.case_busy() then
+        K.key_reconcile_at = nil
+        pcall(K.key_reconcile)
     end
     if requests.detail_end then
         requests.detail_end = nil
@@ -9842,8 +9886,7 @@ function shop_ui.help.draw()
     imgui.text(tr("Objets superposés, quantité 0, case qu'on ne peut pas utiliser : remet la mallette en ordre.",
         "Overlapping items, quantity 0, unusable slot: puts the case back in order."))
     if imgui.button(tr("Réparer la mallette", "Repair the case")) then requests.fix_zero = true end
-    -- écran d'examen d'objet bloqué (2026-10-10, scène d'assemblage d'une clé avec l'objet AP)
-    if imgui.button(tr("Fermer l'écran d'examen bloqué", "Close a stuck item-examine screen")) then requests.detail_end = true end
+    -- (bouton « Fermer l'écran d'examen bloqué » retiré, 2026-10-10 : la fermeture forcée bloquait le jeu)
     -- mur de la salle des statues fermé alors que le vin est posé (2e Sanguis, 2026-10-09)
     if not state.wine_placed and imgui.button(tr("Le vin est déjà posé (ouvrir le mur de la salle des statues)",
             "The wine is already placed (open the statue room wall)")) then

@@ -1081,6 +1081,18 @@ local items_queue = {}
 local last_item_give = -math.huge
 local ending_active = false
 
+-- Niveaux 1..level d'un objet clé progressif présents dans la mallette (2026-10-10) : les
+-- manquants sont donnés (niveaux retirés par les versions d'avant 0.9.1.20, ou donnés dans le désordre).
+function K.progressive_fill(item, level)
+    for i = 1, math.min(level, #item.levels) do
+        local id = item.levels[i]
+        if (inventory_quantity(id) or 0) == 0 then
+            local ok = give_item(id, 1)
+            debug_log(string.format("clé progressive : %s niveau %d (objet %s) redonné : %s", tostring(item.name), i, tostring(id), tostring(ok)))
+        end
+    end
+end
+
 local function apply_item(row)
     local item_name = net.get_item_name(row.item)
     local item = item_name and item_by_name[item_name]
@@ -1116,31 +1128,13 @@ local function apply_item(row)
         ok = give_money(item.quantity or 500) -- 500 : un sac de Lei du Village (vu en jeu)
     elseif item.levels then
         -- Objet clé progressif (clés ailées, 2026-09-30) : le N-ième exemplaire reçu donne le
-        -- niveau N (row.level, voir process_network). Comme dans le jeu, la clé SE TRANSFORME :
-        -- les niveaux d'avant sont retirés de l'inventaire une fois le nouveau donné (2026-10-08,
-        -- test en jeu : la Clé ailée restait à côté de la Clé à quatre ailes).
+        -- niveau N (row.level, voir process_network). TOUS les niveaux sont gardés (2026-10-10,
+        -- rapport du joueur : porte à deux ailes pas encore ouverte, Clé à quatre ailes refusée ;
+        -- avant, les niveaux d'avant étaient retirés comme dans le jeu, où on ouvre toujours les
+        -- portes dans l'ordre). Les niveaux d'avant qui manquent sont redonnés.
         local level = math.min(row.level or 1, #item.levels)
         ok, reason = give_item(item.levels[level], 1)
-        if ok then
-            -- reduceItem ne retire pas un objet clé (essai du 2026-10-08 : quantité restée à 1) :
-            -- removeItem sur l'objet lui-même, trouvé dans la liste de l'inventaire.
-            local _, inv = get_active_inventory()
-            local lower = {}
-            for i = 1, level - 1 do lower[item.levels[i]] = i end
-            pcall(function()
-                local list = inv:call("get_items")
-                local works = {}
-                for i = 0, list:call("get_Count") - 1 do works[#works + 1] = list:call("get_Item", i):call("get_work") end
-                for _, work in ipairs(works) do
-                    local n = lower[work:call("get_itemID")]
-                    if n then
-                        local removed = pcall(function() inv:call("removeItem", work, true) end)
-                        debug_log(string.format("clé progressive : niveau %d retiré (remplacé par le niveau %d) : %s",
-                            n, level, tostring(removed)))
-                    end
-                end
-            end)
-        end
+        if ok then pcall(K.progressive_fill, item, level) end
         debug_log(string.format("don : %s niveau %d (objet %s) : %s", item_name, level, tostring(item.levels[level]), tostring(ok)))
         -- Diagnostic (2026-10-08 : Clé ailée « donnée » mais absente de l'inventaire) : quantités de
         -- tous les niveaux tout de suite, puis 3 s plus tard (le jeu jette-t-il la clé ?).
@@ -1774,6 +1768,16 @@ function save_sync.update()
     -- niveau de mallette perdu (voir save_sync.restore_level) ; revérifié 5 s plus tard
     -- (au chargement : seulement les Valises que la sauvegarde contient ; les suivantes sont redonnées par la file)
     save_sync.valise_check("chargement", math.min(state.last_applied_index, target and target.index or state.last_applied_index))
+    -- clés ailées : niveaux reçus (dans la sauvegarde) tous présents (voir K.progressive_fill)
+    pcall(function()
+        local limit = math.min(state.last_applied_index, target and target.index or state.last_applied_index)
+        local counts = {}
+        for index, row in pairs(save_sync.history) do
+            local def = item_by_name[net.get_item_name(row.item) or ""]
+            if def and def.levels and index <= limit then counts[def] = (counts[def] or 0) + 1 end
+        end
+        for def, n in pairs(counts) do K.progressive_fill(def, n) end
+    end)
     save_sync.restore_level(target and target.level, "chargement")
     save_sync.level_recheck = { at = os.clock() + 5, v = target and target.level }
     if not target or target.index >= state.last_applied_index then return end

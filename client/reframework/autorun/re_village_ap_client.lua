@@ -40,6 +40,10 @@ K.MAX_MATCH_DISTANCE = 5.0
 -- près de la première sauvegarde), le second devient des Lei si on a déjà le fusil. Ramasser l'un
 -- valide aussi l'autre, sinon un check impossible à prendre reste affiché.
 K.TWINS = { { "M1897", "M1897 #001" } }
+-- Emplacements de clé ailée avec une scène d'assemblage (2026-10-10, fin de la maison Beneviento :
+-- l'assemblage veut le VRAI morceau ramassé ; remplacé par l'objet AP, la clé disparaissait et le menu
+-- ne se fermait plus) : objet jamais remplacé, et gardé au ramassage (le check part quand même).
+K.ASSEMBLY_KEYS = { ["Clé fœtus à quatre ailes #008"] = true, ["Clé fœtus à six ailes #007"] = true }
 -- Rayon de reconnaissance par position plus large que 3 m pour ces emplacements (voir ramassage)
 -- (objets NON habillés seulement : un objet AP ramassé est rattaché jusqu'à 8 m partout)
 K.POSITION_RADIUS = { ["Animal en bois (tête) #003 [S09]"] = 8, ["Bombe tuyau #007 [S12]"] = 8 }
@@ -3375,6 +3379,13 @@ local function on_item_picked(interact, core)
         end
     end
 
+    -- Morceau de clé ailée avec scène d'assemblage (K.ASSEMBLY_KEYS) : gardé, le check part.
+    if K.ASSEMBLY_KEYS[loc.name or ""] then
+        table.insert(picked_locations, loc)
+        debug_log("ramassage : " .. loc.name .. " : vrai morceau de clé gardé (scène d'assemblage), check envoyé")
+        return
+    end
+
     -- Chasse (option 2 du joueur, 2026-10-07) : traitée comme les autres checks (viande habillée
     -- en objet AP au sol, objet AP reçu, viande retirée ; elle revient par le pool). Avant : viande
     -- gardée et objet AP donné à part.
@@ -6707,6 +6718,7 @@ end
 
 function shop_ui.world.swap_pickup(e, rec)
     pcall(shop_ui.world.learn_get_mode, e)
+    if K.ASSEMBLY_KEYS[e.loc.name or ""] then return end -- vrai morceau de clé (scène d'assemblage)
     -- Arme posée : ni mode de ramassage changé, ni objet modifié (voir shop_ui.world.model_for)...
     -- sauf si elle ne tient pas dans la mallette (2026-10-10, Fusil F2 #013 : « inventaire
     -- complet », check impossible) : objet modifié sur place en objet d'une case, mode de

@@ -41,7 +41,7 @@ K.MAX_MATCH_DISTANCE = 5.0
 -- valide aussi l'autre, sinon un check impossible à prendre reste affiché.
 K.TWINS = { { "M1897", "M1897 #001" } }
 -- Rayon de reconnaissance par position plus large que 3 m pour ces emplacements (voir ramassage)
-K.POSITION_RADIUS = { ["Animal en bois (tête) #003 [S09]"] = 6 }
+K.POSITION_RADIUS = { ["Animal en bois (tête) #003 [S09]"] = 8, ["Bombe tuyau #007 [S12]"] = 8 }
 -- Taille maximale des piles (munitions, soins, armes ; catalogue du jeu, docs/reference/item_catalog_fr.json),
 -- pour savoir si un don tient dans une pile existante (2026-10-09, objets sortis de la mallette).
 K.MAX_STACK = { [241847407] = 1, [331140406] = 1, [738899953] = 1, [941205456] = 1, [1042576120] = 5, [1131327709] = 5, [1157345091] = 1, [1179972000] = 30, [1429493426] = 1, [1583016682] = 5, [1617108900] = 5, [1731811000] = 15, [1927571624] = 5, [2182652875] = 10, [2576167331] = 1, [2735256250] = 1, [2838037082] = 1, [3188868396] = 100, [3213662355] = 5, [3919597625] = 15, [4186049118] = 1 }
@@ -3143,6 +3143,31 @@ local function on_item_picked(interact, core)
     if not spawn_info then
         spawn_info, dist = find_spawn_info_for(go, picked_item_id)
         by_position = spawn_info ~= nil
+    end
+    -- Objet AP ramassé sans emplacement reconnu (2026-10-10, Bombe tuyau #007 [S12] remontée par le
+    -- seau d'un puits : autre objet du jeu, et la recherche par position ne voit que les emplacements
+    -- du même numéro d'objet) : emplacement habillé, pas encore fait, le plus proche (8 m au plus) ;
+    -- la règle des caisses (3 m, ou K.POSITION_RADIUS) décide ensuite.
+    if not spawn_info and picked_item_id == shop_ui.world.PICKUP_ID then
+        pcall(function()
+            local gp = go and get_gameobject_identity(go).item_position
+            if not gp then return end
+            local best, best_d = nil, 8
+            for _, e in ipairs(shop_ui.world.entries or {}) do
+                if shop_ui.location_done(e.loc) == false then
+                    local ep = e.loc.item_position or get_spawn_info_identity(e.si).item_position
+                    if ep then
+                        local d = math.sqrt((ep[1] - gp[1]) ^ 2 + (ep[2] - gp[2]) ^ 2 + (ep[3] - gp[3]) ^ 2)
+                        if d < best_d then best, best_d = e, d end
+                    end
+                end
+            end
+            if best then
+                spawn_info, dist, by_position = best.si, best_d, true
+                debug_log(string.format("ramassage : objet AP sans emplacement, emplacement habillé le plus proche : %s à %.1f m",
+                    best.loc.name, best_d))
+            end
+        end)
     end
     debug_log("ramassage : placement trouvé = " .. tostring(spawn_info ~= nil) .. " ; lecture identité")
     local ident = spawn_info and get_spawn_info_identity(spawn_info) or {}

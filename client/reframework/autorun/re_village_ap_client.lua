@@ -8663,16 +8663,21 @@ shop_ui.no_return = {
               if main and main >= 700 then return {} end
               local missing = K.story_missing(K.STORY_LOCS)
               if #missing == 0 and main then
-                  missing[1] = tr("la scène du Duc (va le voir)", "the Duke's scene (go and see him)")
+                  -- < 500 : dialogue d'Ethan pas encore lancé (« je dois retourner voir le Duc »)
+                  missing[1] = main < 500 and "DUKE_DIALOGUE" or "DUKE_SCENE"
               end
               return missing
           end,
           message = function(missing)
               -- ordre du jeu (rappel du joueur, 2026-10-09) : Cric + Volant -> Clé ailée 2 -> cinématique
               -- du Duc -> maison Beneviento ; une étape ratée = maison jamais lancée
-              if missing and #missing == 1 and missing[1] == tr("la scène du Duc (va le voir)", "the Duke's scene (go and see him)") then
-                  return tr("Avant d'aller chez Beneviento, retourne voir le Duc : sa scène lance la suite de l'histoire.",
-                      "Before heading to House Beneviento, go back and see the Duke: his scene starts the next part of the story.")
+              if missing and missing[1] == "DUKE_DIALOGUE" then
+                  return tr("Avant d'aller chez Beneviento, retourne à l'endroit de la Clé à quatre ailes : Ethan doit dire qu'il faut retourner voir le Duc. Va ensuite voir le Duc pour sa scène.",
+                      "Before heading to House Beneviento, go back to the Four-Winged Key's spot: Ethan must say he has to go back to the Duke. Then go and see the Duke for his scene.")
+              end
+              if missing and missing[1] == "DUKE_SCENE" then
+                  return tr("Avant d'aller chez Beneviento, retourne voir le Duc : sa scène lance la suite de l'histoire. Si elle ne se lance pas, retourne à l'endroit de la Clé à quatre ailes pour lancer le dialogue d'Ethan.",
+                      "Before heading to House Beneviento, go back and see the Duke: his scene starts the next part of the story. If it does not start, go back to the Four-Winged Key's spot to trigger Ethan's line.")
               end
               return tr("Avant d'aller chez Beneviento, prends le check à l'endroit d'origine de ces objets, dans l'ordre Manivelle de cric et Volant de puits, puis Clé à quatre ailes (la scène du Duc suit), sinon la maison ne se lance pas : ",
                   "Before heading to House Beneviento, pick up the check at the original spot of these items, in order Jack Handle and Well Wheel, then Four-Winged Key (the Duke's scene follows), otherwise the house never starts: ")

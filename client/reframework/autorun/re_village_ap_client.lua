@@ -414,6 +414,63 @@ end
 -- Mallette ou boutique affichée (2026-10-09 : la réparation automatique tournait pendant que le
 -- joueur promenait un objet dans la mallette ; l'objet tenu « recouvrait » un soin, sorti de la
 -- grille). Ni réparation, ni don, ni colis tant que l'une des deux est ouverte.
+-- Progression de l'histoire (2026-10-10 : trouver ce que pose la scène du Duc avant Beneviento) :
+-- app.LevelFlowManager.EventEnd (événements terminés) et ProgressiveNumberList (compteurs par flux),
+-- relevés et comparés toutes les 2 s ; chaque changement est noté au journal (« flux : »).
+function K.flow_read()
+    local events, nums = {}, {}
+    local m = sdk.get_managed_singleton("app.LevelFlowManager")
+    if not m then return nil, nil end
+    local list = m:get_field("EventEnd")
+    if list then
+        for i = 0, list:call("get_Count") - 1 do
+            local v = list:call("get_Item", i)
+            if type(v) ~= "string" and v then v = v:call("ToString") end
+            if v then events[v] = true end
+        end
+    end
+    local dict = m:get_field("ProgressiveNumberList")
+    if dict then
+        local entries, count = dict:get_field("_entries"), dict:get_field("_count") or 0
+        local elements = entries and entries:get_elements() or {}
+        for i = 1, math.min(count, #elements) do
+            local e = elements[i]
+            local k = e:get_field("key")
+            if type(k) ~= "string" and k then k = k:call("ToString") end
+            if k then nums[k] = e:get_field("value") end
+        end
+    end
+    return events, nums
+end
+function K.flow_watch(force)
+    if not force and os.clock() < (K.flow_next or 0) then return end
+    K.flow_next = os.clock() + 2
+    local ok, events, nums = pcall(K.flow_read)
+    if not ok or not events then return end
+    local old = K.flow_last
+    K.flow_last = { events = events, nums = nums }
+    if force then
+        local e, n = {}, {}
+        for k in pairs(events) do e[#e + 1] = k end
+        for k, v in pairs(nums) do n[#n + 1] = k .. "=" .. tostring(v) end
+        table.sort(e)
+        table.sort(n)
+        debug_log("flux : événements terminés (" .. #e .. ") : " .. table.concat(e, ", "))
+        debug_log("flux : compteurs (" .. #n .. ") : " .. table.concat(n, ", "))
+        return
+    end
+    if not old then return end
+    for k in pairs(events) do
+        if not old.events[k] then debug_log("flux : événement terminé : " .. k) end
+    end
+    for k in pairs(old.events) do
+        if not events[k] then debug_log("flux : événement plus terminé (chargement ?) : " .. k) end
+    end
+    for k, v in pairs(nums) do
+        if old.nums[k] ~= v then debug_log(string.format("flux : compteur %s : %s -> %s", k, tostring(old.nums[k]), tostring(v))) end
+    end
+end
+
 -- Pause des dons (2026-10-10, crashs intermittents dans Inventory.updateOrder à 23:49 et 03:24,
 -- chacun peu après une série de dons faite juste après un chargement, cause non prouvée) : 10 s
 -- après un chargement (K.give_hold_until) et 2 s après la fermeture de la mallette ou de la boutique.
@@ -9006,6 +9063,11 @@ re.on_pre_application_entry("UpdateBehavior", function()
     -- onglet Checks rempli même hors jeu (2026-10-09 : prologue sans mallette -> « Connecte-toi
     -- à une partie » alors que la connexion était faite) ; il ne dépend que du serveur
     pcall(shop_ui.menu.refresh)
+    pcall(K.flow_watch)
+    if K.flow_dump then
+        K.flow_dump = nil
+        pcall(K.flow_watch, true)
+    end
     if K.shop_refresh_at and os.clock() >= K.shop_refresh_at then
         K.shop_refresh_at = nil
         if shop_is_open() then
@@ -9855,6 +9917,7 @@ re.on_draw_ui(function()
             requests.give = { id = tonumber(test_item_id), count = tonumber(test_item_count) or 1 }
         end
         if imgui.button("TEST : +1000 Lei") then requests.money = true end
+        if imgui.button("Lister la progression de l'histoire (journal)") then K.flow_dump = true end
         if imgui.button("TEST : retirer l'objet Valise (niveau gardé)") then requests.take_valise = true end
         if imgui.button("REPARER la mallette (objets superposés, quantité 0)") then requests.fix_zero = true end
         if imgui.button("DIAG : modèles au sol (texture manquante)") then

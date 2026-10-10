@@ -73,5 +73,17 @@
             ],
             "note": "porte qui s'ouvre au ramassage de la Bague, côté Ferraille #001 [S01], relevé le 2026-10-08"
         }
+    ],
+    "Porte vers Beneviento": [
+        {
+            "chapter": "Chapter2_6",
+            "pos": [
+                -36.037620544433594,
+                -33.98902130126953,
+                92.02962493896484
+            ],
+            "r": 3.0,
+            "note": "devant la porte à quatre ailes qui mène vers Beneviento (relevé par le joueur le 2026-10-10, rayon élargi à 3 m)"
+        }
     ]
 }

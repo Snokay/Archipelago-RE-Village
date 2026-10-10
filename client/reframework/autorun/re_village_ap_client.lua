@@ -3201,7 +3201,7 @@ local function on_item_picked(interact, core)
     end
     save_sync.picked_locs = save_sync.picked_locs or {}
     save_sync.picked_locs[loc.key] = true -- objet au sol : modèle d'origine remis (objet recyclé)
-    pcall(K.story_mark, loc) -- étapes de l'histoire (murs « Tracteur » / « Ascenseur de Beneviento »)
+    pcall(K.story_mark, loc) -- étapes de l'histoire (murs « Tracteur » / « Porte vers Beneviento »)
     -- récompense de l'énigme du vin ramassée : vin posé dans cette sauvegarde (mur de la salle des statues)
     if loc == shop_ui.no_return.courtyard_loc() then
         state.wine_placed = true
@@ -8553,13 +8553,15 @@ shop_ui.no_return = {
               return tr("Avant de continuer, prends le check à l'endroit d'origine de la Manivelle de cric (près du tracteur) : il lance la suite de l'histoire.",
                   "Before going further, pick up the check at the Jack Handle's original spot (near the tractor): it starts the next part of the story.")
           end },
-        { name = "Ascenseur de Beneviento", name_en = "Beneviento elevator", always = true,
+        -- (2026-10-10 : mur placé par le joueur devant la porte à quatre ailes qui mène vers
+        -- Beneviento, plus tôt que l'ascenseur ; rayon 3 m)
+        { name = "Porte vers Beneviento", name_en = "Path to Beneviento", always = true,
           blockers = function() return K.story_missing(K.STORY_LOCS) end,
           message = function(missing)
               -- ordre du jeu (rappel du joueur, 2026-10-09) : Cric + Volant -> Clé ailée 2 -> cinématique
               -- du Duc -> maison Beneviento ; une étape ratée = maison jamais lancée
-              return tr("Avant de descendre chez Beneviento, prends le check à l'endroit d'origine de ces objets, dans l'ordre Manivelle de cric et Volant de puits, puis Clé à quatre ailes (la scène du Duc suit), sinon la maison ne se lance pas : ",
-                  "Before going down to House Beneviento, pick up the check at the original spot of these items, in order Jack Handle and Well Wheel, then Four-Winged Key (the Duke's scene follows), otherwise the house never starts: ")
+              return tr("Avant d'aller chez Beneviento, prends le check à l'endroit d'origine de ces objets, dans l'ordre Manivelle de cric et Volant de puits, puis Clé à quatre ailes (la scène du Duc suit), sinon la maison ne se lance pas : ",
+                  "Before heading to House Beneviento, pick up the check at the original spot of these items, in order Jack Handle and Well Wheel, then Four-Winged Key (the Duke's scene follows), otherwise the house never starts: ")
                   .. table.concat(missing or {}, ", ")
           end },
         { name = "Salle des statues (vin à poser)", always = true,
@@ -8643,7 +8645,7 @@ end
 
 -- Emplacement d'origine de la Clé de la cour (récompense de l'énigme du vin), s'il est dans la seed.
 -- Emplacements d'origine qui lancent une étape de l'histoire (voir les murs « Tracteur » et
--- « Ascenseur de Beneviento »). Fait = ramassé DANS CETTE SAUVEGARDE (state.story, retenu par
+-- « Porte vers Beneviento »). Fait = ramassé DANS CETTE SAUVEGARDE (state.story, retenu par
 -- sauvegarde comme le vin) ; sauvegarde inconnue (d'avant 0.9.1.16) : état du serveur.
 K.STORY_LOCS = { "Manivelle de cric #001 [S02]", "Volant de puits #001 [S00]", "Clé à quatre ailes #004 [S00]" }
 function K.story_loc(name)

@@ -3197,8 +3197,19 @@ local function on_item_picked(interact, core)
     -- 8 m, tous les puits. Une caisse donne un AUTRE objet que celui de l'emplacement voisin.
     if loc and by_position and (dist or 99) > max_dist and spawn_info and go then
         pcall(function()
+            -- position ACTUELLE de l'objet de l'emplacement (remonté par le seau), pas celle des données
+            -- (2026-10-10 : même objet du jeu non reconnu, sous-objet ou objet du seau)
             local inst = spawn_info:call("get_spawnInstance")
-            if inst and inst:get_address() == go:get_address() and (dist or 99) <= 8 then
+            local same = inst and inst:get_address() == go:get_address()
+            if not inst then debug_log("ramassage : " .. loc.name .. " : pas d'objet posé pour cet emplacement (get_spawnInstance nil)") end
+            if inst and not same then
+                local ip = inst:call("get_Transform"):call("get_Position")
+                local gpos = go:call("get_Transform"):call("get_Position")
+                local d = math.sqrt((ip.x - gpos.x) ^ 2 + (ip.y - gpos.y) ^ 2 + (ip.z - gpos.z) ^ 2)
+                same = d < 1.0
+                debug_log(string.format("ramassage : %s : objet de l'emplacement à %.2f m de l'objet ramassé", loc.name, d))
+            end
+            if same and (dist or 99) <= 8 then
                 max_dist = 8
                 debug_log(string.format("ramassage : %s : objet de l'emplacement lui-même à %.1f m (puits), accepté", loc.name, dist))
             end

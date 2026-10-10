@@ -6737,6 +6737,9 @@ function shop_ui.world.apply_key_mode(rec)
     -- objet clé) ; sinon Normal (aucune présentation, jamais pour un objet AP non-clé).
     if not shop_ui.world.WRITE_GET_MODE then return end
     if rec.mode_set or not rec.si or not rec.loc then return end
+    -- Clé fœtus (2026-10-10) : mode d'origine 2544608857 = examen et assemblage ; le passer à Once
+    -- cassait la scène d'assemblage (menu bloqué). Mode du jeu gardé.
+    if K.ASSEMBLY_KEYS[rec.loc.name or ""] then return end
     if location_done(rec.loc) == nil then return end -- pas dans cette seed : mode du jeu
     local want_key = (shop_ui.world.own_key(rec.loc) ~= nil or rec.pickup_key == true) and shop_ui.world.INPLACE == true
     -- Pas Normal (2026-10-03) : 1948795948 = mode des objets qu'on OUVRE (mallette, sac de Lei) ;

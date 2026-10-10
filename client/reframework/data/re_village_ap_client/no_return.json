@@ -85,5 +85,17 @@
             "r": 3.0,
             "note": "devant la porte à quatre ailes qui mène vers Beneviento (relevé par le joueur le 2026-10-10, rayon élargi à 3 m)"
         }
+    ],
+    "Tracteur (Manivelle de cric)": [
+        {
+            "chapter": "Chapter2_6",
+            "pos": [
+                47.44981002807617,
+                -39.78657150268555,
+                150.69241333007812
+            ],
+            "r": 1.5,
+            "note": "juste avant le passage sous le tracteur (relevé par le joueur le 2026-10-10)"
+        }
     ]
 }

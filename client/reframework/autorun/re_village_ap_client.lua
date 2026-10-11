@@ -1567,6 +1567,10 @@ end
 
 -- Clés ailées en accord avec le progressif (après une scène d'assemblage du jeu, 2026-10-10) :
 -- niveaux 1..N reçus = 1 exemplaire chacun ; niveaux pas encore reçus = retirés ; doubles = retirés.
+-- UNE seule modification par appel, retraits d'abord (2026-10-11, crash du développeur 1 s après
+-- « niveau 3 redonné » + « niveau 4 retiré » dans la même image : re8.exe+0x4151c26, le crash
+-- d'Inventory.updateOrder déjà vu après des modifications rapprochées de la mallette). Renvoie
+-- true si quelque chose a changé : la boucle rappelle 1,5 s plus tard (K.key_reconcile_left).
 function K.key_reconcile()
     local counts = {}
     for index, row in pairs(save_sync.history) do
@@ -1574,34 +1578,41 @@ function K.key_reconcile()
         if def and def.levels and index <= state.last_applied_index then counts[def] = (counts[def] or 0) + 1 end
     end
     local _, inv = get_active_inventory()
-    if not inv then return end
+    if not inv then return false end
+    local missing
     for _, def in pairs(item_by_name) do
         if def.levels then
             local received = counts[def] or 0
             for i, id in ipairs(def.levels) do
                 local want = i <= received and 1 or 0
                 local have = inventory_quantity(id) or 0
-                if have < want then
-                    local ok = give_item(id, 1)
-                    debug_log(string.format("clés en accord : niveau %d (objet %s) redonné : %s", i, tostring(id), tostring(ok)))
-                elseif have > want then
-                    local extra, removed = have - want, 0
+                if have > want then
+                    local removed = 0
                     pcall(function()
                         local list = inv:call("get_items")
-                        local works = {}
-                        for j = 0, list:call("get_Count") - 1 do works[#works + 1] = list:call("get_Item", j):call("get_work") end
-                        for _, work in ipairs(works) do
-                            if removed < extra and work:call("get_itemID") == id then
+                        for j = 0, list:call("get_Count") - 1 do
+                            local work = list:call("get_Item", j):call("get_work")
+                            if work:call("get_itemID") == id then
                                 inv:call("removeItem", work, true)
-                                removed = removed + 1
+                                removed = 1
+                                return
                             end
                         end
                     end)
-                    debug_log(string.format("clés en accord : niveau %d (objet %s) : %d en trop, %d retiré(s) (reçus : %d)", i, tostring(id), extra, removed, received))
+                    debug_log(string.format("clés en accord : niveau %d (objet %s) : %d en trop, %d retiré (reçus : %d)", i, tostring(id), have - want, removed, received))
+                    return removed > 0
+                elseif have < want and not missing then
+                    missing = { level = i, id = id }
                 end
             end
         end
     end
+    if missing then
+        local ok = give_item(missing.id, 1)
+        debug_log(string.format("clés en accord : niveau %d (objet %s) redonné : %s", missing.level, tostring(missing.id), tostring(ok)))
+        return ok and true or false
+    end
+    return false
 end
 
 
@@ -3462,7 +3473,7 @@ local function on_item_picked(interact, core)
     -- check envoyé, clés remises en accord avec le progressif 15 s après (K.key_reconcile).
     if K.ASSEMBLY_KEYS[loc.name or ""] then
         table.insert(picked_locations, loc)
-        K.key_reconcile_at = os.clock() + 15
+        K.key_reconcile_at, K.key_reconcile_left = os.clock() + 15, 8
         debug_log("ramassage : " .. loc.name .. " : vrai morceau gardé (assemblage du jeu), clés remises en accord dans 15 s")
         return
     end
@@ -9244,7 +9255,9 @@ re.on_pre_application_entry("UpdateBehavior", function()
     pcall(shop_ui.menu.refresh)
     if K.key_reconcile_at and os.clock() >= K.key_reconcile_at and is_in_game() and not K.case_busy() then
         K.key_reconcile_at = nil
-        pcall(K.key_reconcile)
+        local ok, changed = pcall(K.key_reconcile)
+        K.key_reconcile_left = (K.key_reconcile_left or 8) - 1
+        if ok and changed and K.key_reconcile_left > 0 then K.key_reconcile_at = os.clock() + 1.5 end
     end
     if requests.detail_end then
         requests.detail_end = nil

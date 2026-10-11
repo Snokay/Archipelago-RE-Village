@@ -1310,6 +1310,27 @@ local function apply_item(row)
     return true
 end
 
+-- Drop de boss d'un trésor partagé (Buste cristallisé des 3 sœurs) : check du drop le plus proche de
+-- sa position de référence (moins de drop_radius, 20 m), en préférant un check PAS ENCORE FAIT.
+-- 2026-10-11 (retour d'un joueur) : le Buste de Daniela, tuée dans la bibliothèque, tombait plus près
+-- de la position de référence de Bela (déjà faite) -> pas habillé, et au ramassage le mod visait le
+-- check de Bela au lieu de celui de la 2e/3e sœur. Bela retuée après un rechargement peut ainsi
+-- donner le check d'une autre sœur en avance (rien n'est perdu). Renvoie (pas fait, plus proche).
+function K.nearest_drop(list, pos)
+    local free, free_d, any, any_d = nil, math.huge, nil, math.huge
+    for _, c in ipairs(pos and list or {}) do
+        local cp = c.drop_position
+        if cp then
+            local d = (cp[1] - pos[1]) ^ 2 + (cp[2] - pos[2]) ^ 2 + (cp[3] - pos[3]) ^ 2
+            if d < (c.drop_radius or 20) ^ 2 then
+                if d < any_d then any, any_d = c, d end
+                if d < free_d and shop_ui.location_done(c) == false then free, free_d = c, d end
+            end
+        end
+    end
+    return free, any
+end
+
 local vanilla_removals = {} -- objets d'origine à retirer (voir "Détection des ramassages")
 local current_zone = nil      -- zone majoritaire parmi les placements chargés (scan automatique)
 
@@ -3345,14 +3366,8 @@ local function on_item_picked(interact, core)
         -- Drop le plus proche de sa position dans la partie de référence (moins de 20 m) : c'est
         -- ce boss-là, même s'il a déjà été compté (retué après un rechargement : rien de neuf).
         local pos = ident.item_position
-        local best, best_d = nil, math.huge
-        for _, candidate in ipairs(pos and locations.boss_drops[picked_item_id] or {}) do
-            local cp = candidate.drop_position
-            if cp then
-                local d = (cp[1] - pos[1]) ^ 2 + (cp[2] - pos[2]) ^ 2 + (cp[3] - pos[3]) ^ 2
-                if d < best_d and d < (candidate.drop_radius or 20) ^ 2 then best, best_d = candidate, d end
-            end
-        end
+        local free, nearest = K.nearest_drop(locations.boss_drops[picked_item_id], pos)
+        local best = free or nearest -- tous faits : le plus proche (rien de neuf)
         if best then loc = best end
         debug_log(string.format("drop de boss : position %s -> %s", pos and table.concat(pos, " ") or "?",
             best and best.name or "aucune proche, 1er check non fait"))
@@ -6253,19 +6268,11 @@ function shop_ui.world.update()
                 local inst = list and si:call("get_spawnInstance")
                 if not inst then return end
                 local pos = get_gameobject_identity(inst).item_position
-                local best, best_d = nil, math.huge
-                for _, candidate in ipairs(pos and list or {}) do
-                    local cp = candidate.drop_position
-                    if cp then
-                        local d = (cp[1] - pos[1]) ^ 2 + (cp[2] - pos[2]) ^ 2 + (cp[3] - pos[3]) ^ 2
-                        if d < best_d and d < (candidate.drop_radius or 20) ^ 2 then best, best_d = candidate, d end
-                    end
-                end
-                if best and location_done(best) ~= false then best = nil end
+                local best = K.nearest_drop(list, pos)
                 if (shop_ui.world.drop_logged or 0) < 20 then
                     shop_ui.world.drop_logged = (shop_ui.world.drop_logged or 0) + 1
-                    debug_log(string.format("drop de boss au sol (EnemyDrop) : objet %s à %s -> %s (%.1f m)", tostring(id),
-                        pos and table.concat(pos, " ") or "?", best and best.name or "aucun check proche", math.sqrt(best_d)))
+                    debug_log(string.format("drop de boss au sol (EnemyDrop) : objet %s à %s -> %s", tostring(id),
+                        pos and table.concat(pos, " ") or "?", best and best.name or "aucun check proche pas fait"))
                 end
                 if best then
                     local get = inst:call("getComponent(System.Type)", sdk.typeof("app.InteractItemGet"))
@@ -6333,19 +6340,9 @@ function shop_ui.world.update()
                     local list = id and locations.boss_drops[id]
                     if not list then return end
                     local pos = (inst and get_gameobject_identity(inst).item_position) or get_spawn_info_identity(si).item_position
-                    local best, best_d = nil, math.huge
-                    for _, candidate in ipairs(pos and list or {}) do
-                        local cp = candidate.drop_position
-                        -- le plus proche TOUT COURT (2026-10-07 : Buste de la 3e sœur à 11,9 m de celui
-                        -- de Bela ; Bela retuée après son check aurait été prise pour la 3e) ; déjà
-                        -- fait -> pas habillé.
-                        if cp then
-                            local d = (cp[1] - pos[1]) ^ 2 + (cp[2] - pos[2]) ^ 2 + (cp[3] - pos[3]) ^ 2
-                            if d < best_d and d < (candidate.drop_radius or 20) ^ 2 then best, best_d = candidate, d end
-                        end
-                    end
-                    local nearest = best
-                    if best and location_done(best) ~= false then best = nil end
+                    -- le plus proche PAS ENCORE FAIT (K.nearest_drop ; avant 2026-10-11 : le plus proche
+                    -- tout court, Buste de Daniela pris pour celui de Bela déjà fait)
+                    local best, nearest = K.nearest_drop(list, pos)
                     if (shop_ui.world.drop_logged or 0) < 20 then
                         shop_ui.world.drop_logged = (shop_ui.world.drop_logged or 0) + 1
                         local dists = {}

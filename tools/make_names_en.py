@@ -34,7 +34,8 @@ REGIONS = {
 # Objets dont le nom du jeu ne suffit pas (nom inventé par nous, ou nom du jeu avec un paramètre).
 ITEMS = {"Victory": "Victory", "Sac de Lei": "Lei Bag", "Piège : Faillite": "Trap: Bankruptcy",
          "Piège : Screamer": "Trap: Screamer", "Piège : Armes bloquées": "Trap: Jammed Weapons",
-         "Piège : Dégâts": "Trap: Damage", "Piège : Chargeur vidé": "Trap: Empty Magazine"}
+         "Piège : Dégâts": "Trap: Damage", "Piège : Chargeur vidé": "Trap: Empty Magazine",
+         "Crochet illimité": "Unlimited Lockpick"}
 BOSS_WHO = {"1re sœur": "1st sister", "2e sœur": "2nd sister", "3e sœur": "3rd sister", "boss": "boss",
             "lycan au marteau": "hammer lycan", "gardien de la tombe": "tomb guardian"}
 

@@ -134,6 +134,9 @@ KEY_EXTRA = ("VillageTombStonePlate",)
 # boule n'ouvre qu'un labyrinthe dont la récompense n'est pas un check (KEY_USE hors d'atteinte).
 # Groupe à part, TOUT à la fin (emplacements après ceux du 1er passage, objets après les pièges) :
 # aucun numéro existant ne bouge.
+# Rang des checks de chasse (2026-10-11, retour d'un joueur : le tracker les montrait en logique dès
+# le début) : celui des plats du Duc, après sa cinématique (la chasse sert aux plats).
+HUNT_ORDER = 231
 KEY_EXTRA_BALLS = ("SpiritBallPuzzleBall", "GeekMoldGeekBallPuzzleBall", "GeekGeekBallPuzzleBall")
 # Objets clés du 1er passage au Village (Chapter2_1), mélangés eux aussi (2026-10-08, demande du
 # joueur ; le couteau reste à sa place, NEVER_RANDOMIZE). Leurs emplacements n'existent qu'au 1er
@@ -533,7 +536,7 @@ def main():
         for n in range(1, (HUNT_MAX_RARE if rare else HUNT_MAX_COMMON) + 1):
             locations.append({"name": f"Chasse - {name} #{n}", "region": "Village", "kind": "hunt",
                               "original_item": name, "hunt_item_id": item_id, "hunt_index": n,
-                              "hunt_rare": rare, "no_key_items": True})
+                              "hunt_rare": rare, "no_key_items": True, "order": HUNT_ORDER})
 
     # --- Objets clés hors partie de référence (KEY_EXTRA, 2026-10-07) : à la fin, ID inchangés ---
     for loc in extra_key_locations:
@@ -593,6 +596,13 @@ def main():
     # Boules des labyrinthes : objets après les pièges (numéros existants inchangés)
     have = {i["name"] for i in item_list}
     item_list += sorted((i for i in ball_key_items.values() if i["name"] not in have), key=lambda i: i["name"])
+    # Crochet illimité (2026-10-11, idée d'un joueur) : un seul objet, donné au départ par l'apworld
+    # (option unlimited_lockpick) ; le client garde toujours 1 Crochet dans la mallette. Après les
+    # boules : numéros existants inchangés. give_id sans game_item_id : jamais confondu avec un
+    # Crochet ramassé (recherches par ItemID du client).
+    item_list.append({"name": "Crochet illimité", "type": "Other", "give_id": 2549049308,
+                      "category": "Autre", "quantity": 1, "unlimited_lockpick": True,
+                      "description": "Ouvre les serrures simples. Jamais épuisé."})
 
     def dump(path, data):
         path.parent.mkdir(parents=True, exist_ok=True)

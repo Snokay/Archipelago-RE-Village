@@ -1364,5 +1364,14 @@
   "key_zone": "Usine Heisenberg",
   "internal": "GeekMoldGeekBallPuzzleBall",
   "description": ""
+ },
+ {
+  "name": "Crochet illimité",
+  "type": "Other",
+  "give_id": 2549049308,
+  "category": "Autre",
+  "quantity": 1,
+  "unlimited_lockpick": true,
+  "description": "Ouvre les serrures simples. Jamais épuisé."
  }
 ]

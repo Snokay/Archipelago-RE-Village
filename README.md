@@ -17,6 +17,10 @@ are shuffled with the other players of a multiworld.
   ("[AP] …"); the Duke's shop shows what each purchase gives.
 - **Key items** can be shuffled (vanilla, own zone, or zone and multiworld), always placed before the
   place where they are used. The Winged Key is progressive.
+- **Unlimited Lockpick** (option, on by default): you start with a Lockpick that never runs out; the
+  game's lockpick spots become regular checks.
+- With hunting, the shuffled meats count for logic: the Duke's dishes are expected once you have
+  received all of them.
 - **Point of no return areas** (castle, dungeon…): excluded, sent automatically, or 100% mode (an
   invisible wall keeps you in while checks remain).
 - **Traps** (optional): Bankruptcy, Screamer, Jammed Weapons, Damage, Empty Magazine.
@@ -73,6 +77,10 @@ autre jeu, et tes objets peuvent tomber chez les autres.
   (« [AP] … »). Les achats chez le Duc affichent ce qu'ils donnent.
 - **Objets clés** mélangés (au choix : à leur place, dans leur zone, ou zone et multiworld), toujours
   placés avant l'endroit où ils servent. La Clé ailée est progressive.
+- **Crochet illimité** (option, activée par défaut) : tu commences avec un Crochet qui ne s'use
+  jamais ; les emplacements des crochets du jeu deviennent des checks comme les autres.
+- Avec la chasse, les viandes mélangées comptent pour la logique : les plats du Duc sont attendus
+  quand tu les as toutes reçues.
 - **Zones sans retour** (château, cachots…) : checks exclus, envoyés automatiquement, ou mode 100 %
   (un mur invisible t'empêche de partir tant qu'il reste des checks).
 - **Pièges** (en option) : Faillite, Screamer, Armes bloquées, Dégâts, Chargeur vidé.

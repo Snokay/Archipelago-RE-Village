@@ -21,7 +21,7 @@ from typing import Dict, Any
 
 from BaseClasses import ItemClassification, Item, Location, LocationProgressType, Region
 from worlds.AutoWorld import World
-from ..generic.Rules import set_rule, add_item_rule
+from ..generic.Rules import set_rule, add_rule, add_item_rule
 
 from .Data import Data, T
 from .Exceptions import REVillageOptionError
@@ -55,7 +55,7 @@ class ResidentEvilVillage(World):
     game: str = "Resident Evil Village"
 
     data_version = 1
-    apworld_release_version = "0.9.4"  # alpha publique (2026-10-10) ; X.Y.Z exigé par Archipelago 0.7
+    apworld_release_version = "0.9.5"  # alpha publique (2026-10-11) ; X.Y.Z exigé par Archipelago 0.7
 
     item_name_to_id = {
         item['name']: item['id']
@@ -253,7 +253,28 @@ class ResidentEvilVillage(World):
         if self.options.key_items.value == 1:
             self.options.local_items.value |= set(self._key_items())
 
+    # Viandes de chasse (2026-10-11, retour d'un joueur) : avec la chasse, les viandes passent par le
+    # multiworld (chaque check de chasse met la sienne dans le pool). Elles deviennent des objets de
+    # progression et les 6 plats du Duc demandent TOUTES les viandes mélangées (ce qui reste vient de
+    # la chasse normale) : version simple et sûre, un plat ne demande jamais plus que l'ensemble.
+    HUNT_MEATS = {T(name) for name in (
+        "Poisson", "Volaille", "Viande", "Viande de qualité", "Poisson raffiné", "Gibier juteux")}
+
+    def _hunt_meat_counts(self):
+        """Viande -> nombre de checks de chasse actifs (= exemplaires mis dans le pool)."""
+        counts = {}
+        for loc in self._active_locations():
+            if loc.get('kind') == 'hunt':
+                counts[loc['original_item']] = counts.get(loc['original_item'], 0) + 1
+        return counts
+
     def set_rules(self):
+        meats = self._hunt_meat_counts()
+        if meats:
+            for location in self.multiworld.get_locations(self.player):
+                if self.location_name_to_location.get(location.name, {}).get('kind') == 'recipe':
+                    add_rule(location, lambda state, meats=meats, player=self.player: all(
+                        state.has(name, player, count) for name, count in meats.items()))
         key_items = self._key_items()
         if not key_items:
             return
@@ -270,7 +291,7 @@ class ResidentEvilVillage(World):
             have = {name for name, _ in needed}
             needed += [(name, 1) for name in data.get('requires_keys', ()) if name in key_items and name not in have]
             if needed:
-                set_rule(location, lambda state, needed=needed: all(
+                add_rule(location, lambda state, needed=needed: all(
                     state.has(name, player, count) for name, count in needed))
             # Où un objet clé de cette partie ne peut PAS aller : plats, drops de boss, articles du
             # Duc trop chers (_shop_takes_keys), 1er passage au Village (placements disparus ensuite),
@@ -323,6 +344,12 @@ class ResidentEvilVillage(World):
         # au hasard et remplacés, piège tiré selon les poids des options.
         weights = [(T(name), getattr(self.options, option).value) for name, option in self.TRAP_OPTIONS]
         weights = [(name, w) for name, w in weights if w > 0]
+        # Crochet illimité (2026-10-11, option) : donné au départ ; les crochets du jeu remplacés par
+        # des Lei (leurs emplacements reçoivent n'importe quel objet, comme les autres checks).
+        if self.options.unlimited_lockpick:
+            self.multiworld.push_precollected(self.create_item(T("Crochet illimité")))
+            pool = [self.create_item(self.get_filler_item_name()) if item.name == T("Crochet") else item
+                    for item in pool]
         fillers = [i for i, item in enumerate(pool) if item.classification == ItemClassification.filler]
         count = min(self.options.trap_count.value, len(fillers)) if weights else 0
         for i in self.random.sample(fillers, count):
@@ -382,6 +409,12 @@ class ResidentEvilVillage(World):
             classification = ItemClassification.progression
         elif item.get('progression'):
             classification = ItemClassification.progression
+        elif item['name'] in self.HUNT_MEATS and self.options.hunting.value > 0:
+            classification = ItemClassification.progression  # plats du Duc (voir set_rules)
+        elif item['name'] == T("Valise") or item.get('unlimited_lockpick'):
+            # Valise : agrandissement de mallette, pas indispensable mais précieux (2026-10-11,
+            # retour d'un joueur : en bleu clair, un autre jeu pouvait la négliger)
+            classification = ItemClassification.useful
         elif item.get('type') == 'Trap':
             classification = ItemClassification.trap
         elif item.get('type') in ('Weapon', 'Upgrade'):
@@ -412,4 +445,5 @@ class ResidentEvilVillage(World):
             "duke_shop": self.options.duke_shop.value,
             "boss_rewards": bool(self.options.boss_rewards.value),
             "hunting": self.options.hunting.value,
+            "unlimited_lockpick": bool(self.options.unlimited_lockpick.value),
         }

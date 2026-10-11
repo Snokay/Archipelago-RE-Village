@@ -118,7 +118,7 @@ Chaque joueur envoie un fichier YAML à l'hôte **avant** la génération.
 - Ou avec l'Options Creator d'Archipelago (apworld installé).
 
 Les options principales : objectif, difficulté imposée, zones sans retour (exclues / envoi automatique
-/ mode 100 %), objets clés, boutique du Duc, récompenses de boss, chasse, pièges, DeathLink.
+/ mode 100 %), objets clés, boutique du Duc, récompenses de boss, chasse, crochet illimité, pièges, DeathLink.
 
 ## 3. Se connecter et jouer
 

@@ -34,7 +34,7 @@ local MOD_NAME = "re_village_ap_client"
 -- 200 variables locales de Lua (script refusé au chargement).
 local K = {}
 K.GAME_NAME = "Resident Evil Village"
-K.MOD_VERSION = "0.9.1.25" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
+K.MOD_VERSION = "0.9.1.26" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
 K.MAX_MATCH_DISTANCE = 5.0
 -- Emplacements jumeaux (2026-10-08) : le jeu pose deux exemplaires du M1897 (table du village et
 -- près de la première sauvegarde), le second devient des Lei si on a déjà le fusil. Ramasser l'un
@@ -254,6 +254,7 @@ end
 i18n.names = {}
 function i18n.item(name)
     if i18n.fr or not name then return name end
+    if (item_by_name[name] or {}).unlimited_lockpick then return "Unlimited Lockpick" end -- nom inventé
     local cache_key = tostring(i18n.lang) .. ":" .. name
     if i18n.names[cache_key] ~= nil then return i18n.names[cache_key] or name end
     local text = nil
@@ -354,6 +355,7 @@ local function load_state(seed, slot)
         state.wine_placed = loaded.wine_placed
         state.story = loaded.story
         state.hunts = loaded.hunts
+        state.unlimited_lockpick = loaded.unlimited_lockpick
     end
     -- Toutes les sauvegardes de cette seed sont suivies (2026-09-30) : état neuf, ou aucun
     -- emplacement réel noté jusqu'ici. Alors une sauvegarde inconnue date d'AVANT la seed.
@@ -1234,6 +1236,9 @@ local function apply_item(row)
         debug_log("don : " .. item_name .. " déjà dans la mallette (formule), pas redonnée")
         return true
     end
+    -- Crochet illimité (2026-10-11, option de l'apworld) : retenu pour la seed, puis 1 Crochet
+    -- donné ; K.lockpick_refill en remet un quand le jeu l'a utilisé.
+    if item.unlimited_lockpick then state.unlimited_lockpick = true end
     local ok, reason
     if item.type == "Trap" then
         ok = K.traps.apply(item) -- K : déclaré en haut du fichier (shop_ui n'existe pas encore ici)
@@ -1563,6 +1568,24 @@ function K.progressive_check(limit)
         if def and def.levels and index <= limit then counts[def] = (counts[def] or 0) + 1 end
     end
     for def, n in pairs(counts) do K.progressive_fill(def, n) end
+end
+
+-- Crochet illimité (2026-10-11) : le jeu retire le Crochet à chaque serrure ; mallette sans Crochet
+-- depuis 3 s (fin de l'animation de la serrure) -> 1 Crochet redonné. Jamais dans le prologue
+-- (inventaire remis à zéro) ni avec Chris (pas de serrures, mallette à part).
+function K.lockpick_refill()
+    if not state.unlimited_lockpick or K.chapter == "Chapter1" or current_zone_is_chris() then return end
+    local def = item_by_name["Crochet illimité"]
+    local id = def and def.give_id
+    if not id or (inventory_quantity(id) or 1) > 0 then
+        K.lockpick_empty_since = nil
+        return
+    end
+    K.lockpick_empty_since = K.lockpick_empty_since or os.clock()
+    if os.clock() - K.lockpick_empty_since < 3 then return end
+    K.lockpick_empty_since = nil
+    local ok, reason = give_item(id, 1)
+    debug_log(string.format("crochet illimité : Crochet redonné : %s (%s)", tostring(ok), tostring(reason)))
 end
 
 -- Clés ailées en accord avec le progressif (après une scène d'assemblage du jeu, 2026-10-10) :
@@ -9253,6 +9276,10 @@ re.on_pre_application_entry("UpdateBehavior", function()
     -- onglet Checks rempli même hors jeu (2026-10-09 : prologue sans mallette -> « Connecte-toi
     -- à une partie » alors que la connexion était faite) ; il ne dépend que du serveur
     pcall(shop_ui.menu.refresh)
+    if os.clock() >= (K.lockpick_next or 0) and is_in_game() and not K.case_busy() then
+        K.lockpick_next = os.clock() + 1
+        pcall(K.lockpick_refill)
+    end
     if K.key_reconcile_at and os.clock() >= K.key_reconcile_at and is_in_game() and not K.case_busy() then
         K.key_reconcile_at = nil
         local ok, changed = pcall(K.key_reconcile)

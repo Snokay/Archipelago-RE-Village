@@ -95,15 +95,28 @@ class Hunting(Range):
         """Chasse : ramasser de la viande d'animal (Viande, Volaille, Poisson) devient un check.
         Pourcentage de ce que demandent les 6 plats du Duc (100 % = 14 Poissons, 12 Volailles et
         12 Viandes ; le jeu en garantit au moins autant), plus 1 check par viande rare. 0 = pas de
-        checks de chasse. Ces checks ne contiennent jamais d'objet indispensable.""",
+        checks de chasse. Ces checks ne contiennent jamais d'objet indispensable. Les viandes
+        mélangées comptent pour la logique : les plats du Duc sont attendus quand toutes sont reçues.""",
         """Hunting: picking up animal meat (Meat, Poultry, Fish) becomes a check. Percentage of what
         the Duke's 6 dishes need (100% = 14 Fish, 12 Poultry and 12 Meat; the game guarantees at
         least that many), plus 1 check per rare meat. 0 = no hunting checks. These checks never
-        hold a required item.""")
+        hold a required item. The shuffled meats count for logic: the Duke's dishes are expected
+        once all of them are received.""")
     display_name = text("Chasse (%)", "Hunting (%)")
     range_start = 0
     range_end = 100
     default = 100
+
+
+class UnlimitedLockpick(DefaultOnToggle):
+    __doc__ = text(
+        """Crochet illimité : tu commences avec un Crochet qui ne s'use jamais (le mod en remet un
+        dans la mallette après chaque serrure). Les emplacements des crochets du jeu deviennent des
+        checks comme les autres. Désactivé : les crochets du jeu (à usage unique) sont mélangés.""",
+        """Unlimited Lockpick: you start with a Lockpick that never runs out (the mod puts a new one in
+        your case after each lock). The game's lockpick spots become regular checks. Off: the game's
+        single-use lockpicks are shuffled.""")
+    display_name = text("Crochet illimité", "Unlimited Lockpick")
 
 
 class BossRewards(DefaultOnToggle):
@@ -268,6 +281,7 @@ class REVillageOptions(PerGameCommonOptions):
     duke_shop: DukeShop
     boss_rewards: BossRewards
     hunting: Hunting
+    unlimited_lockpick: UnlimitedLockpick
     trap_count: TrapCount
     trap_bankrupt_weight: TrapBankruptWeight
     trap_screamer_weight: TrapScreamerWeight

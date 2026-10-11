@@ -7960,7 +7960,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 1,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #2",
@@ -7970,7 +7971,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 2,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #3",
@@ -7980,7 +7982,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 3,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #4",
@@ -7990,7 +7993,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 4,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #5",
@@ -8000,7 +8004,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 5,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #6",
@@ -8010,7 +8015,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 6,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #7",
@@ -8020,7 +8026,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 7,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #8",
@@ -8030,7 +8037,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 8,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #9",
@@ -8040,7 +8048,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 9,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #10",
@@ -8050,7 +8059,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 10,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #11",
@@ -8060,7 +8070,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 11,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #12",
@@ -8070,7 +8081,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 12,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #13",
@@ -8080,7 +8092,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 13,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #14",
@@ -8090,7 +8103,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 14,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #15",
@@ -8100,7 +8114,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 15,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #16",
@@ -8110,7 +8125,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 16,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #17",
@@ -8120,7 +8136,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 17,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #18",
@@ -8130,7 +8147,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 18,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #19",
@@ -8140,7 +8158,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 19,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #20",
@@ -8150,7 +8169,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 20,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #21",
@@ -8160,7 +8180,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 21,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #22",
@@ -8170,7 +8191,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 22,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #23",
@@ -8180,7 +8202,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 23,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #24",
@@ -8190,7 +8213,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 24,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #25",
@@ -8200,7 +8224,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 25,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #26",
@@ -8210,7 +8235,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 26,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #27",
@@ -8220,7 +8246,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 27,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #28",
@@ -8230,7 +8257,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 28,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #29",
@@ -8240,7 +8268,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 29,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande #30",
@@ -8250,7 +8279,8 @@
   "hunt_item_id": 3069621231,
   "hunt_index": 30,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #1",
@@ -8260,7 +8290,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 1,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #2",
@@ -8270,7 +8301,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 2,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #3",
@@ -8280,7 +8312,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 3,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #4",
@@ -8290,7 +8323,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 4,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #5",
@@ -8300,7 +8334,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 5,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #6",
@@ -8310,7 +8345,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 6,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #7",
@@ -8320,7 +8356,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 7,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #8",
@@ -8330,7 +8367,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 8,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #9",
@@ -8340,7 +8378,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 9,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #10",
@@ -8350,7 +8389,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 10,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #11",
@@ -8360,7 +8400,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 11,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #12",
@@ -8370,7 +8411,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 12,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #13",
@@ -8380,7 +8422,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 13,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #14",
@@ -8390,7 +8433,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 14,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #15",
@@ -8400,7 +8444,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 15,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #16",
@@ -8410,7 +8455,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 16,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #17",
@@ -8420,7 +8466,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 17,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #18",
@@ -8430,7 +8477,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 18,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #19",
@@ -8440,7 +8488,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 19,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #20",
@@ -8450,7 +8499,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 20,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #21",
@@ -8460,7 +8510,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 21,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #22",
@@ -8470,7 +8521,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 22,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #23",
@@ -8480,7 +8532,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 23,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #24",
@@ -8490,7 +8543,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 24,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #25",
@@ -8500,7 +8554,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 25,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #26",
@@ -8510,7 +8565,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 26,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #27",
@@ -8520,7 +8576,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 27,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #28",
@@ -8530,7 +8587,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 28,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #29",
@@ -8540,7 +8598,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 29,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Volaille #30",
@@ -8550,7 +8609,8 @@
   "hunt_item_id": 3556586016,
   "hunt_index": 30,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #1",
@@ -8560,7 +8620,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 1,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #2",
@@ -8570,7 +8631,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 2,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #3",
@@ -8580,7 +8642,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 3,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #4",
@@ -8590,7 +8653,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 4,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #5",
@@ -8600,7 +8664,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 5,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #6",
@@ -8610,7 +8675,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 6,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #7",
@@ -8620,7 +8686,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 7,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #8",
@@ -8630,7 +8697,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 8,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #9",
@@ -8640,7 +8708,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 9,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #10",
@@ -8650,7 +8719,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 10,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #11",
@@ -8660,7 +8730,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 11,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #12",
@@ -8670,7 +8741,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 12,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #13",
@@ -8680,7 +8752,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 13,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #14",
@@ -8690,7 +8763,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 14,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #15",
@@ -8700,7 +8774,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 15,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #16",
@@ -8710,7 +8785,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 16,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #17",
@@ -8720,7 +8796,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 17,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #18",
@@ -8730,7 +8807,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 18,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #19",
@@ -8740,7 +8818,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 19,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #20",
@@ -8750,7 +8829,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 20,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #21",
@@ -8760,7 +8840,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 21,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #22",
@@ -8770,7 +8851,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 22,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #23",
@@ -8780,7 +8862,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 23,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #24",
@@ -8790,7 +8873,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 24,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #25",
@@ -8800,7 +8884,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 25,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #26",
@@ -8810,7 +8895,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 26,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #27",
@@ -8820,7 +8906,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 27,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #28",
@@ -8830,7 +8917,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 28,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #29",
@@ -8840,7 +8928,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 29,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson #30",
@@ -8850,7 +8939,8 @@
   "hunt_item_id": 471813919,
   "hunt_index": 30,
   "hunt_rare": false,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande de qualité #1",
@@ -8860,7 +8950,8 @@
   "hunt_item_id": 3577251366,
   "hunt_index": 1,
   "hunt_rare": true,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande de qualité #2",
@@ -8870,7 +8961,8 @@
   "hunt_item_id": 3577251366,
   "hunt_index": 2,
   "hunt_rare": true,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande de qualité #3",
@@ -8880,7 +8972,8 @@
   "hunt_item_id": 3577251366,
   "hunt_index": 3,
   "hunt_rare": true,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande de qualité #4",
@@ -8890,7 +8983,8 @@
   "hunt_item_id": 3577251366,
   "hunt_index": 4,
   "hunt_rare": true,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Viande de qualité #5",
@@ -8900,7 +8994,8 @@
   "hunt_item_id": 3577251366,
   "hunt_index": 5,
   "hunt_rare": true,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson raffiné #1",
@@ -8910,7 +9005,8 @@
   "hunt_item_id": 3524738970,
   "hunt_index": 1,
   "hunt_rare": true,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson raffiné #2",
@@ -8920,7 +9016,8 @@
   "hunt_item_id": 3524738970,
   "hunt_index": 2,
   "hunt_rare": true,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson raffiné #3",
@@ -8930,7 +9027,8 @@
   "hunt_item_id": 3524738970,
   "hunt_index": 3,
   "hunt_rare": true,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson raffiné #4",
@@ -8940,7 +9038,8 @@
   "hunt_item_id": 3524738970,
   "hunt_index": 4,
   "hunt_rare": true,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Poisson raffiné #5",
@@ -8950,7 +9049,8 @@
   "hunt_item_id": 3524738970,
   "hunt_index": 5,
   "hunt_rare": true,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Gibier juteux #1",
@@ -8960,7 +9060,8 @@
   "hunt_item_id": 2615454163,
   "hunt_index": 1,
   "hunt_rare": true,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Gibier juteux #2",
@@ -8970,7 +9071,8 @@
   "hunt_item_id": 2615454163,
   "hunt_index": 2,
   "hunt_rare": true,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Gibier juteux #3",
@@ -8980,7 +9082,8 @@
   "hunt_item_id": 2615454163,
   "hunt_index": 3,
   "hunt_rare": true,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Gibier juteux #4",
@@ -8990,7 +9093,8 @@
   "hunt_item_id": 2615454163,
   "hunt_index": 4,
   "hunt_rare": true,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Chasse - Gibier juteux #5",
@@ -9000,7 +9104,8 @@
   "hunt_item_id": 2615454163,
   "hunt_index": 5,
   "hunt_rare": true,
-  "no_key_items": true
+  "no_key_items": true,
+  "order": 231
  },
  {
   "name": "Morceau de plaque #001 [S03]",

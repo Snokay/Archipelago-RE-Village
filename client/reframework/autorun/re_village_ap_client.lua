@@ -1264,6 +1264,12 @@ local function apply_item(row)
     -- Crochet illimité (2026-10-11, option de l'apworld) : retenu pour la seed, puis 1 Crochet
     -- donné ; K.lockpick_refill en remet un quand le jeu l'a utilisé.
     if item.unlimited_lockpick then state.unlimited_lockpick = true end
+    -- Deux Crochets (2026-10-12, test du développeur) : après un rechargement, K.lockpick_refill en
+    -- avait déjà remis un quand la file a redonné le Crochet illimité. Jamais un 2e Crochet.
+    if item.unlimited_lockpick and (inventory_quantity(item.give_id) or 0) > 0 then
+        debug_log("don : Crochet illimité : un Crochet est déjà dans la mallette, pas de 2e")
+        return true
+    end
     local ok, reason
     if item.type == "Trap" then
         ok = K.traps.apply(item) -- K : déclaré en haut du fichier (shop_ui n'existe pas encore ici)
@@ -1386,7 +1392,20 @@ local function process_items_queue()
     if ending_active then return end
     local remaining = {}
     local holding = false
-    local given = false
+    -- Un item toutes les 0,25 s ; 1,2 s quand beaucoup attendent. Crash du 2026-09-27 : à
+    -- la connexion à un multiworld déjà avancé (~500 items), 38 items en 10 s ont fait
+    -- planter le moteur de son du jeu (Wwise : un son et une notification par objet).
+    -- 2026-10-12 (crash d'un joueur en recevant beaucoup d'objets d'un coup) : 0,25 s restait
+    -- possible dès que 10 objets ou moins attendaient (fin de chaque rafale), et la file comptait
+    -- aussi les objets déjà donnés renvoyés par le serveur. Au moins 1 s, 1,5 s si plus de 10
+    -- objets à donner, et jamais moins de K.CASE_GAP après un autre don du mod.
+    -- Objets PERDUS (2026-10-12, test du développeur, release de 530 objets) : l'heure était relue à
+    -- chaque ligne ; quand le délai expirait pendant le parcours, une ligne plus loin était donnée
+    -- (ex. index 379 juste après le 57) et toutes celles d'avant, d'index plus petit, étaient
+    -- ensuite jetées comme « déjà données » (340 objets perdus d'un coup). Décidé une fois par
+    -- tour, et seule la première ligne à donner peut l'être (blocked).
+    local interval = to_give > 10 and 1.5 or 1.0
+    local blocked = os.clock() - last_item_give < interval or K.case_settling()
     for _, row in ipairs(items_queue) do
         -- Passage Chris : Chris a son propre inventaire. Les objets d'Ethan attendent qu'Ethan
         -- reprenne la main (on garde l'ordre des index : tout ce qui suit attend aussi).
@@ -1395,21 +1414,12 @@ local function process_items_queue()
             local def = name and item_by_name[name]
             if def and not def.chris_only then holding = true end
         end
-        -- Un item toutes les 0,25 s ; 1,2 s quand beaucoup attendent. Crash du 2026-09-27 : à
-        -- la connexion à un multiworld déjà avancé (~500 items), 38 items en 10 s ont fait
-        -- planter le moteur de son du jeu (Wwise : un son et une notification par objet).
-        -- 2026-10-12 (crash d'un joueur en recevant beaucoup d'objets d'un coup) : 0,25 s restait
-        -- possible dès que 10 objets ou moins attendaient (fin de chaque rafale), et la file comptait
-        -- aussi les objets déjà donnés renvoyés par le serveur. Au moins 1 s, 1,5 s si plus de 10
-        -- objets à donner, et jamais moins de K.CASE_GAP après un autre don du mod.
-        local interval = to_give > 10 and 1.5 or 1.0
-        local too_soon = given or os.clock() - last_item_give < interval or K.case_settling()
         if row.index <= state.last_applied_index and not row.extra then
             -- déjà donné (renvoyé par le serveur à la reconnexion) : on l'oublie
-        elseif holding or too_soon then
+        elseif holding or blocked then
             table.insert(remaining, row)
         else
-            given = true
+            blocked = true
             last_item_give = os.clock()
             if apply_item(row) then
                 -- don en plus (bouton des objets clés manquants) : le compteur ne bouge pas
@@ -1632,7 +1642,8 @@ function K.lockpick_refill()
         return
     end
     K.lockpick_empty_since = K.lockpick_empty_since or os.clock()
-    if os.clock() - K.lockpick_empty_since < 3 or K.case_settling() then return end
+    -- K.case_busy : aussi les 10 s d'après un chargement (la file redonne alors le Crochet illimité)
+    if os.clock() - K.lockpick_empty_since < 3 or K.case_settling() or K.case_busy() then return end
     K.lockpick_empty_since = nil
     local ok, reason = give_item(id, 1)
     debug_log(string.format("crochet illimité : Crochet redonné : %s (%s)", tostring(ok), tostring(reason)))

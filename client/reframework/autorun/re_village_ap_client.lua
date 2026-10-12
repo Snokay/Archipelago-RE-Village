@@ -46,6 +46,15 @@ K.TWINS = { { "M1897", "M1897 #001" } }
 -- remplacé (assemblage normal, check envoyé), puis clés remises en accord avec le progressif 15 s après
 -- (K.key_reconcile).
 K.ASSEMBLY_KEYS = { ["Clé fœtus à quatre ailes #008"] = true, ["Clé fœtus à six ailes #007"] = true }
+-- Objets coulés à la machine de l'usine (2026-10-12, roue dentée posée sans courant chez un joueur) :
+-- vrai objet gardé, mode de ramassage du jeu gardé, check envoyé (comme les Clés fœtus). Dans la
+-- partie de référence, chaque objet coulé est ramassé tel quel ; remplacé par un objet AP, une étape
+-- de l'usine ne se faisait plus (hypothèse, pas prouvée).
+K.CAST_ITEMS = { ["Relief de cheval #007 [Usine d'Heisenberg - -4B]"] = true,
+    ["Grande roue dentée #005 [Usine d'Heisenberg - -4B]"] = true,
+    ["Clé d'Heisenberg #006 [Usine d'Heisenberg - -4B]"] = true,
+    ["Boule (cheval de fer) #008 [Usine d'Heisenberg - -4B]"] = true }
+function K.keep_real(name) return K.ASSEMBLY_KEYS[name or ""] or K.CAST_ITEMS[name or ""] end
 -- Rayon de reconnaissance par position plus large que 3 m pour ces emplacements (voir ramassage)
 -- (objets NON habillés seulement : un objet AP ramassé est rattaché jusqu'à 8 m partout)
 K.POSITION_RADIUS = { ["Animal en bois (tête) #003 [S09]"] = 8, ["Bombe tuyau #007 [S12]"] = 8 }
@@ -3563,6 +3572,12 @@ local function on_item_picked(interact, core)
         end
     end
 
+    -- Objet coulé à la machine de l'usine (K.CAST_ITEMS) : vrai objet gardé, check envoyé.
+    if K.CAST_ITEMS[loc.name or ""] then
+        table.insert(picked_locations, loc)
+        debug_log("ramassage : " .. loc.name .. " : vrai objet coulé gardé (étape de l'usine)")
+        return
+    end
     -- Morceau de clé ailée avec scène d'assemblage (K.ASSEMBLY_KEYS) : gardé pour l'assemblage du jeu,
     -- check envoyé, clés remises en accord avec le progressif 15 s après (K.key_reconcile).
     if K.ASSEMBLY_KEYS[loc.name or ""] then
@@ -6826,7 +6841,7 @@ function shop_ui.world.apply_key_mode(rec)
     if rec.mode_set or not rec.si or not rec.loc then return end
     -- Clé fœtus (2026-10-10) : mode d'origine 2544608857 = examen et assemblage ; le passer à Once
     -- cassait la scène d'assemblage (menu bloqué). Mode du jeu gardé.
-    if K.ASSEMBLY_KEYS[rec.loc.name or ""] then return end
+    if K.keep_real(rec.loc.name) then return end
     if location_done(rec.loc) == nil then return end -- pas dans cette seed : mode du jeu
     local want_key = (shop_ui.world.own_key(rec.loc) ~= nil or rec.pickup_key == true) and shop_ui.world.INPLACE == true
     -- Pas Normal (2026-10-03) : 1948795948 = mode des objets qu'on OUVRE (mallette, sac de Lei) ;
@@ -6889,7 +6904,7 @@ end
 
 function shop_ui.world.swap_pickup(e, rec)
     pcall(shop_ui.world.learn_get_mode, e)
-    if K.ASSEMBLY_KEYS[e.loc.name or ""] then return end -- vrai morceau (scène d'assemblage du jeu)
+    if K.keep_real(e.loc.name) then return end -- vrai objet (assemblage, objet coulé)
     -- Arme posée : ni mode de ramassage changé, ni objet modifié (voir shop_ui.world.model_for)...
     -- sauf si elle ne tient pas dans la mallette (2026-10-10, Fusil F2 #013 : « inventaire
     -- complet », check impossible) : objet modifié sur place en objet d'une case, mode de

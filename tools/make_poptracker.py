@@ -14,8 +14,10 @@ Tout vient des données de l'apworld (apworld/residentevilvillage/data) :
   - icônes des objets : celles du jeu (2026-10-13), découpées dans les planches GUI/ui0100 des paks
     (numéros relevés en jeu : tools/re_engine/item_icons.json, [planche, case]) ; jeu absent ->
     icônes générées (initiales) ;
-  - cartes : vues du dessus GÉNÉRÉES à partir des positions des checks (pas d'images du jeu) ; un
-    point par salle (texte entre crochets du nom du check).
+  - cartes (2026-10-13) : la VRAIE carte du village du jeu (GUI/ui2501_iam, carte d'ensemble
+    2048 x 2048 des paks), une vue d'ensemble + une vue zoomée par région découpée dedans ; calage
+    monde -> pixels trouvé automatiquement (WORLD_MAP) ; jeu absent -> vues du dessus générées ;
+    un point par salle (texte entre crochets du nom du check).
 Variantes : « fr » et « en » (noms des checks et des objets dans la langue de l'apworld).
 """
 
@@ -75,6 +77,35 @@ def slug(text):
 
 def clean(text):
     return text.replace("/", "-")
+
+
+# Carte d'ensemble du jeu (2026-10-13) : pixel = échelle * (x, z) + décalage, axes du monde
+# (x vers la droite, z vers le bas). Calage cherché par grille sur les 204 checks du Village :
+# 96,6 % des points sur un chemin ou un bâtiment de la carte ; château, Beneviento, Chris et
+# réservoir tombent aussi au bon endroit.
+WORLD_MAP = {"tex": "natives/stm/gui/ui2500/tex/ui2501_iam.tex.30", "scale": 3.15, "dx": 1137, "dy": 668}
+OVERVIEW = "Vue d'ensemble"
+REGION_EN[OVERVIEW] = "Overview"
+
+
+def world_map():
+    """Carte d'ensemble du jeu (RGB, fond sombre), None si jeu absent."""
+    try:
+        sys.path.insert(0, str(ROOT / "tools" / "re_engine"))
+        import pak_extract
+        import texture2ddecoder
+        work = ROOT / "tools" / "re_engine" / "extrait"
+        pak_extract.extract([WORLD_MAP["tex"]], str(work))
+        tex = (work / WORLD_MAP["tex"]).read_bytes()
+        w, h = struct.unpack_from("<HH", tex, 8)
+        off, _, size = struct.unpack_from("<QII", tex, 0x28)
+        img = Image.frombytes("RGBA", (w, h), texture2ddecoder.decode_bc7(tex[off:off + size], w, h), "raw", "BGRA")
+        out = Image.new("RGBA", (w, h), BG + (255,))
+        out.alpha_composite(img)
+        return out.convert("RGB")
+    except Exception as e:
+        print(f"carte du jeu indisponible ({e}) : vues du dessus générées")
+        return None
 
 
 ICON_TABLE = ROOT / "tools" / "re_engine" / "item_icons.json"
@@ -274,7 +305,8 @@ def main():
         return None
 
     # --- Cartes générées (vue du dessus, x / z des checks) ---
-    maps, map_points = [], {}
+    maps, map_points, overview_points = [], {}, {}
+    game_map = world_map()
     for zone, rooms in groups.items():
         if zone == MISC_ZONE:
             names = sorted(rooms)
@@ -288,6 +320,26 @@ def main():
                 d.rounded_rectangle((x - 20, y - 20, x + w // cols - 80, y + 70), 10, fill=BG2, outline=GREY, width=2)
                 d.text((x + 40, y + 8), room, fill=(230, 220, 200), font=font(26))
                 map_points[(zone, room)] = (x + 10, y + 25)
+        elif game_map is not None:
+            # vue zoomée de la vraie carte : cadre des checks de la région + marge, agrandi
+            wm = lambda p: (WORLD_MAP["scale"] * p[0] + WORLD_MAP["dx"], WORLD_MAP["scale"] * p[2] + WORLD_MAP["dy"])
+            pts = [wm(loc["item_position"]) for room in rooms.values() for _, loc in room]
+            x0, x1 = min(p[0] for p in pts) - 60, max(p[0] for p in pts) + 60
+            y0, y1 = min(p[1] for p in pts) - 60, max(p[1] for p in pts) + 60
+            cx, cy, half = (x0 + x1) / 2, (y0 + y1) / 2, max(x1 - x0, y1 - y0, 320) / 2
+            x0, y0 = int(cx - half), int(cy - half)
+            side = int(2 * half)
+            zoom = min(4.0, MAP_W / side)
+            crop = Image.new("RGB", (side, side), BG)
+            crop.paste(game_map.crop((max(0, x0), max(0, y0), min(game_map.width, x0 + side), min(game_map.height, y0 + side))),
+                       (max(0, -x0), max(0, -y0)))
+            img = crop.resize((int(side * zoom), int(side * zoom)), Image.LANCZOS)
+            for room, entries in rooms.items():
+                rp = [wm(loc["item_position"]) for _, loc in entries]
+                px = sum(p[0] for p in rp) / len(rp)
+                py = sum(p[1] for p in rp) / len(rp)
+                map_points[(zone, room)] = (int((px - x0) * zoom), int((py - y0) * zoom))
+                overview_points[(zone, room)] = (int(px), int(py))
         else:
             pts = [loc["item_position"] for room in rooms.values() for _, loc in room]
             xs, zs = [p[0] for p in pts], [p[2] for p in pts]
@@ -313,6 +365,10 @@ def main():
         img.save(OUT / "images" / f"{name}.png")
         maps.append({"name": name, "location_size": 22, "location_border_thickness": 2,
                      "img": f"images/{name}.png", "zone": zone})
+    if game_map is not None:
+        game_map.save(OUT / "images" / "map_vue_d_ensemble.png")
+        maps.insert(0, {"name": "map_vue_d_ensemble", "location_size": 14, "location_border_thickness": 1,
+                        "img": "images/map_vue_d_ensemble.png", "zone": OVERVIEW})
 
     # --- Fichiers par langue ---
     for lang in ("fr", "en"):
@@ -339,9 +395,11 @@ def main():
                     sections.append(sec)
                     id_map[LOC_BASE + i] = f"@{loc_name}/{sec['name']}"
                 x, y = map_points[(zone, room)]
+                ov = overview_points.get((zone, room))
+                overview = [{"map": "map_vue_d_ensemble", "x": ov[0], "y": ov[1]}] if ov else []
                 locs_json.append({"name": loc_name, "chest_unopened_img": "images/chest_closed.png",
                                   "chest_opened_img": "images/chest_opened.png",
-                                  "map_locations": [{"map": mapname, "x": x, "y": y}], "sections": sections})
+                                  "map_locations": [{"map": mapname, "x": x, "y": y}] + overview, "sections": sections})
         (vdir / "locations").mkdir(parents=True)
         (vdir / "items").mkdir(parents=True)
         (vdir / "scripts").mkdir(parents=True)

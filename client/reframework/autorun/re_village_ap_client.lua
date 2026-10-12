@@ -1410,7 +1410,7 @@ function K.nearest_drop(list, pos)
             local d = (cp[1] - pos[1]) ^ 2 + (cp[2] - pos[2]) ^ 2 + (cp[3] - pos[3]) ^ 2
             if d < (c.drop_radius or 20) ^ 2 then
                 if d < any_d then any, any_d = c, d end
-                if d < free_d and shop_ui.location_done(c) == false then free, free_d = c, d end
+                if d < free_d and K.ui.location_done(c) == false then free, free_d = c, d end
             end
         end
     end
@@ -2025,7 +2025,7 @@ function save_sync.install_hooks()
         end
         save_sync.loaded = true
         save_sync.picked_locs = {} -- objets au sol revenus avec la sauvegarde : habillés à nouveau
-        if shop_ui.notice then shop_ui.notice.diff_warned = false end -- avertissement de difficulté redonné
+        if K.ui and K.ui.notice then K.ui.notice.diff_warned = false end -- avertissement de difficulté redonné
     end)
 end
 save_sync.install_hooks()
@@ -2225,6 +2225,10 @@ local scouted_items = {}
 --   last_tab : dernier onglet noté dans le journal.
 -- swap_map est reconstruit à chaque liste ; bought et offered sont vidés à la connexion.
 local shop_ui = { swap_map = {}, bought = {}, offered = {}, last_tab = nil, ap_model_units = {}, key_offline = {} }
+-- shop_ui pour les fonctions écrites AVANT cette ligne (2026-10-13 : K.nearest_drop appelait
+-- shop_ui, variable globale nil à cet endroit du fichier ; ramassage d'un drop de boss planté,
+-- Grande hache cristallisée sans check).
+K.ui = shop_ui
 -- Retire n exemplaires de l'objet item_id en modifiant directement ses piles (2026-10-08 : reduceItem
 -- répond « ok » sans rien retirer pour certains objets : Fragments de cristal des ramassages AP
 -- accumulés dans la mallette, objets clés). Renvoie le nombre retiré.

@@ -9302,7 +9302,11 @@
   ],
   "order": 415.5,
   "added_zone": true,
-  "room_hash": 309009991
+  "room_hash": 309009991,
+  "auto_send_when": {
+   "location": "Grand rubis sang de pigeon #010 [S08]",
+   "item_id": 67387981
+  }
  },
  {
   "name": "Sac de Lei #018 [S08]",
@@ -9404,7 +9408,11 @@
   ],
   "order": 415.5,
   "added_zone": true,
-  "room_hash": 309009991
+  "room_hash": 309009991,
+  "auto_send_when": {
+   "location": "Grand rubis sang de pigeon #010 [S08]",
+   "item_id": 67387981
+  }
  },
  {
   "name": "Crochet #014 [S08]",
@@ -9506,7 +9514,11 @@
   ],
   "order": 415.5,
   "added_zone": true,
-  "room_hash": 309009991
+  "room_hash": 309009991,
+  "auto_send_when": {
+   "location": "Grand rubis sang de pigeon #010 [S08]",
+   "item_id": 67387981
+  }
  },
  {
   "name": "Grand rubis sang de pigeon #010 [S08]",

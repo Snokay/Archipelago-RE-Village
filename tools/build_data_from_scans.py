@@ -203,6 +203,16 @@ BOSS_DROPS = [
 BOSS_DROPS_EXTRA = [
     (1863717, "Village", "gardien de la tombe", [-203.56, -34.51, 51.37], 60, 415.5, ["Morceau de plaque"]),  # Grande hache cristallisée
 ]
+# Plateformes du puits d'après le château (2026-10-12, relevé par le développeur) : en descendant au
+# coffre du fond (Grand rubis sang de pigeon #010 [S08]), les plateformes remontent et les 3 checks du
+# haut ne sont plus accessibles. Envoyés tout seuls dès que le rubis est pris (tous les modes ; en mode
+# 100 % un mur empêche de descendre avant). GUID -> repère (données auto_send_when du client).
+WELL_TOP_TRIGGER = {"location": "Grand rubis sang de pigeon #010 [S08]", "item_id": 67387981}
+AUTO_SEND_WHEN_GUIDS = {
+    "c4e07a2f-d904-089a-3131-60bd07399266": WELL_TOP_TRIGGER,  # Bombe tuyau #005 [S08]
+    "0fc64d05-e3af-0345-35eb-10596c0ea9c4": WELL_TOP_TRIGGER,  # Cartouches de fusil #003 [S08]
+    "a00a2f54-fb2f-02d5-0bc7-d2e5bff76af4": WELL_TOP_TRIGGER,  # Grenades explosives #009 [S08]
+}
 CHAPTER_RE = re.compile(r"(Chapter\d_\d|c02_ChapterBridge)")
 
 # Boutique : catégories vendues une seule fois (checks) et armes vendues uniquement par le Duc.
@@ -667,6 +677,8 @@ def main():
             loc["missable_chapter"] = MISSABLE_CHAPTERS[zone]
         if CATEGORY_TYPES.get(category(item_id)) == "Treasure":
             loc["no_key_items"] = True
+        if guid in AUTO_SEND_WHEN_GUIDS:
+            loc["auto_send_when"] = AUTO_SEND_WHEN_GUIDS[guid]
         new_locations.append(loc)
     for name, item in new_items.items():
         item["quantity"] = 500 if name == MONEY_NAME else int(statistics.median(new_stacks.get(name, [1])))

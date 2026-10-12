@@ -519,7 +519,26 @@ function K.case_busy()
     end)
     if saving ~= (K.was_saving or false) then
         K.was_saving = saving
+        K.saving_since = saving and os.clock() or nil
         debug_log(saving and "sauvegarde/chargement en cours : dons en pause" or "sauvegarde/chargement terminé")
+    end
+    -- Sauvegarde qui ne finit jamais (2026-10-12, 2e fois, sans don pendant la sauvegarde) : état
+    -- interne du SaveLoadManager noté toutes les 10 s après 15 s, pour savoir ce que le jeu attend.
+    if saving and K.saving_since and os.clock() - K.saving_since > 15 and os.clock() >= (K.save_diag_at or 0) then
+        K.save_diag_at = os.clock() + 10
+        pcall(function()
+            local m = sdk.get_managed_singleton("app.SaveLoadManager")
+            local parts = {}
+            for _, f in ipairs({ "SaveLoadState", "SaveLoadType", "PermissionSave", "SaveResumeFromDead", "SaveMove" }) do
+                local ok, v = pcall(function() return m:get_field(f) end)
+                parts[#parts + 1] = f .. "=" .. tostring(ok and v)
+            end
+            for _, c in ipairs({ "IsPermissionSave", "IsNowSave", "IsNowLoad" }) do
+                local ok, v = pcall(function() return m:call(c) end)
+                parts[#parts + 1] = c .. "=" .. tostring(ok and v)
+            end
+            debug_log(string.format("sauvegarde bloquée depuis %.0f s : %s", os.clock() - K.saving_since, table.concat(parts, " ")))
+        end)
     end
     busy = busy or saving
     if busy then
@@ -1945,6 +1964,10 @@ function save_sync.install_hooks()
     end)
     -- Diagnostic (2026-10-12, sauvegarde automatique figée) : échec de sauvegarde signalé par le jeu
     hook(slm, "SaveViaEndFail", function() debug_log("sauvegarde : ÉCHEC signalé par le jeu (SaveViaEndFail)") end)
+    -- étapes d'une sauvegarde (2026-10-12, sauvegarde qui ne finit jamais : où elle s'arrête)
+    for _, step in ipairs({ "SaveAppSlotPrepare", "SaveAppSlotRequest", "SaveViaStart", "SaveViaEndWait" }) do
+        hook(slm, step, function() debug_log("sauvegarde : étape " .. step) end)
+    end
     hook(slm, "StartLoad", function(args)
         save_sync.load_slot = save_sync.arg_int(args[5])
         -- État noté de la sauvegarde qu'on charge, retenu tout de suite : la sauvegarde
@@ -8882,6 +8905,34 @@ shop_ui.no_return = {
                   for _, n in ipairs(exit.requires or {}) do
                       if n == loc.name then return true end
                   end
+              end
+              return false
+          end },
+        -- Plateformes du puits d'après le château (2026-10-12, idée du développeur, mode 100 %) : en
+        -- descendant au coffre du fond, les plateformes remontent et les checks du haut ne sont plus
+        -- accessibles. Checks exigés lus dans no_return.json (« requires »), comme la Porte de la Bague.
+        { name = "Plateformes du puits", name_en = "Well platforms", test = function(loc)
+              for _, exit in ipairs(shop_ui.no_return.exits["Plateformes du puits"] or {}) do
+                  for _, n in ipairs(exit.requires or {}) do
+                      if n == loc.name then return true end
+                  end
+              end
+              return false
+          end },
+        -- Fond du puits (2026-10-12, idée du développeur, mode 100 %) : mur à la sortie du puits, actif
+        -- dès que le trésor du coffre du fond (Grand rubis sang de pigeon #010 [S08]) est pris : il faut
+        -- alors prendre le reste du fond avant de sortir. Checks exigés dans no_return.json (« requires »).
+        { name = "Fond du puits", name_en = "Well bottom", test = function(loc)
+              for _, exit in ipairs(shop_ui.no_return.exits["Fond du puits"] or {}) do
+                  for _, n in ipairs(exit.requires or {}) do
+                      if n == loc.name then return true end
+                  end
+              end
+              return false
+          end,
+          active = function()
+              for _, loc in pairs(location_by_guid) do
+                  if loc.name == "Grand rubis sang de pigeon #010 [S08]" then return location_done(loc) == true end
               end
               return false
           end },

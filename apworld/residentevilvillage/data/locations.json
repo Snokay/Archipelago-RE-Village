@@ -5103,6 +5103,10 @@
    -78.4,
    333.67
   ],
+  "auto_send_when": {
+   "boss": "moreau",
+   "left_chapter": "Chapter2_4"
+  },
   "order": 331.5
  },
  {
@@ -5154,6 +5158,10 @@
    -77.71,
    332.97
   ],
+  "auto_send_when": {
+   "boss": "moreau",
+   "left_chapter": "Chapter2_4"
+  },
   "order": 325
  },
  {
@@ -5169,6 +5177,10 @@
    -77.71,
    333.08
   ],
+  "auto_send_when": {
+   "boss": "moreau",
+   "left_chapter": "Chapter2_4"
+  },
   "order": 324
  },
  {
@@ -5184,6 +5196,10 @@
    -77.71,
    333.37
   ],
+  "auto_send_when": {
+   "boss": "moreau",
+   "left_chapter": "Chapter2_4"
+  },
   "order": 323
  },
  {
@@ -5199,6 +5215,10 @@
    -77.08,
    314.72
   ],
+  "auto_send_when": {
+   "boss": "moreau",
+   "left_chapter": "Chapter2_4"
+  },
   "order": 328
  },
  {
@@ -5214,6 +5234,10 @@
    -77.3,
    314.14
   ],
+  "auto_send_when": {
+   "boss": "moreau",
+   "left_chapter": "Chapter2_4"
+  },
   "order": 327
  },
  {
@@ -5229,6 +5253,10 @@
    -77.53,
    314.53
   ],
+  "auto_send_when": {
+   "boss": "moreau",
+   "left_chapter": "Chapter2_4"
+  },
   "order": 326
  },
  {
@@ -5244,6 +5272,10 @@
    -77.71,
    328.92
   ],
+  "auto_send_when": {
+   "boss": "moreau",
+   "left_chapter": "Chapter2_4"
+  },
   "order": 331.5
  },
  {
@@ -5259,6 +5291,10 @@
    -77.71,
    328.5
   ],
+  "auto_send_when": {
+   "boss": "moreau",
+   "left_chapter": "Chapter2_4"
+  },
   "order": 331.5
  },
  {
@@ -5274,6 +5310,10 @@
    -77.72,
    344.6
   ],
+  "auto_send_when": {
+   "boss": "moreau",
+   "left_chapter": "Chapter2_4"
+  },
   "order": 321
  },
  {
@@ -5289,6 +5329,10 @@
    -77.71,
    344.2
   ],
+  "auto_send_when": {
+   "boss": "moreau",
+   "left_chapter": "Chapter2_4"
+  },
   "order": 320
  },
  {
@@ -5337,6 +5381,10 @@
    -80.94,
    317.99
   ],
+  "auto_send_when": {
+   "boss": "moreau",
+   "left_chapter": "Chapter2_4"
+  },
   "order": 322,
   "no_key_items": true
  },

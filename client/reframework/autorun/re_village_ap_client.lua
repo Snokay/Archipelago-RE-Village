@@ -8986,6 +8986,7 @@ shop_ui.no_return = {
         shop_ui.no_return_requires_segment("Lac de Moreau (1)", "Moreau's lake (1)"),
         shop_ui.no_return_requires_segment("Lac de Moreau (2)", "Moreau's lake (2)"),
         shop_ui.no_return_requires_segment("Lac de Moreau (3)", "Moreau's lake (3)"),
+        shop_ui.no_return_requires_segment("Arène de Moreau", "Moreau's arena"),
         -- Anti-softlock (2026-10-07, idée du joueur), actif dans TOUS les modes : entrée de la
         -- salle des statues (vidange). Le jeu ne vide le sang que si l'énigme du vin est faite ;
         -- avec la Clé de la cour reçue du multiworld, on pouvait y entrer sans avoir posé le vin
@@ -9370,6 +9371,11 @@ function shop_ui.auto_send_when()
             if w.item_id and (shop_ui.picked_item_ids or {})[w.item_id] then trigger = true end
             -- repère « boss » (2026-10-12, lac de Moreau) : seigneur vaincu (state.bosses, comme l'objectif)
             if w.boss and (state.bosses or {})[w.boss] then trigger = true end
+            -- ... et sorti du chapitre de la zone (arène de Moreau : le temps de ramasser les checks)
+            if trigger and w.left_chapter then
+                local ch = shop_ui.chapter and tostring(shop_ui.chapter) or ""
+                if ch == "" or ch == w.left_chapter then trigger = false end
+            end
             if trigger then
                 shop_ui.when_done[loc.key] = true
                 debug_log("envoi automatique (repère " .. tostring(w.location or w.boss) .. ") : " .. loc.name)

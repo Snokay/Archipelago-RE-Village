@@ -207,6 +207,7 @@ BOSS_DROPS_EXTRA = [
 # coffre du fond (Grand rubis sang de pigeon #010 [S08]), les plateformes remontent et les 3 checks du
 # haut ne sont plus accessibles. Envoyés tout seuls dès que le rubis est pris (tous les modes ; en mode
 # 100 % un mur empêche de descendre avant). GUID -> repère (données auto_send_when du client).
+MOREAU_ARENA = {"boss": "moreau", "left_chapter": "Chapter2_4"}
 WELL_TOP_TRIGGER = {"location": "Grand rubis sang de pigeon #010 [S08]", "item_id": 67387981}
 AUTO_SEND_WHEN_GUIDS = {
     "c4e07a2f-d904-089a-3131-60bd07399266": WELL_TOP_TRIGGER,  # Bombe tuyau #005 [S08]
@@ -218,6 +219,19 @@ AUTO_SEND_WHEN_GUIDS = {
     "b177d629-475c-0217-3011-cd288d6f86a9": {"boss": "moreau"},  # Munitions magnum #001 [S08]
     "73e3be42-0f0b-0a1a-2856-7770b8f0e159": {"boss": "moreau"},  # Sac de Lei #020 (3e passage)
     "84092d77-d035-0cd5-3268-85971536e81a": {"boss": "moreau"},  # Chargeur grande capacité (M1911) (2) #009 (3e passage)
+    # arène de Moreau : envoyés en quittant le réservoir, Moreau mort (pas dès sa mort : il faut pouvoir les ramasser)
+    "8ced2b73-a2d3-0d96-1e22-c407b4183dfd": MOREAU_ARENA,  # Yeux de Moreau #006
+    "d3a86bda-dc9c-05e8-15cf-f238d49d9e96": MOREAU_ARENA,  # Mine #005
+    "ed57caac-b9ff-007e-1fb2-1f1fd0169dde": MOREAU_ARENA,  # Remède de premiers soins #025
+    "df3a8926-9897-08b2-31bc-09b73c89d6c3": MOREAU_ARENA,  # Munitions pour pistolet #013
+    "31f5d465-b223-0362-35ae-9b9cc7e9c17d": MOREAU_ARENA,  # Poudre noire #018
+    "b9709d3b-09c7-073a-15bf-d7b4630f2a03": MOREAU_ARENA,  # Cartouches de fusil #007
+    "37330770-069b-0d4c-13fb-d1353306effa": MOREAU_ARENA,  # Pièces détachées #026
+    "8f2dfa0c-f3e2-0f96-1e95-6475d3cf2e34": MOREAU_ARENA,  # Mine #004 (8f2dfa0c)
+    "7bd9ac39-648a-0627-013f-4394e00d90a0": MOREAU_ARENA,  # Fluide chimique #015
+    "f26cc374-bba5-0ab0-3cdc-315bc4290329": MOREAU_ARENA,  # Ferraille #009
+    "a047baa0-0cd5-0461-3133-ca5113147a45": MOREAU_ARENA,  # Ferraille #016
+    "d54cf15a-148b-049c-15b3-36515636be37": MOREAU_ARENA,  # Cartouches de fusil #012
 }
 CHAPTER_RE = re.compile(r"(Chapter\d_\d|c02_ChapterBridge)")
 

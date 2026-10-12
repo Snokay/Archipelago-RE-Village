@@ -199,5 +199,31 @@
             ],
             "note": "3e passage sans retour du lac de Moreau, après Sac de Lei #020 (15,5 m) et la mallette du Chargeur grande capacité (M1911) (2) #009 (2,1 m : rayon 1 m pour pouvoir l'ouvrir), relevé par le développeur le 2026-10-12 22:14:08"
         }
+    ],
+    "Arène de Moreau": [
+        {
+            "chapter": "Chapter2_4",
+            "pos": [
+                -29.876888275146484,
+                -78.14570617675781,
+                312.79986572265625
+            ],
+            "r": 1.5,
+            "requires": [
+                "Yeux de Moreau #006",
+                "Mine #005",
+                "Remède de premiers soins #025",
+                "Munitions pour pistolet #013",
+                "Poudre noire #018",
+                "Cartouches de fusil #007",
+                "Pièces détachées #026",
+                "Mine #004 (8f2dfa0c)",
+                "Fluide chimique #015",
+                "Ferraille #009",
+                "Ferraille #016",
+                "Cartouches de fusil #012"
+            ],
+            "note": "sortie de l'arène de Moreau (après le combat), relevé par le développeur le 2026-10-12 22:18:13 ; les 12 checks ramassés juste après sa mort"
+        }
     ]
 }

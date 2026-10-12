@@ -8985,6 +8985,7 @@ shop_ui.no_return = {
         -- se suivent, chacun derrière UN check (une seule catégorie exigerait les deux au 1er mur).
         shop_ui.no_return_requires_segment("Lac de Moreau (1)", "Moreau's lake (1)"),
         shop_ui.no_return_requires_segment("Lac de Moreau (2)", "Moreau's lake (2)"),
+        shop_ui.no_return_requires_segment("Lac de Moreau (3)", "Moreau's lake (3)"),
         -- Anti-softlock (2026-10-07, idée du joueur), actif dans TOUS les modes : entrée de la
         -- salle des statues (vidange). Le jeu ne vide le sang que si l'énigme du vin est faite ;
         -- avec la Clé de la cour reçue du multiworld, on pouvait y entrer sans avoir posé le vin

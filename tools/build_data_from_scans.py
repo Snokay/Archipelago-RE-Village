@@ -216,6 +216,8 @@ AUTO_SEND_WHEN_GUIDS = {
     # mode 100 % des murs les gardent, dans les autres modes ils partent tout seuls à la mort de Moreau.
     "3cadcb4f-060f-0827-3756-758cbaf0dc98": {"boss": "moreau"},  # Munitions pour pistolet #014 [S07]
     "b177d629-475c-0217-3011-cd288d6f86a9": {"boss": "moreau"},  # Munitions magnum #001 [S08]
+    "73e3be42-0f0b-0a1a-2856-7770b8f0e159": {"boss": "moreau"},  # Sac de Lei #020 (3e passage)
+    "84092d77-d035-0cd5-3268-85971536e81a": {"boss": "moreau"},  # Chargeur grande capacité (M1911) (2) #009 (3e passage)
 }
 CHAPTER_RE = re.compile(r"(Chapter\d_\d|c02_ChapterBridge)")
 

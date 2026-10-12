@@ -5118,6 +5118,9 @@
    -73.09,
    333.36
   ],
+  "auto_send_when": {
+   "boss": "moreau"
+  },
   "order": 317
  },
  {
@@ -5133,6 +5136,9 @@
    -72.5,
    334.98
   ],
+  "auto_send_when": {
+   "boss": "moreau"
+  },
   "order": 331.5
  },
  {

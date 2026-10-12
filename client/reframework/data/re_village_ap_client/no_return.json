@@ -183,5 +183,21 @@
             ],
             "note": "passage sans retour suivant, juste après Munitions magnum #001 [S08] (12,8 m), relevé par le développeur le 2026-10-12 (2e relevé de 22:04:47)"
         }
+    ],
+    "Lac de Moreau (3)": [
+        {
+            "chapter": "Chapter2_4",
+            "pos": [
+                -54.46417236328125,
+                -73.1695785522461,
+                336.41278076171875
+            ],
+            "r": 1.0,
+            "requires": [
+                "Sac de Lei #020",
+                "Chargeur grande capacité (M1911) (2) #009"
+            ],
+            "note": "3e passage sans retour du lac de Moreau, après Sac de Lei #020 (15,5 m) et la mallette du Chargeur grande capacité (M1911) (2) #009 (2,1 m : rayon 1 m pour pouvoir l'ouvrir), relevé par le développeur le 2026-10-12 22:14:08"
+        }
     ]
 }

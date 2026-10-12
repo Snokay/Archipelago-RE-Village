@@ -9235,5 +9235,720 @@
    62.81
   ],
   "order": 415.5
+ },
+ {
+  "name": "Munitions de fusil sniper #020 [S08]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Munitions de fusil sniper",
+  "guid": "97eed482-1a27-087a-3acf-a895686d5c30",
+  "item_object": "SpawnInfo_SniperRifleBullet_020",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_08",
+  "item_position": [
+   -65.14,
+   -39.08,
+   5.24
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 1558011565
+ },
+ {
+  "name": "Cartouches de fusil #019 [S08]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Cartouches de fusil",
+  "guid": "a5ddeeef-e792-0e77-2578-b8a418c1826f",
+  "item_object": "SpawnInfo_ShotGun_Bullet_019",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_08",
+  "item_position": [
+   -74.84,
+   -40.08,
+   16.38
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 3470961285
+ },
+ {
+  "name": "Munitions pour pistolet #016 [S08]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Munitions pour pistolet",
+  "guid": "a0a24bf2-4987-0cc9-2459-f5bb14145d48",
+  "item_object": "SpawnInfo_HandGun_Bullet_016",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_08",
+  "item_position": [
+   -70.86,
+   -40.08,
+   18.96
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 3470961285
+ },
+ {
+  "name": "Grenades explosives #009 [S08]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Grenades explosives",
+  "guid": "a00a2f54-fb2f-02d5-0bc7-d2e5bff76af4",
+  "item_object": "SpawnInfo_GrenadeLauncherExplosionBullet_009",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_08",
+  "item_position": [
+   -170.35,
+   -40.9,
+   -5.99
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 309009991
+ },
+ {
+  "name": "Sac de Lei #018 [S08]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Sac de Lei",
+  "guid": "8f5950c3-d802-039d-1eca-bfa277d35f6d",
+  "item_object": "SpawnInfo_BaggedMoney_018",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_08",
+  "item_position": [
+   -72.93,
+   -39.13,
+   -0.82
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 731739370
+ },
+ {
+  "name": "Sac de Lei #015 [S08]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Sac de Lei",
+  "guid": "9e22a18d-443b-0430-2737-a5b9bd003cc7",
+  "item_object": "SpawnInfo_BaggedMoney_015",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_08",
+  "item_position": [
+   -72.39,
+   -39.13,
+   -0.39
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 731739370
+ },
+ {
+  "name": "Sac de Lei #007 [S08]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Sac de Lei",
+  "guid": "76eae219-1eb2-0e75-1614-87eb474b6bf5",
+  "item_object": "SpawnInfo_BaggedMoney_007",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_08",
+  "item_position": [
+   -72.3,
+   -39.04,
+   -0.77
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 731739370
+ },
+ {
+  "name": "Sac de Lei #002 [S08]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Sac de Lei",
+  "guid": "80240ce5-63de-028f-0a57-974d1b01282e",
+  "item_object": "SpawnInfo_BaggedMoney_002",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_08",
+  "item_position": [
+   -72.52,
+   -39.13,
+   -0.58
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 731739370
+ },
+ {
+  "name": "Sac de Lei #001 [S08]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Sac de Lei",
+  "guid": "cfcf08e4-6306-0dae-0a9a-29181f991a6a",
+  "item_object": "SpawnInfo_BaggedMoney_001",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_08",
+  "item_position": [
+   -72.79,
+   -39.13,
+   -0.51
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 731739370
+ },
+ {
+  "name": "Bombe tuyau #005 [S08]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Bombe tuyau",
+  "guid": "c4e07a2f-d904-089a-3131-60bd07399266",
+  "item_object": "SpawnInfo_Dynamite_005",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_08",
+  "item_position": [
+   -164.75,
+   -40.77,
+   -15.7
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 309009991
+ },
+ {
+  "name": "Crochet #014 [S08]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Crochet",
+  "guid": "8de8ac8f-b541-0cf9-05cc-4057b54b41b0",
+  "item_object": "SpawnInfo_SmallKey_014",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_08",
+  "item_position": [
+   -156.84,
+   -45.23,
+   -13.13
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 309009991
+ },
+ {
+  "name": "Munitions magnum #013 [S08]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Munitions magnum",
+  "guid": "8a1c3f18-e15b-0b83-06e6-b78502cafa51",
+  "item_object": "SpawnInfo_Magnum_Bullet_013",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_08",
+  "item_position": [
+   -53.34,
+   -39.13,
+   7.94
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 2491734306
+ },
+ {
+  "name": "Grenades aveuglantes #012 [S08]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Grenades aveuglantes",
+  "guid": "d4212996-758b-0687-1ec7-545ecf81a9fa",
+  "item_object": "SpawnInfo_GrenadeLauncherFlashBullet_012",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_08",
+  "item_position": [
+   -173.29,
+   -44.44,
+   -5.41
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 309009991
+ },
+ {
+  "name": "Mine #008 [S08]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Mine",
+  "guid": "d70b862e-a4b1-033c-0752-f3aaff457280",
+  "item_object": "SpawnInfo_Mine_008",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_08",
+  "item_position": [
+   -165.34,
+   -43.98,
+   -13.09
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 309009991
+ },
+ {
+  "name": "Munitions magnum #004 [S08]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Munitions magnum",
+  "guid": "9c1c9bfa-4810-0740-2023-86bbf477a2b2",
+  "item_object": "SpawnInfo_Magnum_Bullet_004",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_08",
+  "item_position": [
+   -173.48,
+   -44.44,
+   -5.9
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 309009991
+ },
+ {
+  "name": "Cartouches de fusil #003 [S08]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Cartouches de fusil",
+  "guid": "0fc64d05-e3af-0345-35eb-10596c0ea9c4",
+  "item_object": "SpawnInfo_ShotGun_Bullet_003",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_08",
+  "item_position": [
+   -166.38,
+   -40.56,
+   -2.1
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 309009991
+ },
+ {
+  "name": "Grand rubis sang de pigeon #010 [S08]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Grand rubis sang de pigeon",
+  "guid": "37b36681-daee-029f-0679-8e36eb7b3f0f",
+  "item_object": "SpawnInfo_Treasure_BloodStone_Large_010",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_08",
+  "item_position": [
+   -172.91,
+   -43.5,
+   -4.89
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 309009991,
+  "no_key_items": true
+ },
+ {
+  "name": "Dimitrescu en or #006 [S08]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Dimitrescu en or",
+  "guid": "d4dd9275-9a2d-0738-006b-1bdb82d03cde",
+  "item_object": "SpawnInfo_Treasure_GoldWitchStaue_006",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_08",
+  "item_position": [
+   -53.71,
+   -39.13,
+   8.29
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 2491734306,
+  "no_key_items": true
+ },
+ {
+  "name": "Grenades explosives #018 [Village - Scierie]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Grenades explosives",
+  "guid": "aa5db849-89ad-016f-2d54-cb927534a755",
+  "item_object": "SpawnInfo_GrenadeLauncherExplosionBullet_018",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_05",
+  "item_position": [
+   74.61,
+   -14.16,
+   -6.08
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 4063852159
+ },
+ {
+  "name": "Fragment de cristal #021 [S05]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Fragment de cristal",
+  "guid": "e900f116-2960-0da2-16b4-32ed4df6ab33",
+  "item_object": "SpawnInfo_Treasure_Spinel_021",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_05",
+  "item_position": [
+   52.97,
+   -18.72,
+   -7.18
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "no_key_items": true
+ },
+ {
+  "name": "Mine #020 [S05]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Mine",
+  "guid": "5773722d-ea04-0814-384b-0ef712f202a0",
+  "item_object": "SpawnInfo_Mine_020",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_05",
+  "item_position": [
+   53.75,
+   -18.66,
+   -11.44
+  ],
+  "order": 415.5,
+  "added_zone": true
+ },
+ {
+  "name": "Mine #010 [S05]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Mine",
+  "guid": "09587418-eaf4-0e97-004e-b0e147f1c428",
+  "item_object": "SpawnInfo_Mine_010",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_05",
+  "item_position": [
+   53.28,
+   -18.65,
+   -11.46
+  ],
+  "order": 415.5,
+  "added_zone": true
+ },
+ {
+  "name": "Ange de Nichola #001 [Village - Scierie]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Ange de Nichola",
+  "guid": "bc939e34-7185-0857-2902-76340e10de4f",
+  "item_object": "SpawnInfo_Treasure_GoldGoddesStatue_001",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_05",
+  "item_position": [
+   86.97,
+   -17.29,
+   11.7
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 3677933340,
+  "no_key_items": true
+ },
+ {
+  "name": "Viande #017 [Village - Scierie]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Viande",
+  "guid": "549865a4-543d-0d27-0809-ecc36ca0aa91",
+  "item_object": "SpawnInfo_AnimalMeat_017",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_05",
+  "item_position": [
+   80.03,
+   -17.55,
+   10.22
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 4182067046
+ },
+ {
+  "name": "Poisson #016 [Village - Scierie]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Poisson",
+  "guid": "c5e6b591-24b7-02ac-35e0-0bf13c0fb75b",
+  "item_object": "SpawnInfo_FishMeat_016",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_05",
+  "item_position": [
+   79.64,
+   -17.54,
+   9.77
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 4182067046
+ },
+ {
+  "name": "Volaille #015 [Village - Scierie]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Volaille",
+  "guid": "8008b8d0-c708-0e0d-3262-30b3738680c9",
+  "item_object": "SpawnInfo_ElderCrowMeat_015",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_05",
+  "item_position": [
+   75.77,
+   -17.7,
+   14.35
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 4182067046
+ },
+ {
+  "name": "Viande #014 [Village - Scierie]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Viande",
+  "guid": "5ab29221-b34a-026b-0c39-9bcc0b827eec",
+  "item_object": "SpawnInfo_AnimalMeat_014",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_05",
+  "item_position": [
+   75.44,
+   -18.23,
+   14.67
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 4182067046
+ },
+ {
+  "name": "Viande #009 [Village - Scierie]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Viande",
+  "guid": "4d52d0ef-0980-0893-0183-5fc1e4b00836",
+  "item_object": "SpawnInfo_AnimalMeat_009",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_05",
+  "item_position": [
+   75.36,
+   -17.26,
+   14.58
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 4182067046
+ },
+ {
+  "name": "Pièces détachées #013 [Village - Scierie]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Pièces détachées",
+  "guid": "a754fba8-78ed-0660-24ef-fbb01b6f0996",
+  "item_object": "SpawnInfo_Material_ScrapB_013",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_05",
+  "item_position": [
+   76.55,
+   -18.35,
+   9.51
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 4182067046
+ },
+ {
+  "name": "Poudre noire #012 [Village - Scierie]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Poudre noire",
+  "guid": "e8583130-4a26-02c7-31b3-c0ba15b58177",
+  "item_object": "SpawnInfo_Material_GunPowder_012",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_05",
+  "item_position": [
+   82.83,
+   -17.21,
+   14.0
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 3677933340
+ },
+ {
+  "name": "Plante #011 [Village - Scierie]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Plante",
+  "guid": "cd9ca151-d4b6-0f16-1cc0-1f267815a5ff",
+  "item_object": "SpawnInfo_Material_Herb_011",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_05",
+  "item_position": [
+   72.87,
+   -17.44,
+   16.24
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 4182067046
+ },
+ {
+  "name": "Cartouches de fusil #008 [Village - Scierie]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Cartouches de fusil",
+  "guid": "7d7ce058-9a17-00aa-164c-e727d0bf8d7a",
+  "item_object": "SpawnInfo_ShotGun_Bullet_008",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_05",
+  "item_position": [
+   76.66,
+   -17.0,
+   -3.3
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 4063852159
+ },
+ {
+  "name": "Munitions pour pistolet #004 [Village - Scierie]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Munitions pour pistolet",
+  "guid": "76e79ba0-fa07-0f53-1156-5171aa86f97b",
+  "item_object": "SpawnInfo_HandGun_Bullet_004",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_05",
+  "item_position": [
+   73.58,
+   -17.26,
+   -1.3
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 4063852159
+ },
+ {
+  "name": "Munitions de fusil sniper #003 [Village - Scierie]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Munitions de fusil sniper",
+  "guid": "a9bc73be-4fa8-05d0-13e4-7b13269b3a3b",
+  "item_object": "SpawnInfo_SniperRifleBullet_003",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_05",
+  "item_position": [
+   74.13,
+   -17.38,
+   7.49
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 4063852159
+ },
+ {
+  "name": "Poignée (W870 TAC) #002 [S19]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Poignée (W870 TAC)",
+  "guid": "e8284322-f1fb-0b8a-03b4-ca9dd8ded824",
+  "item_object": "SpawnInfo_PartsCase_LongBarrel_Shot2_002",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_19",
+  "item_position": [
+   -127.47,
+   -49.23,
+   132.66
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 2297161744
+ },
+ {
+  "name": "Pièce antique #001 [S19]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Pièce antique",
+  "guid": "fdf852f5-cf5b-04a5-1ea5-4f57b410cfbf",
+  "item_object": "SpawnInfo_TreasureLousianaMedal_001",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_19",
+  "item_position": [
+   -127.44,
+   -49.23,
+   132.18
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 2297161744,
+  "no_key_items": true
+ },
+ {
+  "name": "Grenades aveuglantes #008 [S19]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Grenades aveuglantes",
+  "guid": "a7de5851-4e1b-0528-07fc-e3c5d0fc47d5",
+  "item_object": "SpawnInfo_GrenadeLauncherFlashBullet_008",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_19",
+  "item_position": [
+   -128.7,
+   -49.15,
+   129.31
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 2297161744
+ },
+ {
+  "name": "Grenades explosives #005 [S19]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Grenades explosives",
+  "guid": "0307946a-0768-0eb4-007b-8d0ec8f1e326",
+  "item_object": "SpawnInfo_GrenadeLauncherExplosionBullet_005",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_19",
+  "item_position": [
+   -128.54,
+   -49.15,
+   128.83
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 2297161744
+ },
+ {
+  "name": "Munitions pour pistolet #007 [S19]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Munitions pour pistolet",
+  "guid": "dbac6a90-74fe-0ece-0ef6-72b0cc4f7cc2",
+  "item_object": "SpawnInfo_HandGun_Bullet_007",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_19",
+  "item_position": [
+   -126.94,
+   -49.56,
+   131.96
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 2297161744
+ },
+ {
+  "name": "Mine #004 [S19]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Mine",
+  "guid": "ed87937e-0d52-4e53-9d51-7e8f22172af2",
+  "item_object": "SpawnInfo_Mine_004",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_19",
+  "item_position": [
+   -129.18,
+   -49.15,
+   129.12
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 2297161744
+ },
+ {
+  "name": "Mine #004 [S19] (bb172631)",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Mine",
+  "guid": "bb172631-5179-0118-2f6e-0f026a5aac59",
+  "item_object": "SpawnInfo_Mine_004",
+  "folder_path": "Chapter/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_19",
+  "item_position": [
+   -129.45,
+   -49.13,
+   129.52
+  ],
+  "order": 415.5,
+  "added_zone": true,
+  "room_hash": 2297161744
+ },
+ {
+  "name": "Crochet #002 [S18]",
+  "region": "Village",
+  "kind": "world",
+  "original_item": "Crochet",
+  "guid": "f8305bf6-1fac-0ea6-279e-3e8692d30e00",
+  "item_object": "SpawnInfo_SmallKey_002",
+  "folder_path": "DLCRoot_GE/DLC05/DLC05_0/ChapterTPSRoot/ChapterTPS/Chapter2_6/st10_2_6_ItemSet/st10_2_6_SpawnInfo/st10_2_6_ItemSet_ResourceItem/st10_2_6_ItemSet_ResourceItem_Separetor_18",
+  "item_position": [
+   60.51,
+   -42.43,
+   155.36
+  ],
+  "order": 415.5,
+  "added_zone": true
  }
 ]

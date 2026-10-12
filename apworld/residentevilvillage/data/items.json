@@ -1373,5 +1373,45 @@
   "quantity": 1,
   "unlimited_lockpick": true,
   "description": "Ouvre les serrures simples. Jamais épuisé."
+ },
+ {
+  "name": "Ange de Nichola",
+  "type": "Treasure",
+  "game_item_id": 1257947499,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Dimitrescu en or",
+  "type": "Treasure",
+  "game_item_id": 3347257867,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Grand rubis sang de pigeon",
+  "type": "Treasure",
+  "game_item_id": 67387981,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Pièce antique",
+  "type": "Treasure",
+  "game_item_id": 3841303535,
+  "category": "Trésor",
+  "description": "",
+  "quantity": 1
+ },
+ {
+  "name": "Poignée (W870 TAC)",
+  "type": "Upgrade",
+  "game_item_id": 943909675,
+  "category": "Élément de modification",
+  "description": "Augmente grandement la cadence de tir.",
+  "quantity": 1
  }
 ]

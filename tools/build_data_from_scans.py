@@ -604,6 +604,76 @@ def main():
                       "category": "Autre", "quantity": 1, "unlimited_lockpick": True,
                       "description": "Ouvre les serrures simples. Jamais épuisé."})
 
+    # --- Zones jamais relevées dans la partie de référence (2026-10-12, retour d'un joueur : partie en
+    # bateau après le réservoir, puits, scierie, moulin) : relevés de docs/reference/scans_ajout/
+    # (scans des outils de dev + journal des ramassages). Emplacements ET objets nouveaux TOUT à la fin :
+    # aucun numéro existant ne bouge. Objets clés laissés à leur place (photos, Calice, bocaux...).
+    # Rang = fin de leur chapitre (prudent : jamais bloquant).
+    known_guids = {loc.get("guid") for loc in locations if loc.get("guid")}
+    known_guids |= set(load_placements())
+    by_id = {}
+    for item in item_list:
+        if item.get("game_item_id") and item.get("type") not in ("Key", "Event"):
+            by_id.setdefault(item["game_item_id"], item["name"])
+    by_id[MONEY_ITEM_ID] = MONEY_NAME
+    added = {}
+    for f in sorted(glob.glob(str(REF / "scans_ajout" / "*.json"))):
+        for p in json.loads(Path(f).read_text(encoding="utf-8")).get("placements", []):
+            if p.get("guid"):
+                added.setdefault(p["guid"], p)
+    for f in sorted(glob.glob(str(REF / "scans_ajout" / "*.jsonl"))):
+        for line in Path(f).read_text(encoding="utf-8").splitlines():
+            p = json.loads(line)
+            if p.get("guid") and p.get("item_object") and p["guid"] not in added:
+                p = dict(p)
+                p["item_id"] = p.get("item_id") or p.get("picked_item_id")
+                added[p["guid"]] = p
+    new_items, new_stacks, new_locations = {}, {}, []
+    taken = {loc["name"] for loc in locations}
+    for guid, p in added.items():
+        obj = p.get("item_object", "") or ""
+        item_id = p.get("item_id")
+        zone = zone_of(p.get("folder_path"))
+        if guid in known_guids or not item_id or not zone or obj.startswith("ItemSpawnInfo"):
+            continue
+        if "EnemyDrop" in (p.get("folder_path") or "") or internal_name(obj) in NEVER_RANDOMIZE:
+            continue
+        if category(item_id) in EXCLUDED_CATEGORIES or chapter_of(p.get("folder_path")) in KEY_FORBIDDEN_CHAPTERS:
+            continue
+        item_id = MONEY_ITEM_ID if raw_name(item_id) == MONEY_NAME else int(item_id)
+        name = by_id.get(item_id)
+        if not name:
+            name = raw_name(item_id)
+            if name in {i["name"] for i in item_list} or (name in new_items and new_items[name]["game_item_id"] != item_id):
+                name = f"{name} ({item_id})"
+            new_items.setdefault(name, {"name": name, "type": CATEGORY_TYPES.get(category(item_id), "Other"),
+                                        "game_item_id": item_id, "category": category(item_id),
+                                        "description": catalog.get(str(item_id), {}).get("info") or ""})
+            new_stacks.setdefault(name, []).append(p.get("stack") or 1)
+        number = re.search(r"_(\d+)$", obj)
+        sector = re.search(r"Separetor_(\d+)$", p.get("folder_path") or "")
+        where = p.get("room") or (f"S{sector.group(1)}" if sector else "")
+        loc_name = name + (f" #{number.group(1)}" if number else "") + (f" [{where}]" if where else "")
+        if loc_name in taken:
+            loc_name += f" ({guid[:8]})"
+        taken.add(loc_name)
+        loc = {"name": loc_name, "region": zone, "kind": "world", "original_item": name, "guid": guid,
+               "item_object": obj, "folder_path": p.get("folder_path"), "item_position": p.get("item_position"),
+               "order": order_of(None, p.get("folder_path")), "added_zone": True}
+        if p.get("room_hash"):
+            loc["room_hash"] = p["room_hash"]
+        if zone in MISSABLE_CHAPTERS:
+            loc["missable"] = True
+            loc["missable_chapter"] = MISSABLE_CHAPTERS[zone]
+        if CATEGORY_TYPES.get(category(item_id)) == "Treasure":
+            loc["no_key_items"] = True
+        new_locations.append(loc)
+    for name, item in new_items.items():
+        item["quantity"] = 500 if name == MONEY_NAME else int(statistics.median(new_stacks.get(name, [1])))
+    item_list += sorted(new_items.values(), key=lambda i: i["name"])
+    locations += new_locations
+    print(f"zones ajoutées : {len(new_locations)} emplacements, {len(new_items)} objets nouveaux")
+
     def dump(path, data):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")

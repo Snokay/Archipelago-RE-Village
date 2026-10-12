@@ -3636,6 +3636,26 @@ local function on_item_picked(interact, core)
             due = os.clock() + REMOVAL_DELAY_SECONDS })
         return
     end
+    -- Objet clé hors emplacement déjà possédé (2026-10-13, partie du développeur : Clé d'Heisenberg
+    -- dans une caisse cassée, déjà ramassée 10 min avant sur un emplacement de Cartouches de fusil
+    -- modifié sur place) : même recyclage des objets de ramassage que les Fragments ci-dessus.
+    -- Doublon retiré ; pas de 2e exemplaire d'un objet clé.
+    if not loc and picked_item_id and (quantities_before[picked_item_id] or 0) > 0 then
+        local kdef = item_by_name[inventory_repair.gid_to_name and inventory_repair.gid_to_name[picked_item_id] or ""]
+        if not kdef then
+            for _, d in pairs(item_by_name) do
+                if d.game_item_id == picked_item_id then kdef = d break end
+            end
+        end
+        if kdef and kdef.type == "Key" and not kdef.levels then
+            debug_log("ramassage : objet clé " .. kdef.name .. " hors emplacement, déjà possédé : doublon retiré")
+            add_message(string.format(tr("%s en double retiré (tu l'as déjà)", "Duplicate %s removed (you already have it)"),
+                i18n.item(kdef.name)))
+            table.insert(vanilla_removals, { item_id = picked_item_id, before = quantities_before[picked_item_id] or 0,
+                due = os.clock() + REMOVAL_DELAY_SECONDS })
+            return
+        end
+    end
     if not loc then return end -- objet hors Archipelago (objet clé, drop d'ennemi...)
     -- Objet clé (2026-09-30) : check seulement si cette seed mélange les objets clés (location
     -- connue du serveur). Sinon ramassage normal. Pas connecté : ramassage normal aussi, et le

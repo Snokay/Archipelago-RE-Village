@@ -34,7 +34,7 @@ local MOD_NAME = "re_village_ap_client"
 -- 200 variables locales de Lua (script refusé au chargement).
 local K = {}
 K.GAME_NAME = "Resident Evil Village"
-K.MOD_VERSION = "0.9.1.27" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
+K.MOD_VERSION = "0.9.1.28" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
 K.MAX_MATCH_DISTANCE = 5.0
 -- Emplacements jumeaux (2026-10-08) : le jeu pose deux exemplaires du M1897 (table du village et
 -- près de la première sauvegarde), le second devient des Lei si on a déjà le fusil. Ramasser l'un
@@ -499,6 +499,28 @@ function K.flow_watch(force)
     end
 end
 
+-- État des sauvegardes du jeu (2026-10-12, sauvegarde automatique figée) : journal et rapport de bug.
+-- SaveLoadState 2974404890 = SaveAppSlotPrepare (hash du jeu), SaveLoadType 2404115129 = Auto.
+function K.save_info()
+    local info = {}
+    pcall(function()
+        local m = sdk.get_managed_singleton("app.SaveLoadManager")
+        for _, f in ipairs({ "SaveLoadState", "SaveLoadType", "PermissionSave", "SaveResumeFromDead", "SaveMove" }) do
+            local ok, v = pcall(function() return m:get_field(f) end)
+            info[f] = ok and v or nil
+        end
+        for _, c in ipairs({ "IsPermissionSave", "IsNowSave", "IsNowLoad", "IsNowSaveLoad" }) do
+            local ok, v = pcall(function() return m:call(c) end)
+            info[c] = ok and v or nil
+        end
+    end)
+    info.saving_for_s = K.saving_since and math.floor(os.clock() - K.saving_since) or 0
+    info.last_step = K.last_save_step
+    info.last_step_at = K.last_save_step_at
+    for step, n in pairs(K.save_steps or {}) do info["calls_" .. step] = n end
+    return info
+end
+
 -- Pause des dons (2026-10-10, crashs intermittents dans Inventory.updateOrder à 23:49 et 03:24,
 -- chacun peu après une série de dons faite juste après un chargement, cause non prouvée) : 10 s
 -- après un chargement (K.give_hold_until) et 2 s après la fermeture de la mallette ou de la boutique.
@@ -526,19 +548,11 @@ function K.case_busy()
     -- interne du SaveLoadManager noté toutes les 10 s après 15 s, pour savoir ce que le jeu attend.
     if saving and K.saving_since and os.clock() - K.saving_since > 15 and os.clock() >= (K.save_diag_at or 0) then
         K.save_diag_at = os.clock() + 10
-        pcall(function()
-            local m = sdk.get_managed_singleton("app.SaveLoadManager")
-            local parts = {}
-            for _, f in ipairs({ "SaveLoadState", "SaveLoadType", "PermissionSave", "SaveResumeFromDead", "SaveMove" }) do
-                local ok, v = pcall(function() return m:get_field(f) end)
-                parts[#parts + 1] = f .. "=" .. tostring(ok and v)
-            end
-            for _, c in ipairs({ "IsPermissionSave", "IsNowSave", "IsNowLoad" }) do
-                local ok, v = pcall(function() return m:call(c) end)
-                parts[#parts + 1] = c .. "=" .. tostring(ok and v)
-            end
-            debug_log(string.format("sauvegarde bloquée depuis %.0f s : %s", os.clock() - K.saving_since, table.concat(parts, " ")))
-        end)
+        local info = K.save_info()
+        local parts = {}
+        for k, v in pairs(info) do parts[#parts + 1] = k .. "=" .. tostring(v) end
+        table.sort(parts)
+        debug_log(string.format("sauvegarde bloquée depuis %.0f s : %s", os.clock() - K.saving_since, table.concat(parts, " ")))
     end
     busy = busy or saving
     if busy then
@@ -1965,8 +1979,17 @@ function save_sync.install_hooks()
     -- Diagnostic (2026-10-12, sauvegarde automatique figée) : échec de sauvegarde signalé par le jeu
     hook(slm, "SaveViaEndFail", function() debug_log("sauvegarde : ÉCHEC signalé par le jeu (SaveViaEndFail)") end)
     -- étapes d'une sauvegarde (2026-10-12, sauvegarde qui ne finit jamais : où elle s'arrête)
+    -- (une ligne quand l'étape change, ou toutes les 10 s : la préparation bloquée est rappelée à chaque image)
     for _, step in ipairs({ "SaveAppSlotPrepare", "SaveAppSlotRequest", "SaveViaStart", "SaveViaEndWait" }) do
-        hook(slm, step, function() debug_log("sauvegarde : étape " .. step) end)
+        hook(slm, step, function()
+            K.save_steps = K.save_steps or {}
+            K.save_steps[step] = (K.save_steps[step] or 0) + 1
+            if K.last_save_step ~= step or os.clock() >= (K.save_step_log_at or 0) then
+                K.save_step_log_at = os.clock() + 10
+                debug_log(string.format("sauvegarde : étape %s (%d appels)", step, K.save_steps[step]))
+            end
+            K.last_save_step, K.last_save_step_at = step, os.date("%H:%M:%S")
+        end)
     end
     hook(slm, "StartLoad", function(args)
         save_sync.load_slot = save_sync.arg_int(args[5])
@@ -8151,6 +8174,16 @@ function shop_ui.hud.zone_name(zone)
     return pair and tr(pair[1], pair[2]) or zone
 end
 
+-- Checks fantômes (2026-10-12, retour d'un joueur) : au 1er passage au Village (Chapter2_1), les marqueurs
+-- montraient les checks du 2e passage (Chapter2_6 : maison de Luiza brûlée, puits...), pas encore posés
+-- par le jeu. Même carte (shop_ui.SAME_STAGE, gardé pour l'habillage), mais pour le guide : seulement
+-- les checks du chapitre en cours.
+function shop_ui.hud.phantom(loc)
+    local lc = loc and loc.folder_path and loc.folder_path:match("Chapter%d_%d")
+    local nc = shop_ui.chapter and tostring(shop_ui.chapter):match("Chapter%d_%d") or nil
+    return lc ~= nil and nc ~= nil and lc ~= nc
+end
+
 function shop_ui.hud.update()
     local h = shop_ui.hud
     if os.clock() < h.next_update then return end
@@ -8171,7 +8204,7 @@ function shop_ui.hud.update()
                 if id and pos and not checked_ids[id] then
                     local dx, dy, dz = pos[1] - ppos[1], pos[2] - ppos[2], pos[3] - ppos[3]
                     local d2 = dx * dx + dy * dy + dz * dz
-                    local other = shop_ui.other_chapter(loc)
+                    local other = shop_ui.other_chapter(loc) or shop_ui.hud.phantom(loc)
                     if d2 <= 100 and not other then
                         -- nom dans la langue du jeu (2026-10-10, joueur anglais : noms français dans le menu)
                         nearby[#nearby + 1] = { guid = guid, name = i18n.loc(loc) or loc.name, d = math.sqrt(d2) }
@@ -10012,6 +10045,7 @@ function shop_ui.help.write_report()
         items_queue = #items_queue, parcel = state.parcel, money = get_money(),
         inventory = inventory_dump(), messages = {}, journal = {}, prefs = shop_ui.hud.prefs,
         hints = #shop_ui.hints.rows, traps_jam_left = math.max(0, shop_ui.traps.jam_until - os.clock()),
+        save = K.save_info(), -- état des sauvegardes du jeu (2026-10-12, sauvegarde automatique figée)
     }
     for _, m in ipairs(messages) do report.messages[#report.messages + 1] = m.text end
     for i, line in ipairs(shop_ui.journal.lines) do

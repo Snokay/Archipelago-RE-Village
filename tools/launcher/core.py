@@ -595,6 +595,32 @@ REPORT_FILES = ["debug_log.txt", "debug_log_old.txt", "progress.jsonl", "pickups
                 "install_manifest.json", "no_return_captures.jsonl", "bug_report.json", "hud_prefs.json"]
 
 
+def save_files_listing():
+    """Fichiers de sauvegarde du jeu (2026-10-12, sauvegarde automatique figée : savoir si le jeu a
+    vraiment écrit la sauvegarde) : chemin, taille, date ; jamais leur contenu. Steam (userdata/*/1196590)
+    et Game Pass / Microsoft Store (Packages/*RESIDENTEVILVILLAGE*/SystemAppData/wgs)."""
+    roots = []
+    steam = reg_value(winreg.HKEY_CURRENT_USER, r"Software\Valve\Steam", "SteamPath")
+    if steam:
+        roots += sorted(Path(steam).glob("userdata/*/1196590/remote"))
+    local = Path(os.environ.get("LOCALAPPDATA", ""))
+    if local.exists():
+        roots += [p / "SystemAppData" / "wgs" for p in local.glob("Packages/*RESIDENTEVILVILLAGE*")]
+    lines = ["Heure du rapport : " + time.strftime("%Y-%m-%d %H:%M:%S")]
+    for root in roots:
+        if not root.exists():
+            continue
+        lines.append(f"{root} :")
+        files = sorted((p for p in root.rglob("*") if p.is_file()), key=lambda p: p.stat().st_mtime, reverse=True)
+        for p in files[:60]:
+            st = p.stat()
+            lines.append("  %s  %d octets  %s" % (p.relative_to(root).as_posix(), st.st_size,
+                                                 time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(st.st_mtime))))
+    if len(lines) == 1:
+        lines.append("aucun dossier de sauvegarde trouvé")
+    return lines
+
+
 def bug_report(game_dir):
     """Zip des journaux sur le Bureau ; mot de passe retiré de la connexion."""
     desktop = Path(os.environ.get("USERPROFILE", str(Path.home()))) / "Desktop"
@@ -641,6 +667,7 @@ def bug_report(game_dir):
             listing.append("paks :")
             listing += ["  %s (%d octets)" % (p.name, p.stat().st_size) for p in sorted(game_dir.glob("re_chunk_000.pak*"))]
             z.writestr("autres_mods.txt", "\n".join(listing))
+            z.writestr("sauvegardes.txt", "\n".join(save_files_listing()))
             dump = game_dir / "reframework_crash.dmp"
             if dump.exists() and time.time() - dump.stat().st_mtime < 3 * 86400 and dump.stat().st_size < 64 << 20:
                 z.write(dump, dump.name)

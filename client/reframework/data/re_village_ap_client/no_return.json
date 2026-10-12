@@ -97,5 +97,27 @@
             "r": 1.5,
             "note": "juste avant le passage sous le tracteur (relevé par le joueur le 2026-10-10)"
         }
+    ],
+    "Puits après le château": [
+        {
+            "chapter": "Chapter2_2",
+            "pos": [
+                -155.7577362060547,
+                -33.23645782470703,
+                -11.892522811889648
+            ],
+            "r": 1.5,
+            "note": "devant le puits d'après le château (ouvert trop tôt avec le Volant reçu : échelle dans le vide), relevé par le développeur le 2026-10-12"
+        },
+        {
+            "chapter": "Chapter2_6",
+            "pos": [
+                -155.7577362060547,
+                -33.23645782470703,
+                -11.892522811889648
+            ],
+            "r": 1.5,
+            "note": "devant le puits d'après le château (ouvert trop tôt avec le Volant reçu : échelle dans le vide), relevé par le développeur le 2026-10-12, recopié pour le retour au Village"
+        }
     ]
 }

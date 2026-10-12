@@ -8870,6 +8870,17 @@ shop_ui.no_return = {
               return tr("Avant de continuer, prends le check à l'endroit d'origine de la Manivelle de cric (près du tracteur) : il lance la suite de l'histoire.",
                   "Before going further, pick up the check at the Jack Handle's original spot (near the tractor): it starts the next part of the story.")
           end },
+        -- Puits d'après le château (2026-10-12, relevé par le développeur) : avec le Volant de puits
+        -- reçu d'Archipelago, on peut ouvrir ce puits trop tôt ; l'échelle descend et on se
+        -- retrouve hors de la carte. Ouvert quand le check à l'endroit d'origine du Volant est fait
+        -- dans cette sauvegarde (comme le tracteur). Sortie relevée en Chapter2_2, recopiée en
+        -- Chapter2_6 (retour au Village avant le Volant d'origine).
+        { name = "Puits après le château", name_en = "After castle wheel", always = true,
+          blockers = function() return K.story_missing({ "Volant de puits #001 [S00]" }) end,
+          message = function()
+              return tr("Avant d'ouvrir ce puits, prends le check à l'endroit d'origine du Volant de puits : sinon l'échelle descend dans le vide.",
+                  "Before opening this well, pick up the check at the Well Wheel's original spot: otherwise the ladder drops into the void.")
+          end },
         -- (2026-10-10 : mur placé par le joueur devant la porte à quatre ailes qui mène vers
         -- Beneviento, plus tôt que l'ascenseur ; rayon 3 m)
         { name = "Porte vers Beneviento", name_en = "Path to Beneviento", always = true,

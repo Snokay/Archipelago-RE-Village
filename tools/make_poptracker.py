@@ -147,12 +147,57 @@ def game_icon(game_id):
         return None
 
 
+def declutter(points, min_d, w, h, steps=200):
+    """Écarte les points trop proches (carrés superposés, 2026-10-13, retour du développeur : « peu
+    lisible ») : répulsion douce, chaque point reste près de sa vraie place, dans l'image."""
+    keys = list(points)
+    pos = {k: [float(points[k][0]), float(points[k][1])] for k in keys}
+    home = {k: tuple(pos[k]) for k in keys}
+    for _ in range(steps):
+        moved = False
+        for i, a in enumerate(keys):
+            for b in keys[i + 1:]:
+                dx, dy = pos[b][0] - pos[a][0], pos[b][1] - pos[a][1]
+                d = math.hypot(dx, dy)
+                if d < min_d:
+                    if d < 1e-3:
+                        dx, dy, d = 1.0, 0.0, 1.0
+                    push = (min_d - d) / 2 + 0.5
+                    ux, uy = dx / d, dy / d
+                    pos[a][0] -= ux * push; pos[a][1] -= uy * push
+                    pos[b][0] += ux * push; pos[b][1] += uy * push
+                    moved = True
+        for k in keys:  # léger rappel vers la vraie place, et reste dans l'image
+            pos[k][0] += (home[k][0] - pos[k][0]) * 0.02
+            pos[k][1] += (home[k][1] - pos[k][1]) * 0.02
+            pos[k][0] = min(max(pos[k][0], min_d / 2), w - min_d / 2)
+            pos[k][1] = min(max(pos[k][1], min_d / 2), h - min_d / 2)
+        if not moved:
+            break
+    return {k: (int(round(v[0])), int(round(v[1]))) for k, v in pos.items()}
+
+
+def colorize(img):
+    """Version « obtenu » d'une icône du jeu (2026-10-13, demande du développeur : en couleur une fois
+    l'objet reçu) : icône grise teintée or ; icône déjà en couleur (viandes) gardée."""
+    from PIL import ImageOps, ImageStat
+    rgb = img.convert("RGB")
+    sat = ImageStat.Stat(rgb.convert("HSV")).mean[1]
+    if sat > 40:
+        return img
+    tinted = ImageOps.colorize(ImageOps.autocontrast(rgb.convert("L"), cutoff=1),
+                               black=(45, 25, 10), mid=(214, 150, 50), white=(255, 240, 200)).convert("RGBA")
+    tinted.putalpha(img.getchannel("A"))
+    return tinted
+
+
 def icon(path, label, color=GOLD, game_id=None):
     """Icône d'objet : celle du jeu si possible, sinon initiales sur fond sombre, bord doré."""
     real = game_icon(game_id) if game_id else None
     if real is not None:
         path.parent.mkdir(parents=True, exist_ok=True)
-        real.save(path)
+        colorize(real).save(path)  # obtenu : en couleur
+        real.save(path.with_name(path.stem + "_off.png"))  # pas obtenu : icône grise du jeu
         return True
     img = Image.new("RGBA", (64, 64), BG + (255,))
     d = ImageDraw.Draw(img)
@@ -200,6 +245,8 @@ def main():
     meats = ["Viande", "Volaille", "Poisson", "Viande de qualité", "Poisson raffiné", "Gibier juteux"]
     code = {name: "k_" + slug(name) for name in shuffled_keys}
     code.update({name: "m_" + slug(name) for name in meats})
+    weapons = sorted(it["name"] for it in items if it.get("type") == "Weapon")
+    code.update({name: "w_" + slug(name) for name in weapons})
     code["Crochet illimité"] = "lockpick"
     code["Valise"] = "valise"
 
@@ -208,20 +255,22 @@ def main():
     def item_defs(lang):
         tr = (lambda n: n) if lang == "fr" else en
         out = []
-        for name in shuffled_keys + meats + ["Crochet illimité", "Valise"]:
+        for name in shuffled_keys + weapons + meats + ["Crochet illimité", "Valise"]:
             it = item_by_name[name]
             img = f"images/items/{code[name]}.png"
             gid = item_by_name.get(ICON_SOURCE.get(name, name), {}).get("game_item_id")
-            if not icon(OUT / img, name, GOLD if name in shuffled_keys else (150, 200, 150), gid):
+            real = icon(OUT / img, name, GOLD if name in shuffled_keys else (150, 200, 150), gid)
+            if not real:
                 missing_icons.add(name)
+            extra = {"disabled_img": img.replace(".png", "_off.png"), "disabled_img_mods": "@disabled"} if real else {}
             if it.get("progressive"):
                 out.append({"name": tr(name), "type": "consumable", "img": img, "codes": code[name],
-                            "max_quantity": len(it.get("levels", [])) or 4})
+                            "max_quantity": len(it.get("levels", [])) or 4, **extra})
             elif name in meats or name == "Valise":
                 out.append({"name": tr(name), "type": "consumable", "img": img, "codes": code[name],
-                            "max_quantity": 99 if name in meats else 3})
+                            "max_quantity": 99 if name in meats else 3, **extra})
             else:
-                out.append({"name": tr(name), "type": "toggle", "img": img, "codes": code[name]})
+                out.append({"name": tr(name), "type": "toggle", "img": img, "codes": code[name], **extra})
         icon(OUT / "images/items/opt.png", "Opt", GREY)
         for opt, value in DEFAULTS.items():
             out.append({"name": "option " + opt, "type": "consumable", "img": "images/items/opt.png",
@@ -365,7 +414,11 @@ def main():
         img.save(OUT / "images" / f"{name}.png")
         maps.append({"name": name, "location_size": 22, "location_border_thickness": 2,
                      "img": f"images/{name}.png", "zone": zone})
+        if zone != MISC_ZONE:
+            pts = {k: v for k, v in map_points.items() if k[0] == zone}
+            map_points.update(declutter(pts, 26, img.width, img.height))
     if game_map is not None:
+        overview_points.update(declutter(overview_points, 16, game_map.width, game_map.height))
         game_map.save(OUT / "images" / "map_vue_d_ensemble.png")
         maps.insert(0, {"name": "map_vue_d_ensemble", "location_size": 14, "location_border_thickness": 1,
                         "img": "images/map_vue_d_ensemble.png", "zone": OVERVIEW})
@@ -430,6 +483,7 @@ def main():
     # --- Disposition : objets à gauche, cartes en onglets à droite ---
     keys_rows = [[code[n] for n in shuffled_keys[i:i + 6]] for i in range(0, len(shuffled_keys), 6)]
     other_row = [code[m] for m in meats] + ["lockpick", "valise"]
+    weapon_rows = [[code[n] for n in weapons[i:i + 6]] for i in range(0, len(weapons), 6)]
     tabs = [{"title": m["zone"], "content": {"type": "map", "maps": [m["name"]]}} for m in maps]
     layout = {
         "tracker_default": {"type": "container", "background": "#121014", "content": {
@@ -437,10 +491,12 @@ def main():
                 {"type": "dock", "dock": "left", "v_alignment": "stretch", "content": [
                     {"type": "group", "header": "Objets clés / Key items", "dock": "top",
                      "content": {"type": "itemgrid", "item_margin": "2,2", "rows": keys_rows}},
+                    {"type": "group", "header": "Armes / Weapons", "dock": "top",
+                     "content": {"type": "itemgrid", "item_margin": "2,2", "rows": weapon_rows}},
                     {"type": "group", "header": "Viandes, Crochet, Valise", "dock": "top",
                      "content": {"type": "itemgrid", "item_margin": "2,2", "rows": [other_row[:6], other_row[6:]]}}]},
                 {"type": "tabbed", "tabs": tabs}]}},
-        "tracker_broadcast": {"type": "itemgrid", "item_margin": "2,2", "rows": keys_rows + [other_row]},
+        "tracker_broadcast": {"type": "itemgrid", "item_margin": "2,2", "rows": keys_rows + weapon_rows + [other_row]},
     }
     (OUT / "layouts").mkdir()
     (OUT / "layouts" / "tracker.json").write_text(json.dumps(layout, ensure_ascii=False, indent=1), encoding="utf-8")

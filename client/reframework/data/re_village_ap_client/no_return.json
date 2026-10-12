@@ -119,5 +119,39 @@
             "r": 1.5,
             "note": "devant le puits d'après le château (ouvert trop tôt avec le Volant reçu : échelle dans le vide), relevé par le développeur le 2026-10-12, recopié pour le retour au Village"
         }
+    ],
+    "Plateformes du puits": [
+        {
+            "chapter": "Chapter2_6",
+            "pos": [
+                -171.14646911621094,
+                -40.754878997802734,
+                -6.8259358406066895
+            ],
+            "r": 0.9,
+            "requires": [
+                "Bombe tuyau #005 [S08]",
+                "Cartouches de fusil #003 [S08]",
+                "Grenades explosives #009 [S08]"
+            ],
+            "note": "point de descente vers le coffre du fond du puits d'après le château (les plateformes remontent ensuite), relevé par le développeur le 2026-10-12 ; rayon 0,9 m : Grenades explosives #009 à 1,2 m"
+        }
+    ],
+    "Fond du puits": [
+        {
+            "chapter": "Chapter2_6",
+            "pos": [
+                -157.118896484375,
+                -45.35603332519531,
+                -13.177607536315918
+            ],
+            "r": 1.5,
+            "requires": [
+                "Mine #008 [S08]",
+                "Grenades aveuglantes #012 [S08]",
+                "Munitions magnum #004 [S08]"
+            ],
+            "note": "sortie du puits, actif après le Grand rubis sang de pigeon #010, relevé par le développeur le 2026-10-12 ; Crochet #014 posé SUR la sortie (0,3 m) : pas exigé, sinon on ne pourrait jamais le prendre"
+        }
     ]
 }

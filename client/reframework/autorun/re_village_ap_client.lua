@@ -6526,6 +6526,7 @@ function shop_ui.world.update()
                     pcall(shop_ui.world.swap_pickup, e, kept)
                 end
                 kept.si = e.si
+                pcall(shop_ui.world.recheck_weapon, e, kept)
                 pcall(shop_ui.world.sync_pickup, e, kept)
                 e.pickup = kept.pickup
                 return
@@ -6544,6 +6545,10 @@ function shop_ui.world.update()
             if done then
                 pcall(shop_ui.world.sync_pickup, e, done)
                 pcall(shop_ui.world.apply_key_mode, done) -- mode appris après la pose
+                -- Arme habillée quand elle tenait dans la mallette, mallette remplie depuis
+                -- (2026-10-12, M1851 Wolfsbane #005 [S07] : « inventaire complet » sur un check
+                -- d'un autre jeu) : place revérifiée chaque seconde, arme passée en objet d'une case.
+                pcall(shop_ui.world.recheck_weapon, e, done)
                 e.pickup = done.pickup
             end
             local h = shop_ui.model_holders(model)
@@ -6934,18 +6939,50 @@ end
 
 -- vrai si l'arme tient dans la mallette (case libre, à plat ou tournée)
 function shop_ui.world.weapon_fits(def)
-    local fits = true
-    pcall(function()
+    local fits, info = true, {}
+    local ok, err = pcall(function()
         local _, inv = get_active_inventory()
         local id = def.give_id or def.game_item_id
+        info[#info + 1] = "id " .. tostring(id) .. ", mallette " .. tostring(inv ~= nil)
         if not inv or not id then return end
         fits = false
         for _, horizontal in ipairs({ false, true }) do
             local res = inv:call("getBlankSlotNo", id, horizontal)
-            if res and (res:call("get_slotNo") or -1) >= 0 then fits = true end
+            local slot = res and res:call("get_slotNo")
+            info[#info + 1] = (horizontal and "horizontal " or "vertical ") .. tostring(slot)
+            if res and (slot or -1) >= 0 then fits = true end
+        end
+        -- Arme déjà dans la mallette (2026-10-13, M1851 Wolfsbane #005 [S07] : case libre, mais
+        -- « inventaire complet ») : le jeu refuse un 2e exemplaire (il l'échange d'habitude contre
+        -- des Lei, échange bloqué par le mod sur les emplacements AP).
+        local list = inv:call("get_items")
+        for i = 0, list:call("get_Count") - 1 do
+            local work = list:call("get_Item", i):call("get_work")
+            if work and work:call("get_itemID") == id then
+                info[#info + 1] = "déjà possédée"
+                fits = false
+                break
+            end
         end
     end)
+    if not ok then info[#info + 1] = "erreur " .. tostring(err) end
+    local line = tostring(def.name) .. " : " .. table.concat(info, ", ") .. " -> " .. tostring(fits)
+    if shop_ui.world.fit_log ~= line then
+        shop_ui.world.fit_log = line
+        debug_log("place pour l'arme : " .. line)
+    end
     return fits
+end
+
+-- Arme habillée quand elle tenait dans la mallette, mallette remplie depuis (2026-10-12, M1851
+-- Wolfsbane #005 [S07] : « inventaire complet » sur un check d'un autre jeu) : place revérifiée
+-- chaque seconde, arme passée en objet d'une case (voir swap_pickup).
+function shop_ui.world.recheck_weapon(e, rec)
+    if rec.pickup or (rec.fit_check or 0) + 1 > os.clock() then return end
+    rec.fit_check = os.clock()
+    local def = item_by_name[e.loc.original_item or ""]
+    if not def or def.type ~= "Weapon" or K.keep_real(e.loc.name) then return end
+    if not shop_ui.world.weapon_fits(def) then shop_ui.world.swap_pickup(e, rec) end
 end
 
 function shop_ui.world.swap_pickup(e, rec)

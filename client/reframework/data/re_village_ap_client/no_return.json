@@ -249,5 +249,17 @@
             "r": 1.5,
             "note": "porte où l'on pose le Relief de cheval (usine, -4B), relevé par le développeur le 2026-10-13 01:19:21 ; exige le check du Moule (relief) #001 pris dans cette sauvegarde, tous les modes"
         }
+    ],
+    "Roue dentée (usine)": [
+        {
+            "chapter": "Chapter2_5",
+            "pos": [
+                -260.03240966796875,
+                -110.85600280761719,
+                199.65554809570312
+            ],
+            "r": 1.5,
+            "note": "passage vers l'endroit où l'on pose la Grande roue dentée pour remettre le courant (usine, -4B), relevé par le développeur le 2026-10-13 01:27:55 ; exige les checks du Moule (roue dentée) #002 et de la Grande roue dentée #005 pris dans cette sauvegarde, tous les modes"
+        }
     ]
 }

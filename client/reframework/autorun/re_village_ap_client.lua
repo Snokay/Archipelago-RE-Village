@@ -9093,6 +9093,22 @@ shop_ui.no_return = {
               return tr("Avant de passer cette porte, prends le check du Moule (relief) : la porte du cheval en dépend.",
                   "Before going through this door, pick up the Mold (relief) check: the horse door depends on it.")
           end },
+        -- Roue dentée de l'usine (2026-10-13, relevé du développeur), TOUS les modes : passage vers
+        -- l'endroit où l'on pose la Grande roue dentée pour remettre le courant (Meduza, 2026-10-12 :
+        -- roue posée sans courant, partie bloquée). Exige le moule ET la roue coulée, pris ici.
+        { name = "Roue dentée (usine)", name_en = "Large gear (factory)", always = true,
+          blockers = function()
+              local out = {}
+              for _, n in ipairs({ "Moule (roue dentée) #002 [Usine d'Heisenberg - -4B]",
+                      "Grande roue dentée #005 [Usine d'Heisenberg - -4B]" }) do
+                  if not K.story_extra_done(n) then out[#out + 1] = i18n.loc(K.story_loc(n)) end
+              end
+              return out
+          end,
+          message = function()
+              return tr("Avant de passer, prends le check du Moule (roue dentée), puis coule la Grande roue dentée et prends-la : le courant en dépend.",
+                  "Before going on, pick up the Mold (gear) check, then cast the Large Gear and take it: the power depends on it.")
+          end },
         -- Anti-softlock (2026-10-07, idée du joueur), actif dans TOUS les modes : entrée de la
         -- salle des statues (vidange). Le jeu ne vide le sang que si l'énigme du vin est faite ;
         -- avec la Clé de la cour reçue du multiworld, on pouvait y entrer sans avoir posé le vin
@@ -9267,7 +9283,8 @@ end
 -- Étapes d'histoire suivies À PART (2026-10-12) : pas dans K.STORY_LOCS, que le mur « Porte vers
 -- Beneviento » exige en entier. Ramassé dans cette sauvegarde (state.story) ; sauvegarde d'avant ce
 -- suivi : état du serveur, une seule fois (comme K.story_done).
-K.STORY_EXTRA = { "Clé fœtus à six ailes #007", "Moule (relief) #001 [Usine d'Heisenberg - -4B]" }
+K.STORY_EXTRA = { "Clé fœtus à six ailes #007", "Moule (relief) #001 [Usine d'Heisenberg - -4B]",
+    "Moule (roue dentée) #002 [Usine d'Heisenberg - -4B]", "Grande roue dentée #005 [Usine d'Heisenberg - -4B]" }
 function K.story_extra_done(name)
     local loc = K.story_loc(name)
     if not loc or not get_location_id(loc) then return true end -- pas mélangé : scène d'origine jouée

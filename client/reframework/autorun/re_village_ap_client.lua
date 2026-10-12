@@ -8882,6 +8882,18 @@ end
 -- checks manquants. Pas de mur pour le combat final du Village (la fin du jeu envoie tout).
 -- Sorties : no_return.json (relevées en jeu avec les outils de dev) :
 --   { "<endroit>": [ { "chapter": "Chapter2_2", "pos": [x, y, z], "r": 1.5 }, ... ], ... }
+-- Mur dont les checks exigés sont écrits dans no_return.json (champ « requires » de ses sorties : noms
+-- des locations), pour les ajuster sans code (2026-10-12).
+function shop_ui.no_return_requires_segment(name, name_en)
+    return { name = name, name_en = name_en, test = function(loc)
+        for _, exit in ipairs(shop_ui.no_return.exits[name] or {}) do
+            for _, n in ipairs(exit.requires or {}) do
+                if n == loc.name then return true end
+            end
+        end
+        return false
+    end }
+end
 shop_ui.no_return = {
     SEGMENTS = {
         { name = "Cachots du château", name_en = "Castle dungeon", test = function(loc) return loc.missable_spot == "Cachots du château" end },
@@ -8969,6 +8981,10 @@ shop_ui.no_return = {
               end
               return false
           end },
+        -- Lac de Moreau (2026-10-12, relevés du développeur, mode 100 %) : deux passages sans retour qui
+        -- se suivent, chacun derrière UN check (une seule catégorie exigerait les deux au 1er mur).
+        shop_ui.no_return_requires_segment("Lac de Moreau (1)", "Moreau's lake (1)"),
+        shop_ui.no_return_requires_segment("Lac de Moreau (2)", "Moreau's lake (2)"),
         -- Anti-softlock (2026-10-07, idée du joueur), actif dans TOUS les modes : entrée de la
         -- salle des statues (vidange). Le jeu ne vide le sang que si l'énigme du vin est faite ;
         -- avec la Clé de la cour reçue du multiworld, on pouvait y entrer sans avoir posé le vin

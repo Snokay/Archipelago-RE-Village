@@ -153,5 +153,35 @@
             ],
             "note": "sortie du puits, actif après le Grand rubis sang de pigeon #010, relevé par le développeur le 2026-10-12 ; Crochet #014 posé SUR la sortie (0,3 m) : pas exigé, sinon on ne pourrait jamais le prendre"
         }
+    ],
+    "Lac de Moreau (1)": [
+        {
+            "chapter": "Chapter2_4",
+            "pos": [
+                -55.31269454956055,
+                -70.60884857177734,
+                326.38226318359375
+            ],
+            "r": 1.5,
+            "requires": [
+                "Munitions pour pistolet #014 [S07]"
+            ],
+            "note": "passage sans retour du lac de Moreau, juste après Munitions pour pistolet #014 [S07] (9,7 m), relevé par le développeur le 2026-10-12"
+        }
+    ],
+    "Lac de Moreau (2)": [
+        {
+            "chapter": "Chapter2_4",
+            "pos": [
+                -106.58626556396484,
+                -70.42697143554688,
+                302.4287109375
+            ],
+            "r": 1.5,
+            "requires": [
+                "Munitions magnum #001 [S08]"
+            ],
+            "note": "passage sans retour suivant, juste après Munitions magnum #001 [S08] (12,8 m), relevé par le développeur le 2026-10-12 (2e relevé de 22:04:47)"
+        }
     ]
 }

@@ -500,6 +500,19 @@ function K.case_busy()
         local gm = sdk.get_managed_singleton("app.GUIManager")
         busy = gm:call("isShowingGUIInventory") == true or gm:call("isShowingGUIShop") == true
     end)
+    -- Sauvegarde en cours (2026-10-12, test du développeur : icône de sauvegarde automatique figée
+    -- en haut à gauche, fichier jamais écrit) : StartSave à 19:56:24, objet donné 2 ms après, la
+    -- sauvegarde ne s'est jamais terminée. Aucun don pendant une sauvegarde ou un chargement
+    -- (SaveLoadManager.IsNowSaveLoad), puis 2 s comme après la mallette.
+    local saving = false
+    pcall(function()
+        saving = sdk.get_managed_singleton("app.SaveLoadManager"):call("IsNowSaveLoad") == true
+    end)
+    if saving ~= (K.was_saving or false) then
+        K.was_saving = saving
+        debug_log(saving and "sauvegarde/chargement en cours : dons en pause" or "sauvegarde/chargement terminé")
+    end
+    busy = busy or saving
     if busy then
         K.case_closed_at = nil
         K.case_was_busy = true
@@ -1921,6 +1934,8 @@ function save_sync.install_hooks()
             save_sync.dirty = true
         end
     end)
+    -- Diagnostic (2026-10-12, sauvegarde automatique figée) : échec de sauvegarde signalé par le jeu
+    hook(slm, "SaveViaEndFail", function() debug_log("sauvegarde : ÉCHEC signalé par le jeu (SaveViaEndFail)") end)
     hook(slm, "StartLoad", function(args)
         save_sync.load_slot = save_sync.arg_int(args[5])
         -- État noté de la sauvegarde qu'on charge, retenu tout de suite : la sauvegarde

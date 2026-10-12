@@ -225,5 +225,17 @@
             ],
             "note": "sortie de l'arène de Moreau (après le combat), relevé par le développeur le 2026-10-12 22:18:13 ; les 12 checks ramassés juste après sa mort"
         }
+    ],
+    "Sortie du réservoir": [
+        {
+            "chapter": "Chapter2_4",
+            "pos": [
+                -8.69200325012207,
+                -69.01058197021484,
+                262.7830810546875
+            ],
+            "r": 1.5,
+            "note": "sortie du réservoir, relevé par le développeur le 2026-10-12 22:20:14 ; exige le check de la Clé fœtus à six ailes #007 (à 10,7 m), tous les modes"
+        }
     ]
 }

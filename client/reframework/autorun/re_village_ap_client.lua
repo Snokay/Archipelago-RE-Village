@@ -8987,6 +8987,19 @@ shop_ui.no_return = {
         shop_ui.no_return_requires_segment("Lac de Moreau (2)", "Moreau's lake (2)"),
         shop_ui.no_return_requires_segment("Lac de Moreau (3)", "Moreau's lake (3)"),
         shop_ui.no_return_requires_segment("Arène de Moreau", "Moreau's arena"),
+        -- Sortie du réservoir (2026-10-12, relevé du développeur), TOUS les modes : le ramassage du vrai
+        -- morceau à l'endroit d'origine de la Clé fœtus à six ailes lance une scène nécessaire à la
+        -- suite ; reçue d'Archipelago sans passer par là, la partie pouvait se bloquer. Objets clés pas
+        -- mélangés : pas de check à cet endroit, mur ouvert (K.story_extra_done).
+        { name = "Sortie du réservoir", name_en = "Reservoir exit", always = true,
+          blockers = function()
+              if K.story_extra_done("Clé fœtus à six ailes #007") then return {} end
+              return { i18n.loc(K.story_loc("Clé fœtus à six ailes #007")) }
+          end,
+          message = function()
+              return tr("Avant de quitter le réservoir, prends le check à l'endroit d'origine de la Clé fœtus à six ailes : il lance une scène nécessaire à la suite de l'histoire.",
+                  "Before leaving the reservoir, pick up the check at the Six-Winged Unborn Key's original spot: it starts a scene the story needs.")
+          end },
         -- Anti-softlock (2026-10-07, idée du joueur), actif dans TOUS les modes : entrée de la
         -- salle des statues (vidange). Le jeu ne vide le sang que si l'énigme du vin est faite ;
         -- avec la Clé de la cour reçue du multiworld, on pouvait y entrer sans avoir posé le vin
@@ -9158,8 +9171,35 @@ function K.story_missing(names)
     end
     return out
 end
+-- Étapes d'histoire suivies À PART (2026-10-12) : pas dans K.STORY_LOCS, que le mur « Porte vers
+-- Beneviento » exige en entier. Ramassé dans cette sauvegarde (state.story) ; sauvegarde d'avant ce
+-- suivi : état du serveur, une seule fois (comme K.story_done).
+K.STORY_EXTRA = { "Clé fœtus à six ailes #007" }
+function K.story_extra_done(name)
+    local loc = K.story_loc(name)
+    if not loc or not get_location_id(loc) then return true end -- pas mélangé : scène d'origine jouée
+    state.story = state.story or {}
+    state.story_extra_seen = state.story_extra_seen or {}
+    if not state.story_extra_seen[name] then
+        local done = location_done(loc)
+        if done == nil then return true end -- serveur pas encore lu : on ne bloque pas
+        state.story_extra_seen[name] = true
+        if done == true then state.story[name] = true end
+        save_state()
+    end
+    return state.story[name] == true
+end
+
 function K.story_mark(loc)
     if not loc then return end
+    for _, n in ipairs(K.STORY_EXTRA) do
+        if n == loc.name then
+            state.story = state.story or {}
+            state.story[n] = true
+            save_state()
+            debug_log("histoire : " .. n .. " ramassé dans cette sauvegarde")
+        end
+    end
     for _, n in ipairs(K.STORY_LOCS) do
         if n == loc.name then
             state.story = state.story or {}

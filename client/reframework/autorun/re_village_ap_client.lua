@@ -605,6 +605,22 @@ local function inventory_quantity(item_id)
     return ok and total or nil
 end
 
+-- Objet coulé déjà dans l'inventaire (2026-10-13, partie du développeur : Grande roue dentée et
+-- Relief de cheval reçus d'Archipelago, celui de la machine à couler impossible à prendre, le jeu
+-- refuse un 2e exemplaire) : ramassé comme objet d'une case (voir swap_pickup), le check part ; le
+-- joueur pose celui qu'il a déjà.
+function K.cast_already_held(loc)
+    if not K.CAST_ITEMS[loc.name or ""] then return false end
+    local def = item_by_name[loc.original_item or ""]
+    local held = def and def.game_item_id and (inventory_quantity(def.game_item_id) or 0) > 0
+    if held and not (K.cast_held_logged or {})[loc.name] then
+        K.cast_held_logged = K.cast_held_logged or {}
+        K.cast_held_logged[loc.name] = true
+        debug_log("objet coulé déjà dans l'inventaire : " .. loc.name .. " ramassé comme objet d'une case")
+    end
+    return held == true
+end
+
 local function get_scene()
     return sdk.call_native_func(sdk.get_native_singleton("via.SceneManager"),
         sdk.find_type_definition("via.SceneManager"), "get_CurrentScene()")
@@ -3622,8 +3638,9 @@ local function on_item_picked(interact, core)
         end
     end
 
-    -- Objet coulé à la machine de l'usine (K.CAST_ITEMS) : vrai objet gardé, check envoyé.
-    if K.CAST_ITEMS[loc.name or ""] then
+    -- Objet coulé à la machine de l'usine (K.CAST_ITEMS) : vrai objet gardé, check envoyé. Sauf s'il
+    -- a été ramassé en objet d'une case (déjà dans l'inventaire, K.cast_already_held) : retrait normal.
+    if K.CAST_ITEMS[loc.name or ""] and picked_item_id ~= shop_ui.world.PICKUP_ID then
         table.insert(picked_locations, loc)
         debug_log("ramassage : " .. loc.name .. " : vrai objet coulé gardé (étape de l'usine)")
         return
@@ -7003,6 +7020,10 @@ end
 function shop_ui.world.recheck_weapon(e, rec)
     if rec.pickup or (rec.fit_check or 0) + 1 > os.clock() then return end
     rec.fit_check = os.clock()
+    if K.CAST_ITEMS[e.loc.name] then
+        if K.cast_already_held(e.loc) then shop_ui.world.swap_pickup(e, rec) end
+        return
+    end
     local def = item_by_name[e.loc.original_item or ""]
     if not def or def.type ~= "Weapon" or K.keep_real(e.loc.name) then return end
     if not shop_ui.world.weapon_fits(def) then shop_ui.world.swap_pickup(e, rec) end
@@ -7010,7 +7031,7 @@ end
 
 function shop_ui.world.swap_pickup(e, rec)
     pcall(shop_ui.world.learn_get_mode, e)
-    if K.keep_real(e.loc.name) then return end -- vrai objet (assemblage, objet coulé)
+    if K.keep_real(e.loc.name) and not K.cast_already_held(e.loc) then return end -- vrai objet (assemblage, objet coulé)
     -- Arme posée : ni mode de ramassage changé, ni objet modifié (voir shop_ui.world.model_for)...
     -- sauf si elle ne tient pas dans la mallette (2026-10-10, Fusil F2 #013 : « inventaire
     -- complet », check impossible) : objet modifié sur place en objet d'une case, mode de

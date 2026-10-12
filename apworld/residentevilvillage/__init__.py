@@ -411,7 +411,7 @@ class ResidentEvilVillage(World):
             classification = ItemClassification.progression
         elif item['name'] in self.HUNT_MEATS and self.options.hunting.value > 0:
             classification = ItemClassification.progression  # plats du Duc (voir set_rules)
-        elif item['name'] == T("Valise") or item.get('unlimited_lockpick'):
+        elif item['name'] == T("Valise") or item.get('unlimited_lockpick') or self._is_unique_useful(item):
             # Valise : agrandissement de mallette, pas indispensable mais précieux (2026-10-11,
             # retour d'un joueur : en bleu clair, un autre jeu pouvait la négliger)
             classification = ItemClassification.useful
@@ -423,6 +423,25 @@ class ResidentEvilVillage(World):
             classification = ItemClassification.filler
 
         return Item(item['name'], classification, item['id'], player=self.player)
+
+    # Formules et trésors uniques en « useful » (2026-10-12, retour d'un joueur : en filler, un autre
+    # jeu pouvait les négliger ; une formule est unique, un trésor unique ne se retrouve pas ailleurs).
+    # Unique = objet d'origine d'une seule location des données (Amas de cristaux, Fragment de
+    # cristal, Quartz jaune, Vivianite, Ange en argent, Buste cristallisé restent en filler).
+    _origin_counts = None
+
+    def _is_unique_useful(self, item) -> bool:
+        if item['name'].startswith(("Formule :", "Recipe:")):  # noms FR ou EN (apworld en anglais)
+            return True
+        if item.get('type') != 'Treasure':
+            return False
+        if ResidentEvilVillage._origin_counts is None:
+            counts = {}
+            for loc in Data.location_table:
+                name = loc.get('original_item')
+                counts[name] = counts.get(name, 0) + 1
+            ResidentEvilVillage._origin_counts = counts
+        return ResidentEvilVillage._origin_counts.get(item['name'], 0) == 1
 
     def get_filler_item_name(self) -> str:
         return T("Sac de Lei")

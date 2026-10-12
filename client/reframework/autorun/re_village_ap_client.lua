@@ -4506,6 +4506,12 @@ end
 
 local function adjust_valise_unit(shop)
     local offered, price = valise_status()
+    -- Toutes les Valise-checks faites (2026-10-13, retour du développeur : le Duc proposait alors la
+    -- vraie Valise) : les agrandissements viennent d'Archipelago seulement, la Valise du jeu est
+    -- retirée (un achat de plus, puis une Valise reçue, dépassait le niveau prévu).
+    if offered == nil and shop_locations_by_item[VALISE_ITEM_ID] and get_location_id(shop_locations_by_item[VALISE_ITEM_ID][1]) then
+        offered = false
+    end
     if offered == nil then return end
     local units = shop:call("get_buyUnits")
     for i = units:call("get_Count") - 1, 0, -1 do
@@ -4679,12 +4685,25 @@ function shop_ui.clean_units(units)
     return removed
 end
 
+-- Rang de l'histoire atteint à chaque chapitre, pour la boutique (rangs des relevés du Duc dans
+-- l'apworld : 37.9 château, 231 village 2e passage, 332 réservoir, 416 après la Forteresse,
+-- 522.9 usine, 545.9 fin).
+K.SHOP_ORDER_BY_CHAPTER = {
+    Chapter2_1 = 37.9, Chapter2_2 = 37.9, Chapter2_3 = 231, Chapter2_4 = 332, Chapter2_6 = 416,
+    Chapter2_5 = 522.9, Chapter2_7 = 522.9, Chapter3_1 = 545.9, Chapter3_2 = 545.9,
+}
+
 local function add_ap_shop_units(shop)
     local units = shop:call("get_buyUnits")
     local received = state.received_ids or {}
+    local reached = K.SHOP_ORDER_BY_CHAPTER[last_chapter or ""] or 0
     for item_id, list in pairs(shop_locations_by_item) do
         -- (la Valise est gérée par adjust_valise_unit : prix et disponibilité par chapitre)
-        local loc = item_id ~= VALISE_ITEM_ID and received[tostring(item_id)] and next_shop_location(item_id)
+        local loc = item_id ~= VALISE_ITEM_ID and next_shop_location(item_id)
+        -- Article-check que le jeu ne propose pas (2026-10-13, partie du développeur : Formule :
+        -- Munitions de fusil d'assaut et Chargeur grande capacité (M1911) jamais affichés, le Duc ne
+        -- les vend qu'avec l'arme, qui est un objet Archipelago) : ajouté dès que son étape est atteinte.
+        if loc and not received[tostring(item_id)] and (loc.order or math.huge) > reached then loc = nil end
         if loc and not shop_has_unit(units, item_id) then
             add_shop_unit(units, item_id, loc.price or 0)
             first_call("remise en vente " .. loc.name)
@@ -8238,10 +8257,30 @@ function shop_ui.hud.update()
             ppos = { v.x, v.y, v.z }
         end)
         if ppos then
+            -- Position RÉELLE de l'objet posé par le jeu quand il est chargé (2026-10-13, Morceau de
+            -- plaque #001 [S03] : posé au cimetière de la porte aux reliefs, marqueur à la position
+            -- des données, au petit cimetière de la sortie de la Forteresse, « rien là-bas »).
+            local live = {}
+            for _, e in ipairs(shop_ui.world.near or {}) do
+                pcall(function()
+                    local p = e.inst:call("get_Transform"):call("get_Position")
+                    if e.loc.guid then live[e.loc.guid] = { p.x, p.y, p.z } end
+                end)
+            end
             local max_d2 = h.prefs.distance * h.prefs.distance
             for guid, loc in pairs(location_by_guid) do
                 local id = location_id_by_guid[guid]
-                local pos = loc.item_position
+                local pos = live[guid] or loc.item_position
+                if live[guid] and loc.item_position and not (h.moved_logged or {})[guid] then
+                    local q = loc.item_position
+                    local dd = math.sqrt((pos[1] - q[1]) ^ 2 + (pos[2] - q[2]) ^ 2 + (pos[3] - q[3]) ^ 2)
+                    if dd > 3 then
+                        h.moved_logged = h.moved_logged or {}
+                        h.moved_logged[guid] = true
+                        debug_log(string.format("guide : %s posé par le jeu à %.2f %.2f %.2f, à %.1f m de la position des données",
+                            loc.name, pos[1], pos[2], pos[3], dd))
+                    end
+                end
                 if id and pos and not checked_ids[id] then
                     local dx, dy, dz = pos[1] - ppos[1], pos[2] - ppos[2], pos[3] - ppos[3]
                     local d2 = dx * dx + dy * dy + dz * dz
@@ -9041,6 +9080,19 @@ shop_ui.no_return = {
               return tr("Avant de quitter le réservoir, prends le check à l'endroit d'origine de la Clé fœtus à six ailes : il lance une scène nécessaire à la suite de l'histoire.",
                   "Before leaving the reservoir, pick up the check at the Six-Winged Unborn Key's original spot: it starts a scene the story needs.")
           end },
+        -- Porte du cheval de l'usine (2026-10-13, relevé du développeur), TOUS les modes : la porte où
+        -- l'on pose le Relief de cheval coulé avec le Moule (relief). Tant que le check du Moule n'est
+        -- pas pris dans cette sauvegarde, on ne passe pas (Relief reçu d'Archipelago sans le moule).
+        { name = "Porte du cheval (usine)", name_en = "Horse door (factory)", always = true,
+          blockers = function()
+              local n = "Moule (relief) #001 [Usine d'Heisenberg - -4B]"
+              if K.story_extra_done(n) then return {} end
+              return { i18n.loc(K.story_loc(n)) }
+          end,
+          message = function()
+              return tr("Avant de passer cette porte, prends le check du Moule (relief) : la porte du cheval en dépend.",
+                  "Before going through this door, pick up the Mold (relief) check: the horse door depends on it.")
+          end },
         -- Anti-softlock (2026-10-07, idée du joueur), actif dans TOUS les modes : entrée de la
         -- salle des statues (vidange). Le jeu ne vide le sang que si l'énigme du vin est faite ;
         -- avec la Clé de la cour reçue du multiworld, on pouvait y entrer sans avoir posé le vin
@@ -9215,7 +9267,7 @@ end
 -- Étapes d'histoire suivies À PART (2026-10-12) : pas dans K.STORY_LOCS, que le mur « Porte vers
 -- Beneviento » exige en entier. Ramassé dans cette sauvegarde (state.story) ; sauvegarde d'avant ce
 -- suivi : état du serveur, une seule fois (comme K.story_done).
-K.STORY_EXTRA = { "Clé fœtus à six ailes #007" }
+K.STORY_EXTRA = { "Clé fœtus à six ailes #007", "Moule (relief) #001 [Usine d'Heisenberg - -4B]" }
 function K.story_extra_done(name)
     local loc = K.story_loc(name)
     if not loc or not get_location_id(loc) then return true end -- pas mélangé : scène d'origine jouée

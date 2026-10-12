@@ -237,5 +237,17 @@
             "r": 1.5,
             "note": "sortie du réservoir, relevé par le développeur le 2026-10-12 22:20:14 ; exige le check de la Clé fœtus à six ailes #007 (à 10,7 m), tous les modes"
         }
+    ],
+    "Porte du cheval (usine)": [
+        {
+            "chapter": "Chapter2_5",
+            "pos": [
+                -244.92092895507812,
+                -109.36445617675781,
+                215.1684112548828
+            ],
+            "r": 1.5,
+            "note": "porte où l'on pose le Relief de cheval (usine, -4B), relevé par le développeur le 2026-10-13 01:19:21 ; exige le check du Moule (relief) #001 pris dans cette sauvegarde, tous les modes"
+        }
     ]
 }

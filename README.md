@@ -21,6 +21,7 @@ are shuffled with the other players of a multiworld.
   game's lockpick spots become regular checks.
 - With hunting, the shuffled meats count for logic: the Duke's dishes are expected once you have
   received all of them.
+- Recipes and unique treasures are marked as useful items, so other games do not overlook them.
 - **Point of no return areas** (castle, dungeon…): excluded, sent automatically, or 100% mode (an
   invisible wall keeps you in while checks remain).
 - **Traps** (optional): Bankruptcy, Screamer, Jammed Weapons, Damage, Empty Magazine.
@@ -81,6 +82,7 @@ autre jeu, et tes objets peuvent tomber chez les autres.
   jamais ; les emplacements des crochets du jeu deviennent des checks comme les autres.
 - Avec la chasse, les viandes mélangées comptent pour la logique : les plats du Duc sont attendus
   quand tu les as toutes reçues.
+- Les formules et les trésors uniques sont classés « utiles », pour que les autres jeux ne les négligent pas.
 - **Zones sans retour** (château, cachots…) : checks exclus, envoyés automatiquement, ou mode 100 %
   (un mur invisible t'empêche de partir tant qu'il reste des checks).
 - **Pièges** (en option) : Faillite, Screamer, Armes bloquées, Dégâts, Chargeur vidé.

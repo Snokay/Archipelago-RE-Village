@@ -1541,6 +1541,42 @@ function inventory_repair.run()
             debug_log("mallette : formule en double retirée : " .. tostring(inventory_repair.gid_to_name[id]))
         end
     end)
+    -- Objet clé en double (2026-10-13, partie du développeur : Clé d'Heisenberg ramassée sous sa
+    -- vraie forme sur un emplacement de Cartouches de fusil, rangée dans les objets clés ET dans la
+    -- mallette). Deux exemplaires du même objet clé (pas un niveau de clé ailée) : celui de la grille
+    -- (case >= 0) est retiré. Chaque objet clé vu est noté une fois (où le jeu le range).
+    pcall(function()
+        local list = inv:call("get_items")
+        local copies = {}
+        for i = 0, list:call("get_Count") - 1 do
+            local work = list:call("get_Item", i):call("get_work")
+            local id = work:call("get_itemID")
+            local def = item_by_name[inventory_repair.gid_to_name[id] or ""]
+            if def and def.type == "Key" and not def.levels then
+                copies[id] = copies[id] or {}
+                table.insert(copies[id], work)
+                inventory_repair.key_seen = inventory_repair.key_seen or {}
+                local slot = work:call("get_slotNo")
+                local tag = tostring(id) .. ":" .. tostring(slot)
+                if not inventory_repair.key_seen[tag] then
+                    inventory_repair.key_seen[tag] = true
+                    debug_log(string.format("mallette : objet clé %s rangé en case %s", def.name, tostring(slot)))
+                end
+            end
+        end
+        for id, works in pairs(copies) do
+            if #works > 1 then
+                for _, work in ipairs(works) do
+                    if (work:call("get_slotNo") or -1) >= 0 and #works > 1 then
+                        inv:call("removeItem", work, true)
+                        table.remove(works, 1)
+                        debug_log("mallette : objet clé en double retiré de la grille : " .. tostring(inventory_repair.gid_to_name[id]))
+                        break
+                    end
+                end
+            end
+        end
+    end)
     pcall(function()
         local list = inv:call("get_items")
         local cores = {}
@@ -3663,7 +3699,8 @@ local function on_item_picked(interact, core)
     -- Caisse cassée : Lei posés par le jeu à la place de l'objet prévu (2026-09-27).
     local is_money = loc.original_item == "Sac de Lei" or picked_item_id == (item_by_name["Sac de Lei"] or {}).game_item_id
     local item_def = item_by_name[loc.original_item]
-    local is_weapon = item_def and item_def.type == "Weapon" and picked_item_id == item_def.game_item_id
+    local is_weapon = item_def and item_def.type == "Weapon"
+        and (K.SAME_ITEM[picked_item_id] or picked_item_id) == item_def.game_item_id
     if is_weapon then weapon_check_pending[picked_item_id] = os.clock() end
     table.insert(vanilla_removals, {
         item_id = picked_item_id,
@@ -7261,9 +7298,24 @@ end
 
 -- Variantes « (1) » / « (2) » d'un même objet (items.json) : la mallette du château après la
 -- cuisine montre LEMI (1) pour le check LEMI (2), ligne restée d'origine (2026-09-29).
+-- Même objet sous deux numéros (2026-10-13, partie du développeur : Canon long (M1851 Wolfsbane)
+-- posé en 437981907, ramassé en 932818540 : check pas reconnu, accessoire gardé). Relevé dans le
+-- catalogue du jeu (item_catalog.json, même nom) pour les objets des données.
+K.SAME_ITEM = {
+    [2352399178] = 1839743046, [932818540] = 437981907, [2881006060] = 2653529981,
+    [128777511] = 967280630, [809786374] = 967280630, [2616382888] = 2500933730,
+    [2540116498] = 3154753836, [2117936964] = 3787717904, [1559178721] = 4186049118,
+    [1419114675] = 2576167331, [4106212545] = 879197051, [2186690969] = 1959464596,
+    [579739633] = 331140406, [1783651061] = 2838037082, [3414425055] = 2735256250,
+    [2198114132] = 80959953, [1394702287] = 241847407, [2534025216] = 1157345091,
+    [3613704787] = 1212053308, [1690589937] = 738899953, [2097574382] = 738899953,
+    [2687620566] = 738899953, [821029179] = 738899953, [3572205213] = 2078728602,
+    [2144331364] = 943909675,
+}
 function shop_ui.world.same_variant(a, b)
     if a == nil or b == nil then return false end
     if a == b then return true end
+    if (K.SAME_ITEM[a] or a) == (K.SAME_ITEM[b] or b) then return true end
     if not shop_ui.world.variant_names then
         local m = {}
         for _, it in ipairs(items) do

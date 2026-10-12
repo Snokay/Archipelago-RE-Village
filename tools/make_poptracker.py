@@ -11,6 +11,9 @@ Tout vient des données de l'apworld (apworld/residentevilvillage/data) :
   - logique = celle de l'apworld (set_rules) : un check de rang N demande les objets clés qui servent
     à un rang <= N (key_use), plus requires_keys ; plats du Duc : toutes les viandes mélangées ;
   - checks visibles selon les options de la partie (slot_data lu à la connexion) ;
+  - icônes des objets : celles du jeu (2026-10-13), découpées dans les planches GUI/ui0100 des paks
+    (numéros relevés en jeu : tools/re_engine/item_icons.json, [planche, case]) ; jeu absent ->
+    icônes générées (initiales) ;
   - cartes : vues du dessus GÉNÉRÉES à partir des positions des checks (pas d'images du jeu) ; un
     point par salle (texte entre crochets du nom du check).
 Variantes : « fr » et « en » (noms des checks et des objets dans la langue de l'apworld).
@@ -20,6 +23,8 @@ import json
 import math
 import re
 import shutil
+import struct
+import sys
 import unicodedata
 import zipfile
 from pathlib import Path
@@ -72,8 +77,52 @@ def clean(text):
     return text.replace("/", "-")
 
 
-def icon(path, label, color=GOLD):
-    """Icône d'objet générée : initiales sur fond sombre, bord doré."""
+ICON_TABLE = ROOT / "tools" / "re_engine" / "item_icons.json"
+ICON_SOURCE = {"Crochet illimité": "Crochet"}  # objet du mod : icône d'un objet du jeu
+_atlases = {}
+
+
+def game_icon(game_id):
+    """Icône du jeu de l'objet game_id (64 x 64, transparente), None si jeu ou planche absents."""
+    try:
+        asset, pattern = json.loads(ICON_TABLE.read_text(encoding="utf-8"))[str(game_id)]
+        if asset not in _atlases:
+            sys.path.insert(0, str(ROOT / "tools" / "re_engine"))
+            import pak_extract
+            import texture2ddecoder
+            base = f"natives/stm/gui/ui0100/tex/ui010{asset}"
+            work = ROOT / "tools" / "re_engine" / "extrait"
+            pak_extract.extract([base + "_iam.tex.30", base + ".uvs.7"], str(work))
+            tex = (work / (base + "_iam.tex.30")).read_bytes()
+            uvs = (work / (base + ".uvs.7")).read_bytes()
+            w, h = struct.unpack_from("<HH", tex, 8)
+            fmt = struct.unpack_from("<I", tex, 16)[0]
+            off, _, size = struct.unpack_from("<QII", tex, 0x28)
+            if fmt in (98, 99):  # BC7 (planche du jeu)
+                img = Image.frombytes("RGBA", (w, h), texture2ddecoder.decode_bc7(tex[off:off + size], w, h), "raw", "BGRA")
+            else:  # RGBA8 : ui0100 modifiée par le mod (logo AP), voir make_ap_icon.py
+                img = Image.frombytes("RGBA", (w, h), tex[off:off + w * h * 4], "raw", "RGBA")
+            _atlases[asset] = (img, uvs)
+        img, uvs = _atlases[asset]
+        # cases de 32 octets à partir de l'adresse lue à 0x28 ; gauche, haut, droite, bas à +8
+        left, top, right, bottom = struct.unpack_from("<ffff", uvs, struct.unpack_from("<Q", uvs, 0x28)[0] + pattern * 32 + 8)
+        w, h = img.size
+        cell = img.crop((round(left * w), round(top * h), round(right * w), round(bottom * h)))
+        cell.thumbnail((64, 64), Image.LANCZOS)  # armes : cases larges, proportions gardées
+        out = Image.new("RGBA", (64, 64), (0, 0, 0, 0))
+        out.alpha_composite(cell, ((64 - cell.width) // 2, (64 - cell.height) // 2))
+        return out
+    except Exception:
+        return None
+
+
+def icon(path, label, color=GOLD, game_id=None):
+    """Icône d'objet : celle du jeu si possible, sinon initiales sur fond sombre, bord doré."""
+    real = game_icon(game_id) if game_id else None
+    if real is not None:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        real.save(path)
+        return True
     img = Image.new("RGBA", (64, 64), BG + (255,))
     d = ImageDraw.Draw(img)
     d.rounded_rectangle((1, 1, 62, 62), 8, outline=color, width=3)
@@ -84,6 +133,7 @@ def icon(path, label, color=GOLD):
     d.text(((64 - w) / 2, 18), short, fill=color, font=f)
     path.parent.mkdir(parents=True, exist_ok=True)
     img.save(path)
+    return False
 
 
 def chest(path, opened):
@@ -122,13 +172,17 @@ def main():
     code["Crochet illimité"] = "lockpick"
     code["Valise"] = "valise"
 
+    missing_icons = set()
+
     def item_defs(lang):
         tr = (lambda n: n) if lang == "fr" else en
         out = []
         for name in shuffled_keys + meats + ["Crochet illimité", "Valise"]:
             it = item_by_name[name]
             img = f"images/items/{code[name]}.png"
-            icon(OUT / img, name, GOLD if name in shuffled_keys else (150, 200, 150))
+            gid = item_by_name.get(ICON_SOURCE.get(name, name), {}).get("game_item_id")
+            if not icon(OUT / img, name, GOLD if name in shuffled_keys else (150, 200, 150), gid):
+                missing_icons.add(name)
             if it.get("progressive"):
                 out.append({"name": tr(name), "type": "consumable", "img": img, "codes": code[name],
                             "max_quantity": len(it.get("levels", [])) or 4})
@@ -348,6 +402,8 @@ def main():
             if p.is_file():
                 z.write(p, p.relative_to(OUT).as_posix())
     n_checks = sum(len(e) for r in groups.values() for e in r.values())
+    if missing_icons:
+        print("icônes générées (pas d'icône du jeu) : " + ", ".join(sorted(missing_icons)))
     print(f"pack {version} : {n_checks} checks, {len(maps)} cartes, {len(code)} objets suivis -> {target}")
 
 

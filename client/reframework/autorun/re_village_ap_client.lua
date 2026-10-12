@@ -9364,12 +9364,14 @@ function shop_ui.auto_send_when()
         if w and not shop_ui.when_done[loc.key] and location_done(loc) == false then
             local trigger = false
             for _, other in pairs(location_by_guid) do
-                if other.name == w.location and location_done(other) == true then trigger = true end
+                if w.location and other.name == w.location and location_done(other) == true then trigger = true end
             end
-            if (shop_ui.picked_item_ids or {})[w.item_id] then trigger = true end
+            if w.item_id and (shop_ui.picked_item_ids or {})[w.item_id] then trigger = true end
+            -- repère « boss » (2026-10-12, lac de Moreau) : seigneur vaincu (state.bosses, comme l'objectif)
+            if w.boss and (state.bosses or {})[w.boss] then trigger = true end
             if trigger then
                 shop_ui.when_done[loc.key] = true
-                debug_log("envoi automatique (repère " .. tostring(w.location) .. ") : " .. loc.name)
+                debug_log("envoi automatique (repère " .. tostring(w.location or w.boss) .. ") : " .. loc.name)
                 queue_check(loc)
             end
         end

@@ -212,6 +212,10 @@ AUTO_SEND_WHEN_GUIDS = {
     "c4e07a2f-d904-089a-3131-60bd07399266": WELL_TOP_TRIGGER,  # Bombe tuyau #005 [S08]
     "0fc64d05-e3af-0345-35eb-10596c0ea9c4": WELL_TOP_TRIGGER,  # Cartouches de fusil #003 [S08]
     "a00a2f54-fb2f-02d5-0bc7-d2e5bff76af4": WELL_TOP_TRIGGER,  # Grenades explosives #009 [S08]
+    # Lac de Moreau (2026-10-12, développeur) : deux passages sans retour, chacun après un check ; en
+    # mode 100 % des murs les gardent, dans les autres modes ils partent tout seuls à la mort de Moreau.
+    "3cadcb4f-060f-0827-3756-758cbaf0dc98": {"boss": "moreau"},  # Munitions pour pistolet #014 [S07]
+    "b177d629-475c-0217-3011-cd288d6f86a9": {"boss": "moreau"},  # Munitions magnum #001 [S08]
 }
 CHAPTER_RE = re.compile(r"(Chapter\d_\d|c02_ChapterBridge)")
 
@@ -334,6 +338,8 @@ def main():
             loc["missable_chapter"] = MISSABLE_CHAPTERS[zone]
         if guid in MISSABLE_SPOTS:
             loc["missable_spot"] = MISSABLE_SPOTS[guid]
+        if guid in AUTO_SEND_WHEN_GUIDS:
+            loc["auto_send_when"] = AUTO_SEND_WHEN_GUIDS[guid]
         if guid in AUTO_SEND_GUIDS:
             loc["auto_send"] = True
         if loc.get("missable_spot") in AUTO_SEND_AFTER:

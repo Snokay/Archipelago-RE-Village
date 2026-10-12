@@ -860,9 +860,19 @@ function i18n.extend_level_info(inv, clamp)
     return cur, max_v
 end
 
+-- Dernière modification de la mallette par le mod (2026-10-12, joueur : « quand je reçois trop
+-- d'items d'un coup mon jeu crash ») : tous les dons (file, colis, crochet, clés ailées) attendent
+-- K.CASE_GAP s après la précédente (crash d'Inventory.updateOrder après des modifications rapprochées).
+K.last_case_change = -math.huge
+K.CASE_GAP = 1.0
+function K.case_settling()
+    return os.clock() - K.last_case_change < K.CASE_GAP
+end
+
 local function give_item(item_id, count, item)
     local mgr, inv = get_active_inventory()
     if not mgr then return false, "pas_pret" end
+    K.last_case_change = os.clock()
     if item_id == VALISE_ITEM_ID then
         if not inv then return false, "pas_pret" end
         local before = nil
@@ -1198,14 +1208,29 @@ local ending_active = false
 
 -- Niveaux 1..level d'un objet clé progressif présents dans la mallette (2026-10-10) : les
 -- manquants sont donnés (niveaux retirés par les versions d'avant 0.9.1.20, ou donnés dans le désordre).
+-- Un seul don par appel (2026-10-12 : avant, tous les niveaux manquants dans la même image, juste
+-- après le don du niveau reçu) ; renvoie true si un niveau a été donné. Voir K.fill_update.
 function K.progressive_fill(item, level)
     for i = 1, math.min(level, #item.levels) do
         local id = item.levels[i]
         if (inventory_quantity(id) or 0) == 0 then
             local ok = give_item(id, 1)
             debug_log(string.format("clé progressive : %s niveau %d (objet %s) redonné : %s", tostring(item.name), i, tostring(id), tostring(ok)))
+            return true
         end
     end
+    return false
+end
+
+-- Niveaux manquants à redonner, un par un (K.CASE_GAP entre deux dons, appelé par la boucle du jeu).
+K.fill_list = {}
+function K.fill_later(item, level)
+    K.fill_list[#K.fill_list + 1] = { item = item, level = level }
+end
+function K.fill_update()
+    local row = K.fill_list[1]
+    if not row or not is_in_game() or K.case_busy() or K.case_settling() then return end
+    if not K.progressive_fill(row.item, row.level) then table.remove(K.fill_list, 1) end
 end
 
 local function apply_item(row)
@@ -1252,7 +1277,7 @@ local function apply_item(row)
         -- portes dans l'ordre). Les niveaux d'avant qui manquent sont redonnés.
         local level = math.min(row.level or 1, #item.levels)
         ok, reason = give_item(item.levels[level], 1)
-        if ok then pcall(K.progressive_fill, item, level) end
+        if ok then K.fill_later(item, level) end
         debug_log(string.format("don : %s niveau %d (objet %s) : %s", item_name, level, tostring(item.levels[level]), tostring(ok)))
         -- Diagnostic (2026-10-08 : Clé ailée « donnée » mais absente de l'inventaire) : quantités de
         -- tous les niveaux tout de suite, puis 3 s plus tard (le jeu jette-t-il la clé ?).
@@ -1373,8 +1398,12 @@ local function process_items_queue()
         -- Un item toutes les 0,25 s ; 1,2 s quand beaucoup attendent. Crash du 2026-09-27 : à
         -- la connexion à un multiworld déjà avancé (~500 items), 38 items en 10 s ont fait
         -- planter le moteur de son du jeu (Wwise : un son et une notification par objet).
-        local interval = #items_queue > 10 and 1.2 or 0.25
-        local too_soon = given or os.clock() - last_item_give < interval
+        -- 2026-10-12 (crash d'un joueur en recevant beaucoup d'objets d'un coup) : 0,25 s restait
+        -- possible dès que 10 objets ou moins attendaient (fin de chaque rafale), et la file comptait
+        -- aussi les objets déjà donnés renvoyés par le serveur. Au moins 1 s, 1,5 s si plus de 10
+        -- objets à donner, et jamais moins de K.CASE_GAP après un autre don du mod.
+        local interval = to_give > 10 and 1.5 or 1.0
+        local too_soon = given or os.clock() - last_item_give < interval or K.case_settling()
         if row.index <= state.last_applied_index and not row.extra then
             -- déjà donné (renvoyé par le serveur à la reconnexion) : on l'oublie
         elseif holding or too_soon then
@@ -1498,7 +1527,7 @@ end
 -- jusqu'à la quantité de l'objet Archipelago (ex. 25 balles), en réessayant toutes les 5 s faute de place.
 function K.parcel_topup()
     local list = K.parcel_topups
-    if not list or #list == 0 or not is_in_game() or K.case_busy() then return end
+    if not list or #list == 0 or not is_in_game() or K.case_busy() or K.case_settling() then return end
     local row = list[1]
     if os.clock() < row.due then return end
     -- manque mesuré une seule fois (1 s après l'achat), puis gardé : les balles tirées entre deux
@@ -1532,7 +1561,7 @@ end
 local function process_parcel()
     if #state.parcel == 0 or not is_in_game() or ending_active or #vanilla_removals > 0 then return end
     if K.case_busy() or K.chapter == "Chapter1" then return end -- prologue : inventaire remis à zéro ensuite
-    if os.clock() - inventory_repair.last_parcel_try < 10.0 then return end
+    if os.clock() - inventory_repair.last_parcel_try < 10.0 or K.case_settling() then return end
     inventory_repair.last_parcel_try = os.clock()
     -- Crash du 2026-10-09 22:25 (partie du développeur, idée du joueur) : le colis réessayait
     -- toutes les 10 s, sans rien noter quand le jeu refusait, et un essai a pu tomber pendant une
@@ -1588,7 +1617,7 @@ function K.progressive_check(limit)
         local def = item_by_name[net.get_item_name(row.item) or ""]
         if def and def.levels and index <= limit then counts[def] = (counts[def] or 0) + 1 end
     end
-    for def, n in pairs(counts) do K.progressive_fill(def, n) end
+    for def, n in pairs(counts) do K.fill_later(def, n) end
 end
 
 -- Crochet illimité (2026-10-11) : le jeu retire le Crochet à chaque serrure ; mallette sans Crochet
@@ -1603,7 +1632,7 @@ function K.lockpick_refill()
         return
     end
     K.lockpick_empty_since = K.lockpick_empty_since or os.clock()
-    if os.clock() - K.lockpick_empty_since < 3 then return end
+    if os.clock() - K.lockpick_empty_since < 3 or K.case_settling() then return end
     K.lockpick_empty_since = nil
     local ok, reason = give_item(id, 1)
     debug_log(string.format("crochet illimité : Crochet redonné : %s (%s)", tostring(ok), tostring(reason)))
@@ -1638,6 +1667,7 @@ function K.key_reconcile()
                             local work = list:call("get_Item", j):call("get_work")
                             if work:call("get_itemID") == id then
                                 inv:call("removeItem", work, true)
+                                K.last_case_change = os.clock()
                                 removed = 1
                                 return
                             end
@@ -9277,7 +9307,7 @@ re.on_pre_application_entry("UpdateBehavior", function()
         K.lockpick_next = os.clock() + 1
         pcall(K.lockpick_refill)
     end
-    if K.key_reconcile_at and os.clock() >= K.key_reconcile_at and is_in_game() and not K.case_busy() then
+    if K.key_reconcile_at and os.clock() >= K.key_reconcile_at and is_in_game() and not K.case_busy() and not K.case_settling() then
         K.key_reconcile_at = nil
         local ok, changed = pcall(K.key_reconcile)
         K.key_reconcile_left = (K.key_reconcile_left or 8) - 1
@@ -9504,6 +9534,7 @@ re.on_pre_application_entry("UpdateBehavior", function()
     pcall(shop_ui.voice.update_trap)
     death_link.update()
     process_items_queue()
+    pcall(K.fill_update)
     if i18n.key_diag and os.clock() >= i18n.key_diag.at then
         local parts = {}
         for i, id in ipairs(i18n.key_diag.levels) do parts[#parts + 1] = i .. "=" .. tostring(inventory_quantity(id)) end

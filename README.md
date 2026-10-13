@@ -1,4 +1,4 @@
-# RE Village Archipelago — alpha 0.9.1.7
+# RE Village Archipelago — alpha 0.9.1.29
 
 ### 📖 [Setup guide / Guide d'installation](SETUP_GUIDE.md) · ⬇️ [Download / Télécharger](../../releases)
 
@@ -34,11 +34,11 @@ are shuffled with the other players of a multiworld.
 
 👉 **Step by step in the [setup guide](SETUP_GUIDE.md).** In short:
 
-- **Launcher (recommended)**: unzip `RE_Village_Archipelago_0.9.1.7_launcher.zip`, run
+- **Launcher (recommended)**: unzip `RE_Village_Archipelago_0.9.1.29_launcher.zip`, run
   `RE_Village_AP_Launcher.exe`, **Setup** tab > pick the apworld language > **Install / update**
   (game closed). Then **Play** tab: room address, slot name, password. They are saved into the game:
   afterwards just start the game, it connects by itself.
-- **Manual**: unzip `RE_Village_Archipelago_0.9.1.7_manuel.zip` and follow `LISEZMOI - README.txt`. To
+- **Manual**: unzip `RE_Village_Archipelago_0.9.1.29_manuel.zip` and follow `LISEZMOI - README.txt`. To
   connect: **Insert** key in game > **RE Village Archipelago** window > **Connection** tab.
 
 Requirements: Resident Evil Village on Steam (PC); [Archipelago 0.6](https://github.com/ArchipelagoMW/Archipelago/releases)
@@ -46,6 +46,14 @@ to generate or host. Start a **new game** on the difficulty required by your YAM
 **Xbox Game Pass / Microsoft Store**: not tested yet. Start the game from the Xbox app (the launcher's
 "Play" button only saves the connection); if the Insert menu does not show up in game, REFramework
 does not work on your version: please report it.
+
+## PopTracker
+
+A [PopTracker](https://github.com/black-sliver/PopTracker) pack is attached to each release
+(`RE_Village_AP_poptracker_<version>.zip`): drop the zip into PopTracker's `packs` folder, open
+**Resident Evil Village Archipelago** (French or English names), then click **AP** and enter the room
+address and your slot. It shows the game's own map with every check, the key items, weapons, meats
+and case upgrades you received (in colour once obtained), and what is in logic.
 
 ## Found a bug?
 
@@ -61,7 +69,7 @@ Otherwise: launcher > **Bug report** (zips the logs on your Desktop) and send it
 - Resident Evil Village © Capcom; this project is not affiliated with Capcom.
 ---
 
-# RE Village Archipelago — alpha 0.9.1.7 (français)
+# RE Village Archipelago — alpha 0.9.1.29 (français)
 
 Mod [Archipelago](https://archipelago.gg) pour **Resident Evil Village** (Steam, PC) : les objets du jeu
 sont mélangés avec ceux des autres joueurs d'un multiworld. Ce que tu ramasses peut appartenir à un
@@ -98,7 +106,7 @@ autre jeu, et tes objets peuvent tomber chez les autres.
 
 ### Avec le launcher (conseillé)
 
-1. Décompresse `RE_Village_Archipelago_0.9.1.7_launcher.zip` où tu veux.
+1. Décompresse `RE_Village_Archipelago_0.9.1.29_launcher.zip` où tu veux.
 2. Lance `RE_Village_AP_Launcher.exe`, onglet **Installation** : il trouve le jeu et Archipelago tout
    seul. Choisis la langue de l'apworld puis **Installer / mettre à jour** (jeu fermé). REFramework est
    installé s'il manque.
@@ -109,7 +117,7 @@ Le launcher sert aussi à préparer ton YAML (**Mes options**) et à héberger u
 
 ### À la main
 
-Décompresse `RE_Village_Archipelago_0.9.1.7_manuel.zip` et suis `LISEZMOI - README.txt`. Pour te
+Décompresse `RE_Village_Archipelago_0.9.1.29_manuel.zip` et suis `LISEZMOI - README.txt`. Pour te
 connecter : touche **Inser** en jeu > fenêtre **RE Village Archipelago** > onglet **Connexion**.
 
 ## Jouer
@@ -122,6 +130,14 @@ connecter : touche **Inser** en jeu > fenêtre **RE Village Archipelago** > ongl
 - **Xbox Game Pass / Microsoft Store** : pas encore testé. Lance le jeu depuis l'application Xbox
   (le bouton « Jouer » du launcher ne fait que noter la connexion) ; si le menu Inser n'apparaît pas
   en jeu, REFramework ne marche pas sur ta version : signale-le.
+
+## PopTracker
+
+Un pack [PopTracker](https://github.com/black-sliver/PopTracker) est joint à chaque version
+(`RE_Village_AP_poptracker_<version>.zip`) : pose le zip dans le dossier `packs` de PopTracker,
+ouvre **Resident Evil Village Archipelago** (noms en français ou en anglais), puis clique **AP** et
+entre l'adresse de la room et ton slot. Il montre la vraie carte du jeu avec tous les checks, les
+objets clés, armes, viandes et valises reçus (en couleur une fois obtenus), et ce qui est dans la logique.
 
 ## Un bug ?
 

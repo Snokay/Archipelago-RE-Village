@@ -3497,6 +3497,7 @@ local function on_item_picked(interact, core)
     -- Exceptions (2026-10-10) : objet remonté par le seau du puits (partie est du village), apparu à
     -- 3,4 m de son emplacement noté ; le check ne partait pas et restait au tracker.
     local max_dist = K.POSITION_RADIUS[loc and loc.name or ""] or 3
+    local same_object = false
     -- Objet ramassé = l'objet même de cet emplacement (2026-10-10, Collier incomplet #005 [S12] remonté
     -- par le seau d'un puits, à 3,4 m ; l'objet de l'emplacement disparaissait juste après) : jusqu'à
     -- 8 m, tous les puits. Une caisse donne un AUTRE objet que celui de l'emplacement voisin.
@@ -3515,10 +3516,23 @@ local function on_item_picked(interact, core)
                 debug_log(string.format("ramassage : %s : objet de l'emplacement à %.2f m de l'objet ramassé", loc.name, d))
             end
             if same and (dist or 99) <= 8 then
+                same_object = true
                 max_dist = 8
                 debug_log(string.format("ramassage : %s : objet de l'emplacement lui-même à %.1f m (puits), accepté", loc.name, dist))
             end
         end)
+    end
+    -- Check déjà fait, objet de l'emplacement LUI-MÊME ramassé de nouveau (2026-10-13, partie du
+    -- développeur : 2 Madalina (tête) ; le seau du puits remonte la vraie tête après chaque
+    -- rechargement, elle était gardée) : objet d'origine retiré, rien d'envoyé.
+    if loc and by_position and same_object and (dist or 99) <= max_dist and shop_ui.location_done(loc) == true then
+        local orig = item_by_name[loc.original_item or ""]
+        if orig and (K.SAME_ITEM[picked_item_id] or picked_item_id) == orig.game_item_id then
+            debug_log("ramassage : " .. loc.name .. " déjà fait, objet d'origine ramassé de nouveau : retiré")
+            table.insert(vanilla_removals, { item_id = picked_item_id, before = quantities_before[picked_item_id] or 0,
+                due = os.clock() + REMOVAL_DELAY_SECONDS })
+            return
+        end
     end
     if loc and by_position and ((dist or 99) > max_dist or shop_ui.location_done(loc) ~= false) then
         debug_log(string.format("ramassage : %s ignoré (reconnu par position à %.1f m, déjà fait : %s)",

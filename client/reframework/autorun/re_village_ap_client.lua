@@ -6011,7 +6011,7 @@ end
 -- puis reposé toutes les 1 à 2 s, et on réécrivait chaque fois dans ses composants (maillages,
 -- ramassage), peut-être déjà détruits. Objet du jeu disparu : on ne touche plus qu'à NOTRE objet.
 function shop_ui.world.remove(key, rec, gone)
-    if not gone then shop_ui.world.restore_pickup(rec) end
+    if not gone then shop_ui.world.restore_pickup(rec) else shop_ui.world.restore_core(rec) end
     if rec.go then
         pcall(function()
             shop_ui.world.created[rec.go:get_address()] = nil
@@ -6048,7 +6048,7 @@ function shop_ui.world.restore_unused()
     for key, rec in pairs(shop_ui.world.kept) do
         local still, why = shop_ui.world.still_used(rec, key)
         if not still then
-            if why ~= shop_ui.world.GONE then shop_ui.world.restore_pickup(rec) end
+            if why ~= shop_ui.world.GONE then shop_ui.world.restore_pickup(rec) else shop_ui.world.restore_core(rec) end
             shop_ui.world.kept[key] = nil
         end
     end
@@ -6596,6 +6596,7 @@ function shop_ui.world.update()
     local near = {}
     for _, e in ipairs(shop_ui.world.entries) do
         local ok, err = pcall(function()
+            pcall(shop_ui.world.heal_core, e.si)
             -- raison notée une fois par emplacement (2026-10-08 : M1897 #001 détecté, jamais habillé)
             local skip = shop_ui.world.skip_reason
             if location_done(e.loc) == nil then return skip(e, "pas dans la seed") end
@@ -7157,6 +7158,7 @@ function shop_ui.world.restore_pickup(rec)
     if not rec.pickup then return end
     if rec.pickup.inplace then
         local old = rec.pickup.inplace
+        pcall(function() shop_ui.world.modified_cores[rec.pickup.core:get_address()] = nil end)
         pcall(function()
             local work = rec.pickup.core:call("get_work")
             rec.pickup.core:call("set_spec", old.spec)
@@ -7184,6 +7186,14 @@ function shop_ui.world.instance_get(e)
 end
 
 -- Modifie un objet du jeu sur place (voir INPLACE) ; renvoie de quoi le remettre.
+-- Objets modifiés sur place encore en service (adresse de l'ItemCore -> vrai) et numéros qu'on y écrit.
+shop_ui.world.modified_cores = {}
+-- (objets modifiés avant un rechargement des scripts : Fragment de cristal et objets clés, les seuls
+-- numéros que le mod écrit sur place)
+shop_ui.world.written_ids = { [shop_ui.world.PICKUP_ID or 1943719610] = true }
+for _, d in pairs(item_by_name) do
+    if d.type == "Key" and d.game_item_id and not d.levels then shop_ui.world.written_ids[d.game_item_id] = true end
+end
 function shop_ui.world.modify_inplace(core, gid, qty)
     local specs = sdk.get_managed_singleton("app.ItemSpecification")
     local work = core:call("get_work")
@@ -7192,7 +7202,51 @@ function shop_ui.world.modify_inplace(core, gid, qty)
     core:call("set_spec", specs:call("findItemSpec", gid))
     work:call("set_itemID", gid)
     work:call("set_stackSize", qty)
+    shop_ui.world.modified_cores[core:get_address()] = true
+    shop_ui.world.written_ids[gid] = true
     return old
+end
+
+-- Objet modifié sur place dont l'emplacement est déchargé (2026-10-13, partie du développeur) :
+-- l'ItemCore n'est PAS détruit, le jeu le reprend pour d'autres objets du même genre (Cartouches de
+-- fusil #024 passées en Clé d'Heisenberg, puis Cartouches #005, deux autres checks et une caisse
+-- devenus des Clés d'Heisenberg, impossibles à prendre). On remet donc l'ItemCore (référence
+-- gardée par modify_inplace) ; aucun objet du jeu détruit n'est touché.
+function shop_ui.world.restore_core(rec)
+    local p = rec and rec.pickup
+    if not (p and p.inplace and p.core) then return end
+    local old = p.inplace
+    local ok, err = pcall(function()
+        local work = p.core:call("get_work")
+        if work:call("get_itemID") ~= p.gid then return end -- déjà repris et changé par le jeu
+        p.core:call("set_spec", old.spec)
+        work:call("set_itemID", old.id)
+        work:call("set_stackSize", old.stack)
+    end)
+    pcall(function() shop_ui.world.modified_cores[p.core:get_address()] = nil end)
+    debug_log(string.format("objet au sol : %s : objet déchargé, objet du jeu remis (%s -> %s) %s",
+        tostring(rec.loc and rec.loc.name), tostring(p.gid), tostring(old.id), ok and "ok" or tostring(err)))
+    rec.pickup = nil
+end
+
+-- Secours : objet du jeu qui porte encore un numéro écrit par le mod alors qu'aucun emplacement
+-- habillé ne s'en sert (modifié avant ce correctif, ou remise ratée) : remis à l'objet prévu par
+-- son emplacement (spawnItemId). Appelé avant tout habillage.
+function shop_ui.world.heal_core(si)
+    local get = si:get_field("SpawnedInteractItemGetCache")
+    local core = get and get:get_field("ItemCore")
+    if not core then return end
+    local work = core:call("get_work")
+    local id = work:call("get_itemID")
+    if not shop_ui.world.written_ids[id] then return end
+    if shop_ui.world.modified_cores[core:get_address()] then return end
+    local sid = si:call("get_spawnItemId")
+    if not sid or sid == id then return end
+    local specs = sdk.get_managed_singleton("app.ItemSpecification")
+    core:call("set_spec", specs:call("findItemSpec", sid))
+    work:call("set_itemID", sid)
+    work:call("set_stackSize", math.max(1, si:call("get_spawnStackNum") or 1))
+    debug_log(string.format("objet au sol : objet du jeu réutilisé encore modifié (%s), remis à %s", tostring(id), tostring(sid)))
 end
 
 function shop_ui.world.sync_pickup(e, rec)
@@ -9202,6 +9256,21 @@ shop_ui.no_return = {
               return tr("Avant de passer, prends le check du Moule (roue dentée), puis coule la Grande roue dentée et prends-la : le courant en dépend.",
                   "Before going on, pick up the Mold (gear) check, then cast the Large Gear and take it: the power depends on it.")
           end },
+        -- Porte de la Clé d'Heisenberg (2026-10-13, relevé du développeur), TOUS les modes : exige le
+        -- moule de la clé et la clé coulée, pris dans cette sauvegarde.
+        { name = "Porte de la Clé d'Heisenberg (usine)", name_en = "Heisenberg's Key door (factory)", always = true,
+          blockers = function()
+              local out = {}
+              for _, n in ipairs({ "Moule (clé) #003 [Usine d'Heisenberg - -1]",
+                      "Clé d'Heisenberg #006 [Usine d'Heisenberg - -4B]" }) do
+                  if not K.story_extra_done(n) then out[#out + 1] = i18n.loc(K.story_loc(n)) end
+              end
+              return out
+          end,
+          message = function()
+              return tr("Avant de passer, prends le check du Moule (clé), puis coule la Clé d'Heisenberg et prends-la.",
+                  "Before going on, pick up the Mold (key) check, then cast Heisenberg's Key and take it.")
+          end },
         -- Anti-softlock (2026-10-07, idée du joueur), actif dans TOUS les modes : entrée de la
         -- salle des statues (vidange). Le jeu ne vide le sang que si l'énigme du vin est faite ;
         -- avec la Clé de la cour reçue du multiworld, on pouvait y entrer sans avoir posé le vin
@@ -9377,7 +9446,8 @@ end
 -- Beneviento » exige en entier. Ramassé dans cette sauvegarde (state.story) ; sauvegarde d'avant ce
 -- suivi : état du serveur, une seule fois (comme K.story_done).
 K.STORY_EXTRA = { "Clé fœtus à six ailes #007", "Moule (relief) #001 [Usine d'Heisenberg - -4B]",
-    "Moule (roue dentée) #002 [Usine d'Heisenberg - -4B]", "Grande roue dentée #005 [Usine d'Heisenberg - -4B]" }
+    "Moule (roue dentée) #002 [Usine d'Heisenberg - -4B]", "Grande roue dentée #005 [Usine d'Heisenberg - -4B]",
+    "Moule (clé) #003 [Usine d'Heisenberg - -1]", "Clé d'Heisenberg #006 [Usine d'Heisenberg - -4B]" }
 function K.story_extra_done(name)
     local loc = K.story_loc(name)
     if not loc or not get_location_id(loc) then return true end -- pas mélangé : scène d'origine jouée

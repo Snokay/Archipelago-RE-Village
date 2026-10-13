@@ -261,5 +261,17 @@
             "r": 1.5,
             "note": "passage vers l'endroit où l'on pose la Grande roue dentée pour remettre le courant (usine, -4B), relevé par le développeur le 2026-10-13 01:27:55 ; exige les checks du Moule (roue dentée) #002 et de la Grande roue dentée #005 pris dans cette sauvegarde, tous les modes"
         }
+    ],
+    "Porte de la Clé d'Heisenberg (usine)": [
+        {
+            "chapter": "Chapter2_5",
+            "pos": [
+                -272.2656555175781,
+                -38.74273681640625,
+                238.87591552734375
+            ],
+            "r": 1.5,
+            "note": "devant la porte qui s'ouvre avec la Clé d'Heisenberg (usine), relevé par le développeur le 2026-10-13 01:59:39 ; exige les checks du Moule (clé) #003 et de la Clé d'Heisenberg #006 (coulée) pris dans cette sauvegarde, tous les modes"
+        }
     ]
 }

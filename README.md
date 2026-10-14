@@ -1,6 +1,6 @@
 # RE Village Archipelago — alpha 0.9.1.29
 
-### 📖 [Setup guide / Guide d'installation](SETUP_GUIDE.md) · ⬇️ [Download / Télécharger](../../releases)
+### 📖 [Setup guide / Guide d'installation](SETUP_GUIDE.md) · ⬇️ [Download / Télécharger](../../releases) · 💬 [Discord](https://discord.gg/yqKUMMkWhr)
 
 *(Version française plus bas)*
 
@@ -59,7 +59,7 @@ and case upgrades you received (in colour once obtained), and what is in logic.
 
 In-game menu, **Help** tab: give back received items, repair the case, send a stuck check near you.
 Otherwise: launcher > **Bug report** (zips the logs on your Desktop) and send it with a description
-(GitHub issue or Discord).
+(GitHub issue or [Discord](https://discord.gg/yqKUMMkWhr)).
 
 ## Credits
 
@@ -144,7 +144,7 @@ objets clés, armes, viandes et valises reçus (en couleur une fois obtenus), et
 1. Dans le menu en jeu, onglet **Aide** : redonner les objets reçus, réparer la mallette, valider un
    check bloqué tout près de toi.
 2. Sinon : launcher > **Rapport de bug** (crée un zip des journaux sur ton Bureau) et envoie-le avec
-   une description de ce qui s'est passé (issue GitHub ou Discord).
+   une description de ce qui s'est passé (issue GitHub ou [Discord](https://discord.gg/yqKUMMkWhr)).
 
 ## Crédits
 

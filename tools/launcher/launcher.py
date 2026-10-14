@@ -42,6 +42,7 @@ ACCENT = "#c8a86a"
 ACCENT_HOVER = "#d9bc82"
 ON_ACCENT = "#17130b"
 LEVEL_COLORS = {"ok": "#5fb37a", "warn": "#d9a441", "bad": "#d0605a"}
+DISCORD_URL = "https://discord.gg/yqKUMMkWhr"  # Discord perso du développeur (support, annonces)
 SERIF = "Georgia"
 SANS = "Segoe UI"
 
@@ -240,6 +241,7 @@ class App(tk.Tk):
                  ).pack(side="left", fill="x", expand=True)
         Button(footer, tr("Rapport de bug", "Bug report"), self.bug_report, small=True).pack(side="right")
         Button(footer, tr("Ouvrir les journaux", "Open logs"), self.open_logs, small=True).pack(side="right", padx=6)
+        Button(footer, "Discord", lambda: webbrowser.open(DISCORD_URL), small=True).pack(side="right")
 
         self.body = tk.Frame(self, bg=PANEL, highlightthickness=1, highlightbackground=BORDER)
         self.body.pack(fill="both", expand=True, padx=24, pady=14)

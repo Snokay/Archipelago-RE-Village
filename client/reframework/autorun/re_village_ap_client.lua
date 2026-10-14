@@ -34,7 +34,7 @@ local MOD_NAME = "re_village_ap_client"
 -- 200 variables locales de Lua (script refusé au chargement).
 local K = {}
 K.GAME_NAME = "Resident Evil Village"
-K.MOD_VERSION = "0.9.1.30" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
+K.MOD_VERSION = "0.9.1.31" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
 -- Version de l'apworld avec laquelle ce mod va (world_version de archipelago.json). Seed générée avec une
 -- autre version -> avertissement en jeu (2026-10-14 : un joueur en 0.9.1.25 avec une seed récente n'a
 -- jamais reçu le Crochet illimité : son mod ne connaissait pas l'option).

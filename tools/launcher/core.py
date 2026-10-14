@@ -169,16 +169,23 @@ def apply_update(url, game_dir, ap_dir, log):
     new_exe = new_root / "RE_Village_AP_Launcher.exe"
     if not getattr(sys, "frozen", False) or not new_exe.exists():
         return None
-    staged = base_dir() / "RE_Village_AP_Launcher.new.exe"
-    shutil.copy2(new_exe, staged)
+    # 2026-10-14 : un launcher resté sous le nom RE_Village_AP_Launcher.new.exe (remplacement raté du
+    # 2026-10-10) écrivait le nouvel exe par-dessus lui-même pendant qu'il tournait : exe jamais mis à
+    # jour (fichiers du mod en 0.9.1.30, exe du 10/10). Nom de préparation distinct de l'exe lancé, et
+    # cible toujours RE_Village_AP_Launcher.exe ; l'ancien .new.exe est supprimé après le remplacement.
     current = Path(sys.executable)
+    target = base_dir() / "RE_Village_AP_Launcher.exe"
+    staged = base_dir() / "RE_Village_AP_Launcher.update.exe"
+    shutil.copy2(new_exe, staged)
+    leftover = f"if exist \"{current}\" del \"{current}\"\r\n" if current.name == "RE_Village_AP_Launcher.new.exe" else ""
     script = work / "swap.bat"
     script.write_text(
         "@echo off\r\n"
         f":wait\r\ntimeout /t 1 /nobreak >nul\r\n"
         f"tasklist /FI \"PID eq {os.getpid()}\" | find \"{os.getpid()}\" >nul && goto wait\r\n"
-        f"move /Y \"{staged}\" \"{current}\" >nul\r\n"
-        f"start \"\" \"{current}\"\r\n", encoding="utf-8")
+        f"move /Y \"{staged}\" \"{target}\" >nul\r\n"
+        f"{leftover}"
+        f"start \"\" \"{target}\"\r\n", encoding="utf-8")
     return script
 
 

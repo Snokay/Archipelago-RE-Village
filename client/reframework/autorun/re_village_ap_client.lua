@@ -34,7 +34,11 @@ local MOD_NAME = "re_village_ap_client"
 -- 200 variables locales de Lua (script refusé au chargement).
 local K = {}
 K.GAME_NAME = "Resident Evil Village"
-K.MOD_VERSION = "0.9.1.29" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
+K.MOD_VERSION = "0.9.1.30" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
+-- Version de l'apworld avec laquelle ce mod va (world_version de archipelago.json). Seed générée avec une
+-- autre version -> avertissement en jeu (2026-10-14 : un joueur en 0.9.1.25 avec une seed récente n'a
+-- jamais reçu le Crochet illimité : son mod ne connaissait pas l'option).
+K.APWORLD_VERSION = "0.9.6"
 K.MAX_MATCH_DISTANCE = 5.0
 -- Emplacements jumeaux (2026-10-08) : le jeu pose deux exemplaires du M1897 (table du village et
 -- près de la première sauvegarde), le second devient des Lei si on a déjà le fusil. Ramasser l'un
@@ -3160,6 +3164,11 @@ local function on_connected(ev)
     required_difficulty = ev and ev.difficulty ~= "" and ev.difficulty or nil
     goal_mode = (ev and ev.goal ~= "" and ev.goal) or "fin_du_jeu"
     missable_mode = (ev and ev.missable ~= "" and ev.missable) or "envoi_auto"
+    K.seed_apworld = ev and ev.apworld or ""
+    if K.seed_apworld ~= "" and K.seed_apworld ~= K.APWORLD_VERSION then
+        debug_log(string.format("avertissement : seed générée avec l'apworld %s, ce mod va avec %s",
+            K.seed_apworld, K.APWORLD_VERSION))
+    end
     load_state(net.get_seed(), net.get_slot())
     -- Bug du 2026-09-27 : passage de la vraie partie (38281) au serveur de test (38282) sans
     -- relancer le jeu ; l'historique des objets de la vraie partie a été redonné dans la partie
@@ -9041,6 +9050,17 @@ function shop_ui.notice.how_to_connect()
             "They are kept: afterwards, the game connects by itself at every start."),
     }
 end
+-- Vrai si la version a (« 0.9.7 ») est plus récente que b (comparaison nombre par nombre).
+function shop_ui.notice.version_newer(a, b)
+    local pa, pb = {}, {}
+    for x in tostring(a):gmatch("%d+") do pa[#pa + 1] = tonumber(x) end
+    for x in tostring(b):gmatch("%d+") do pb[#pb + 1] = tonumber(x) end
+    for i = 1, math.max(#pa, #pb) do
+        local x, y = pa[i] or 0, pb[i] or 0
+        if x ~= y then return x > y end
+    end
+    return false
+end
 function shop_ui.notice.diff_label(name)
     local pair = shop_ui.notice.DIFF_LABELS[name or ""]
     return pair and tr(pair[1], pair[2]) or tostring(name)
@@ -9083,6 +9103,25 @@ function shop_ui.notice.update()
                 "The mod keeps retrying. Until it is connected, checks are not sent."),
         }, 30)
         debug_log("avertissement : pas connecté 40 s après le lancement")
+    end
+    -- apworld de la seed différente de celle du mod : une fois par lancement du jeu, en partie
+    if not n.version_done and is_in_game() and net_status == "connecté" and K.seed_apworld
+        and K.seed_apworld ~= "" and K.seed_apworld ~= K.APWORLD_VERSION then
+        n.version_done = true
+        local newer = n.version_newer(K.seed_apworld, K.APWORLD_VERSION)
+        shop_ui.popup.show_modal(tr("Archipelago : versions différentes", "Archipelago: version mismatch"), {
+            string.format(tr("Ta seed a été générée avec l'apworld %s, mais ton mod (%s) va avec l'apworld %s.",
+                "Your seed was generated with apworld %s, but your mod (%s) goes with apworld %s."),
+                K.seed_apworld, K.MOD_VERSION, K.APWORLD_VERSION),
+            newer and tr("Ton mod est trop ancien : des options de la seed peuvent ne pas marcher (objets jamais donnés...).",
+                "Your mod is outdated: some options of the seed may not work (items never given...).")
+                or tr("La seed vient d'une ancienne apworld : certaines choses peuvent se comporter différemment.",
+                "The seed comes from an older apworld: some things may behave differently."),
+            newer and tr("Mets le mod à jour avec le launcher (ou la dernière release GitHub).",
+                "Update the mod with the launcher (or the latest GitHub release).")
+                or tr("Pour une nouvelle partie, génère la seed avec la dernière apworld.",
+                "For a new game, generate the seed with the latest apworld."),
+        }, tr("J'ai compris", "Got it"))
     end
     -- mauvaise difficulté : une fois par chargement (remis à zéro par WriteBackSaveData et quand
     -- la difficulté n'est plus lisible : écran titre)

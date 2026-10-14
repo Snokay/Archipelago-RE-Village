@@ -89,6 +89,9 @@ function net.connect(host, slot, password)
         if slot_data and type(slot_data.difficulty) == "string" then difficulty = slot_data.difficulty end
         if slot_data and type(slot_data.goal) == "string" then goal = slot_data.goal end
         if slot_data and type(slot_data.missable_checks) == "string" then missable = slot_data.missable_checks end
+        -- Version de l'apworld qui a généré la seed (2026-10-14 : avertir un mod trop ancien ou trop récent).
+        local apworld = ""
+        if slot_data and type(slot_data.apworld_version) == "string" then apworld = slot_data.apworld_version end
         -- Locations de CETTE seed (restantes + faites), en texte (règle en tête). Sans elles, le
         -- client demandait au serveur des locations absentes de la seed (checks d'énigmes Beneviento
         -- désactivés, boutique désactivée...) : KeyError côté serveur, connexion coupée en boucle
@@ -104,7 +107,7 @@ function net.connect(host, slot, password)
             end
         end
         post("slotlocs", locs)
-        post("connected", death_link .. "|" .. difficulty .. "|" .. goal .. "|" .. missable)
+        post("connected", death_link .. "|" .. difficulty .. "|" .. goal .. "|" .. missable .. "|" .. apworld)
         -- Hints (2026-10-08, onglet Hints) : liste durable du serveur « _read_hints_<équipe>_<slot> »,
         -- demandée (Get) puis suivie (SetNotify) ; réponses dans retrieved / set_reply.
         pcall(function()
@@ -230,9 +233,9 @@ function net.poll()
             end
             events[#events + 1] = { kind = "hints", list = list }
         elseif kind == "connected" then
-            local dl, diff, goal, missable = payload:match("^(%d)|([^|]*)|([^|]*)|([^|]*)$")
+            local dl, diff, goal, missable, apworld = payload:match("^(%d)|([^|]*)|([^|]*)|([^|]*)|([^|]*)$")
             events[#events + 1] = { kind = "connected", death_link = dl == "1", difficulty = diff or "",
-                goal = goal or "", missable = missable or "" }
+                goal = goal or "", missable = missable or "", apworld = apworld or "" }
         else
             events[#events + 1] = { kind = kind, text = payload }
         end

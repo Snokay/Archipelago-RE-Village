@@ -9637,8 +9637,9 @@ function shop_ui.no_return.update()
             if more ~= "" then lines[#lines + 1] = more end
             show(tr("Impossible d'avancer", "You can't go further"), lines, 6)
         end
-        debug_log(string.format("mode 100 %% : sortie de %s bloquée (%d checks manquants, repoussé : %s)",
-            inside.name, #missing, tostring(warped)))
+        -- murs « always » (anti-blocage, tous les modes) : ne pas les écrire « mode 100 % » au journal
+        debug_log(string.format("%s : sortie de %s bloquée (%d checks manquants, repoussé : %s)",
+            inside.always and "mur d'histoire" or "mode 100 %", inside.name, #missing, tostring(warped)))
     end
 end
 

@@ -1,4 +1,4 @@
-# RE Village Archipelago — alpha 0.9.1.31
+# RE Village Archipelago — alpha 0.9.1.32
 
 ### 📖 [Setup guide / Guide d'installation](SETUP_GUIDE.md) · ⬇️ [Download / Télécharger](../../releases) · 💬 [Discord](https://discord.gg/yqKUMMkWhr)
 
@@ -16,7 +16,8 @@ are shuffled with the other players of a multiworld.
 - Archipelago items in the world use the **AP logo** or the item's model, with their name
   ("[AP] …"); the Duke's shop shows what each purchase gives.
 - **Key items** can be shuffled (vanilla, own zone, or zone and multiworld), always placed before the
-  place where they are used. The Winged Key is progressive.
+  place where they are used. The Winged Key is progressive. The masks, Mounted Animal Skull, Dimitrescu's Key,
+  Sanguis Virginis and Courtyard Key always stay in their original spot (softlock risk).
 - **Unlimited Lockpick** (option, on by default): you start with a Lockpick that never runs out; the
   game's lockpick spots become regular checks.
 - With hunting, the shuffled meats count for logic: the Duke's dishes are expected once you have
@@ -34,11 +35,11 @@ are shuffled with the other players of a multiworld.
 
 👉 **Step by step in the [setup guide](SETUP_GUIDE.md).** In short:
 
-- **Launcher (recommended)**: unzip `RE_Village_Archipelago_0.9.1.31_launcher.zip`, run
+- **Launcher (recommended)**: unzip `RE_Village_Archipelago_0.9.1.32_launcher.zip`, run
   `RE_Village_AP_Launcher.exe`, **Setup** tab > pick the apworld language > **Install / update**
   (game closed). Then **Play** tab: room address, slot name, password. They are saved into the game:
   afterwards just start the game, it connects by itself.
-- **Manual**: unzip `RE_Village_Archipelago_0.9.1.31_manuel.zip` and follow `LISEZMOI - README.txt`. To
+- **Manual**: unzip `RE_Village_Archipelago_0.9.1.32_manuel.zip` and follow `LISEZMOI - README.txt`. To
   connect: **Insert** key in game > **RE Village Archipelago** window > **Connection** tab.
 
 Requirements: Resident Evil Village on Steam (PC); [Archipelago 0.6](https://github.com/ArchipelagoMW/Archipelago/releases)
@@ -69,7 +70,7 @@ Otherwise: launcher > **Bug report** (zips the logs on your Desktop) and send it
 - Resident Evil Village © Capcom; this project is not affiliated with Capcom.
 ---
 
-# RE Village Archipelago — alpha 0.9.1.31 (français)
+# RE Village Archipelago — alpha 0.9.1.32 (français)
 
 Mod [Archipelago](https://archipelago.gg) pour **Resident Evil Village** (Steam, PC) : les objets du jeu
 sont mélangés avec ceux des autres joueurs d'un multiworld. Ce que tu ramasses peut appartenir à un
@@ -85,7 +86,8 @@ autre jeu, et tes objets peuvent tomber chez les autres.
 - Les objets Archipelago au sol prennent le **logo AP** ou le modèle de l'objet, avec leur nom
   (« [AP] … »). Les achats chez le Duc affichent ce qu'ils donnent.
 - **Objets clés** mélangés (au choix : à leur place, dans leur zone, ou zone et multiworld), toujours
-  placés avant l'endroit où ils servent. La Clé ailée est progressive.
+  placés avant l'endroit où ils servent. La Clé ailée est progressive. Les masques, le Trophée de chasse,
+  la Clé de Dimitrescu, le Sanguis Virginis et la Clé de la cour restent toujours à leur place (risque de blocage).
 - **Crochet illimité** (option, activée par défaut) : tu commences avec un Crochet qui ne s'use
   jamais ; les emplacements des crochets du jeu deviennent des checks comme les autres.
 - Avec la chasse, les viandes mélangées comptent pour la logique : les plats du Duc sont attendus
@@ -106,7 +108,7 @@ autre jeu, et tes objets peuvent tomber chez les autres.
 
 ### Avec le launcher (conseillé)
 
-1. Décompresse `RE_Village_Archipelago_0.9.1.31_launcher.zip` où tu veux.
+1. Décompresse `RE_Village_Archipelago_0.9.1.32_launcher.zip` où tu veux.
 2. Lance `RE_Village_AP_Launcher.exe`, onglet **Installation** : il trouve le jeu et Archipelago tout
    seul. Choisis la langue de l'apworld puis **Installer / mettre à jour** (jeu fermé). REFramework est
    installé s'il manque.
@@ -117,7 +119,7 @@ Le launcher sert aussi à préparer ton YAML (**Mes options**) et à héberger u
 
 ### À la main
 
-Décompresse `RE_Village_Archipelago_0.9.1.31_manuel.zip` et suis `LISEZMOI - README.txt`. Pour te
+Décompresse `RE_Village_Archipelago_0.9.1.32_manuel.zip` et suis `LISEZMOI - README.txt`. Pour te
 connecter : touche **Inser** en jeu > fenêtre **RE Village Archipelago** > onglet **Connexion**.
 
 ## Jouer

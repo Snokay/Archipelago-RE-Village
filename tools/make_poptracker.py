@@ -41,7 +41,7 @@ LOC_BASE = BASE_ID + 1000000000
 
 # Copie de l'apworld (__init__.py) : objets clés jamais mélangés, besoins des plats en viande.
 VANILLA_KEY_ITEMS = {"Masque du chagrin", "Masque du plaisir", "Masque de la joie", "Masque de la colère",
-                     "Trophée de chasse", "Clé de Dimitrescu"}
+                     "Trophée de chasse", "Clé de Dimitrescu", "Sanguis Virginis", "Clé de la cour"}
 HUNT_RECIPE_NEEDS = {"Poisson": 14, "Volaille": 12, "Viande": 12}
 # Options par défaut de l'apworld (Options.py), utilisées tant que le tracker n'est pas connecté.
 DEFAULTS = {"key_items": 0, "duke_shop": 2, "hunting": 100, "boss_rewards": 1}

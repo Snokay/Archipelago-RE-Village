@@ -1,16 +1,4 @@
 {
-    "Salle des statues (vin à poser)": [
-        {
-            "chapter": "Chapter2_2",
-            "pos": [
-                -10.332249641418457,
-                -8.678537368774414,
-                -11.91933536529541
-            ],
-            "r": 2.0,
-            "note": "devant la double porte de la zone de Dimitrescu (cinématique avec Dimitrescu, puis salle des statues), relevé le 2026-10-07"
-        }
-    ],
     "Cachots du château": [
         {
             "chapter": "Chapter2_2",

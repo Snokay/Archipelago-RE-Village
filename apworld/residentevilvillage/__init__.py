@@ -55,7 +55,7 @@ class ResidentEvilVillage(World):
     game: str = "Resident Evil Village"
 
     data_version = 1
-    apworld_release_version = "0.9.6"  # alpha publique (2026-10-11) ; X.Y.Z exigé par Archipelago 0.7
+    apworld_release_version = "0.9.7"  # alpha publique (2026-10-17) ; X.Y.Z exigé par Archipelago 0.7
 
     item_name_to_id = {
         item['name']: item['id']
@@ -147,15 +147,15 @@ class ResidentEvilVillage(World):
     # Objets clés jamais mélangés (2026-10-06, choix du joueur) : masques et Trophée de chasse du
     # château restent à leur place d'origine (deux Masques du plaisir affichés, bugs de
     # présentation). Leurs emplacements ne sont pas des locations ; le jeu les gère normalement.
-    # Clé de la cour : reste mélangée (2026-10-07, choix du joueur). Reçue du multiworld sans poser
-    # le vin, la vidange (salle des statues) ne se lançait jamais : le client bloque l'entrée de
-    # cette salle tant que l'énigme du vin n'est pas faite (mur « vin à poser »).
+    # Sanguis Virginis et Clé de la cour (2026-10-17, choix du développeur) : plus mélangés. Reçue du
+    # multiworld sans poser le vin, la vidange (salle des statues) ne se lançait jamais ; le mur
+    # « vin à poser » du client ne suffisait pas (softlocks). Le mur est retiré.
     # Clé de Dimitrescu (2026-10-07, choix du joueur) : on la trouve DANS ses appartements, qu'on
     # ne peut quitter qu'avec elle ; mélangée, le joueur entré sans elle restait enfermé (et
     # l'emplacement n'a même pas fait apparaître d'objet). Gardée à sa place.
     VANILLA_KEY_ITEMS = {T(name) for name in (
         "Masque du chagrin", "Masque du plaisir", "Masque de la joie", "Masque de la colère",
-        "Trophée de chasse", "Clé de Dimitrescu",
+        "Trophée de chasse", "Clé de Dimitrescu", "Sanguis Virginis", "Clé de la cour",
     )}
 
     # Boutique du Duc et objets clés (2026-10-10, softlock d'un joueur, choix du développeur) : un

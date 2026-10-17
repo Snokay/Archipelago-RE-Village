@@ -34,11 +34,11 @@ local MOD_NAME = "re_village_ap_client"
 -- 200 variables locales de Lua (script refusé au chargement).
 local K = {}
 K.GAME_NAME = "Resident Evil Village"
-K.MOD_VERSION = "0.9.1.31" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
+K.MOD_VERSION = "0.9.1.32" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
 -- Version de l'apworld avec laquelle ce mod va (world_version de archipelago.json). Seed générée avec une
 -- autre version -> avertissement en jeu (2026-10-14 : un joueur en 0.9.1.25 avec une seed récente n'a
 -- jamais reçu le Crochet illimité : son mod ne connaissait pas l'option).
-K.APWORLD_VERSION = "0.9.6"
+K.APWORLD_VERSION = "0.9.7"
 K.MAX_MATCH_DISTANCE = 5.0
 -- Emplacements jumeaux (2026-10-08) : le jeu pose deux exemplaires du M1897 (table du village et
 -- près de la première sauvegarde), le second devient des Lei si on a déjà le fusil. Ramasser l'un
@@ -3633,21 +3633,6 @@ local function on_item_picked(interact, core)
             loc and loc.name or (candidate and (candidate.name .. " déjà fait, viande normale") or "aucun check restant")))
         ident.location = loc and loc.name or nil
     end
-    -- 2e Sanguis Virginis (2026-10-09, rapport du joueur) : après l'énigme du vin, le jeu en fait
-    -- apparaître un autre (Appartements de Dimitrescu, aucun emplacement d'objet : le seul du jeu est
-    -- le seau, SpawnInfo_WitchBottleWine_001). Vin déjà posé dans cette sauvegarde : doublon inutile,
-    -- retiré (il gardait aussi le mur de la salle des statues fermé).
-    if not loc and picked_item_id and state.wine_placed then
-        local sv = item_by_name["Sanguis Virginis"]
-        if sv and picked_item_id == sv.game_item_id then
-            debug_log("ramassage : Sanguis Virginis en double (vin déjà posé), retiré")
-            add_message(tr("Sanguis Virginis en double retiré (le vin est déjà posé)",
-                "Duplicate Sanguis Virginis removed (the wine is already placed)"))
-            table.insert(vanilla_removals, { item_id = picked_item_id, before = quantities_before[picked_item_id] or 0,
-                due = os.clock() + REMOVAL_DELAY_SECONDS })
-            return
-        end
-    end
     -- Fragments de cristal ramassés hors emplacement (2026-10-08, rapport du joueur : +13 Fragments à
     -- chaque fois, château) : objet de ramassage du mod (PICKUP_ID) réutilisé par le jeu avec la pile
     -- d'un autre objet. Tous les vrais Fragments sont des checks : celui-ci est retiré en entier.
@@ -3693,12 +3678,6 @@ local function on_item_picked(interact, core)
     save_sync.picked_locs = save_sync.picked_locs or {}
     save_sync.picked_locs[loc.key] = true -- objet au sol : modèle d'origine remis (objet recyclé)
     pcall(K.story_mark, loc) -- étapes de l'histoire (murs « Tracteur » / « Porte vers Beneviento »)
-    -- récompense de l'énigme du vin ramassée : vin posé dans cette sauvegarde (mur de la salle des statues)
-    if loc == shop_ui.no_return.courtyard_loc() then
-        state.wine_placed = true
-        save_state()
-        debug_log("vin : récompense de l'énigme ramassée, vin posé dans cette sauvegarde")
-    end
     shop_ui.sound.on_pickup(loc, picked_item_id)
     shop_ui.detail.on_pickup(loc)
     -- Objet clé à moi ramassé sous sa vraie forme (swap_pickup) : on le garde (pas de retrait), le
@@ -9324,11 +9303,8 @@ shop_ui.no_return = {
               return tr("Avant de passer, prends le check du Moule (clé), puis coule la Clé d'Heisenberg et prends-la.",
                   "Before going on, pick up the Mold (key) check, then cast Heisenberg's Key and take it.")
           end },
-        -- Anti-softlock (2026-10-07, idée du joueur), actif dans TOUS les modes : entrée de la
-        -- salle des statues (vidange). Le jeu ne vide le sang que si l'énigme du vin est faite ;
-        -- avec la Clé de la cour reçue du multiworld, on pouvait y entrer sans avoir posé le vin
-        -- (statues validées, sang jamais vidé, porte fermée). Vin posé = check de l'emplacement
-        -- d'origine de la Clé de la cour fait (l'énigme y fait apparaître l'objet).
+        -- (mur « Salle des statues (vin à poser) » retiré le 2026-10-17 : Sanguis Virginis et Clé de
+        -- la cour ne sont plus mélangés, le mur provoquait encore des softlocks)
         -- Étapes de l'histoire déclenchées par un ramassage (2026-10-09, ascenseur de Beneviento
         -- infini chez un joueur : Manivelle de cric reçue d'Archipelago, jamais ramassée à son
         -- emplacement d'origine ; la prendre là lance la scène du lycan sur le tracteur, puis
@@ -9380,27 +9356,6 @@ shop_ui.no_return = {
               return tr("Avant d'aller chez Beneviento, prends le check à l'endroit d'origine de ces objets, dans l'ordre Manivelle de cric et Volant de puits, puis Clé à quatre ailes (la scène du Duc suit), sinon la maison ne se lance pas : ",
                   "Before heading to House Beneviento, pick up the check at the original spot of these items, in order Jack Handle and Well Wheel, then Four-Winged Key (the Duke's scene follows), otherwise the house never starts: ")
                   .. table.concat(missing or {}, ", ")
-          end },
-        { name = "Salle des statues (vin à poser)", always = true,
-          blockers = function()
-              local loc = shop_ui.no_return.courtyard_loc()
-              if not loc then return {} end
-              -- Check validé mais sauvegarde rechargée d'avant l'énigme (2026-10-09, rapport du
-              -- joueur) : le serveur garde le check, pas la partie. Sanguis Virginis encore dans la
-              -- mallette = vin pas posé (le poser le retire).
-              -- 2e Sanguis Virginis (2026-10-09, rapport du joueur) : le jeu en fait apparaître un
-              -- autre (Appartements de Dimitrescu, aucun emplacement d'objet) après l'énigme ; le
-              -- mur restait fermé. Vin posé dans cette sauvegarde (récompense ramassée, retenu par
-              -- sauvegarde, ou bouton de l'Aide) : le Sanguis de la mallette ne compte plus.
-              local sv = item_by_name["Sanguis Virginis"]
-              local holding = sv and (inventory_quantity(sv.game_item_id) or 0) > 0
-              if location_done(loc) ~= false and (state.wine_placed or not holding) then return {} end
-              return { tr("pose le Sanguis Virginis à l'étage (énigme du vin) et prends ce qu'il donne",
-                  "place the Sanguis Virginis upstairs (wine puzzle) and take what it gives") }
-          end,
-          message = function()
-              return tr("Avant de continuer, pose le Sanguis Virginis à l'étage (énigme du vin) et ramasse le check dans la petite boîte, sinon la vidange ne se lancera pas.",
-                  "Before going further, place the Sanguis Virginis upstairs (wine puzzle) and pick up the check in the small box, otherwise the blood will never drain.")
           end },
     },
     FILE = MOD_NAME .. "/no_return.json",
@@ -9460,7 +9415,6 @@ function shop_ui.no_return.movement(player)
     return found
 end
 
--- Emplacement d'origine de la Clé de la cour (récompense de l'énigme du vin), s'il est dans la seed.
 -- Emplacements d'origine qui lancent une étape de l'histoire (voir les murs « Tracteur » et
 -- « Porte vers Beneviento »). Fait = ramassé DANS CETTE SAUVEGARDE (state.story, retenu par
 -- sauvegarde comme le vin) ; sauvegarde inconnue (d'avant 0.9.1.16) : état du serveur.
@@ -9534,17 +9488,6 @@ function K.story_mark(loc)
             debug_log("histoire : " .. n .. " ramassé dans cette sauvegarde")
         end
     end
-end
-
-function shop_ui.no_return.courtyard_loc()
-    if shop_ui.no_return.courtyard == nil then
-        shop_ui.no_return.courtyard = false
-        for _, loc in pairs(location_by_guid) do
-            if loc.key_item_location and loc.original_item == "Clé de la cour" then shop_ui.no_return.courtyard = loc end
-        end
-    end
-    local loc = shop_ui.no_return.courtyard
-    return loc and get_location_id(loc) and loc or nil
 end
 
 function shop_ui.no_return.missing(segment)
@@ -9694,7 +9637,7 @@ end
 
 function shop_ui.no_return.draw_ui()
     if not imgui.tree_node("Mode 100 % : sorties sans retour") then return end
-    imgui.text("Mode actuel : " .. tostring(missable_mode) .. " (murs actifs en cent_pourcent ; « vin à poser » : toujours)")
+    imgui.text("Mode actuel : " .. tostring(missable_mode) .. " (murs actifs en cent_pourcent ; murs d'histoire : toujours)")
     local test_changed, test_on = imgui.checkbox("TEST : murs actifs quel que soit le mode", shop_ui.no_return.force == true)
     if test_changed then shop_ui.no_return.force = test_on end
     local names = {}
@@ -9966,22 +9909,6 @@ re.on_pre_application_entry("UpdateBehavior", function()
     end
     -- Outil de dev (2026-10-09) : retire l'objet Valise sans toucher au niveau, pour reproduire une
     -- mallette agrandie sans objet Valise (Valise donnée avant 0.9.1.9) après sauvegarde + chargement.
-    -- Bouton de l'Aide « Le vin est déjà posé » (2026-10-09, 2e Sanguis) : mur ouvert, et le
-    -- Sanguis Virginis en double retiré de la mallette (inutile une fois le vin posé).
-    if requests.wine_placed then
-        requests.wine_placed = nil
-        state.wine_placed = true
-        save_state()
-        local sv = item_by_name["Sanguis Virginis"]
-        local count = sv and inventory_quantity(sv.game_item_id) or 0
-        local taken = 0
-        if count > 0 then
-            local _, inv_w = get_active_inventory()
-            local ok_w, n = pcall(shop_ui.inv_take, inv_w, sv.game_item_id, count)
-            taken = ok_w and n or 0
-        end
-        debug_log(string.format("vin : bouton de l'Aide, vin déclaré posé ; Sanguis en double retiré(s) : %s sur %d", tostring(taken), count))
-    end
     -- Outil de dev (2026-10-10) : retire un objet de la mallette par son ID (objets clés compris :
     -- removeItem sur l'objet lui-même), pour tester la scène d'assemblage des clés ailées.
     if requests.remove_id then
@@ -10487,11 +10414,6 @@ function shop_ui.help.draw()
         "Overlapping items, quantity 0, unusable slot: puts the case back in order."))
     if imgui.button(tr("Réparer la mallette", "Repair the case")) then requests.fix_zero = true end
     -- (bouton « Fermer l'écran d'examen bloqué » retiré, 2026-10-10 : la fermeture forcée bloquait le jeu)
-    -- mur de la salle des statues fermé alors que le vin est posé (2e Sanguis, 2026-10-09)
-    if not state.wine_placed and imgui.button(tr("Le vin est déjà posé (ouvrir le mur de la salle des statues)",
-            "The wine is already placed (open the statue room wall)")) then
-        requests.wine_placed = true
-    end
     imgui.spacing()
     imgui.text_colored(tr("Check bloqué", "Stuck check"), shop_ui.menu.ACCENT)
     imgui.text(tr("Un objet impossible à ramasser ou un check qui ne part pas : valide un check à moins de 10 m.",

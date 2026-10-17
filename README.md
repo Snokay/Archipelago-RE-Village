@@ -1,6 +1,6 @@
 # RE Village Archipelago — alpha 0.9.1.32
 
-### 📖 [Setup guide / Guide d'installation](SETUP_GUIDE.md) · ⬇️ [Download / Télécharger](../../releases) · 💬 [Discord](https://discord.gg/yqKUMMkWhr)
+### 📖 [Setup guide / Guide d'installation](SETUP_GUIDE.md) · 🤖 [AI disclosure / Déclaration IA](AI_DISCLOSURE.md) · ⬇️ [Download / Télécharger](../../releases) · 💬 [Discord](https://discord.gg/yqKUMMkWhr)
 
 *(Version française plus bas)*
 
@@ -67,6 +67,7 @@ Otherwise: launcher > **Bug report** (zips the logs on your Desktop) and send it
 - Mod by **Snokayy**. 
 - Built on [REFramework](https://github.com/praydog/REFramework) and [lua-apclientpp](https://github.com/black-sliver/lua-apclientpp). 
 - Inspired by the [Resident Evil 7 Archipelago client from ElGrenier](https://github.com/ElGrenier/RE7_AP_SetupGuide) and the [Resident Evil 4 Archipelago launcher from Meta](https://github.com/LiterallyMetaphorical/RE4R-AP-Wizard). 
+- **AI disclosure**: developed with the help of an AI assistant (Claude, Anthropic); details in [AI_DISCLOSURE.md](AI_DISCLOSURE.md). 
 - Resident Evil Village © Capcom; this project is not affiliated with Capcom.
 ---
 
@@ -152,5 +153,6 @@ objets clés, armes, viandes et valises reçus (en couleur une fois obtenus), et
 
 Mod par **Snokayy**. Basé sur [REFramework](https://github.com/praydog/REFramework) et
 [lua-apclientpp](https://github.com/black-sliver/lua-apclientpp). Inspiré du client Archipelago de
-Resident Evil 7 et du launcher Archipelago de Resident Evil 4. Resident Evil Village © Capcom ; ce
+Resident Evil 7 et du launcher Archipelago de Resident Evil 4. Développé avec l'aide d'une IA
+(Claude, Anthropic) : voir la [déclaration IA](AI_DISCLOSURE.md). Resident Evil Village © Capcom ; ce
 projet n'est pas affilié à Capcom.

@@ -55,7 +55,7 @@ class ResidentEvilVillage(World):
     game: str = "Resident Evil Village"
 
     data_version = 1
-    apworld_release_version = "0.9.7"  # alpha publique (2026-10-17) ; X.Y.Z exigé par Archipelago 0.7
+    apworld_release_version = "0.9.8"  # alpha publique (2026-10-20) ; X.Y.Z exigé par Archipelago 0.7
 
     item_name_to_id = {
         item['name']: item['id']
@@ -194,6 +194,10 @@ class ResidentEvilVillage(World):
         """Locations actives selon les options (boutique, agrandissements d'inventaire, objets clés)."""
         result = []
         for loc in Data.location_table:
+            # Passage Chris (option chris_checks, 2026-10-20, retour d'un joueur) : désactivé, ses
+            # emplacements ne sont plus des checks (ses objets ne faisaient que tourner entre eux).
+            if loc.get('chris') and not self.options.chris_checks:
+                continue
             if loc.get('key_item_location'):
                 if not self._keys_shuffled():
                     continue
@@ -268,7 +272,54 @@ class ResidentEvilVillage(World):
                 counts[loc['original_item']] = counts.get(loc['original_item'], 0) + 1
         return counts
 
+    # Armes et valises avant les gros boss (option boss_weapons, 2026-10-20, retour d'un joueur : boss
+    # finis au couteau). Rang des locations à partir duquel chaque palier compte (rang du trésor du
+    # boss : Dimitrescu cristallisée #009 = 179, Yeux de Moreau #006 = 322) -> (types d'armes,
+    # valises). Miranda : Victory, selon l'objectif. Le LEMI de départ compte pour le type poing.
+    BOSS_TIERS = [(179, 2, 1), (322, 3, 2)]
+    MIRANDA_TIER = (4, 3)
+    STARTING_WEAPON_CATEGORY = "Arme de poing"
+
+    def _weapon_categories(self):
+        """Catégorie -> armes du pool de cette partie."""
+        pooled = {loc['original_item'] for loc in self._active_locations()}
+        cats = {}
+        for item in Data.item_table:
+            if item.get('type') == 'Weapon' and item['name'] in pooled:
+                cats.setdefault(item.get('category'), set()).add(item['name'])
+        return cats
+
+    def _boss_weapon_rule(self, types, cases):
+        cats, player, valise = self._weapon_categories(), self.player, T("Valise")
+        cases = cases if self.options.duke_shop.value == 2 else 0
+        start = self.STARTING_WEAPON_CATEGORY
+
+        def rule(state):
+            have = 1 + sum(1 for cat, names in cats.items() if cat != start and state.has_any(names, player))
+            return have >= types and state.has(valise, player, cases)
+        return rule
+
+    def _set_boss_weapon_rules(self):
+        if not self.options.boss_weapons:
+            return
+        goal = self.options.goal.value
+        victory = self.MIRANDA_TIER if goal in (1, 2) else \
+            (self.BOSS_TIERS[1][1:] if goal in (5, 6) else self.BOSS_TIERS[0][1:])
+        for location in self.multiworld.get_locations(self.player):
+            data = self.location_name_to_location.get(location.name, {})
+            if location.name == "Victory":
+                add_rule(location, self._boss_weapon_rule(*victory))
+                continue
+            order = data.get('order')
+            tier = None
+            for start, types, cases in self.BOSS_TIERS:
+                if order is not None and order >= start:
+                    tier = (types, cases)
+            if tier:
+                add_rule(location, self._boss_weapon_rule(*tier))
+
     def set_rules(self):
+        self._set_boss_weapon_rules()
         meats = self._hunt_meat_counts()
         if meats:
             for location in self.multiworld.get_locations(self.player):
@@ -304,9 +355,11 @@ class ResidentEvilVillage(World):
             # de chaque exemplaire est assuré par les règles d'accès)
             too_soon = {name for name, item in key_items.items()
                         if shop_ok and max(self._key_uses(item)) < data['order'] + self.SHOP_KEY_MARGIN}
-            add_item_rule(location, lambda item, forbid_all=forbid_all, region=region, too_soon=too_soon: not (
+            # jamais à son emplacement d'origine (2026-10-20, boule sirène restée à sa place)
+            origin = data.get('original_item')
+            add_item_rule(location, lambda item, forbid_all=forbid_all, region=region, too_soon=too_soon, origin=origin: not (
                 item.player == player and item.name in key_items and (
-                    forbid_all or item.name in too_soon
+                    forbid_all or item.name in too_soon or item.name == origin
                     or (in_zone and region and key_items[item.name].get('key_zone') != region))))
 
     def create_items(self):
@@ -336,7 +389,11 @@ class ResidentEvilVillage(World):
             if loc.get('chris'):
                 continue
             name = loc['original_item']
-            if name in key_items and not (hybrid and other_players and self.random.random() < 0.5):
+            # zone_ou_multiworld (2026-10-20, retour d'un joueur : 70 % des objets clés chez lui sur 39
+            # jeux) : avant, 1 chance sur 2 d'être placé d'office dans sa zone, puis le remplissage
+            # général pouvait encore le remettre chez nous. Désormais tous passent par le remplissage
+            # général (zone imposée chez nous par set_rules) dès qu'il y a d'autres joueurs.
+            if name in key_items and not (hybrid and other_players):
                 self.zone_key_items.append(name)
             else:
                 pool.append(self.create_item(name))
@@ -393,6 +450,8 @@ class ResidentEvilVillage(World):
             candidates = [(loc, d) for loc, d in free
                           if (d['region'] == zone and d['order'] < deadline)
                           or (d.get('kind') == 'shop' and d['order'] + self.SHOP_KEY_MARGIN <= deadline)]
+            # jamais à son emplacement d'origine (2026-10-20), sauf s'il n'y a pas d'autre place
+            candidates = [c for c in candidates if c[1].get('original_item') != name] or candidates
             if not candidates:
                 raise REVillageOptionError(f"Resident Evil Village : aucune place pour l'objet clé {name}")
             # Tirage penché vers les places tardives (racine carrée) : sinon les objets clés se
@@ -409,6 +468,9 @@ class ResidentEvilVillage(World):
             classification = ItemClassification.progression
         elif item.get('progression'):
             classification = ItemClassification.progression
+        elif self.options.boss_weapons and (item.get('type') == 'Weapon'
+                                            or (item['name'] == T("Valise") and self.options.duke_shop.value == 2)):
+            classification = ItemClassification.progression  # armes et valises des boss (set_rules)
         elif item['name'] in self.HUNT_MEATS and self.options.hunting.value > 0:
             classification = ItemClassification.progression  # plats du Duc (voir set_rules)
         elif item['name'] == T("Valise") or item.get('unlimited_lockpick') or self._is_unique_useful(item):
@@ -465,4 +527,6 @@ class ResidentEvilVillage(World):
             "boss_rewards": bool(self.options.boss_rewards.value),
             "hunting": self.options.hunting.value,
             "unlimited_lockpick": bool(self.options.unlimited_lockpick.value),
+            "chris_checks": bool(self.options.chris_checks.value),
+            "boss_weapons": bool(self.options.boss_weapons.value),
         }

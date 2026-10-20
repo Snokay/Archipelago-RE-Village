@@ -56,8 +56,9 @@ class KeyItems(Choice):
         dans_leur_zone : mélangés dans ta partie, chacun dans la zone où il sert (Village, château,
         maison Beneviento, réservoir, usine) ou chez le Duc, sur un article bon marché vendu bien
         avant l'endroit où il sert. Aucun autre joueur ne peut te bloquer.
-        zone_ou_multiworld : comme dans_leur_zone, mais environ la moitié part chez les autres
-        joueurs du multiworld.
+        zone_ou_multiworld : peuvent aller chez n'importe quel joueur du multiworld ; dans ta partie,
+        seulement dans leur zone (comme dans_leur_zone).
+        Mélangés, ils ne restent jamais à leur emplacement d'origine.
         Restent toujours à leur place : couteau, pistolet de départ, masques et Trophée de chasse
         du château, Clé de Dimitrescu, objets de la maison Beneviento, Manivelle du réservoir,
         Calice des géants, cartes et photos.""",
@@ -67,8 +68,9 @@ class KeyItems(Choice):
         own_zone: shuffled in your game, each one in the area where it is used (Village, castle,
         House Beneviento, reservoir, factory) or at the Duke's, on a cheap article sold well before
         the place where it is used. No other player can block you.
-        zone_or_multiworld: like own_zone, but about half of them go to the other players of the
-        multiworld.
+        zone_or_multiworld: they can go to any player of the multiworld; in your game, only in their
+        area (like own_zone).
+        When shuffled, they never stay at their original spot.
         Always at their original place: knife, starting pistol, the castle's masks and Hunting
         Trophy, Dimitrescu's Key, House Beneviento items, the reservoir's Crank, Giant's Chalice,
         maps and photos.""")
@@ -106,6 +108,33 @@ class Hunting(Range):
     range_start = 0
     range_end = 100
     default = 100
+
+
+class ChrisChecks(Toggle):
+    __doc__ = text(
+        """Checks de Chris : les objets ramassés pendant le passage de Chris deviennent des checks
+        (mélangés entre eux seulement : son équipement reste chez lui). Désactivé : Chris ramasse ses
+        objets normalement, rien à refaire si on en rate un.""",
+        """Chris checks: the items picked up during Chris's segment become checks (shuffled among
+        themselves only: his gear stays with him). Off: Chris picks up his items normally, nothing to
+        redo if one is missed.""")
+    display_name = text("Checks de Chris", "Chris Checks")
+
+
+class BossWeapons(DefaultOnToggle):
+    __doc__ = text(
+        """Armes et valises pour les gros boss : la logique attend des armes de types différents
+        (poing, fusil, sniper, magnum, lance-grenades ; le pistolet de départ compte) et des
+        valises avant le combat. Dimitrescu : 2 types + 1 valise ; Moreau : 3 types + 2 valises ;
+        Miranda : 4 types + 3 valises. Les valises comptent seulement avec la boutique
+        « articles_et_valises » (sinon elles s'achètent normalement). Les armes deviennent des objets
+        de progression.""",
+        """Weapons and cases for the big bosses: logic expects weapons of different types (handgun,
+        shotgun, sniper, magnum, grenade launcher; the starting pistol counts) and cases before the
+        fight. Dimitrescu: 2 types + 1 case; Moreau: 3 types + 2 cases; Miranda: 4 types + 3 cases.
+        Cases only count with the unique_items_and_cases shop (otherwise they are bought normally).
+        Weapons become progression items.""")
+    display_name = text("Armes pour les boss", "Boss Weapons")
 
 
 class UnlimitedLockpick(DefaultOnToggle):
@@ -281,6 +310,8 @@ class REVillageOptions(PerGameCommonOptions):
     duke_shop: DukeShop
     boss_rewards: BossRewards
     hunting: Hunting
+    chris_checks: ChrisChecks
+    boss_weapons: BossWeapons
     unlimited_lockpick: UnlimitedLockpick
     trap_count: TrapCount
     trap_bankrupt_weight: TrapBankruptWeight

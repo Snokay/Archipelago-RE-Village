@@ -34,11 +34,11 @@ local MOD_NAME = "re_village_ap_client"
 -- 200 variables locales de Lua (script refusé au chargement).
 local K = {}
 K.GAME_NAME = "Resident Evil Village"
-K.MOD_VERSION = "0.9.1.32" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
+K.MOD_VERSION = "0.9.1.33" -- même numéro que l'apworld (archipelago.json) ; écrit au journal et au rapport de bug
 -- Version de l'apworld avec laquelle ce mod va (world_version de archipelago.json). Seed générée avec une
 -- autre version -> avertissement en jeu (2026-10-14 : un joueur en 0.9.1.25 avec une seed récente n'a
 -- jamais reçu le Crochet illimité : son mod ne connaissait pas l'option).
-K.APWORLD_VERSION = "0.9.7"
+K.APWORLD_VERSION = "0.9.8"
 K.MAX_MATCH_DISTANCE = 5.0
 -- Emplacements jumeaux (2026-10-08) : le jeu pose deux exemplaires du M1897 (table du village et
 -- près de la première sauvegarde), le second devient des Lei si on a déjà le fusil. Ramasser l'un
@@ -369,6 +369,7 @@ local function load_state(seed, slot)
         state.story = loaded.story
         state.hunts = loaded.hunts
         state.unlimited_lockpick = loaded.unlimited_lockpick
+        state.chris_off = loaded.chris_off
     end
     -- Toutes les sauvegardes de cette seed sont suivies (2026-09-30) : état neuf, ou aucun
     -- emplacement réel noté jusqu'ici. Alors une sauvegarde inconnue date d'AVANT la seed.
@@ -1150,6 +1151,15 @@ local function cache_location_ids()
     for _, pair in ipairs(K.TWINS) do
         local a, b = by_name[pair[1]], by_name[pair[2]]
         if a and b then K.twin_ids[a] = b; K.twin_ids[b] = a end
+    end
+    -- Option chris_checks désactivée (2026-10-20, apworld 0.9.8) : aucun emplacement de Chris dans
+    -- la seed. Retenu dans l'état pour les ramassages faits hors connexion.
+    if n > 0 then
+        local chris_on = false
+        for key, loc in pairs(location_by_guid) do
+            if loc.chris and location_id_by_guid[key] then chris_on = true break end
+        end
+        state.chris_off = not chris_on
     end
     debug_log(string.format("numéros de location en cache : %d / %d", n, total_locations))
     -- Seules les locations de CETTE seed comptent (boutique désactivée, etc.).
@@ -3417,6 +3427,30 @@ end
 
 local weapon_check_pending = {} -- ItemID -> os.clock() du ramassage d'une arme-check
 
+-- Chasse, double ration (2026-10-20, retour d'un joueur : 7 animaux à Viande pour 12 checks, 12 poissons
+-- pour 14) : certains animaux lâchent une pile de 2 viandes, comptée jusqu'ici comme un seul check.
+-- Chaque viande de la pile fait avancer la chasse : checks suivants de la même viande (actifs, pas
+-- faits, pas déjà en attente) ajoutés à picked_locations. Renvoie le nombre de checks en plus.
+function shop_ui.hunt_extra(loc, picked_item_id, core)
+    local stack = 1
+    pcall(function() stack = core:call("get_work"):call("get_stackSize") or 1 end)
+    if not loc or loc.kind ~= "hunt" or (stack or 1) < 2 then return 0 end
+    local taken = { [loc.key] = true }
+    for _, l in ipairs(picked_locations) do taken[l.key] = true end
+    for _, k in ipairs(state.pending_checks) do taken[k] = true end
+    local added = 0
+    for _, c in ipairs((locations.hunts or {})[loc.hunt_item_id] or {}) do
+        if added >= stack - 1 then break end
+        if get_location_id(c) and not taken[c.key] and shop_ui.location_done(c) == false then
+            taken[c.key] = true
+            table.insert(picked_locations, c)
+            added = added + 1
+        end
+    end
+    debug_log(string.format("chasse : pile de %d viandes -> %d check(s) en plus", stack, added))
+    return added
+end
+
 local function on_item_picked(interact, core)
     debug_log("ramassage : début du hook")
     if shop_ui.sound.installed then
@@ -3625,7 +3659,9 @@ local function on_item_picked(interact, core)
             state.hunts[key] = done
         end
         local n = state.hunts[key] + 1
-        state.hunts[key] = n
+        local stack = 1
+        pcall(function() stack = core:call("get_work"):call("get_stackSize") or 1 end)
+        state.hunts[key] = n + math.max(0, (stack or 1) - 1) -- double ration : 2 viandes comptées
         save_state()
         local candidate = active[n]
         if candidate and shop_ui.location_done(candidate) == false then loc = candidate end
@@ -3665,6 +3701,11 @@ local function on_item_picked(interact, core)
         end
     end
     if not loc then return end -- objet hors Archipelago (objet clé, drop d'ennemi...)
+    -- Passage Chris sans checks (option chris_checks, 2026-10-20) : ramassage normal, rien retiré.
+    if loc.chris and (state.chris_off or (net.seed_locations and not get_location_id(loc))) then
+        debug_log("ramassage : " .. loc.name .. " : checks de Chris désactivés, objet gardé")
+        return
+    end
     -- Objet clé (2026-09-30) : check seulement si cette seed mélange les objets clés (location
     -- connue du serveur). Sinon ramassage normal. Pas connecté : ramassage normal aussi, et le
     -- check est envoyé à la connexion (shop_ui.key_offline) ; on garde alors l'objet d'origine.
@@ -3733,6 +3774,7 @@ local function on_item_picked(interact, core)
         due = os.clock() + REMOVAL_DELAY_SECONDS,
     })
     table.insert(picked_locations, loc) -- envoyé plus tard par la boucle principale
+    pcall(shop_ui.hunt_extra, loc, picked_item_id, core)
     debug_log("ramassage : fin du hook")
 end
 

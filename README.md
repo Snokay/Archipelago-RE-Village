@@ -21,7 +21,11 @@ are shuffled with the other players of a multiworld.
 - **Unlimited Lockpick** (option, on by default): you start with a Lockpick that never runs out; the
   game's lockpick spots become regular checks.
 - With hunting, the shuffled meats count for logic: the Duke's dishes are expected once you have
-  received all of them.
+  received all of them. An animal that drops a double ration gives two hunting checks.
+- **Boss Weapons** (option, on by default): logic expects weapons of different types and cases before
+  the big bosses (Dimitrescu: 2 types + 1 case, Moreau: 3 + 2, Miranda: 4 + 3; the starting pistol counts).
+- **Chris Checks** (option, off by default): Chris's segment items become checks (shuffled among
+  themselves). Off, Chris picks up his items normally.
 - Recipes and unique treasures are marked as useful items, so other games do not overlook them.
 - **Point of no return areas** (castle, dungeon…): excluded, sent automatically, or 100% mode (an
   invisible wall keeps you in while checks remain).
@@ -92,7 +96,12 @@ autre jeu, et tes objets peuvent tomber chez les autres.
 - **Crochet illimité** (option, activée par défaut) : tu commences avec un Crochet qui ne s'use
   jamais ; les emplacements des crochets du jeu deviennent des checks comme les autres.
 - Avec la chasse, les viandes mélangées comptent pour la logique : les plats du Duc sont attendus
-  quand tu les as toutes reçues.
+  quand tu les as toutes reçues. Un animal qui lâche une double ration donne deux checks de chasse.
+- **Armes pour les boss** (option, activée par défaut) : la logique attend des armes de types différents
+  et des valises avant les gros boss (Dimitrescu : 2 types + 1 valise, Moreau : 3 + 2, Miranda : 4 + 3 ;
+  le pistolet de départ compte).
+- **Checks de Chris** (option, désactivée par défaut) : les objets du passage de Chris deviennent des
+  checks (mélangés entre eux). Désactivée, Chris ramasse ses objets normalement.
 - Les formules et les trésors uniques sont classés « utiles », pour que les autres jeux ne les négligent pas.
 - **Zones sans retour** (château, cachots…) : checks exclus, envoyés automatiquement, ou mode 100 %
   (un mur invisible t'empêche de partir tant qu'il reste des checks).

@@ -194,9 +194,9 @@ class ResidentEvilVillage(World):
         """Locations actives selon les options (boutique, agrandissements d'inventaire, objets clés)."""
         result = []
         for loc in Data.location_table:
-            # Passage Chris (option chris_checks, 2026-10-20, retour d'un joueur) : désactivé, ses
-            # emplacements ne sont plus des checks (ses objets ne faisaient que tourner entre eux).
-            if loc.get('chris') and not self.options.chris_checks:
+            # Passage Chris (2026-10-21, retour d'un joueur, décision du développeur) : plus aucun check,
+            # ses objets ne faisaient que tourner entre ses propres emplacements. Il ramasse normalement.
+            if loc.get('chris'):
                 continue
             if loc.get('key_item_location'):
                 if not self._keys_shuffled():
@@ -364,15 +364,7 @@ class ResidentEvilVillage(World):
 
     def create_items(self):
         # Une copie de l'objet d'origine par location active (hors Victory).
-        # Passage Chris (décision du joueur) : les objets propres à Chris (son équipement) sont
-        # mélangés UNIQUEMENT entre les locations de Chris, pour qu'il garde de quoi finir.
         active = [loc for loc in self._active_locations() if 'force_item' not in loc]
-        chris_locations = [loc for loc in active if loc.get('chris')]
-        chris_items = [loc['original_item'] for loc in chris_locations]
-        self.random.shuffle(chris_items)
-        for loc, item_name in zip(chris_locations, chris_items):
-            name = REVillageLocation.stack_names(loc['region'], loc['name'])
-            self.multiworld.get_location(name, self.player).place_locked_item(self.create_item(item_name))
 
         # "dans_leur_zone" : les objets clés sont placés à part (pre_fill), pas par le remplissage
         # général, qui échouait souvent faute de place (château avec zone_exclue, maison
@@ -386,8 +378,6 @@ class ResidentEvilVillage(World):
         hybrid = self.options.key_items.value == 2  # zone_ou_multiworld
         self.zone_key_items, pool = [], []
         for loc in active:
-            if loc.get('chris'):
-                continue
             name = loc['original_item']
             # zone_ou_multiworld (2026-10-20, retour d'un joueur : 70 % des objets clés chez lui sur 39
             # jeux) : avant, 1 chance sur 2 d'être placé d'office dans sa zone, puis le remplissage
@@ -527,6 +517,5 @@ class ResidentEvilVillage(World):
             "boss_rewards": bool(self.options.boss_rewards.value),
             "hunting": self.options.hunting.value,
             "unlimited_lockpick": bool(self.options.unlimited_lockpick.value),
-            "chris_checks": bool(self.options.chris_checks.value),
             "boss_weapons": bool(self.options.boss_weapons.value),
         }

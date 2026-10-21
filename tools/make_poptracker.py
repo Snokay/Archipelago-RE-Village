@@ -304,6 +304,8 @@ def main():
         kind = loc.get("kind", "world")
         if loc.get("key_item_location") and (loc["original_item"] in VANILLA_KEY_ITEMS or loc.get("beneviento")):
             continue  # jamais mélangés : pas des checks
+        if loc.get("chris"):
+            continue  # passage de Chris : plus de checks (apworld 0.9.8)
         if kind in ("shop", "recipe", "hunt", "bossdrop") or not loc.get("item_position"):
             zone = MISC_ZONE
             room = {"shop": "Duc - articles", "recipe": "Duc - plats", "bossdrop": "Boss"}.get(kind)

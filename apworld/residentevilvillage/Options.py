@@ -110,17 +110,6 @@ class Hunting(Range):
     default = 100
 
 
-class ChrisChecks(Toggle):
-    __doc__ = text(
-        """Checks de Chris : les objets ramassés pendant le passage de Chris deviennent des checks
-        (mélangés entre eux seulement : son équipement reste chez lui). Désactivé : Chris ramasse ses
-        objets normalement, rien à refaire si on en rate un.""",
-        """Chris checks: the items picked up during Chris's segment become checks (shuffled among
-        themselves only: his gear stays with him). Off: Chris picks up his items normally, nothing to
-        redo if one is missed.""")
-    display_name = text("Checks de Chris", "Chris Checks")
-
-
 class BossWeapons(DefaultOnToggle):
     __doc__ = text(
         """Armes et valises pour les gros boss : la logique attend des armes de types différents
@@ -310,7 +299,6 @@ class REVillageOptions(PerGameCommonOptions):
     duke_shop: DukeShop
     boss_rewards: BossRewards
     hunting: Hunting
-    chris_checks: ChrisChecks
     boss_weapons: BossWeapons
     unlimited_lockpick: UnlimitedLockpick
     trap_count: TrapCount

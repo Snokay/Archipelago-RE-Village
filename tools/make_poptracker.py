@@ -43,6 +43,10 @@ LOC_BASE = BASE_ID + 1000000000
 VANILLA_KEY_ITEMS = {"Masque du chagrin", "Masque du plaisir", "Masque de la joie", "Masque de la colère",
                      "Trophée de chasse", "Clé de Dimitrescu", "Sanguis Virginis", "Clé de la cour"}
 HUNT_RECIPE_NEEDS = {"Poisson": 14, "Volaille": 12, "Viande": 12}
+# Objets clés que le tracker ne demande qu'à certains checks, pas à tout ce qui suit leur rang
+# (2026-10-23, dit par le développeur : la Boule (fleur et épées) n'est pas nécessaire pour aller chez
+# Beneviento ; l'apworld garde sa règle stricte, sans risque pour la génération).
+TRACKER_LOCAL_KEYS = {"Boule (fleur et épées)": {"Clé en fer forgé #006"}}
 # Options par défaut de l'apworld (Options.py), utilisées tant que le tracker n'est pas connecté.
 DEFAULTS = {"key_items": 0, "duke_shop": 2, "hunting": 100, "boss_rewards": 1}
 
@@ -288,6 +292,8 @@ def main():
         needed = {}
         if order is not None:
             for name in shuffled_keys:
+                if name in TRACKER_LOCAL_KEYS and loc["name"] not in TRACKER_LOCAL_KEYS[name]:
+                    continue
                 n = sum(1 for u in key_uses(item_by_name[name]) if u <= order)
                 if n:
                     needed[name] = n

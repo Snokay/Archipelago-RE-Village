@@ -2281,3 +2281,11 @@ emplacement est déjà Normal, la présentation venait de l'ouverture de la mall
   (4) `zone_ou_multiworld` : le joueur avait 70 % de ses objets clés chez lui (boule sirène à sa place d'origine). Avant, 1 chance sur 2 d'être placé d'office dans sa zone (pre_fill). Désormais, avec d'autres joueurs, tous passent par le remplissage général (zone toujours imposée chez nous) ; un objet clé n'est plus jamais posé à son emplacement d'origine (règle d'objet + tirage de pre_fill, sauf faute d'autre place).
   Tests de génération (D:\Archipelago, apworld remise ensuite) : 20 seeds OK (solo zone, solo zone ou multiworld, 6 joueurs avec et sans Chris) ; à 6 joueurs 0 à 4 % des objets clés d'un joueur chez lui ; aucun à son emplacement d'origine ; 0 location de Chris sans l'option, 39 par joueur avec ; armes et Valises présentes dans le Playthrough du spoiler.
 - **Passage de Chris : plus aucun check (2026-10-21, décision du développeur)** : l'option `chris_checks` d'hier est retirée, ses emplacements ne sont jamais des locations (`_active_locations`), le mélange entre emplacements de Chris (`create_items`) est supprimé. Client inchangé : `state.chris_off` (aucun emplacement de Chris dans la seed) -> ramassage normal.
+- **Pack PopTracker 0.9.8.1 (2026-10-23)** : un joueur (Meduza) voyait tout en rouge après le château : il avait
+  encore le pack 0.9.6, qui demande la Clé de la cour et le Sanguis Virginis (jamais mélangés depuis l'apworld
+  0.9.7, donc jamais reçus). Le pack 0.9.8.1 ne demande plus la Boule (fleur et épées) qu'au check du piano
+  de l'opéra (Clé en fer forgé #006), pas à tout ce qui suit son rang (dit par le développeur : inutile pour
+  aller chez Beneviento). `TRACKER_LOCAL_KEYS` dans `tools/make_poptracker.py` ; l'apworld garde sa règle
+  stricte (sans risque pour la génération). Jeu absent (pas de paks) : le zip 0.9.8 publié a été corrigé
+  directement (règles des locations.json + numéro du manifest), puis remplacé dans la release 0.9.1.33 avec
+  une ligne dans les notes (EN et FR).

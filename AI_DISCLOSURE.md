@@ -20,6 +20,15 @@ Yes. This project was developed with the help of an AI assistant.
 - **Documentation**: README, setup guide and release notes were drafted by Claude and reviewed by me.
 - **Images**: map and item icons in the PopTracker pack are extracted from the game by script.
 
+## How I check the code
+
+The code is written by Claude, and I check it before every release:
+
+- **in game**: every version is played and tested before it is published;
+- **in the code itself**: I read the actual code to make sure it is not corrupted and has no security holes;
+- when a part really needs to be changed because it is unstable, not optimized or not secure, **I modify it
+  myself, by hand**.
+
 ## What I do myself
 
 - Design choices: what is shuffled, options, logic, goals, what goes in each version.
@@ -58,6 +67,16 @@ Oui. Ce projet a été développé avec l'aide d'un assistant IA.
   relèvent les données et analyse les résultats.
 - **Documentation** : README, guide d'installation et notes de version rédigés par Claude et relus par moi.
 - **Images** : la carte et les icônes du pack PopTracker sont extraites du jeu par script.
+
+## Comment je vérifie le code
+
+Le code est écrit par Claude, et je le vérifie avant chaque publication :
+
+- **en jeu** : chaque version est jouée et testée avant d'être publiée ;
+- **dans le code lui-même** : je lis le vrai code pour m'assurer qu'il n'est pas corrompu et qu'il n'y a pas
+  de failles de sécurité ;
+- quand une partie a vraiment besoin d'être modifiée parce qu'elle est instable, pas optimisée ou pas sécurisée,
+  **je la modifie moi-même, à la main**.
 
 ## Ce que je fais moi-même
 

@@ -255,11 +255,14 @@ def find_archipelago_dir():
     return None
 
 
+# Lu en octets : sur un Windows allemand, tasklist répond « ausgeführt » en page OEM ; décodé en texte,
+# l'échec laissait stdout à None -> « 'NoneType' object has no attribute 'lower' » à l'installation
+# (GladoffelLp, 21/11).
 def game_running():
     try:
         out = subprocess.run(["tasklist", "/FI", "IMAGENAME eq re8.exe", "/NH"], capture_output=True,
-                             text=True, creationflags=0x08000000).stdout
-        return "re8.exe" in out.lower()
+                             creationflags=0x08000000).stdout or b""
+        return b"re8.exe" in out.lower()
     except OSError:
         return False
 
@@ -581,6 +584,13 @@ def write_connection(game_dir, host, slot, password):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps({"host": host, "slot": slot, "password": password, "auto": True}, indent=4),
                     encoding="utf-8")
+
+
+def clear_connection(game_dir):
+    """Room effacée (bouton du launcher) : le client en jeu ne se connecte plus à rien."""
+    path = game_dir / CONNECTION
+    if path.exists():
+        path.unlink()
 
 
 def launch_game(game_dir=None):

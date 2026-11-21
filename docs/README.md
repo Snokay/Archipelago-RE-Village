@@ -2289,3 +2289,12 @@ emplacement est déjà Normal, la présentation venait de l'ouverture de la mall
   stricte (sans risque pour la génération). Jeu absent (pas de paks) : le zip 0.9.8 publié a été corrigé
   directement (règles des locations.json + numéro du manifest), puis remplacé dans la release 0.9.1.33 avec
   une ligne dans les notes (EN et FR).
+- **Launcher planté sur un Windows allemand (2026-11-21, GladoffelLp)** : « ERROR: 'NoneType' object has no attribute
+  'lower' » au clic sur Installer. `core.game_running()` lisait `tasklist` en texte : sur un Windows allemand la
+  réponse (« … ausgeführt ») est en page OEM, l'octet du « ü » (0x81) ne se décode pas en cp1252, et l'erreur dans
+  le fil de lecture de `subprocess` laisse `stdout` à None. Lu maintenant en octets. L'ancien launcher ne peut pas
+  se mettre à jour sur ces Windows (la mise à jour passe par la même vérification) : nouveau zip à la main.
+- **Bouton « Effacer la room » (2026-11-21, testé par le développeur)** : page Jouer ; supprime `connection.json`
+  (le jeu ne se connecte plus à rien) et vide l'adresse ; le slot ne se re-remplit plus avec le nom du YAML
+  (`room_cleared` dans les réglages) jusqu'à la prochaine connexion enregistrée.
+- **Version 0.9.1.34 publiée (2026-11-21)** : les deux entrées ci-dessus ; apworld inchangée (0.9.8).

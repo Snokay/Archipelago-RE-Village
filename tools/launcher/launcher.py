@@ -508,7 +508,8 @@ class App(tk.Tk):
                            "them: afterwards, just start the game, it reconnects to this session by itself."))
         conn = core.read_connection(self.game_dir()) if self.game_dir() else {}
         self.addr = tk.StringVar(value=self.settings.get("address") or conn.get("host", ""))
-        self.slot = tk.StringVar(value=conn.get("slot") or self.settings.get("yaml", {}).get("name", ""))
+        self.slot = tk.StringVar(value=conn.get("slot") or
+                                 ("" if self.settings.get("room_cleared") else self.settings.get("yaml", {}).get("name", "")))
         self.password = tk.StringVar(value=conn.get("password", ""))
         self.autosave_job = None
         for var in (self.addr, self.slot, self.password):
@@ -534,6 +535,7 @@ class App(tk.Tk):
         Button(buttons, tr("Jouer", "Play"), lambda: self.do_play(launch=True), primary=True).pack(side="left")
         Button(buttons, tr("Tester la connexion", "Test connection"), lambda: self.do_play(launch=False)
                ).pack(side="left", padx=10)
+        Button(buttons, tr("Effacer la room", "Clear the room"), self.clear_room).pack(side="left")
         self.play_msg = label(page, "", 11, wrap=960)
         self.play_msg.pack(anchor="w")
         self.saved_msg = label(page, "", 10, MUTED, wrap=960)
@@ -546,6 +548,22 @@ class App(tk.Tk):
                                              f"Saved in the game: {conn['slot']} on {conn.get('host', '?')}"
                                              + (" (auto connect turned off in game: change a field to turn it back on)"
                                                 if off else "")))
+
+    def clear_room(self):
+        """Champs remis à vide et connection.json supprimé : le jeu ne se connecte plus à rien."""
+        if self.autosave_job:
+            self.after_cancel(self.autosave_job)
+            self.autosave_job = None
+        game = self.game_dir()
+        if game:
+            core.clear_connection(game)
+        self.settings.pop("address", None)
+        self.settings["room_cleared"] = True   # le slot ne se re-remplit plus avec le nom du YAML
+        self.save()
+        core.log_line("room effacée")
+        self.show("play")
+        self.play_message(tr("Room effacée : le jeu ne se connecte plus à rien.",
+                             "Room cleared: the game no longer connects to anything."), "warn")
 
     def schedule_autosave(self):
         if self.autosave_job:
@@ -563,6 +581,7 @@ class App(tk.Tk):
         if not game or not (game / "re8.exe").exists() or not address or not slot:
             return
         self.settings["address"] = address
+        self.settings.pop("room_cleared", None)
         self.save()
 
         def write(uri):
